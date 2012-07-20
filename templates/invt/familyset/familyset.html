@@ -1,0 +1,577 @@
+<venda_tpcomment><!-- BAZAAR VOICE: initial javascript/css --></venda_tpcomment>
+<venda_tpxt mode=set,name=bvcodeen,value=5310-en_gb><venda_tpxt mode=set,name=bvcodede,value=5310-de_de>
+<venda_block label=91,mode=value,<venda_islive>=1>
+<link type="text/css" rel="stylesheet" href="http://reviews.anthropologie.eu/static/<venda_tpxt mode=get,name=bvcode<venda_sessionlanguage>>/bazaarvoice.css" ></link>  
+<script language="JavaScript" src="http://reviews.anthropologie.eu/static/<venda_tpxt mode=get,name=bvcode<venda_sessionlanguage>>/bazaarvoice.js" type="text/javascript"></script>  
+</venda_block label=91>
+<venda_block label=791,mode=value,<venda_islive>!=1>
+<link type="text/css" rel="stylesheet" href="http://reviews.anthropologie.uat.venda.com/bvstaging/static/<venda_tpxt mode=get,name=bvcode<venda_sessionlanguage>>/bazaarvoice.css">  
+<script language="JavaScript" src="http://reviews.anthropologie.uat.venda.com/bvstaging/static/<venda_tpxt mode=get,name=bvcode<venda_sessionlanguage>>/bazaarvoice.js" type="text/javascript"></script>  
+</venda_block label=791>
+
+<script type="text/javascript" language="javascript">
+<venda_block label=791,mode=value,<venda_islive>=1>document.domain='anthropologie.eu';</venda_block label=791>
+<venda_block label=792,mode=value,<venda_islive>!=1>document.domain='venda.com';</venda_block label=792>
+   function ratingsDisplayed(totalReviewsCount, avgRating, ratingsOnlyReviewCount, recommendPercentage, productID) {
+      if (totalReviewsCount == 0) {
+         jQuery("#BVReviewsContainer").hide();
+         jQuery("#BVSVPLinkContainer").hide();
+         jQuery("#noReview").html(jQuery("div#BVRRRatingSummaryLinkWriteFirstID").html());
+      }
+      jQuery("#BVRRRatingSummaryLinkReadID a").click(function() {
+         productTab.set('activeIndex', 1);
+      });
+   }
+</script>
+<venda_tpcomment><!-- BAZAAR VOICE: initial javascript/css  END --></venda_tpcomment>
+
+<div id="tag-redirect" style="display:none;"><venda_dispview page=installflash></div>
+<div id="tag-ebizref" style="display:none;"><venda_setting type=ebiz,name=ref></div>
+<div id="tag-invtref" style="display:none;"><venda_invtref></div>
+<div id="tag-invtname" style="display:none;"><venda_invtname></div>
+<div id="tag-lightboxloadmessage" style="display:none;"><venda_text id=site.lightboxloadmessage></div>
+<div id="tempLightbox" style="display:none;"><venda_tpcomment><!-- NEEDED for temporary storage of lightbox content --></venda_tpcomment></div>
+
+<div id="tag-loadmessage" style="display:none;"><venda_text id=site.loadmessage></div>
+
+<script type="text/javascript">
+<venda_tpcomment>// START - javascript for lightbox. Please remove if not needed </venda_tpcomment>
+<venda_tpcomment>// see /venda-support/js/Venda/Widget/LightBox.js for usage details</venda_tpcomment>
+if (typeof Venda.Widget.Lightbox != "undefined" || Venda.Widget.Lightbox) {
+	<venda_tpcomment>//set param to 'undefined' to disable hooks</venda_tpcomment>
+	Venda.Widget.Lightbox.create(['zoom_link', 'zoom_img', 'zoom_img2'], ['enlarge_link', 'enlarge_img'], 
+		{
+			drag: true, modal: true, fixedCenter: true, fade: 0.24,
+		//flash settings
+flSource:'http://imageware.venda.com/erez4/fsi4/fsi.swf?showcase_server=http://imageware.venda.com/erez4&showcase_dir=<venda_setting type=ebiz,name=ref>/invt/<venda_invtref>/&cfg=showcase_presets/showcase_info&Showcase_LabelTextSize=0&Showcase_ToolTips=0', flId:'lightboxflash', flContainer: 'imageware', flWidth: '480px', flHeight: '500px', flVer: '6.0.0' , flBgColour: '#ffffff'
+	  	}, 
+	  	{
+		  	invtname: 	document.getElementById('tag-invtname').innerHTML,
+		  	redirect: 	document.getElementById('tag-redirect').innerHTML,
+		  	loadmessage: 	document.getElementById('tag-lightboxloadmessage').innerHTML
+	});
+}
+<venda_tpcomment>// END - javascript for lightbox</venda_tpcomment>
+<venda_tpcomment>// START - javascript for tell a friend, emwbis, write and read a review. Please remove if not needed </venda_tpcomment>
+<venda_tpcomment>//  see /venda-support/js/Venda/Widget/invt_popup.js for usage details</venda_tpcomment>
+if (typeof Venda.Widget.Features != "undefined" || Venda.Widget.Features) {
+	Venda.Widget.Features.create(['tellafriend_link', 'writereview_link', 'writeownreview_link', 'readreview_link', 'letlillyfindit_link'], 
+		{
+			drag: true, modal: false
+	  	}, 
+	  	{
+		  	loadmessage: 	document.getElementById('tag-loadmessage').innerHTML
+		});
+}
+</script>
+
+<venda_tpcomment><!-- div id 'invt_popup' is used to show the Tell A Friend, Write A Review, Read A Review and Email Me When Back In Stock features in a popup div --></venda_tpcomment>
+<div id="invt_popup"></div>
+
+<div id="productdetail" class="productdetailFamily">
+	<!-- start product detail col1 -->
+	<div class="productdetail-col1">
+		<div class="invtmedia" id="image_<venda_invtuuid>">
+			<div id="productdetail-image"><venda_block label=223,chkatt=null><venda_inctemplate name=Scene7medium,type=includes/Scene7></venda_block label=223></div>
+			<div id="productdetail-altview"></div>
+		</div>
+
+		<div id="productdetail-viewlarge" class="enlarge">
+		<venda_inctemplate name=Scene7large,type=includes/Scene7>
+		</div>
+
+		<!-- <p class="tellafriend"><a href="<venda_dispview invt=<venda_invtref>>&temp=tellafriend" id="tellafriend_link"><venda_text id=site.product_detail.tell_friend></a></p> -->
+		
+		<p class="print"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/icon_print.gif" class="printicon" alt="<venda_text id=site.link.print>" border="0"> <a href="#" onClick="window.print();"><venda_text id=site.link.print></a></p>
+		
+		<venda_page page=socialbookmark>
+
+		<venda_block label=29,invtsubtot&gt;0>
+		<!-- substitutes -->
+		<!--venda_invtsub template=substitutes-->
+		</venda_block label=29>
+
+		<venda_block label=27,invtacctot&gt;0>
+		<!-- accessories -->
+		<!--venda_invtacc template=accessories-->
+		</venda_block label=27>
+		<venda_block label=28,invtacctot&lt;1>
+		<!-- related products (predictor) -->
+		<venda_invtrelated limit=3,threshold=0,template=related>
+		</venda_block label=28>
+
+		<venda_tpcomment><!-- product extended fields --></venda_tpcomment>
+		<div class="extflds">
+			<h3><venda_text id=site.product_detail.product_specifications></h3>
+			<table summary="<venda_text id=site.product_detail.product_specifications_information_summary>" title="<venda_text id=site.product_detail.product_specifications_information_title>" cellspacing="0" cellpadding="0">
+			<tbody>	
+			<venda_extflds hideempty=0,realseq=0,template=pdxtfields_display,group=1,ref=<venda_invtref>,ivtype=<venda_invtivtype>>
+			<venda_extflds hideempty=0,realseq=0,template=pdxtfields_display,group=2,ref=<venda_invtref>,ivtype=<venda_invtivtype>>
+			<venda_extflds hideempty=0,realseq=0,template=pdxtfields_display,group=3,ref=<venda_invtref>,ivtype=<venda_invtivtype>>
+			<venda_extflds hideempty=0,realseq=0,template=pdxtfields_display,group=4,ref=<venda_invtref>,ivtype=<venda_invtivtype>>
+			<venda_extflds hideempty=0,realseq=0,template=pdxtfields_display,group=5,ref=<venda_invtref>,ivtype=<venda_invtivtype>>
+			</tbody>
+			</table>
+		</div>
+		
+		<venda_tpxt mode=set,name=parent,value=<venda_invtcatref0>>
+
+		<!-- tpxt used for crumbtrail -->
+		<venda_tpxt mode=set,name=invtname,value=<venda_invtname>>
+		<venda_tpxt mode=set,name=invtref,value=<venda_invtref>>
+	</div>
+	<!-- end product detail col1 -->
+	<!-- start product detail col2 -->
+	<div class="productdetail-col2">
+		<venda_tpcomment><!-- product cycling --></venda_tpcomment>
+		<venda_category temp=product_cycling,rec=icat,ref=<venda_curcatref>,itemsperpage=100>
+		<script type="text/javascript">
+		<venda_tpcomment>// START - javascript for product cycling. Please remove if not needed </venda_tpcomment>
+		<venda_tpcomment>// see /venda-support/js/Venda/Widget/ProductCycling.js for usage details</venda_tpcomment>
+		if (typeof Venda.Widget.ProductCycling != "undefined" || Venda.Widget.ProductCycling) {
+			Venda.Widget.ProductCycling.create( 
+				{
+					curinvtref: 	document.getElementById('tag-invtref').innerHTML,
+					allrefs:		document.getElementById('tag-allrefs').innerHTML
+			});
+		}
+		<venda_tpcomment>// END - javascript for product cycling</venda_tpcomment>
+		</script>
+		<venda_tpcomment><!-- buttons to cycle through items in same category --></venda_tpcomment>
+		<div id="buttons"><a href="<venda_dispview icat=<venda_curcatref>>" id="previousInvt" class="left"><venda_text id=site.product_detail.product_cycling.previous></a><a href="<venda_dispview icat=<venda_curcatref>>" id="nextInvt" class="right"><venda_text id=site.product_detail.product_cycling.next></a></div>
+
+		<h1 id="comp-name<venda_invtref>"><venda_invtname></h1>
+		
+		<venda_tpcomment><!-- BAZAAR VOICE REVIEW'S RATING START--></venda_tpcomment>
+		<div id="BVCustomerRatings"></div>
+		<venda_tpcomment><!-- BAZAAR VOICE REVIEW'S RATING END--></venda_tpcomment>
+		
+		<venda_block errors=notnull><h2 class="error"><venda_errors></h2></venda_block>
+		<div id="addedmsg"><venda_block label=32,mode=value,<venda_addedmsg msg=<venda_text id=site.addedmsg>>=notnull><p><venda_addedmsg msg=<venda_text id=site.addedmsg>></p><venda_inctemplate name=trackingProdAdd,type=includes></venda_block label=32></div>
+		<venda_block label=320,mode=value,<venda_addedmsg msg=<venda_text id=site.addedmsg>>=null><venda_inctemplate name=trackingProdView,type=includes></venda_block label=320>
+		
+		<form name="form" action="<venda_codehttp>" method="get" name="addproductform" id="addproductform">
+		<input type="hidden" name="bsref" value="<venda_bsref>">
+		<input type="hidden" name="log" value="22">
+		<input type="hidden" name="mode" value="add">
+		<input type="hidden" name="curpage" value="">
+		<input type="hidden" name="next" value="">
+		<input type="hidden" name="layout">
+
+		<!-- "ex" sends user to basket if "co_wizr-shopcart" - or leaves on current page if "co_disp-shopc" -->
+		<!-- will sends user to basket by default - "Add to Basket" button changes "ex" value and leaves on current page (unless js disabled) -->
+		<input type="hidden" name="ex" value="co_wizr-shopcart">
+
+		<!-- "buy" defines sku to add if "ex" is "co_disp-shopc" -->
+		<input type="hidden" name="buy" value="<venda_invtref>">
+		<!-- "invt" defines next step if "ex" is "co_disp-shopc" (sends to home page without this field) - could be set to send to any icat or page instead -->
+		<input type="hidden" name="invt" value="<venda_invtref>">
+
+		<!-- "ivref" defines sku to add if "ex" is "co_wizr-shopcart" -->
+		<input type="hidden" name="ivref" value="<venda_invtref>">
+
+		<!-- htxt for Feed Commerce Manager tracking to track with buy now function -->
+		<input type="hidden" name="htxt" value="<venda_htxt mode=make,fcmtrack=<venda_invtref>|<venda_invtname>|1|<venda_invtsell>|<venda_invtcatref0>>">
+
+		<!-- Attribute Swatch: Hidden Field for Attribute Swatch -->
+		<input type="hidden" name="att1" value="">
+		<input type="hidden" name="att2" value="">
+			
+		<venda_block label=16,chkatt=null>
+		<!-- if product doesn't have attributes -->
+		<p class="price"><venda_currsym><venda_invtsell></p>
+		<p class="pricemsrp"><venda_text id=site.msrp><venda_currsym><venda_invtmsrp1></p>
+
+		<venda_block label=17,invtwas=notnull><p class="was">...<venda_text id=site.was><span><venda_currsym><venda_invtwas></span></p></venda_block label=17>
+		<venda_block label=18,invtsavingonwas=notnull><p class="save"><venda_text id=site.save><span><venda_currsym><venda_invtsavingonwas></span></p></venda_block label=18>
+		</venda_block label=16>
+		<venda_inctemplate name=alternateview_script,type=invt>
+
+		<venda_block label=200,chkatt=notnull>
+		<!-- if product does have attributes -->
+		<script type="text/javascript">var attributeData = new Array(); //collection of attributes used for Scene7</script>
+		<venda_inctemplate name=attribute_detblocks,type=invt/attributes>
+		<venda_inctemplate name=attribute_scripts,type=invt/attributes>
+		<venda_mediagrid template=alternateview_grid>
+		<venda_inctemplate name=attribute_collection,type=invt>
+
+		<!-- Attribute Swatch: add Attribute Price, remove old attribute price div -->
+		<script type="text/javascript">
+		   Venda.Ebiz.AttributeSwatch.defaultprice = "<venda_block label=55,mode=value,<venda_invtatrminsubsell>&lt;<venda_invtatrmaxsubsell>><venda_invtatrminsubsell> - <venda_currsym><venda_invtatrmaxsubsell></venda_block label=55><venda_block label=56,mode=value,<venda_invtatrminsubsell>=<venda_invtatrmaxsubsell>><venda_invtatrminsubsell></venda_block label=56>";
+		   Venda.Ebiz.AttributeSwatch.defaultwasprice = "<venda_block label=57,mode=value,<venda_invtatrmaxsubwas>&gt;<venda_invtatrminsubsell>><venda_invtatrminsubwas> - <venda_currsym><venda_invtatrmaxsubwas></venda_block label=57>";
+		   Venda.Ebiz.AttributeSwatch.waslabel = "...<venda_text id=site.was> ";
+		   Venda.Ebiz.AttributeSwatch.producttype = "<venda_invtivtype>";
+		</script>
+		
+		<div class="atributesPrice">
+			<div class="attrprice">
+				<span id="attr-sellprice"><venda_block label=55,mode=value,<venda_invtatrminsubsell>&lt;<venda_invtatrmaxsubsell>><venda_text id=site.from> <venda_currsym><venda_invtatrminsubsell> - <venda_currsym><venda_invtatrmaxsubsell></venda_block label=55><venda_block label=56,mode=value,<venda_invtatrminsubsell>=<venda_invtatrmaxsubsell>><venda_currsym><venda_invtatrminsubsell></venda_block label=56></span>
+				<span id="attr-wasprice"><venda_block label=57,mode=value,<venda_invtatrmaxsubwas>&gt;<venda_invtatrminsubsell>>...<venda_text id=site.was> <venda_currsym><venda_invtatrminsubwas> - <venda_currsym><venda_invtatrmaxsubwas></venda_block label=57></span>
+			</div>
+		<div id="atrMsrp"><span id="msrpDiv_<venda_invtuuid>Label"><!-- MSRP price Label --></span><span id="msrpDiv_<venda_invtuuid>"><!-- MSRP price value --></span></div>
+		<div id="atrSave"><span id="savingDiv_<venda_invtuuid>Label"><!-- SAVING price Label --></span><span id="savingDiv_<venda_invtuuid>"><!-- SAVING price value --></span></div>
+		</div>
+
+		<div class="invtatr">
+			<div class="swatchlist">
+				<!-- Attribute Swatch -->
+				<venda_block label=121,selatt1=notnull>
+				<div class="swatch1">
+				<div class="label-att1"><venda_text id=site.product.detail.attribute.colour2></div>
+				<div id="productdetail-swatch"><div id="productdetail-att1"></div></div>
+				</div>
+				</venda_block label=121>
+				
+				<venda_block label=122,selatt2=notnull>
+				<div class="swatch2" style="display:none;">
+				<div class="label-att2"><venda_text id=site.product.detail.attribute.size2></div>
+				<div id="productdetail-att2"></div>
+				</div>
+				</venda_block label=122>
+			</div>
+			<div class="swatchLegend" style="display:none;">
+				<p><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/legend_instock.gif" alt="<venda_text id=site.product_detail.alt_img.instock>"><span><venda_text id=site.product_detail.instock></span></p>
+				<p><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/legend_outofstock.gif" alt="<venda_text id=site.product_detail.alt_img.outofstock>"><span><venda_text id=site.product_detail.outofstock></span></p>
+				<p class="sizeguide"><a href="<venda_dispview page=home_size_guide>" target="_blank" title="size guide" rel="popup console 550 750"><venda_text id=site.product.size.guide></a></p>
+				<div class="link_btm">
+					<venda_block label=551,pdxtfindit=1,chkatt=null><p class="nostock"><a href="<venda_dispview invt=<venda_invtref>>&temp=letlillyfindit" title="<venda_text id=site.link.title.email_when_in_stock.invt>" id="letlillyfindit_link"><venda_text id=site.link.email_when_in_stock></a></p></venda_block label=551>
+					<venda_block label=552,pdxtfindit=1,chkatt=notnull><p class="nostock"><venda_text id=site.title.cant_find_size><a href="<venda_dispview invt=<venda_invtref>>&temp=letlillyfindit" title="<venda_text id=site.link.title.email_when_in_stock.invt>" id="letlillyfindit_link"><venda_text id=site.link.email_when_in_stock></a></p></venda_block label=552>
+			
+					<venda_block label=30,invtpreorder=notnull>
+					<!-- if future release date -->
+					<p class="release"><venda_text id=site.product_detail.release_date></p>
+					</venda_block label=30>
+
+					<venda_block label=26,invtavail&lt;1>
+					<!-- if out of stock -->
+					<venda_tpcomment><p class="nostock"><venda_text id=site.out_of_stock></p></venda_tpcomment>
+					<venda_block label=167,etadyleft&gt;0><p class="eta"><venda_text id=site.eta_date_invt></p></venda_block label=167>
+					<venda_tpcomment><p class="nostock"><a href="<venda_dispview invt=<venda_invtref>>&temp=emailinstock" title="<venda_text id=site.link.title.email_when_in_stock.invt>" id="emwbis_link"><venda_text id=site.link.email_when_in_stock></a></p></venda_tpcomment>
+					</venda_block label=26>
+				</div>
+			</div>
+			<div id="today" style="display: none;"><venda_time time=now,format=mm/dd/yyyy></div>
+		</div>
+		
+		<!-- Out of stock tooltip -->
+		<div id="swatchUnavailTooltip" class="hide"><venda_text id=site.product.detail.soldout><div id="swatchUnavailTooltipArrow"></div></div>
+
+		<venda_tpcomment>
+		<!-- not using now -->
+		<!--venda_block label=201,att2=notnull,att3=null-->
+		<!-- If there are two attributes, link to choose size and colour: -->
+		<p class="grid"><strong><venda_text id=site.product_detail.grid.or_use><a href="<venda_codehttp>?ex=co_wizr-productgrid&bsref=<venda_bsref>&step=shopcartmulti&invt=<venda_invtref>&ordercol=alphanu"><venda_text id=site.product_detail.grid.link></a></strong></p>
+		<!--/venda_block label=201-->
+		</venda_tpcomment>
+
+		</venda_block label=200>
+
+		<venda_block label=25,invtavail&gt;0>
+		<div class="qtyAndButtons" style="display:none;">
+			<!-- if in stock -->
+			<venda_extflds exfldtype=orderitem,group=1,template=oixfields_set,type=includes,ref=<venda_invtref>>
+			<venda_extflds exfldtype=orderitem,group=2,template=oixfields_set,type=includes,ref=<venda_invtref>>
+			<input type="hidden" name="set_oitemxoixtaddedproduct_<venda_invtref>">
+			<venda_block label=700,chkatt=null>
+			<div class="qtymessage">
+			<label for="qty"><venda_text id=site.quantity></label><input name="qty" id="qty" type="text" value="1" size="3" maxlength="3" >
+			</div>
+			<!-- if product doesn't have attributes -->
+			<venda_block label=34,invtpreorder!=1>
+			<input type="image" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addtobasket.gif" id="addproduct" class="add" alt="<venda_text id=site.button.alt.add_to_basket.invt>" onClick="document.form.ex.value='co_disp-shopc';">
+			<img class="preorder" style="display: none;" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_comingsoon.gif" />
+			<a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22" class="buy"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_buynow.gif" alt="<venda_text id=site.button.checkout_nospace>"></a>
+			</venda_block label=34>
+			</venda_block label=700>
+			
+			<venda_block label=701,chkatt=notnull>
+			<div class="qtymessage">
+				<label for="qty"><venda_text id=site.quantity></label><input name="qty" id="qty" type="text" value="1" size="3" maxlength="3" onkeypress="if(event.keyCode==13){getSupplyid();document.form.ex.value='co_disp-shopc';return Venda.Widget.MinicartPopup.addProduct(event);}">
+				
+				<!-- Attribute Swatch alert message -->
+				<div id="alertmessage" class="normal"><venda_block label=704,selatt1=notnull,selatt2=notnull,operator=or><venda_text id=site.product.detail.select.att></venda_block label=704></div>
+			</div>
+			
+			<!-- if product does have attributes -->
+			<venda_block label=32,invtpreorder!=1>
+			<input type="image" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addtobasket.gif" id="addproduct" class="add" alt="<venda_text id=site.button.alt.add_to_basket.invt>" onClick="getSupplyid();document.form.ex.value='co_disp-shopc';">
+			<img class="preorder" style="display: none;" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_comingsoon.gif" />
+			<a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22" class="buy"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_buynow.gif" alt="<venda_text id=site.button.checkout_nospace>"></a>
+			</venda_block label=32>
+			</venda_block label=701>
+		</div>
+		</venda_block label=25>
+		<venda_block label=26,invtavail&lt;=0><div id="alertmessage" class="normal"></div></venda_block label=26>
+		</form>
+		
+		<!-- Attribute Swatch -->
+		<form name="formattr" style="display:none;">
+		<venda_block label=221,selatt1=notnull><select name="selatt1"><venda_selatt1></select></venda_block label=221>
+		<venda_block label=222,selatt2=notnull><select name="selatt2"><venda_selatt2></select></venda_block label=222>
+		</form>
+
+		<script type="text/javascript">
+		Venda.Ebiz.AttributeSwatch.attrNum=0;
+		Venda.Ebiz.AttributeSwatch.attrDisplayName = new Array();
+		Venda.Ebiz.AttributeSwatch.pdxtImageware = false;
+		Venda.Ebiz.AttributeSwatch.defaultTextSelectAtt = "<venda_text id=site.please.select.option.a>";
+		Venda.Ebiz.AttributeSwatch.availableText = "<venda_text id=site.available>";		
+		<venda_block label=225,pdxtimageware=1>Venda.Ebiz.AttributeSwatch.pdxtImageware=true;</venda_block label=225>
+		
+		<venda_block label=221,selatt1=notnull,selatt2=null>
+		<!-- one attr -->
+		Venda.Ebiz.AttributeSwatch.attrNum=1;
+		Venda.Ebiz.AttributeSwatch.attrDisplayName.push("<venda_text id=site.product.detail.attribute.colour>");
+		Venda.Ebiz.AttributeSwatch.createListAttributes("att1","<venda_text id=site.product.detail.attribute.colour>",document.formattr.selatt1);
+		</venda_block label=221>
+
+		<venda_block label=222,selatt1=notnull,selatt2=notnull>
+		<!-- two attr -->
+		Venda.Ebiz.AttributeSwatch.attrNum=2;
+		Venda.Ebiz.AttributeSwatch.attrDisplayName.push("<venda_text id=site.product.detail.attribute.colour>","<venda_text id=site.product.detail.attribute.size>");
+		Venda.Ebiz.AttributeSwatch.createListAttributes("att1","<venda_text id=site.product.detail.attribute.colour>",document.formattr.selatt1);
+		Venda.Ebiz.AttributeSwatch.createListAttributes("att2","<venda_text id=site.product.detail.attribute.size>",document.formattr.selatt2);
+		</venda_block label=222>
+		<venda_block label=223,chkatt=notnull>Venda.ProductDetail.selectFirstAtt();</venda_block label=223>
+		</script>
+
+		<venda_tpcomment><!-- div id 'grid' is used to show the product grid --></venda_tpcomment>
+		<div id="grid"></div>
+		
+		<!--START MULTIBUY -->
+		<venda_block label=340,invtsell2=notnull>
+		<div class="multibuy">
+			<h3><venda_text id=site.multibuy></h3>
+		<div>
+			<p><venda_text id=site.product_detail.multibuy.buy><venda_invtstartqty2><venda_block label=52,invtsell3=null>+</venda_block label=52> <venda_invtname> <venda_text id=site.product_detail.multibuy.for> <strong><venda_currsym><venda_invtsell2></strong> <venda_text id=site.product_detail.multibuy.each></p>
+			<venda_block label=341,invtsell3=notnull>
+			<p><venda_text id=site.product_detail.multibuy.buy><venda_invtstartqty3><venda_block label=53,invtsell4=null>+</venda_block label=53> <venda_invtname> <venda_text id=site.product_detail.multibuy.for> <strong><venda_currsym><venda_invtsell3></strong> <venda_text id=site.product_detail.multibuy.each></p>
+			</venda_block label=341>
+			<venda_block label=342,invtsell4=notnull>
+			<p><venda_text id=site.product_detail.multibuy.buy><venda_invtstartqty4><venda_block label=54,invtsell5=null>+</venda_block label=54> <venda_invtname> <venda_text id=site.product_detail.multibuy.for> <strong><venda_currsym><venda_invtsell4></strong> <venda_text id=site.product_detail.multibuy.each></p>
+			</venda_block label=342>
+			<venda_block label=343,invtsell5=notnull>
+			<p><venda_text id=site.product_detail.multibuy.buy><venda_invtstartqty5><venda_block label=55,invtsell6=null>+</venda_block label=55> <venda_invtname> <venda_text id=site.product_detail.multibuy.for> <strong><venda_currsym><venda_invtsell5></strong> <venda_text id=site.product_detail.multibuy.each></p>
+			</venda_block label=343>
+			<venda_block label=344,invtsell6=notnull>
+			<p><venda_text id=site.product_detail.multibuy.buy><venda_invtstartqty6>+ <venda_invtname> <venda_text id=site.product_detail.multibuy.for> <strong><venda_currsym><venda_invtsell6></strong> <venda_text id=site.product_detail.multibuy.each></p>
+			</venda_block label=344>
+		</div>
+		</div>
+		</venda_block label=340>
+		<!--END MULTIBUY -->
+		
+		<venda_tpcomment><!-- Apply YUI tab to "productdetail-tab" --></venda_tpcomment>
+		<script type="text/javascript">
+		   var productTab = new YAHOO.widget.TabView("productdetail-tab");
+		</script> 
+		
+		<div id="productdetail-tab">
+			<ul class="yui-nav">
+				<li id="desctab" class="selected"><a href="#desc" title="<venda_text id=site.product_detail.tab.description>"><venda_text id=site.product_detail.tab.description></a></li>
+				<li id="reviewtab"><a href="#reviews" title="<venda_text id=site.product_detail.tab.customer_review>"><venda_text id=site.product_detail.tab.customer_review></a></li>
+			</ul>            
+			<div class="yui-content">
+				<div class="desc">
+					<venda_block label=12,invtdesc1=notnull><p class="invtdesc1"><venda_invtdesc1></p></venda_block label=12>
+					<venda_block label=13,invtdesc2=notnull><p class="invtdesc2"><venda_invtdesc2></p></venda_block label=13>
+					<venda_block label=14,invtdesc3=notnull><p class="invtdesc3"><venda_invtdesc3></p></venda_block label=14>
+					<venda_block label=15,invtdesc4=notnull><p class="invtdesc4"><venda_invtdesc4></p></venda_block label=15>
+					<p class="sku"><venda_text id=site.product.detail.style></p>
+				</div>
+				<div class="reviews">
+					<div id="BVReviewsContainer"></div>
+					<venda_block label=913,mode=value,<venda_islive>=1>
+						<noscript><iframe src="http://reviews.anthropologie.eu/<venda_tpxt mode=get,name=bvcode<venda_sessionlanguage>>/<venda_invtref>/reviews.htm?format=noscript" width="100%"></iframe></noscript>
+					</venda_block label=913>
+					<venda_block label=914,mode=value,<venda_islive>!=1>
+						<noscript><iframe src="http://reviews.anthropologie.uat.venda.com/bvstaging/<venda_tpxt mode=get,name=bvcode<venda_sessionlanguage>>/<venda_invtref>/reviews.htm?format=noscript" width="100%"></iframe></noscript>
+					</venda_block label=914>
+					<div id="noReview"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end product detail col2 -->
+	<venda_block label=1234,mode=value,<venda_htxt mode=get,name=accessory>=notnull>
+	<script type="text/javascript">
+	   //Coremetrics
+	   cmCreateConversionEventTag("<venda_htxt mode=get,name=accessory>", "2", "AlsoLike");
+	</script>
+	</venda_block label=1234>
+	<venda_block label=1235,mode=value,<venda_htxt mode=get,name=substitues>=notnull>
+	<script type="text/javascript">
+	   //Coremetrics
+	   cmCreateConversionEventTag("<venda_htxt mode=get,name=substitues>", "2", "CompleteOutfit");
+	</script>
+	</venda_block label=1235>
+	
+	
+	<br style="clear:both"/>
+
+<div>
+<!--p class="outfitdesc" style="border:1px solid red;"><venda_category rec=icat,ref=<venda_invtcatref0>,temp=showparentdesc></p-->
+<venda_block label=29,invtsubtot&gt;0>
+<!-- substitutes -->
+<form name="formproductset" id="buyproducts" action="<venda_codehttp>" method="get" onSubmit="return buynowsubmit();">
+<input type="hidden" name="bsref" value="<venda_bsref>">
+<input type="hidden" name="log" value="22">
+
+<input type="hidden" name="mode" value="addmul">
+<input type="hidden" name="layout" value="checkout">
+<input type="hidden" name="next" value="">
+<input type="hidden" name="param1" value="bulk">
+<input type="hidden" name="param2" value="">
+<input type="hidden" name="ex" value="co_wizr-shopcart">
+<input type="hidden" name="qty" value="">
+<div class="select-add">
+
+<p class="add-all"> 
+   <input type="checkbox" name="addall" id="addall" class="chkbox"> <label for="addall" id="addremoveall" class="addremoveall"><venda_text id=site.product.detail.addall></label>
+</p> 
+<br class="clear-all"/>
+
+<venda_invtsub template=subset>
+</div>
+<p class="add_button">
+<span title="Please choose a product"><input type="image" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addtobasket.gif" name="submit" id="multiaddbuynow" class="btnoff" alt="Please choose a product"></span>
+<span><input type="image" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addtobasket.gif" name="submit" id="multiaddbuynow2"></span>
+</p>
+</form>
+</venda_block label=29>
+
+</div>
+	
+</div>
+	<script type="text/javascript">
+	   Venda.ProductDetail.init({
+	      objDropdown: document.form.att1,
+	      objDefaultImage: document.multi,
+	      objMediumArea: document.getElementById("productdetail-image"),
+	      objLinkArea: document.getElementById("productdetail-viewlarge"),
+	      objSwatchArea: document.getElementById("productdetail-swatch"),
+	      objSideviewArea: document.getElementById("productdetail-sideview"),
+	      swatchTitle: "<venda_invtname>",
+	      sideviewTitle: "<venda_invtname>",
+	      mediumTitle: "Large image - opens in a new window",
+	      viewLargeTitle: "<venda_text id=site.product_detail.view_large_image.title>",
+	      viewLargeText: "<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/ico_zoom.gif",
+	      noImage: {
+	         medium: "<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/no_image_l.gif"
+	      },
+	      objProduct: getProduct('<venda_invtuuid>'),
+	      loadingHeader: "Loading.. Please wait ",
+	      loadingImage: "<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/loading_bar.gif",
+	      popupHeader: "<venda_invtname>",
+	      sideviewAlt: "<venda_invtname>",
+	      imageware: "<venda_pdxtimageware>",
+	      imagewareLink: "<a href='<venda_dispview invt=<venda_invtref>>?temp=imageware&layout=flashpopup' id='zoom_img2' target='_blank' title='<venda_text id=site.product_detail.zoomable_image.title>'>",
+	      sideviewHeader: "<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/alternative_view.gif"
+	   });
+
+	   // load default product image
+	   Venda.ProductDetail.loadImage("", {
+	      setswatch: "",
+	      setmedium: "<venda_media rec=invt,type=pict,key=large,img=no>",
+	      setlarge: "<venda_media rec=invt,type=pict,key=large,medatr=yes,img=no>",
+	      settsideview: ["<venda_media rec=invt,type=pict,key=tsideview1,medatr=yes,img=no>", "<venda_media rec=invt,type=pict,key=tsideview2,medatr=yes,img=no>", "<venda_media rec=invt,type=pict,key=tsideview3,medatr=yes,img=no>"],
+	      setmsideview: ["<venda_media rec=invt,type=pict,key=lsideview1,medatr=yes,img=no>", "<venda_media rec=invt,type=pict,key=lsideview2,medatr=yes,img=no>", "<venda_media rec=invt,type=pict,key=lsideview3,medatr=yes,img=no>"],
+	      setlsideview: ["<venda_media rec=invt,type=pict,key=lsideview1,medatr=yes,img=no>", "<venda_media rec=invt,type=pict,key=lsideview2,medatr=yes,img=no>", "<venda_media rec=invt,type=pict,key=lsideview3,medatr=yes,img=no>"]
+	   });
+</script>
+
+<venda_mediagrid template=mediagrid,cols=5,minrows=1>
+<script type="text/javascript">
+function getSupplyid(){
+	var slotfield = "<venda_block label=111,invtivtype=familyset,invtivtype=apparel,invtivtype=shoes,invtivtype=home,invtivtype=family,invtivtype=giftcard,operator=or>_b</venda_block label=111><venda_block label=112,invtivtype!=familyset,invtivtype!=apparel,invtivtype!=shoes,invtivtype!=home,invtivtype!=family,invtivtype!=giftcard>_a</venda_block label=112>";
+	var suplyfield = "<venda_invtsuplsku>_";
+	var oixtImageUrl;
+	for (var each in attributeData) {
+		if (typeof(attributeData[each].attr) == "object"){
+			var atrsupplyfield = jQuery('#productdetail-att1 a.selected').attr("title");
+			if (attributeData[each].attr.att1 == atrsupplyfield){
+				oixtImageUrl = suplyfield+attributeData[each].detail.atrsuplsku+slotfield;
+				document.form.set_oitemxoixtaddedproduct_<venda_invtref>.value = oixtImageUrl;
+			}
+		}
+	}
+}
+</script>
+
+<script type="text/javascript">
+<!-- 
+var dopopup = function(url) {
+   newwindow = window.open(url, 'name', 'height=690,width=460');
+      if (window.focus) { 
+         newwindow.focus();
+      }
+      return false;
+   }
+//-->
+</script>
+
+<style type="text/css">
+.Ltopnavcats ul li.topnav<venda_cattree index=1,value=catref> a {background: url(<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/star.gif) no-repeat left 6px; color: #c33!important;}
+.Lcatnav ul li.nav<venda_cattree index=1,value=catref>, .Lcatnav ul li.nav<venda_cattree index=1,value=catref> li {display:block !important;}
+.Lcatnav ul li.nav<venda_cattree index=1,value=catref> li ul li ul {display:none;}
+.Lcatnav ul li.nav<venda_cattree index=3,value=catref> ul {display:block !important;}
+.Lcatnav ul li.nav<venda_cattree index=-2,value=catref> a {font-weight:bold; font-style:italic; color:#000;}
+.Lcatnav ul li.nav<venda_cattree index=3,value=catref> ul {display:block !important;}
+.Lcatnav ul li.nav<venda_cattree index=-2,value=catref> ul a {font-weight:normal; font-style:normal; color:#333;}
+.Lcatnav ul li.nav<venda_cattree index=-2,value=catref> ul li.nav<venda_cattree index=-1,value=catref> a {font-style:italic; color:#c30; background: url(<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/star_leftnav.gif) no-repeat left 3px;}
+</style>
+
+<venda_tpcomment><!-- BAZAAR VOICE REVIEW INTEGRATION START--></venda_tpcomment>
+<!-- Reviews -->
+<script type="text/javascript" language="javascript">
+<!--
+ var BVisLoaded = false;
+ function BVcheckLoadState() {
+	 if(!BVisLoaded) {
+		 var page = document.getElementById('BVFrame').src;
+		 <venda_block label=915,mode=value,<venda_islive>=1>
+			document.getElementById('BVFrame').src='http://reviews.anthropologie.eu/logging?page=' + escape(page);
+		</venda_block label=915>
+		<venda_block label=916,mode=value,<venda_islive>!=1>
+			document.getElementById('BVFrame').src='http://reviews.anthropologie.uat.venda.com/bvstaging/logging?page=' + escape(page);
+		</venda_block label=916>
+		 document.getElementById('BVReviewsContainer').innerHTML = '<!-- Review retrieval timed out -->';
+	}
+}
+//-->
+</script>
+
+<div id="BVSubmissionParameters" style="display: none;"></div>
+<div id="BVContainerPageURL" style="display: none;"><venda_dispview page=bvreviews></div>
+
+
+<iframe id="BVFrame" name="BVFrame" src="" style="visibility: hidden; width: 1px; height: 1px; position: absolute; left: -999px; top: -999px;"></iframe>
+
+<script type="text/javascript" language="javascript">
+<!--
+ function bvLoadRR() {
+	<venda_block label=915,mode=value,<venda_islive>=1>
+	var bvPage = 'http://reviews.anthropologie.eu/<venda_tpxt mode=get,name=bvcode<venda_sessionlanguage>>/<venda_invtref>/reviews.htm?format=embedded';
+	</venda_block label=915>
+	<venda_block label=916,mode=value,<venda_islive>!=1>
+	var bvPage = 'http://reviews.anthropologie.uat.venda.com/bvstaging/<venda_tpxt mode=get,name=bvcode<venda_sessionlanguage>>/<venda_invtref>/reviews.htm?format=embedded';
+	</venda_block label=916>	
+	var bvReviewIDName = 'featurereview';
+
+	var bvReviewIDRegex = new RegExp('[?&]' + bvReviewIDName + '=([^&#]+)');
+	var bvReviewIDMatch = bvReviewIDRegex.exec(window.location.search);
+	var bvReviewID = bvReviewIDMatch ? decodeURIComponent(bvReviewIDMatch[1]) : null;
+
+	 document.getElementById('BVFrame').src = /^[0-9]+$/.test(bvReviewID) ? bvPage + '&reviewid=' + bvReviewID : bvPage;
+
+	 //Timeout for review load.  Consider reviews unavailable if not loaded within 10 seconds
+	 setTimeout("BVcheckLoadState()", 10000);
+ }
+
+ bvLoadRR();
+//-->
+</script>
+ <!-- End Reviews -->
+<venda_tpcomment><!-- BAZAAR VOICE REVIEW INTEGRATION END--></venda_tpcomment>
+
+<venda_inctemplate name=cmDisplayShop5s,type=includes/tracking/coremetrics>

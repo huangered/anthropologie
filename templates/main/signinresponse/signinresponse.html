@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="<venda_block mode=value,<venda_sessionlanguage>=ae>en-US</venda_block><venda_block mode=value,<venda_sessionlanguage>!=ae><venda_sessionlanguage></venda_block>">
+<head>
+<venda_menu template=title>
+<venda_page page=metainformation>
+<venda_menu template=css>
+<venda_menu template=js>
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>
+</head>
+<body id="mainlayout-signinresponse">
+<venda_inctemplate name=coremetricsFunctions,type=includes/tracking/coremetrics>
+
+<venda_tpcomment><!-- This template is used by the Sign In Popup feature only --></venda_tpcomment>
+
+<venda_tpcomment><!-- Dont use display:none in the talker or Safari breaks --></venda_tpcomment>
+<div style="visibility: hidden; height: 0px" id="talkToParent"></div>
+<script type="text/javascript">
+<venda_tpcomment>/**
+ * Communicate to Parent via an iframe callback (or directly for secure)
+ * We'll create a dynamic iframe, whose source is HTTP
+ * That iframe's contents will have JS that calls the parent's callback method
+ */</venda_tpcomment>
+var topProtocol = "<venda_htxt mode=get,name=foo>://";
+
+if( topProtocol == "https://" ) {
+	<venda_tpcomment>// Target JS loaded in the top window which closes the popup</venda_tpcomment>
+	<venda_block label=911,mode=value,<venda_islive>=1>
+		document.domain = "anthropologie.eu";
+	</venda_block label=911>
+	<venda_block label=912,mode=value,<venda_islive>!=1>
+		document.domain = "venda.com";
+	</venda_block label=912>
+	<venda_tpcomment>// For secure case, just talk directly to "top", then quit.</venda_tpcomment>
+	top.Venda.Widget.SignInPopup.signInCallback();
+} else {
+	var talker = document.getElementById("talkToParent");
+	<venda_tpcomment>// Fire off callback</venda_tpcomment>
+	var iFrame = document.createElement("iframe");
+	var src = topProtocol + window.location.host + "/page/closesignin";
+	iFrame.setAttribute("src", src);
+	talker.appendChild(iFrame);
+};
+
+</script>
+
+<venda_inctemplate name=SiteWideTracking,type=includes>
+</body>
+</html>

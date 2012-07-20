@@ -1,0 +1,60 @@
+<div class="Lmyacccontactdetails <venda_elementref>">
+<h2><span></span><venda_text id=site.contactdetails.header></h2>
+	<venda_userinfo>
+	<ul>
+		<li class="first"><span class="addrName"><venda_block label=101,mode=value,<venda_sessionlanguage>=en><venda_sestitle> </venda_block label=101><venda_block label=102,mode=value,<venda_sessionlanguage>=de><venda_block label=1021,sestitle=Mr><venda_text id=site.please.select.mr> </venda_block label=1021><venda_block label=1021,sestitle=Mrs,sestitle=Miss,sestitle=Ms,operator=or><venda_text id=site.please.select.mrs> </venda_block label=1021></venda_block label=102> <venda_sesfname> <venda_seslname></span></li>
+        <venda_block label=1000,mode=value,<venda_setting type=ebiz,name=showcompany>=1>
+        <venda_block label=1001,sescompany=notnull><li><venda_sescompany></li></venda_block label=1001>
+        </venda_block label=1000>
+		<li><venda_sesnum> <venda_sesaddr1></li>
+		<venda_block sesaddr2=notnull><li><venda_sesaddr2></li></venda_block>
+		
+		<!-- if country is US or US entities display this formatting -->
+		<venda_block label=999,mode=value,<venda_sescntry>=United States,<venda_sescntry>=United States Non-48,<venda_sescntry>=United States Armed Forces,operator=or>
+		<li><venda_sescity>, <venda_sesstate> <venda_seszipc></li>
+		</venda_block label=999>
+
+		<!-- if country is NOT US or US entities display this formatting -->
+		<venda_block label=9991,mode=value,<venda_sescntry>!=United States,<venda_sescntry>!=United States Non-48,<venda_sescntry>!=United States Armed Forces,operator=and>
+		<li><venda_sescity></li>
+		<venda_block label=751,sesstate=notnull,seszipc=notnull,operator=or><li><venda_sesstate> <venda_seszipc></li></venda_block label=751>
+		</venda_block label=9991>
+
+		<li>
+		<venda_block label=1000,sescntry=Austria><venda_text id=site.country.please.select.option.austria></venda_block label=1000>
+		<venda_block label=2000,sescntry=Belgium><venda_text id=site.country.please.select.option.belgium></venda_block label=2000>
+		<venda_block label=3000,sescntry=Bulgaria><venda_text id=site.country.please.select.option.bulgaria></venda_block label=3000>
+		<venda_block label=4000,sescntry=Channel Islands><venda_text id=site.country.please.select.option.islands></venda_block label=4000>
+		<venda_block label=5000,sescntry=Cyprus><venda_text id=site.country.please.select.option.cyprus></venda_block label=5000>
+		<venda_block label=6000,sescntry=Czech Republic><venda_text id=site.country.please.select.option.czech></venda_block label=6000>
+		<venda_block label=7000,sescntry=Denmark><venda_text id=site.country.please.select.option.denmark></venda_block label=7000>
+		<venda_block label=8000,sescntry=Estonia><venda_text id=site.country.please.select.option.estonia></venda_block label=8000>
+		<venda_block label=9000,sescntry=Finland><venda_text id=site.country.please.select.option.finland></venda_block label=9000>
+		<venda_block label=10000,sescntry=France><venda_text id=site.country.please.select.option.france></venda_block label=10000>
+		<venda_block label=11000,sescntry=Germany><venda_text id=site.country.please.select.option.germany></venda_block label=11000>
+		<venda_block label=12000,sescntry=Greece><venda_text id=site.country.please.select.option.greece></venda_block label=12000>
+		<venda_block label=13000,sescntry=Hungary><venda_text id=site.country.please.select.option.hungary></venda_block label=13000>
+		<venda_block label=14000,sescntry=Ireland><venda_text id=site.country.please.select.option.ireland></venda_block label=14000>
+		<venda_block label=15000,sescntry=Italy><venda_text id=site.country.please.select.option.italy></venda_block label=15000>
+		<venda_block label=16000,sescntry=Latvia><venda_text id=site.country.please.select.option.latvia></venda_block label=16000>
+		<venda_block label=17000,sescntry=Lithuania><venda_text id=site.country.please.select.option.lithuania></venda_block label=17000>
+		<venda_block label=18000,sescntry=Luxembourg><venda_text id=site.country.please.select.option.luxembourg></venda_block label=18000>
+		<venda_block label=19000,sescntry=Malta><venda_text id=site.country.please.select.option.malta></venda_block label=19000>
+		<venda_block label=20000,sescntry=Netherlands><venda_text id=site.country.please.select.option.netherlands></venda_block label=20000>
+		<venda_block label=21000,sescntry=Norway><venda_text id=site.country.please.select.option.norway></venda_block label=21000>
+		<venda_block label=22000,sescntry=Poland><venda_text id=site.country.please.select.option.poland></venda_block label=22000>
+		<venda_block label=23000,sescntry=Portugal><venda_text id=site.country.please.select.option.portugal></venda_block label=23000>
+		<venda_block label=24000,sescntry=Romania><venda_text id=site.country.please.select.option.romania></venda_block label=24000>
+		<venda_block label=25000,sescntry=Slovak Republic><venda_text id=site.country.please.select.option.slovak></venda_block label=25000>
+		<venda_block label=26000,sescntry=Slovenia><venda_text id=site.country.please.select.option.slovenia></venda_block label=26000>
+		<venda_block label=27000,sescntry=Spain><venda_text id=site.country.please.select.option.spain></venda_block label=27000>
+		<venda_block label=28000,sescntry=Sweden><venda_text id=site.country.please.select.option.sweden></venda_block label=28000>
+		<venda_block label=29000,sescntry=Switzerland><venda_text id=site.country.please.select.option.switzerland></venda_block label=29000>
+		<venda_block label=30000,sescntry=United Kingdom><venda_text id=site.country.please.select.option.uk></venda_block label=30000>
+	
+		</li>
+        <venda_block label=10,sesarea=notnull,sesphone=notnull,operator=or><li><span class="addrPhone"><venda_block label=100,mode=value,<venda_setting type=ebiz,name=hidearea>!=1><venda_block label=11,sesarea=notnull><venda_sesarea>&nbsp;</venda_block label=11></venda_block label=100><venda_block label=12,sesphone=notnull><venda_sesphone></venda_block label=12></span></li></venda_block label=10>
+		<li class="last"><a href="<venda_codehttps>?ex=tl_user-myform&bsref=<venda_bsref>&layout=myaccount&htxt=<venda_htxt mode=make,addr=change>"><venda_text id=site.contactdetails.edit.link></a></li>
+	</ul>
+	</venda_userinfo>
+</div>

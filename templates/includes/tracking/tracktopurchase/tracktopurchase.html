@@ -1,0 +1,15 @@
+<div id="trackingimgcontainer" style="display:none;"></div>
+<script type="text/javascript">
+if (document.getElementById('trackingimgcontainer')) {
+	T2Porddetail = T2Porddetail.substr(0,T2Porddetail.length-1);
+	var cTrackingimg = document.getElementById('trackingimgcontainer');
+	var oImg = document.createElement('img');
+	var cUrl= 'https://email.anthropologie.eu/a/r2078348802/p.gif?orderID=<venda_ohordnum>&amount=<venda_ohtot>&items=' + T2Porddetail;
+	oImg.setAttribute('src', cUrl);
+	oImg.setAttribute('id', 't2ptrackingimg');
+	oImg.setAttribute('width', '1');
+	oImg.setAttribute('height', '1');
+	oImg.setAttribute('border', '0');
+	cTrackingimg.appendChild(oImg);
+}
+</script>

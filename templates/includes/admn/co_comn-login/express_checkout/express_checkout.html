@@ -1,0 +1,19 @@
+<venda_block label=69,mode=value,<venda_workflow>=shopcart>
+<venda_block label=47,mode=value,<venda_setting type=ebiz,name=expresscheckout>=1>
+<div class="expresscheckout">
+	<h2><venda_text id=site.sign_in.express_checkout.heading></h2>
+	<p><venda_text id=site.sign_in.express_checkout.para1></p>
+	<p class="msg2"><venda_text id=site.sign_in.express_checkout.para2></p>
+	<venda_block label=129,mode=value,<venda_setting type=ebiz,name=bypasspclookup>!=1>
+	<div id="buttons">
+	<a href="<venda_codehttps>?ex=co_wizr-shopcart&bsref=<venda_bsref>&step=zipcode&param1=<venda_param1>&log=2&glxt=<venda_glxt mode=make,glxtusertype=p>"><venda_text id=site.button.continuewithoutreg></a>
+	</div>
+	</venda_block label=129>
+	<venda_block label=130,mode=value,<venda_setting type=ebiz,name=bypasspclookup>=1>
+	<div id="buttons">
+	<a href="<venda_codehttps>?ex=co_wizr-shopcart&bsref=<venda_bsref>&step=billto&param1=details&log=2&glxt=<venda_glxt mode=make,glxtusertype=p>"><venda_text id=site.button.continuewithoutreg></a>
+	</div>
+	</venda_block label=130>
+</div>
+</venda_block label=47>
+</venda_block label=69>

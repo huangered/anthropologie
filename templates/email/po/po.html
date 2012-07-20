@@ -1,0 +1,205 @@
+<venda_detblock1>
+<!-- start delivery details -->
+<table border="0" cellspacing="0" cellpadding="0" summary="Details for your <venda_ebizname> order" style="font-family:Arial, Helvetica, Verdana, sans-serif; font-size:11px; text-align:left; color:#666;" width="726">
+<thead>
+<tr>
+	<th colspan="2" align="left" style="font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; text-transform:lowercase; padding-left:12px; padding-bottom:15px; text-align:left;"><venda_text id=site.email.po.delivery.title></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.po.delivery.recipient></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;"><span class="addrName"><venda_pktitle> <venda_pkfname><venda_block label=75,pkmname=notnull><venda_pkmname></venda_block label=75> <venda_pklname></span></td>
+</tr>
+<tr>
+	<th width="120" valign="top" style="font-weight:bold; text-align:right; padding-bottom:6px; vertical-align:top;"><venda_text id=site.email.po.delivery.address></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;">
+	<venda_block label=77,pkcompany=notnull><venda_pkcompany><br></venda_block label=77>
+	<venda_pknum> <venda_pkaddr1><br>
+	<venda_block label=78,pkaddr2=notnull><venda_pkaddr2><br></venda_block label=78>
+	<venda_block label=81,pkcity=notnull><venda_pkcity><br></venda_block label=81>
+	<venda_block label=79,pkstate=notnull><venda_pkstate> </venda_block label=79><venda_block label=82,pkzipc=notnull><venda_pkzipc><br></venda_block label=82>
+	<venda_pkcntry>
+	</td>
+</tr>
+<venda_block label=80,pkarea=notnull,pkphone=notnull,operator=or>
+<tr>
+	<th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.po.delivery.phone></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;"><venda_block label=81,pkarea=notnull><venda_pkarea> </venda_block label=81><venda_block label=82,pkphone=notnull><venda_pkphone></venda_block label=82></td>
+</tr>
+</venda_block label=80>
+<venda_block label=41,pkshipmthd=notnull>
+<tr>
+	<th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.po.delivery.method></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;"><venda_pkshipmthd></td>
+</tr> 
+</venda_block label=41>
+<tr>
+	<td colspan="2" align="left" valign="top" style="padding-top:22px; padding-bottom:5px;"><img src="<venda_ebizurl>/content/ebiz/<venda_bsref>/resources/images/email-linebr.jpg" alt="" border="0"></td>
+</tr>
+</tbody>
+<!-- end delivery details -->
+</table>
+
+<table border="0" cellspacing="0" cellpadding="0" style="font-family:Arial, Helvetica, Verdana, sans-serif; font-size:11px; text-align:left; color:#666;" width="726">
+<!-- start items loop -->
+<thead>
+<tr>
+	<th scope="col" style="width:400px; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:10px; font-weight:bold; text-transform:uppercase; text-align:left;"><venda_text id=site.email.po.product_name></th>
+	<th scope="col" style="width:85px; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:10px; font-weight:bold; text-transform:uppercase; text-align:center;"><venda_text id=site.email.po.qty></th>
+	<th scope="col" style="width:96px; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:10px; font-weight:bold; text-transform:uppercase; text-align:left; padding:0 0 0 2px;"><venda_text id=site.email.po.total_price></th>
+	<th scope="col" style="font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:10px; font-weight:bold; text-transform:uppercase; text-align:right; padding-right:5px;"><venda_text id=site.email.po.status></th>
+</tr>
+</thead>
+<tbody>
+<venda_detail2>
+</tbody>
+<!-- end items loop -->
+</table>
+</venda_detblock1>
+
+<venda_detblock2>
+<tr>
+	<td colspan="4" valign="top" style="padding-top:10px; padding-bottom:10px;"><img src="<venda_ebizurl>/content/ebiz/<venda_bsref>/resources/images/email-item-longline.gif" alt="" border="0"></td>
+</tr>
+<tr>
+	<td valign="top" style="font-family:Georgia, Arial, Helvetica, Verdana, sans-serif; font-size:12px; text-align:left; padding-top:2px; color:#333;"><venda_oiivname><venda_block label=111,invtatt1=notnull> (<venda_invtatt1><venda_block label=112,invtatt2=notnull>, <venda_invtatt2></venda_block label=112>)</venda_block label=111><br><span style="font-family:Arial, Helvetica, Verdana, sans-serif; font-size:9px; color:#999;"><venda_text id=site.basket.product_sku><venda_invtref></span></td>
+	<td valign="top" style="font-weight:bold; text-align:center;"><venda_oiqty></td>
+	<td valign="top" style="font-weight:bold; text-align:left;">&#163;<venda_oiextsub></td>
+	<td valign="top" style="font-weight:bold; text-transform:lowercase; text-align:right;"><venda_ohstatus></td>
+</tr>
+
+<venda_block label=225,invtpreorder=notnull>
+<tr>
+	<td colspan="4" style="text-align:left;">
+	<venda_text id=site.order_details.item_preorder> <venda_block label=88,mode=value,<venda_setting type=ebiz,name=mmdddates>!=1><venda_invtreleasedy>/<venda_invtreleasemn>/<venda_invtreleaseyr></venda_block label=88><venda_block label=89,mode=value,<venda_setting type=ebiz,name=mmdddates>=1><venda_invtreleasemn>/<venda_invtreleasedy>/<venda_invtreleaseyr></venda_block label=89></td>
+</tr>
+</venda_block label=225>
+
+<venda_block label=221,oigwref=notnull>
+<tr>
+	<td colspan="4" style="text-align:left;"><venda_text id=site.order_details.items_gift_wrapped><venda_block label=2274,oicmtmsg=notnull><br><venda_oicmtmsg></venda_block label=2274></td>
+</tr>
+</venda_block label=221>
+
+<venda_block label=45,oiitype=3>
+<tr>
+	<td colspan="4" style="text-align:left;">
+	<venda_text id=site.email.po.send_to> <venda_gcto> <venda_text id=site.email.po.at> <venda_gcemail><br>
+	<venda_block label=880,gcexpires=notnull><venda_text id=> <venda_gcexpires><br></venda_block label=880>
+	<venda_text id=site.email.po.message> <venda_oicmt>
+	</td>
+</tr>
+</venda_block label=45>
+</venda_detblock2>
+
+<html>
+<head>
+	<title><venda_ebizname> <venda_text id=site.email.po.title> - <venda_ponum></title>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" width="726">
+<tr>
+	<td height="48" align="left" valign="top" style="padding-top:11px; padding-bottom:42px;"><venda_inctemplate name=htmlEmailLogo,type=includes></td>
+</tr>
+<tr>
+	<td align="left" style="padding-bottom:17px;"><h1 style="font-family:Arial, Helvetica, Verdana, sans-serif; font-size:10px; font-weight:bold; text-transform:uppercase; color:#c33; margin:0 0 5px 0;"><venda_text id=site.email.po.title> - <venda_ponum></h1></td>
+</tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" style="font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;" width="726">
+<tr>
+	<td>
+	<p style="margin:0 0 15px 0; padding:0;"><venda_text id=site.email.po.dear> <span style="color:#000;"><venda_toname></span></p>
+	<p style="margin:0 0 15px 0; padding:0;"><venda_text id=site.email.po.msg1> <venda_ebizname>.</p>
+	<p style="margin:0 0 15px 0; padding:0;"><venda_text id=site.email.po.order_number> <span style="color:#000;"><venda_ohordnum></span>.</p>
+	<p style="margin:0 0 15px 0; padding:0;"><venda_text id=site.email.po.order_date> <span style="color:#000;"><venda_ohstmp></span></p>
+	</td>
+</tr>
+<tr>
+	<td align="left" valign="top" style="padding-top:5px; padding-bottom:5px;"><img src="<venda_ebizurl>/content/ebiz/<venda_bsref>/resources/images/email-linebr.jpg" alt="" border="0"></td>
+</tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="0" style="font-family:Arial, Helvetica, Verdana, sans-serif; font-size:11px; text-align:left; color:#666;" width="726">
+<!-- start business details -->
+<thead>
+<tr>
+	<th colspan="2" style="font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; text-transform:lowercase; padding-left:12px; padding-bottom:15px; text-align:left;"><venda_text id=site.email.po.business_details></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.po.name></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;"><span class="addrName"><venda_ebizname></span></td>
+</tr>
+<tr>
+	<th width="120" valign="top" style="font-weight:bold; text-align:right; padding-bottom:6px; vertical-align:top;"><venda_text id=site.email.po.address></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;">
+	<venda_ebizaddr1><br>
+	<venda_block label=71,ebizaddr2=notnull><venda_ebizaddr2><br></venda_block label=71>
+	<venda_block label=73,ebizcity=notnull><venda_ebizcity><br></venda_block label=73>
+	<venda_block label=72,ebizstate=notnull><venda_ebizstate> </venda_block label=72><venda_block label=74,ebizzipc=notnull><venda_ebizzipc><br></venda_block label=74>
+	<venda_ebizcntry>
+	</td>
+</tr>
+<tr>
+	<th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.po.phone_name></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;"><venda_ebizarea> <venda_ebizphone></td>
+</tr>
+<venda_block label=155,ebizfax=notnull>
+<tr>
+	<th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.po.fax_number></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;"><venda_ebizfarea> <venda_ebizfax></td>
+</tr>
+</venda_block label=155>
+<tr>
+	<td colspan="2" align="left" valign="top" style="padding-top:22px; padding-bottom:5px;"><img src="<venda_ebizurl>/content/ebiz/<venda_bsref>/resources/images/email-linebr.jpg" alt="" border="0"></td>
+</tr>
+</tbody>
+<!-- end business details -->
+</table>
+
+<table border="0" cellspacing="0" cellpadding="5" summary="Details for your <venda_ebizname> order" style="font-family:Arial, Helvetica, Verdana, sans-serif; font-size:11px; text-align:left; color:#666;" width="726">
+<!-- start contact/billing details -->
+<thead>
+<tr>
+	<th colspan="2" style="font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; text-transform:lowercase; padding-left:12px; padding-bottom:15px; text-align:left;"><venda_text id=site.email.po.contact_details></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.po.cardholder></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;"><span class="addrName"><venda_ohtitle> <venda_ohfname> <venda_ohlname></span></td>
+</tr>
+<tr>
+	<th width="120" valign="top" style="font-weight:bold; text-align:right; padding-bottom:6px; vertical-align:top;"><venda_text id=site.email.po.contact.address></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;">
+	<venda_block label=80,ohcompany=notnull><venda_ohcompany><br></venda_block label=80>
+	<venda_ohnum> <venda_ohaddr1><br>
+	<venda_block label=81,ohaddr2=notnull><venda_ohaddr2><br></venda_block label=81>
+	<venda_ohcity><br>
+	<venda_ohstate> <venda_ohzipc><br>
+	<venda_ohcntry>
+	</td>
+</tr>
+<tr>
+	<th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.po.contact.phone></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;"><venda_oharea> <venda_ohphone></td>
+</tr>
+<tr>
+	<th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.po.contact.email></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;"><venda_ohemail></td>
+</tr>
+<tr>
+	<td colspan="2" align="left" valign="top" style="padding-top:22px; padding-bottom:5px;"><img src="<venda_ebizurl>/content/ebiz/<venda_bsref>/resources/images/email-linebr.jpg" alt="" border="0"></td>
+</tr>
+</tbody>
+<!-- end contact/billing details -->
+</table>
+<!-- start delivery/items loop -->
+<venda_detail1>
+<!-- end delivery/items loop -->
+<br>
+</body>
+</html>

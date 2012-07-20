@@ -1,0 +1,8 @@
+<venda_block label=2199,<venda_setting type=ebiz,name=billingdeliveryonly>!=1,mode=value>
+<venda_block label=15,workflow=shopcart,workflow=instore,operator=or>
+<div class="diffaddressbox"><input type="checkbox" name="differentaddress" id="differentaddress"> <label for="differentaddress"><venda_text id=site.contact_address.label.different_delivery_address></label> <venda_text id=site.contact_address.different_delivery_address></div>
+</venda_block label=15>
+</venda_block label=2199>
+<venda_block label=2200,<venda_setting type=ebiz,name=billingdeliveryonly>=1,mode=value>
+<input type="hidden" name="differentaddress" id="differentaddress">
+</venda_block label=2200>

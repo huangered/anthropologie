@@ -1,0 +1,36 @@
+<venda_tpcomment>// treat this template like an external .js file</venda_tpcomment>
+<venda_tpcomment>// changes the back link behaviour if viewing via popup div</venda_tpcomment>
+isPopup = document.getElementById('popupcontent');// blank email if it contains user
+if(isPopup){YAHOO.util.Event.addListener("back_link", "click", Venda.Widget.InvtPopups.featureHide);}
+
+if(typeof document.emailmebackform.bisemail != 'undefined'){
+	if ((document.emailmebackform.bisemail.value.substring(0,1)=='<') || (document.emailmebackform.bisemail.value.substring(0,4)=='user')) {
+		document.emailmebackform.bisemail.value='';
+	}
+}
+
+// treat this template like an external .js file
+function validateEMWBIS() {
+	// check email address
+	if (document.emailmebackform.bisemail.value == '') {
+		alert('<venda_text id=site.email_when_in_stock.js_validation.email_address>');
+		document.emailmebackform.bisemail.focus();
+		return;
+	}
+	var checkEmail = document.emailmebackform.bisemail.value;
+		if (!checkemail(checkEmail)) {
+		alert("<venda_text id=site.email_when_in_stock.js_validation.valid_email_address>");
+		document.emailmebackform.bisemail.focus();
+		return;
+	}
+
+	<venda_tpcomment>// must check first that we are still on the product detail</venda_tpcomment>
+	
+	if(isPopup){ <venda_tpcomment>// there is an id called popupcontent so we can proceed with the ajax function</venda_tpcomment>
+		document.emailmebackform.layout.value = 'noheaders';
+		ajaxFunction('<venda_codehttp>','popupcontent','emailmebackform');
+		}
+	else { <venda_tpcomment>// there is no id called popupcontent so we must be viewing the emwbis area in its own screen</venda_tpcomment>
+		document.emailmebackform.submit();
+		}
+}

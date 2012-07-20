@@ -1,0 +1,4 @@
+li {width:175px; list-style-type:none; float:left; padding:0; margin:0; text-align:left; border:0;}
+.details {float: right; width: 80px; padding: 0 0 0 7px;}
+html > body .details { /* IE7 - Moz */width: 85px; padding: 0;}
+.image {float: left; width: 80px;}

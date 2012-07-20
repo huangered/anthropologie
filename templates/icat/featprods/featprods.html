@@ -1,0 +1,50 @@
+<venda_detblock>
+<li<venda_block label=25,itemcount1=1> class="first"</venda_block label=25>>
+	<div class="details">
+		<h2><a href="<venda_dispview invt=<venda_invtref1>>"><venda_invtname1></a></h2>
+		<p class="invtdesc2"><venda_invtdesc21></p>
+		<venda_block label=10,invtatrtot1&lt;1>
+		<!-- if product doesn't have attributes -->
+		<p class="pricetag"><span class="price"><venda_currsym><venda_invtsell1></span></p>
+		</venda_block label=10>
+
+		<venda_block label=20,invtatrtot1&gt;0>
+		<!-- if product does have attributes -->
+		<p class="pricetag">
+			<span class="price">
+			<venda_block invtatrminsubsell1&gt;0.00>
+								
+				<venda_block label=1075,mode=value,<venda_invtivtype1>=giftcard,<venda_invtivtype1>=family,operator=or>
+					<venda_text id=site.from> <venda_currsym><venda_invtatrminsubsell1></span>
+				</venda_block label=1075>
+				
+				<venda_block label=1076,mode=value,<venda_invtivtype1>!=giftcard,<venda_invtivtype1>!=family,operator=and>
+					<venda_currsym><venda_invtatrminsubsell1>
+				</venda_block label=1076>
+				
+			</venda_block>
+			
+			<venda_block invtatrminsubsell1=0.00><venda_invtsymsell1></venda_block>
+			</span>
+			<venda_block invtatrmaxsubwas1&gt;invtatrminsubsell1>
+			<span class="was"><span class="waslabel">...<venda_text id=site.was></span><venda_currsym><venda_invtatrmaxsubwas1></span>
+			</venda_block>
+		</p>
+		</venda_block label=20>
+		<p class="moreinfo"><a href="<venda_dispview invt=<venda_invtref1>>" title="<venda_text id=site.link.title.more.icat>"><venda_text id=site.link.more></a></p>
+	</div>
+
+	<div class="image">
+		<a href="<venda_dispview invt=<venda_invtref1>>"><venda_inctemplate name=Scene7appcat_detblock,type=includes/Scene7></a>
+	</div>
+</li>
+</venda_detblock>
+
+<venda_block label=1,rectot&gt;0>
+<div class="featprods">
+<h2 class="icatname"><span></span><venda_icatname></h2>
+<ul>
+<venda_detail>
+</ul>
+</div>
+</venda_block label=1>

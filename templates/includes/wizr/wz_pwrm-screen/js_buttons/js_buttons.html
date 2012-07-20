@@ -1,0 +1,21 @@
+<script type="text/javascript">
+<!--
+var handleKeyPress = function(e) {
+	var keyPressed = e.charCode || e.keyCode;
+	if (keyPressed == 13) { 
+		<venda_wizbutton step=next,mode=process,param1=<venda_param1>,callonly=yes>
+		return false;
+	}
+};
+// -->
+</script>
+<!--[if IE]>
+<script type="text/javascript">if (document.getElementById("usemail")) {addEvent(document.getElementById("usemail"), 'keydown', handleKeyPress, false);}</script>
+<![endif]-->
+<div id="buttons">
+<venda_block label=1,param1!=shopcart><a href="<venda_codehttps>?ex=co_wizr-register&bsref=<venda_bsref>" id="pwrmprevious"></venda_block label=1><venda_block label=2,param1=shopcart><a href="<venda_codehttps>?ex=co_wizr-shopcart&bsref=<venda_bsref>&step=billtologin&param1=login"></venda_block label=2><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left"></a>
+<input type="image" id="pwrmcontinue" onClick='<venda_wizbutton step=next,mode=process,param1=<venda_param1>,callonly=yes> return false;' src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_emailpassword.gif" alt="<venda_text id=site.button.email_password>" class="right">
+</div>
+<style type="text/css">
+.elxtforgottenpassword{display:none;}
+</style>

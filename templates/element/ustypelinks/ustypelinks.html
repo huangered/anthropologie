@@ -1,0 +1,56 @@
+<ul class="Lustypelinks <venda_elementref>" id="ustypelinks">
+	<venda_block label=20,ustype=R><venda_tpcomment><!-- When editing these links please note you also should edit div id="tag-signinloggedinlinks" below --></venda_tpcomment>
+	<venda_block label=245,mode=value,<venda_tpxt mode=get,name=instore>!=1>
+	<li class="myaccount"><venda_block label=300,mode=value,<venda_setting type=ebiz,name=skipsecondlogin>=1><a href="<venda_dispview page=myaccount>" id="Lustype_myaccskiplink"></venda_block label=300><venda_block label=301,mode=value,<venda_setting type=ebiz,name=skipsecondlogin>!=1><a href="<venda_codehttps>?ex=co_wizr-login&bsref=<venda_bsref>" id="Lustype_myacclink"></venda_block label=301><venda_userinfo><venda_sesfname><venda_text id=site.header.myaccount_link></venda_userinfo></a></li>
+	</venda_block label=245>
+	<li class="logout"><a href="<venda_dispview page=home>&log=4" id="Lustype_logoutlink"><venda_text id=site.header.logout_link></a></li>
+	</venda_block label=20>
+	<venda_block label=21,ustype!=R>
+	<li class="login"><a href="<venda_codehttps>?ex=co_wizr-register&bsref=<venda_bsref>" id="Lustype_loginlink"><venda_text id=site.header.login_link></a></li>
+
+	</venda_block label=21>
+</ul>
+
+<venda_block label=30,elxtpopup=notnull>
+<venda_tpcomment><!-- window and animation settings to send to SignInPopup.js --></venda_tpcomment>
+<div id="tag-signinheader" style="display:none;"><venda_elxtheader></div>
+<div id="tag-signinfooter" style="display:none;"><venda_block label=43,elxtforgottenpassword=notnull,elxtforgottenpassword=notnull,elxtforgottenpassword=notnull,operator=or>showfooter</venda_block label=43></div>
+<venda_tpcomment><!-- tag values used for tell a friend, emwbis, write and read a review popups --></venda_tpcomment>
+<div id="tag-signinsigninheading" style="display:none;"><venda_text id=site.sign_in.heading></div>
+<div id="tag-signinpwrmheading" style="display:none;"><venda_text id=site.password_reminder.heading></div>
+<div id="tag-signinbsref" style="display:none;"><venda_bsref></div>
+<div id="tag-signinloggedinlinks" style="display:none;"><venda_block label=50,mode=value,<venda_tpxt mode=get,name=instore>!=1><li class="myaccount"><a href="<venda_dispview page=myaccount>"><venda_text id=site.header.myaccount_link></a></li></venda_block label=50>
+<li class="logout"><a href="<venda_dispview page=home>&log=4" id="Lustype_logoutlink"><venda_text id=site.header.logout_link></a></li>
+</div>
+<div id="tag-forgottenpassword" style="display:none;"><venda_block label=44,elxtforgottenpassword=notnull><p class="elxtforgottenpassword"><a href="<venda_passcode>" onclick="Venda.Widget.SignInPopup.interceptpwrmLink();return false;" id="passcode"><venda_text id=site.sign_in.forgotten_password></a></p></venda_block label=44></div>
+<div id="tag-activecontent" style="display:none;"><venda_block label=45,elxtactivecontent=notnull><p class="elxtactivecontent"><a href="<venda_dispview page=showactivecontent>"><venda_text id=site.sign_in.ie.user></a></p></venda_block label=45></div>
+
+<div id="tag-defaultsignin" style="display:none;"><venda_block label=46,elxtdefaultsignin=notnull><p class="elxtdefaultsignin"><a href="<venda_codehttps>?ex=co_wizr-register&bsref=<venda_bsref>"><venda_text id=site.sign_in.standard></a></p></venda_block label=46></div>
+
+<script type="text/javascript">
+<venda_tpcomment>// START - javascript for signin popup</venda_tpcomment>
+<venda_tpcomment>// see /venda-support/js/Venda/Widget/SignInPopup.js for usage details</venda_tpcomment>
+if (typeof Venda.Widget.SignInPopup != "undefined" || Venda.Widget.SignInPopup) {
+	Venda.Widget.SignInPopup.create(['Lustype_loginlink<venda_block elxtdisablelogintrigger=1>-disabled</venda_block>', 'Lustype_myacclink'<venda_block elxttriggerids=notnull>, <venda_elxttriggerids></venda_block>],
+		{
+			header:			document.getElementById('tag-signinheader').innerHTML, 
+			drag:			<venda_block label=31,elxtdraggable=null>false</venda_block label=31><venda_block label=36,elxtdraggable=notnull>true</venda_block label=36>,
+			modal:			<venda_block label=35,elxtmodal=null>false</venda_block label=35><venda_block label=40,elxtmodal=notnull>true</venda_block label=40>,
+			fixedCentre:	<venda_block label=33,elxtcentre=null>false</venda_block label=33><venda_block label=38,elxtcentre=notnull>true</venda_block label=38>,
+			fade:			<venda_block label=32,elxtfade=null>0.24</venda_block label=32><venda_block label=37,elxtfade=notnull><venda_elxtfade></venda_block label=37>,
+			width:			<venda_block label=34,elxtwidth=null>530</venda_block label=34><venda_block label=39,elxtwidth=notnull><venda_elxtwidth></venda_block label=39>,
+			footer:			document.getElementById('tag-signinfooter').innerHTML
+	  	}, 
+	  	{
+		  	signinheading: 		document.getElementById('tag-signinsigninheading').innerHTML,
+			pwrmheading: 		document.getElementById('tag-signinpwrmheading').innerHTML,
+			bsref: 				document.getElementById('tag-signinbsref').innerHTML,
+			updateloginlinks:	document.getElementById('tag-signinloggedinlinks').innerHTML,
+			forgottenpassword:	document.getElementById('tag-forgottenpassword').innerHTML,
+			activecontent:		document.getElementById('tag-activecontent').innerHTML,
+			defaultsignin:		document.getElementById('tag-defaultsignin').innerHTML
+		});
+}
+<venda_tpcomment>// END - javascript for signin popup</venda_tpcomment>
+</script>
+</venda_block label=30>

@@ -1,0 +1,26 @@
+<!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. -->
+<div class="container addressbook">
+<venda_category rec=elementcat,ref=oradtopcontent>
+<venda_inctemplate type=includes/wizr/wz_orad-screen,name=heading_intro>
+<venda_form>
+<venda_inctemplate type=includes/wizr/wz_orad-screen,name=address_list>
+<venda_inctemplate type=includes/wizr/wz_orad-screen,name=js_buttons>
+</form>
+
+<venda_block label=20,workflow=instore>
+<venda_tpxt mode=set,name=instore,value=1>
+</venda_block label=20>
+</div>
+<!-- 
+step: <venda_curstep>
+param1: <venda_param1>
+param2: <venda_param2>
+page: wz_orad-screen
+workflow: <venda_workflow>
+ -->
+<venda_tpxt mode=set,name=track,value=orad-screen>
+<venda_inctemplate name=googleTrackingWorkflows,type=includes>
+<venda_inctemplate name=hbxlocalvars1,type=includes/tracking>
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>
+<venda_inctemplate name=cmCreateRegistrationTag,type=includes/tracking/coremetrics>
+<venda_inctemplate name=cm-wz_orad-screen,type=includes/tracking/coremetrics>

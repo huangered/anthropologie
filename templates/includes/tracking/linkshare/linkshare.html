@@ -1,0 +1,38 @@
+<div id="linksharetracking"></div>
+
+<script type="text/javascript">
+jQuery(document).ready( function(){		
+	getRate("EUR", "GBP");	
+});
+function getRate(from, to) {
+    //alert("getRate block");
+	var script = document.createElement('script');
+	script.setAttribute('src', "<venda_protocol>://query.yahooapis.com/v1/public/yql?q=select%20rate%2Cname%20from%20csv%20where%20url%3D'http%3A%2F%2Fdownload.finance.yahoo.com%2Fd%2Fquotes%3Fs%3D"+from+to+"%253DX%26f%3Dl1n'%20and%20columns%3D'rate%2Cname'&format=json&diagnostics=true&callback=parseExchangeRate");
+	document.body.appendChild(script);		
+}
+function parseExchangeRate(data) {    
+	var curRate = parseFloat(data.query.results.row.rate, 10);	
+	//alert("Exchange rate is " + curRate);	
+	var curAbbrev = "<venda_ohcur>";	
+	var totalPrice = "<venda_tracking type=product,definition=totalpriceexvat,delimiter=pipe>";
+	var totalPriceArray =  totalPrice.split("|");
+	var trackingSrc = "<img class=\"tracklinksynergy\" src=\"<venda_protocol>://track.linksynergy.com/ep?mid=37257&ord=<venda_ohordnum>&skulist=<venda_tracking type=product,definition=productref,delimiter=pipe>&qlist=<venda_tracking type=product,definition=quantity,delimiter=pipe>&cur=GBP&namelist=<venda_tracking type=product,definition=productname,delimiter=pipe>";
+	var amt,amtlist="";
+	if(curAbbrev=="EUR"){
+		for(i=0;i<totalPriceArray.length;i++){
+			amt = totalPriceArray[i] * 100 * curRate;
+			amtlist += Math.round(amt*100)/100 + "|";			
+			//alert("amt:"+amt+"/amtlist:"+amtlist+"/curRate:"+curRate);
+		}		
+	}else{
+		for(i=0;i<totalPriceArray.length;i++){
+			amt = totalPriceArray[i] * 100;
+			amtlist += amt + "|";                    			
+			//alert("amt:"+amt+"/amtlist:"+amtlist);
+		}						
+	}			
+	trackingSrc += "&amtlist="+ amtlist.substring(0,amtlist.length-1);
+	//alert("trackingSrc final:"+trackingSrc);
+	jQuery("#linksharetracking").html(trackingSrc + '">');
+}
+</script>

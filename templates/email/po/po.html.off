@@ -1,0 +1,165 @@
+<venda_detblock1>
+	<!-- start delivery details -->
+	<thead>
+	<tr>
+		<th scope="col" colspan="5"><venda_text id=site.email.po.delivery.title></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<th scope="row"><venda_text id=site.email.po.delivery.recipient></th>
+		<td colspan="4"><span class="addrName"><venda_pktitle> <venda_pkfname><venda_block label=75,pkmname=notnull><venda_pkmname></venda_block label=75> <venda_pklname></span></td>
+	</tr>
+	<tr>
+		<th scope="row"><venda_text id=site.email.po.delivery.address></th>
+		<td colspan="4">
+		<venda_block label=77,pkcompany=notnull><venda_pkcompany><br></venda_block label=77>
+		<venda_pknum> <venda_pkaddr1><br>
+		<venda_block label=78,pkaddr2=notnull><venda_pkaddr2><br></venda_block label=78>
+		<venda_block label=81,pkcity=notnull><venda_pkcity><br></venda_block label=81>
+		<venda_block label=79,pkstate=notnull><venda_pkstate> </venda_block label=79><venda_block label=82,pkzipc=notnull><venda_pkzipc><br></venda_block label=82>
+		<venda_pkcntry>
+		</td>
+	</tr>
+	<venda_block label=80,pkarea=notnull,pkphone=notnull,operator=or>
+	<tr>
+		<th scope="row"><venda_text id=site.email.po.delivery.phone></th>
+		<td colspan="4"><venda_block label=81,pkarea=notnull><venda_pkarea> </venda_block label=81><venda_block label=82,pkphone=notnull><venda_pkphone></venda_block label=82></td>
+	</tr>
+	</venda_block label=80>
+	<venda_block label=41,pkshipmthd=notnull>
+	<tr>
+		<th scope="row"><venda_text id=site.email.po.delivery.method></th>
+		<td colspan="4"><venda_pkshipmthd></td>
+	</tr> 
+	</venda_block label=41>
+	</tbody>
+	<!-- end delivery details -->
+	
+<!-- start items loop -->
+<thead>
+<tr>
+	<th scope="col"><venda_text id=site.email.po.product_name></th>
+	<th scope="col"><venda_text id=site.email.po.qty></th>
+	<th scope="col"><venda_text id=site.email.po.total_price></th>
+	<th scope="col"><venda_text id=site.email.po.status></th>
+</tr>
+</thead>
+<tbody>
+<venda_detail2>
+</tbody>
+<!-- end items loop -->
+</venda_detblock1>
+
+<venda_detblock2>
+<tr>
+	<td><venda_oiivname><venda_block label=111,invtatt1=notnull> (<venda_invtatt1><venda_block label=112,invtatt2=notnull>, <venda_invtatt2></venda_block label=112>)</venda_block label=111><venda_block label=221,oigwref=notnull> (gift wrapped)</venda_block label=221></td>
+	<td><venda_oiqty></td>
+	<td><venda_currsym><venda_oiextsub></td>
+	<td><venda_ohstatus></td>
+</tr>
+<venda_block label=45,oiitype=3>
+<tr>
+	<td colspan="4">
+	<venda_text id=site.email.po.send_to> <venda_gcto> <venda_text id=site.email.po.at> <venda_gcemail><br>
+	<venda_block label=880,gcexpires=notnull>Expiry date: <venda_gcexpires><br></venda_block label=880>
+	<venda_text id=site.email.po.message> <venda_oicmt>
+	</td>
+</tr>
+</venda_block label=45>
+</venda_detblock2>
+
+<html>
+<head>
+	<title><venda_ebizname> <venda_text id=site.email.po.title> - <venda_ponum></title>
+</head>
+<body>
+<div id="emailBody">
+<venda_inctemplate name=htmlEmailCssEtc,type=includes>
+<div id="logo">
+	<venda_inctemplate name=htmlEmailLogo,type=includes>
+	<h1><venda_text id=site.email.po.title> - <venda_ponum></h1>
+	<div class="clear"> </div>
+</div>
+
+<p><venda_text id=site.email.po.dear> <strong><venda_toname></strong></p>
+<p><venda_text id=site.email.po.msg1> <venda_ebizname>.</p>
+<p><venda_text id=site.email.po.order_number> <venda_ohordnum>.</p>
+<p><venda_text id=site.email.po.order_date> <venda_ohstmp></p>
+
+<table border="0" cellspacing="0" cellpadding="5" summary="Details for your <venda_ebizname> order" style="text-align:left;">
+	<!-- start business details -->
+	<thead>
+	<tr>
+		<th scope="col" colspan="5"><venda_text id=site.email.po.business_details></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<th scope="row"><venda_text id=site.email.po.name></th>
+		<td colspan="4"><span class="addrName"><venda_ebizname></span></td>
+	</tr>
+	<tr>
+		<th scope="row"><venda_text id=site.email.po.address></th>
+		<td colspan="4">
+		<venda_ebizaddr1><br>
+		<venda_block label=71,ebizaddr2=notnull><venda_ebizaddr2><br></venda_block label=71>
+		<venda_block label=73,ebizcity=notnull><venda_ebizcity><br></venda_block label=73>
+		<venda_block label=72,ebizstate=notnull><venda_ebizstate> </venda_block label=72><venda_block label=74,ebizzipc=notnull><venda_ebizzipc><br></venda_block label=74>
+		<venda_ebizcntry>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"><venda_text id=site.email.po.phone_name></th>
+		<td colspan="4"><venda_ebizarea> <venda_ebizphone></td>
+	</tr>
+	<tr>
+		<th scope="row"><venda_text id=site.email.po.fax_number></th>
+		<td colspan="4"><venda_ebizfarea> <venda_ebizfax></td>
+	</tr>
+	</tbody>
+	<!-- end business details -->
+	
+	<table border="0" cellspacing="0" cellpadding="5" summary="Details for your <venda_ebizname> order" style="text-align:left;">
+	<!-- start contact/billing details -->
+	<thead>
+	<tr>
+		<th scope="col" colspan="5"><venda_text id=site.email.po.contact_details></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<th scope="row"><venda_text id=site.email.po.cardholder></th>
+		<td colspan="4"><span class="addrName"><venda_ohtitle> <venda_ohfname> <venda_ohlname></span></td>
+	</tr>
+	<tr>
+		<th scope="row"><venda_text id=site.email.po.contact.address></th>
+		<td colspan="4">
+		<venda_block label=80,ohcompany=notnull><venda_ohcompany><br></venda_block label=80>
+		<venda_ohnum> <venda_ohaddr1><br>
+		<venda_block label=81,ohaddr2=notnull><venda_ohaddr2><br></venda_block label=81>
+		<venda_ohcity><br>
+		<venda_ohstate> <venda_ohzipc><br>
+		<venda_ohcntry>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"><venda_text id=site.email.po.contact.phone></th>
+		<td colspan="4"><venda_oharea> <venda_ohphone></td>
+	</tr>
+		<tr>
+		<th scope="row"><venda_text id=site.email.po.contact.email></th>
+		<td colspan="4"><venda_ohemail></td>
+	</tr>
+	</tbody>
+	<!-- end contact/billing details -->
+	
+	<!-- start delivery/items loop -->
+	<venda_detail1>
+	<!-- end delivery/items loop -->	
+	
+	</table>
+</table>
+</div>
+</body>
+</html>

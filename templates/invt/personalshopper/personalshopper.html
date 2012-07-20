@@ -1,0 +1,147 @@
+<!--script type="text/javascript" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/js/perShopperLib.js"></script-->
+<script type="text/javascript" src="<venda_dispview invt=<venda_invtref>>&temp=personalshopper_script&layout=noheaders"></script>
+<link rel="stylesheet" href="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/css/rqSwchStyle.css"/>
+<style type="text/css">
+	#rqSwchBody {overflow: visible !important;}
+	#rqSwchBodyForm {background-image:url("/content/ebiz/anthropologie/resources/images/wlprSwatches/bg_prShopBodyForm.png")!important; height: 550px !important;}
+</style>
+<div id="rqSwch">
+	<div id="rqSwchHeader">
+		<div id="rqSwchHeaderSwatch"></div>
+		<div id="rqSwchHeaderForm"></div>
+	</div>
+	<div id="rqSwchBody">
+		<div id="rqSwchBodySwatch">
+			<div class="rqSwchBodyParagraph">
+			<h2>heading one</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+	
+			<h2>heading two</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p></div>
+
+		</div>
+		<div id="rqSwchBodyForm">
+			<form action="<venda_codehttp>" name="perShopper" method="post" id="rqSwchForm">
+             <input type="hidden" name="ex" value="co_disp-eproc">
+             <input type="hidden" name="bsref" value="<venda_bsref>">
+             <input type="hidden" name="subject" value="Anthro Personal Shopper request">
+             <input type="hidden" name="to" value="narshad@anthropologie.com">
+             <input type="hidden" name="from" value="">
+             <input type="hidden" name="label1" value="Customer first name:">
+             <input type="hidden" name="label2" value="Customer middle name:">
+             <input type="hidden" name="label3" value="Customer last name:">
+             <input type="hidden" name="label4" value="Phone Number: ">
+             <input type="hidden" name="label5" value="Date of Birth:">
+             <input type="hidden" name="label6" value="Country:">
+             <input type="hidden" name="label7" value="Enquiry:">
+             <input type="hidden" name="label8" value="Message:">
+             <input type="hidden" name="label9" value="Method of Contact: ">
+             <input type="hidden" name="page" value="thankyou">
+             <input type="hidden" name="layout" value="">
+						 <input type="hidden" name="htxt" value="<venda_htxt mode=make,foo=pershopper>">
+			<div class="rqSwchFormCTNR rqSwchFormLabel">* indicates a required field</div>
+				<div class="rqSwchFormCTNR">
+					<div class="rqSwchFormOBJ">
+						<div class="rqSwchFormLabel">* First Name</div>
+						<input value="" type="text" class="rqSwchFormInputShort" name="field1" id="rqSwchForm_first-name"></div>
+					<!--div class="rqSwchFormOBJ">
+						<div class="rqSwchFormLabel">M.I.</div>
+						<input value="" type="text" class="rqSwchFormInputShort" name="field2" id="rqSwchForm_mi"></div-->
+					<div class="rqSwchFormOBJ">
+						<div class="rqSwchFormLabel">* Last Name</div>
+						<input value="" type="text" class="rqSwchFormInputShort" name="field3" id="rqSwchForm_last-name"></div>
+				</div>
+         
+				<div class="rqSwchFormCTNR">
+					<div class="rqSwchFormOBJ">
+						<div class="rqSwchFormLabel">* Phone</div>
+						<input value="" type="text" class="rqSwchFormInputLong" name="field4" id="rqSwchForm_phone"></div>
+				</div>
+				
+				<div class="rqSwchFormCTNR">
+					<div class="rqSwchFormOBJ">
+						<div class="rqSwchFormLabel">* Date of Birth</div>
+						<input value="" type="text" class="rqSwchFormInputLong" name="field5" id="rqSwchForm_dob"></div>
+				</div>
+					
+				<div class="rqSwchFormCTNR">
+					<div class="rqSwchFormOBJ">
+						<div class="rqSwchFormLabel">* Country</div>
+						<select class="rqSwchFormInputMed" name="field6" id="rqSwchForm_country">
+               <option value="">Please Select...</option>
+               <option value="Austria">Austria</option>
+               <option value="Belgium">Belgium</option>
+               <option value="Bulgaria">Bulgaria</option>
+               <option value="Cyprus">Cyprus</option>
+               <option value="Czech Republic">Czech Republic</option>
+               <option value="Denmark">Denmark</option>
+               <option value="Estonia">Estonia</option>
+               <option value="Finland">Finland</option>
+               <option value="France">France</option>
+               <option value="Germany">Germany</option>
+               <option value="Greece">Greece</option>
+               <option value="Hungary">Hungary</option>
+               <option value="Ireland">Ireland</option>
+               <option value="Italy">Italy</option>
+               <option value="Latvia">Latvia</option>
+               <option value="Lithuania">Lithuania</option>
+               <option value="Luxembourg">Luxembourg</option>
+               <option value="Malta">Malta</option>
+               <option value="Netherlands">Netherlands</option>
+               <option value="Norway">Norway</option>
+               <option value="Poland">Poland</option>
+               <option value="Portugal">Portugal</option>
+               <option value="Romania">Romania</option>
+               <option value="Slovak Republic">Slovakia</option>
+               <option value="Slovenia">Slovenia</option>
+               <option value="Spain">Spain</option>
+               <option value="Sweden">Sweden</option>
+               <option value="Switzerland">Switzerland</option>
+               <option value="UK">United Kingdom</option>
+               <option value="Channel Islands">Channel Islands</option>
+               </select></div>
+				</div>
+				
+				<div class="rqSwchFormCTNR">
+					<div class="rqSwchFormOBJ">
+						<div class="rqSwchFormLabel">* Your Enquiry</div>
+						<select name="field7" class="rqSwchFormInputMed" id="rqSwchForm_enquiry">
+							<option value="">Please Select...</option>
+							<option value="what_to_wear">What to wear</option>
+							<option value="gift">Gift</option>
+							<option value="product-availability">Product availability</option>
+							<option value="seen-in-press">Seen in press</option>
+							<option value="product-info">Product information</option>
+							<option value="size-guide">Size guide</option>
+						</select></div>
+				</div>
+				
+				<div class="rqSwchFormCTNR">
+					<div class="rqSwchFormOBJ">
+						<div class="rqSwchFormLabel">Your Message</div>
+						<textarea cols="10" rows="4" name="field8" style="width:324px;"></textarea></div>
+				</div>
+				
+				<div class="rqSwchFormCTNR">
+					<div class="rqSwchFormOBJ">
+						<div class="rqSwchFormLabel">Method you would like to be contacted by:</div>
+						<input type="Radio" name="field9" value="phone" id="phone"><label for="phone">phone</label>
+						<input type="Radio" name="field9" value="email" id="email" checked><label for="email">email</label>
+						</div>
+				</div>
+				
+				 <div class="rqSwchFormCTNR">
+					<div class="rqSwchFormOBJ">
+						<div class="rqSwchFormLabel">* Email</div>
+						<input value="" type="text" class="rqSwchFormInputLong" name="emailAddress" id="rqSwchForm_email"></div>
+				</div>
+				<div class="rqSwchFormBtn" onclick="validateForm();">Submit</div>
+			</form><div id="rqSwchFormAlert"></div>
+		</div>
+	</div>
+	</div>
+<div id="rqSwchReceiptWrapper">
+	<div id="rqSwchLoader"></div>
+	<div id="rqSwchReceipt"></div>
+</div>
+<div id="rqSwchReceiptCurtain"></div>

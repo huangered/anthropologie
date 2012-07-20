@@ -1,0 +1,41 @@
+<venda_tpcomment><!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. --></venda_tpcomment>
+<venda_tpcomment><!-- venda_form shows hidden field values as empty and lets JS input the required values. So for JS-free checkout we hardcode the form with the correct field values. --></venda_tpcomment>
+<form method="post" enctype="multipart/form-data" name="wizform" action="<venda_codehttps>">
+<input type="hidden" name="ex" value="co_wizr-<venda_workflow>" />
+<input type="hidden" name="step" value="confirm" />
+<input type="hidden" name="mode" value="process" />
+<input type="hidden" name="trrfnbr" value="<venda_userinfo><venda_sesid></venda_userinfo>" />
+<input type="hidden" name="trrfext" value="<venda_block label=15,mode=value,<venda_protocol>=https>1</venda_block label=15>" />
+<input type="hidden" name="curstep" value="coupon" />
+<input type="hidden" name="workflowid" value="<venda_workflow>" />
+<input type="hidden" name="bsref" value="<venda_bsref>" />
+<venda_tpcomment><!-- ACE2 NOTE: We need these blank fields for the validate JS on submit button onclick. If we remove the wizbutton from the validate JS, we can also remove these 5 fields below. --></venda_tpcomment>
+<input type="hidden" name="wizard" value="" />
+<input type="hidden" name="param1" value="" />
+<input type="hidden" name="param2" value="" />
+<input type="hidden" name="param3" value="" />
+<input type="hidden" name="check" value="" />
+<div id="redeempromocode">
+<venda_category rec=elementcat,ref=orcptopcontent>
+<venda_inctemplate type=includes/wizr/wz_orcp-screen,name=heading_intro>
+<venda_inctemplate type=includes/wizr/wz_orcp-screen,name=enter_code>
+<venda_inctemplate type=includes/wizr/wz_orcp-screen,name=js_buttons>
+<venda_coupjava>
+</div>
+</form>
+
+<venda_block label=20,workflow=instore>
+<venda_tpxt mode=set,name=instore,value=1>
+</venda_block label=20>
+
+<!-- 
+param1: <venda_param1>
+param2: <venda_param2>
+workflow: <venda_workflow>
+page: wz_orcp-screen.html
+ -->
+<venda_tpxt mode=set,name=track,value=orcp-screen> 
+<venda_inctemplate name=googleTrackingWorkflows,type=includes>
+<venda_inctemplate name=hbxlocalvars1,type=includes/tracking>
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>
+<venda_inctemplate name=cmCreateRegistrationTag,type=includes/tracking/coremetrics>

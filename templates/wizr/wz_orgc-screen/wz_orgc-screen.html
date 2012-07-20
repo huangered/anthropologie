@@ -1,0 +1,23 @@
+<!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. -->
+<div id="giftcertificate">
+<venda_inctemplate type=includes/wizr/wz_orgc-screen,name=heading_intro>
+<venda_form>
+<input type="hidden" name="layout" value="checkout">
+<input type="hidden" name="textcount" value="">
+<venda_inctemplate type=includes/wizr/wz_orgc-screen,name=recipient_details>
+<venda_inctemplate type=includes/wizr/wz_orgc-screen,name=your_details>
+<venda_inctemplate type=includes/wizr/wz_orgc-screen,name=terms_and_conditions>
+<venda_inctemplate type=includes/wizr/wz_orgc-screen,name=js_buttons>
+</form>
+</div>
+
+<!-- 
+param1: <venda_param1>
+param2: <venda_param2>
+workflow: <venda_workflow>
+page: wz_orgc-screen.html
+ -->
+<venda_tpxt mode=set,name=track,value=orgc-screen>
+<venda_inctemplate name=googleTrackingWorkflows,type=includes>
+<venda_inctemplate name=hbxlocalvars1,type=includes/tracking>
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>

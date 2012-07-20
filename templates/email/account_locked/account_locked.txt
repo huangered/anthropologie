@@ -1,0 +1,20 @@
+<venda_inctemplate name=textEmailHeader2,type=includes><cr><cr>
+
+<venda_text id=site.email.account_locked.msg1> <venda_block label=1,usemail=notnull><venda_usemail></venda_block label=1><venda_block label=2,usemail=null,uslogin=notnull><venda_uslogin></venda_block label=2>)<cr>
+
+
+
+<venda_text id=site.email.account_locked.msg2> (<venda_serveradd>/bin/venda?ex=co_wizr-passwordreminder&bsref=<venda_ebizref>) <venda_text id=site.email.account_locked.msg3>, <venda_text id=site.email.account_locked.msg4><cr>
+
+
+
+<venda_text id=site.email.account_locked.msg5><cr>
+
+
+
+<venda_text id=site.email.account_locked.msg6>,<cr><cr>
+
+<venda_ebizname>
+
+
+==============================================================================

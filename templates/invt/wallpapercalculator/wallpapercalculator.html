@@ -1,0 +1,78 @@
+		<script type="text/javascript" src="<venda_dispview invt=<venda_invtref>>&temp=wallpapercalculator_script&layout=noheaders">
+		</script>
+		<div class="roomSize" style="display:none;">
+			<div class="roomSizeLabel"><venda_text id=site.product.wallpaper.price></div>
+			<div class="roomSizeSelect"><input id="paperPrice" type="text" value="<venda_invtsell>" disabled/></div>
+		</div>
+		<div class="roomSize" style="display:none;">
+			<div class="roomSizeLabel"><venda_text id=site.product.wallpaper.paper.length></div>
+			<div class="roomSizeSelect"><input id="paperLength" type="text" value="<venda_pdxtlength>" disabled/></div>
+		</div>
+		<div class="roomSize" style="display:none;">
+			<div class="roomSizeLabel"><venda_text id=site.product.wallpaper.paper.width></div>
+			<div class="roomSizeSelect"><input id="paperWidth" type="text" value="<venda_pdxtwidth>" disabled/></div>
+		</div>
+		<div class="roomSize" style="display:none;">
+			<div class="roomSizeLabel"><venda_text id=site.product.wallpaper.paper.pattern></div>
+			<div class="roomSizeSelect"><input id="patternRepeat" type="text" value="<venda_pdxtwidth>" disabled/></div>
+		</div>
+		<br>
+		<div id="wlprCalcWrapper">
+			<div id="wlprCalc">
+				<div id="wlprCalcIntro">
+					<div class="introText"><venda_text id=site.product.wallpaper.room.dimension></div>
+					<div class="introText"><venda_text id=site.product.wallpaper.calculate.msg></div>
+				</div>
+				<div id="wlprCalcRoom">
+					<form name="form" action="<venda_codehttp>" method="get" id="addproductform">
+					<input type="hidden" name="bsref" value="<venda_bsref>">
+					<input type="hidden" name="log" value="22">
+					<input type="hidden" name="mode" value="add">
+					<input type="hidden" name="curpage" value="">
+					<input type="hidden" name="next" value="">
+					<input type="hidden" name="layout" value="">
+					<input type="hidden" name="ex" value="co_disp-shopc">
+					<input type="hidden" name="buy" value="<venda_invtref>">
+					<input type="hidden" name="invt" value="<venda_invtref>">
+					<input type="hidden" name="att1" value="<venda_invtatr11>">
+					<input type="hidden" name="att2" value="<venda_invtatr21>">
+					<input type="hidden" name="set_oitemxoixtaddedproduct_<venda_invtref>" value="<venda_invtsuplsku>_<venda_invtpdxtdefaultimg>_b">
+						<div class="roomSize">
+							<div class="roomSizeLabel"><venda_text id=site.product.wallpaper.calculate.height></div>
+							<div class="roomSizeSelect"><select id="wlprCalcRmFeet" class="typeText"><option value="1">1 m.</option><option value="2">2 m.</option><option value="3">3 m.</option><option value="4">4 m.</option><option value="5">5 m.</option><option value="6">6 m.</option><option value="7">7 m.</option><option value="8">8 m.</option><option value="9">9 m.</option><option value="10">10 m.</option><option value="11">11 m.</option><option value="12">12 m.</option><option value="13">13 m.</option><option value="14">14 m.</option><option value="15">15 m.</option><option value="16">16 m.</option><option value="17">17 m.</option><option value="18">18 m.</option><option value="19">19 m.</option><option value="20">20 m.</option><option value="21">21 m.</option><option value="22">22 m.</option><option value="23">23 m.</option><option value="24">24 m.</option><option value="25">25 m.</option><option value="26">26 m.</option><option value="27">27 m.</option><option value="28">28 m.</option><option value="29">29 m.</option><option value="30">30 m.</option></select>
+							</div>
+							<div class="roomSizeSelect"><select id="wlprCalcRmInches" class="typeText"><option value="0">0 cm.</option><option value="1">1 cm.</option><option value="2">2 cm.</option><option value="3">3 cm.</option><option value="4">4 cm.</option><option value="5">5 cm.</option><option value="6">6 cm.</option><option value="7">7 cm.</option><option value="8">8 cm.</option><option value="9">9 cm.</option><option value="10">10 cm.</option><option value="11">11 cm.</option><option value="12">12 cm.</option><option value="13">13 cm.</option><option value="14">14 cm.</option><option value="15">15 cm.</option><option value="16">16 cm.</option><option value="17">17 cm.</option><option value="18">18 cm.</option><option value="19">19 cm.</option><option value="20">20 cm.</option><option value="21">21 cm.</option><option value="22">22 cm.</option><option value="23">23 cm.</option><option value="24">24 cm.</option><option value="25">25 cm.</option><option value="26">26 cm.</option><option value="27">27 cm.</option><option value="28">28 cm.</option><option value="29">29 cm.</option><option value="30">30 cm.</option><option value="31">31 cm.</option><option value="32">32 cm.</option><option value="33">33 cm.</option><option value="34">34 cm.</option><option value="35">35 cm.</option><option value="36">36 cm.</option><option value="37">37 cm.</option><option value="38">38 cm.</option><option value="39">39 cm.</option><option value="40">40 cm.</option><option value="41">41 cm.</option><option value="42">42 cm.</option><option value="43">43 cm.</option><option value="44">44 cm.</option><option value="45">45 cm.</option><option value="46">46 cm.</option><option value="47">47 cm.</option><option value="48">48 cm.</option><option value="49">49 cm.</option><option value="50">50 cm.</option><option value="51">51 cm.</option><option value="52">52 cm.</option><option value="53">53 cm.</option><option value="54">54 cm.</option><option value="55">55 cm.</option><option value="56">56 cm.</option><option value="57">57 cm.</option><option value="58">58 cm.</option><option value="59">59 cm.</option><option value="60">60 cm.</option><option value="61">61 cm.</option><option value="62">62 cm.</option><option value="63">63 cm.</option><option value="64">64 cm.</option><option value="65">65 cm.</option><option value="66">66 cm.</option><option value="67">67 cm.</option><option value="68">68 cm.</option><option value="69">69 cm.</option><option value="70">70 cm.</option><option value="71">71 cm.</option><option value="72">72 cm.</option><option value="73">73 cm.</option><option value="74">74 cm.</option><option value="75">75 cm.</option><option value="76">76 cm.</option><option value="77">77 cm.</option><option value="78">78 cm.</option><option value="79">79 cm.</option><option value="80">80 cm.</option><option value="81">81 cm.</option><option value="82">82 cm.</option><option value="83">83 cm.</option><option value="84">84 cm.</option><option value="85">85 cm.</option><option value="86">86 cm.</option><option value="87">87 cm.</option><option value="88">88 cm.</option><option value="89">89 cm.</option><option value="90">90 cm.</option><option value="91">91 cm.</option><option value="92">92 cm.</option><option value="93">93 cm.</option><option value="94">94 cm.</option><option value="95">95 cm.</option><option value="96">96 cm.</option><option value="97">97 cm.</option><option value="98">98 cm.</option><option value="99">99 cm.</option></select>
+							</div>
+						</div>
+						<div class="roomSize">
+							<div class="roomSizeLabel"><venda_text id=site.product.wallpaper.calculate.number.wall></div>
+							<div class="roomSizeSelect"><select id="wlprCalcWlsNmbr" class="typeText" onChange="buildWallOptions()"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option></select></div></div>
+				</div>
+				<div id="wlprCalcWalls">
+					<div id="wallSizeCTNR"></div>
+					<div id="wallsButton">
+						<div class="wlprCalcButton typeText" onClick="getTotalRolls()" title="<venda_text id=site.product.wallpaper.calculate.title>"><venda_text id=site.product.wallpaper.calculate></div>
+						<div class="wlprCalcButton typeText" onClick="resetCalc()" title="<venda_text id=site.product.wallpaper.calculate.reset.title>"><venda_text id=site.product.wallpaper.calculate.reset></div>
+					</div>
+				</div>
+				<div id="wlprCalcSummary">
+					<div id="summaryPaperName"></div>
+					<div class="summaryGroup">
+						<div id="summaryQuantityLabel"class="summaryLabel"><venda_text id=site.product.wallpaper.calculate.quantity></div>
+						<div class="summaryValue">
+						<input type="text" id="qty" name="qty" size="3" maxlength="3" value="">
+						</div>
+					</div>
+					<div id="addedmsg" class="error" style="padding:5px 0 0 10px;"><p><venda_addedmsg msg=<venda_text id=site.product.wallpaper.calculate.quantity.msg>></p></div>
+					<div class="summaryGroup">
+						<div id="summaryPriceLabel"class="summaryLabel"><venda_text id=site.product.wallpaper.calculate.total.price></div>
+						<div id="summaryPriceValue"class="summaryValue"></div>
+					</div>
+				</div>
+				<div id="wlprCalcAddButton"><div id="wlprCalcAddButtonActor" style="float:right;">
+				<!--input type="image" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addtobasket.gif" id="addproduct" class="add" alt="<venda_text id=site.button.alt.add_to_basket.invt>" onClick="addToBag();"-->
+<a href="#" onClick="addToBag();"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addtobasket.gif" border="0" alt=""></a>
+				</div></div>
+			</div>
+		</div>
+</form>

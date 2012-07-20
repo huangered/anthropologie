@@ -1,0 +1,68 @@
+<!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. -->
+<!-- start column 1 -->
+<venda_block label=151,mode=value,<venda_setting type=ebiz,name=powerreviews>=1,<venda_setting type=ebiz,name=powerreviewsproddetail>=1>
+<script type="text/javascript">
+<venda_inctemplate type=includes,name=powerreviewscripts>
+</script>
+</venda_block label=151>
+<div id="col-one">
+	<venda_inctemplate type=includes/wizr/wz_locayta,name=col_one>
+</div>
+<!-- end column 1 -->
+
+<!-- start columns 2 and 3 -->
+<div id="col-two-three">	
+
+<!-- start column 2 -->
+<div id="col-two">
+
+<!-- start content -->
+<a name="content" id="content"></a>
+
+<div id="searchresults">
+<script type="text/javascript">
+	if(myBklist==null){
+        var myBklist = "";
+	}
+</script>
+	<venda_block label=343,mode=value,<venda_setting type=ebiz,name=showcategorysearchcontent>=disabled>
+		<venda_inctemplate type=includes/wizr/wz_locayta,name=heading_intro>
+	</venda_block label=343>
+	<venda_block label=344,mode=value,<venda_setting type=ebiz,name=showcategorysearchcontent>!=disabled>
+		<venda_inctemplate type=includes/wizr/wz_locayta,name=header_search_content>
+	</venda_block label=344>
+	
+	<venda_block label=345,totalresults!=0>
+	<venda_block label=349,mode=value,<venda_setting type=ebiz,name=showcategorysearchcontent>=disabled>
+		<venda_inctemplate type=includes/wizr/wz_locayta,name=addedmsg_your_search>
+	</venda_block label=349>
+	<venda_block label=350,mode=value,<venda_setting type=ebiz,name=showcategorysearchcontent>!=disabled>
+		<venda_inctemplate type=includes/wizr/wz_locayta,name=addedmsg_your_categorysearch>
+	</venda_block label=350>
+	<venda_inctemplate type=includes/wizr/wz_locayta,name=refine_search>
+	<venda_block label=570,mode=value,<venda_setting type=ebiz,name=showsearchgridlistview>=1>
+	<venda_inctemplate type=includes/wizr/wz_locayta,name=gridlistview_search>
+	</venda_block label=570>
+	<venda_inctemplate type=includes/wizr/wz_locayta,name=collation_prods>
+	</venda_block label=345>
+	
+	<venda_block label=346,totalresults=0>
+	<venda_inctemplate type=includes/wizr/wz_locayta,name=your_search_no_results>
+	</venda_block label=346>
+	
+	<venda_block label=348,mode=value,<venda_setting type=ebiz,name=showcategorysearchcontent>!=disabled>
+		<venda_inctemplate type=includes/wizr/wz_locayta,name=footer_search_content>
+	</venda_block label=348>
+</div>
+<venda_inctemplate type=includes/wizr/wz_locayta,name=extras>
+<!-- end content -->
+
+</div>
+<!-- end column 2 -->
+<venda_inctemplate name=hbxlocalvars5,type=includes/tracking>
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>
+<venda_inctemplate name=cm-wz_locayta,type=includes/tracking/coremetrics>
+<!-- <venda_glxt mode=set,name=searchurl,value=<venda_searchurl>> -->
+<venda_tpcomment><!-- TPXTs are set for webtrends meta tag --></venda_tpcomment>
+<venda_tpxt mode=set,name=totalresults,value=<venda_totalresults>>
+<venda_tpxt mode=set,name=primarysearchtext,value=<venda_primarysearchtext>>

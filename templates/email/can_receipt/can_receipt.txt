@@ -1,0 +1,115 @@
+<venda_inctemplate name=textEmailDetblocks,type=includes>
+
+<venda_inctemplate name=textEmailHeader,type=includes><cr><cr>
+
+<venda_block label=834,ohusgrrf!=ebayguest><venda_text id=site.email.can_receipt.msg1> <venda_ohordnum> <venda_text id=site.email.can_receipt.msg2>
+</venda_block label=834>
+<venda_block label=835,ohusgrrf=ebayguest><venda_text id=site.email.can_receipt.msg3> <venda_ohordnum>. <venda_text id=site.email.can_receipt.msg4>
+</venda_block label=835><cr><cr>
+
+==============================================================================
+
+<venda_text id=site.email.body.contact_details><cr>
+
+==============================================================================
+
+
+<venda_text id=site.email.body.cardholder><cr>
+
+<venda_ohtitle> <venda_ohfname> <venda_block label=76,ohmname=notnull><venda_ohmname></venda_block label=76> <venda_ohlname>
+
+
+
+<venda_text id=site.email.body.address><cr>
+
+<venda_block label=73,ohcompany=notnull><venda_ohcompany>
+</venda_block label=73>
+<venda_ohnum> <venda_ohaddr1>
+
+<venda_block label=74,ohaddr2=notnull><venda_ohaddr2>
+</venda_block label=74>
+
+<venda_block label=999,mode=value,<venda_ohcntry>=United States,<venda_ohcntry>=United States Non-48,<venda_ohcntry>=United States Armed Forces,operator=or>
+<venda_ohcity>, <venda_block label=75,ohstate=notnull><venda_ohstate></venda_block label=75> <venda_ohzipc>
+
+</venda_block label=999>
+
+<venda_block label=9991,mode=value,<venda_ohcntry>!=United States,<venda_ohcntry>!=United States Non-48,<venda_ohcntry>!=United States Armed Forces,operator=and>
+<venda_ohcity>
+
+<venda_block label=751,ohstate=notnull><venda_ohstate></venda_block label=751> <venda_ohzipc><venda_block label=1234,ohstate=notnull,ohzipc=notnull,operator=or>
+</venda_block label=1234>
+</venda_block label=9991>
+
+<venda_ohcntry>
+
+
+
+<venda_text id=site.email.body.phone_number><cr>
+
+<venda_oharea> <venda_ohphone>
+
+
+<venda_block label=155,ohfax=notnull>
+
+<venda_text id=site.email.body.fax_number><cr>
+
+<venda_ohfarea> <venda_ohfax>
+
+</venda_block label=155>
+
+<venda_detail1>
+------------------------------------------------------------------------------
+
+<venda_text id=site.email.body.items> <venda_ohsub> <venda_ohcur>
+
+<venda_block label=64,ohdisc!=0.00,ohdisc=notnull>
+<venda_text id=site.email.body.discount> -<venda_ohdisc> <venda_ohcur>
+
+</venda_block label=64>
+<venda_block label=65,ohtax!=0.00,ohtax=notnull>
+<venda_text id=site.email.body.estimated_tax> <venda_ohtax> <venda_ohcur>
+
+</venda_block label=65>
+<venda_block label=670,ohgwtot>0>
+<venda_text id=site.email.body.gift_wrapping> <venda_ohgwtot> <venda_ohcur>
+
+</venda_block label=670>
+------------------------------------------------------------------------------
+
+<venda_block label=92,ohtaxinc!=0.00,ohtaxinc=notnull>
+(<venda_text id=site.email.body.including> <venda_ohtaxinc> <venda_text id=site.email.body.vat> <venda_ohcur>)
+
+</venda_block label=92>
+------------------------------------------------------------------------------
+
+<venda_block label=70,storecreditused>0.00,storecreditused=notnull,creditaccount=notnull>
+<venda_text id=site.email.body.store_credit> <venda_creditaccount> <venda_ohcur>
+
+<venda_block label=181,balance=notnull,balance>0.00>
+<venda_text id=site.email.body.balance_paid> <venda_balance> <venda_ohcur>
+
+</venda_block label=181>
+<venda_block label=65,storecredit>0.00,storecredit=notnull>
+<venda_text id=site.email.body.store_credit_remaining> <venda_storecredit> <venda_ohcur>
+
+</venda_block label=65>
+</venda_block label=70>
+
+
+<venda_block label=62,coupons=notnull>
+<venda_text id=site.email.body.promotions_included>
+
+<venda_detail3>
+
+</venda_block label=62>
+
+
+
+<venda_text id=site.email.can_receipt.msg5><cr>
+
+<venda_text id=site.email.can_receipt.msg6> service@anthropologie.eu <venda_text id=site.email.can_receipt.msg7><cr><cr>
+
+
+
+<venda_inctemplate name=textEmailFooter,type=includes>

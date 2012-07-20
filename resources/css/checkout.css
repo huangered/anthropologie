@@ -1,0 +1,298 @@
+/********************************************/
+/* form elements (mostly on checkout pages) */
+/* ******************************************/
+
+#checkout {
+		width: 980px;
+}
+#checkout .checkoutorcfL, #checkout .checkoutorfnL {float:left;width:560px;}
+#checkout .checkoutL {width:786px;float:right;}
+#checkout .checkoutorcfR, #checkout .checkoutorfnR {float:right;width:388px;}
+#checkout .checkoutR {width:185px;float:left;}
+#checkout .checkoutR ul, 
+.Lcat_myaccountnav ul{
+		margin: 0 10px;
+		padding:0 0 10px 0;
+}
+#checkout .checkoutR ul li{margin-bottom: 7px;}
+#checkout .addressbook{width: 940px; padding: 10px 10px 0 10px;}
+
+/*Generic styles*/
+#checkout table.wizrtable {width:100%;border-collapse:collapse;}
+#checkout table.wizrtable td, #checkout table.wizrtable th {padding:5px;}
+#checkout .orderitems table.wizrtable {width:100%;}
+#checkout .orderitems .wizrtable td {border-top:1px solid #666;}
+#checkout .orderitems .wizrtable th {background-color:#666;color:#FFF;}
+
+#checkout label, #checkout input, #checkout select, .f-myformdetail label, .f-myformdetail input, .f-myformdetail select, .f-myformemail input, .f-myformemail select, .f-myformemail label{margin-bottom: 5px;}
+#myacc-col-two input, #myacc-col-two select {border: 1px solid #666666;}
+
+ul.Lustypelinks, p.Lwelcome {overflow:visible;}
+p.Lwelcome {border:none;}
+
+/*fonts-colors*/
+h2.balance, #additionalservices ul li a, #checkout #orderreceipt .checkoutorfnL a {color:#333333;}
+
+/*Text Dec*/
+#additionalservices ul li a, div.moreinfo a {text-decoration:underline;}
+
+/*Margins*/
+.checkoutorcfL div{margin:10px 0;}
+.checkoutorcfL #ordersummary tr div {margin:0;}
+div.Lcat_headingintro {margin-top:0;}
+#checkout .checkoutstepindicators {margin:10px;}
+
+#myacc-col-one {margin: 20px 0;}
+
+/*Checkout colors*/
+.Lcat_signincolumn, .Lcat_orbtcolumn, .checkoutL h1, div.Lcat_myaccountnav, #myacc-col-two h1, div.Lcat_editaddcolumn, .checkoutorcfL h1, .Lcat_basketcolumn div,.helpinfo,#checkout #orderreceipt h2,#checkout #orderreceipt h1, #checkout #orderconfirmation h2,.f-oradsaddbook {background-color: #666666;color:#FFF;}
+
+
+/*My Account*/
+#mainlayout-myaccount .Lcattree {display:none;}
+div.Lcat_myaccountnav ul{border-bottom: 1px solid #CCCCCC;padding-bottom: 5px;}
+div.Lcat_myaccountnav ul li a {color:#FFFFFF;}
+div.Lcat_myaccountnav .reminderlinks ul{border: none;}
+div.Lcat_myaccountnav .Lmyacccontactdetails ul li.last {text-align:right;}
+
+#myacc-col-two .myaccpredictor {display:none;}
+.myaccpredictor .details {background:none;border:none; height:100px;}
+.myaccpredictor {margin-top:20px;}
+.myaccpredictor .image {margin-top:5px;}
+
+/*addcontactaddress*/
+.addcontactaddress h1, #myacc-col-two h1{margin-bottom:25px;}
+.addcontactaddress p, #myacc-col-two p,ul#orders_list{margin-left:15px;}
+.addcontactaddress form fieldset, fieldset.f-myformdetail , fieldset.f-myformemail {margin-left: 5px;}
+.reminderBox {margin-left:15px;}
+
+.containeroradeditadd p {margin-left:15px;}
+
+div#tlusermyform fieldset {margin-left:15px;}
+#tlusermyform #buttons {margin-left:10px;}
+fieldset#myformcommoption p {margin-left:0;}
+
+#checkout input#email{margin-bottom:0;}
+
+/*Order confirm and Receipt*/
+div.moreinfo a {margin-top:16%;margin-right:10px;}
+.deliveryrate {clear:both;}
+.deliveryrate .moreinfo {margin-top:-15px;}
+
+#contactdetails p, .deliveryaddress p, .deliveryrate ul{margin:10px;}
+#contactdetails a, .deliveryaddress a {margin-left:5px;position:absolute;top:0;right:0;}
+#ordersummary, .details {border-left:3px solid #666666;border-right:3px solid #666666;border-bottom:3px solid #666666;}
+#ordersummary, .details {background-color:#cccccc;}
+#ordersummary table div, .details div{margin-top:0;}
+
+/*This style is here because IE 6, 7, 8... are rubbish */
+#ordersummary table th.hdrSubTotal,#ordersummary table th.hdrDelivery,#ordersummary table th.hdrOrderTotal {text-align:left;}
+
+#paymentdetails .f-payment_details img {margin-bottom:10px;}
+#paymentdetails .f-payment_details label {width:33%;float:left;}
+#paymentdetails label, #paymentdetails .credit label {width:88%;float:right;}
+
+#checkout #paymentdetails a, #checkout #orderreceipt .checkoutorfnL a {text-decoration:underline;}
+#checkout #paymentdetails a:active, 
+#checkout #paymentdetails a:focus, 
+#checkout #orderreceipt .checkoutorfnL a:active, 
+#checkout #orderreceipt .checkoutorfnL a:focus {color:#666;}
+
+.helpinfo h2 {color:#FFF;font-weight:bold;}
+.helpinfo ul {padding:0 0 10px 10px;}
+.helpinfo ul li a{color:#ffffff;}
+
+#additionalservices ul {}
+#additionalservices li {text-align:left;margin-top:5px;}
+
+.Lcat_deliveryoptions {display:none;}
+.deliveryrate ul li, .Lcat_deliveryoptions a {color:#333333;}
+#contactdetails p span.addrName, .deliveryaddress p span.addrName strong {font-weight:bold;text-transform:capitalize;}
+
+/*Order Confirm*/
+#orderconfirmation th.hdrOrderTotal, #orderconfirmation td.ordertotal {background:#CCCCCC none repeat scroll 0 0;}
+#checkout .checkoutorfnL .deliveryaddress {margin-top:10px}
+.switchsolo {margin-bottom:5px;}
+#checkout fieldset input#dontsavecc {margin-right:10px;}
+#checkout #paymentdetails fieldset label a {float:right;}
+#checkout #orderconfirmation .final {float:right;font-size:0.8em;}
+
+/*Order Receipt*/
+#checkout .checkoutorfnL p {margin-left:15px;}
+#checkout span.printicon {margin-left:10px;}
+#checkout #orfnfeatured {display:none;}
+#checkout #ordersummary th.hdrOrderTotal,#checkout #ordersummary td.ordertotal div {font-weight:bold;}
+#checkout #ordersummary td.includingVat {font-size:0.9em;}
+#checkout .checkoutorfnR #paymentdetails p {text-align:center;}
+
+.myaccpredictor h2 {background-color:#666666;border:0pt none;color:#FFFFFF;font-size:1.3em !important;margin:5px 0pt;padding:5px 0pt 5px 4px !important;text-decoration:none;}
+.myaccpredictor li, #relatedbasket li {float:left; margin:10px 0 0 0; padding:0;text-align:center; width:178px;}
+.myaccpredictor ul li p, #relatedbasket ul li p{margin:0!important;padding:0!important;}
+.myaccpredictor ul li h3, #relatedbasket ul li h3 {padding-left:0!important;}
+#relatedbasket .details {background-color:#ffffff; border:none; margin-bottom:10px;}
+#relatedbasket p.moreinfo a {text-align:center; margin:0 0 0 60px;}
+/*********************************************/
+/* MY ACCOUNT */
+/*********************************************/
+.bt-gobackmyacc {margin-left: 8px;}
+div.signin h1 {background-color: #666; color: #fff; font-size: 1.3em !important; padding: 5px 0 5px 4px; margin: 0; border: 0; text-decoration: none;}
+
+
+.addressbook h1 {background-color:#666666;border:0pt none;color:#FFFFFF;font-size:1.3em !important;margin:5px 0pt 0pt;padding:5px 0pt 5px 4px;text-decoration:none;}
+h2.balance {text-align:center;padding:5px 0;margin-bottom:6px;}
+
+/*********************************************/
+/* CSS for CHECKOUT STEP INDICATOR */
+/*********************************************/
+ul.Lcheckoutstepindicators li {margin:0 0 0 10px;display: inline;font-size:1.2em;}
+ul.Lcheckoutstepindicators li:first-child {margin:0;}
+	
+li.checkoutStep4,li.checkoutStep3,li.checkoutStep2,li.checkoutStep1,li.checkoutBasket,li.checkoutLogin {color:#333333;}
+li.checkoutStep4On,li.checkoutStep3On,li.checkoutStep2On,li.checkoutStep1On,li.checkoutBasketOn,li.checkoutLoginOn {font-weight:bold;color:#333333;}
+
+/*******************/
+/* POSTCODE LOOKUP */
+/******************/
+.pclookup a span {cursor:pointer;}
+.pclookup a:hover {text-decoration:none;}
+
+/*******************/
+/* LOGIN */
+/*******************/
+div.signin h1 {background-color: #666; color: #fff; font-size: 1.3em !important; padding: 5px 0 5px 10px; margin: 0 0 0 5px; border: 0; text-decoration: none;}
+legend.loginemail {display: none;}
+fieldset.f-loginemail div {margin:10px 0;}
+.dontFloat {float:none;width:auto;}
+.container {background:none;}
+.container h1 {margin:0 0 0 5px; padding:5px 0 5px 10px;}
+.container fieldset {padding:0 0 0 15px;}
+
+/* Login 2 Columns Style */
+div.signin_2cols .signininstruction{margin:20px 0 5px 15px;}
+div.signin_2cols form {_width:335px;}
+div.signin_2cols form#loginform {float:left;}
+div.signin_2cols form#secondloginform{float:right;}
+div.signin_2cols fieldset {padding:0 0 0 5px;}
+div.signin_2cols fieldset label {/*margin-left:15px;*/width:33%;}
+
+div.signin_2cols fieldset.f-loginiam div {clear:none;}
+div.signin_2cols fieldset.f-loginiam label{margin-left:0;}
+
+/* New Customer Box */
+div.signin_2cols fieldset.f-loginiam .notregister {float:left;background:#F5F5F6;height:180px;width:350px;position:relative;}
+div.signin_2cols fieldset.f-loginiam .notregister h2 {background:#ccc;margin-bottom:5px;}
+div.signin_2cols .notregistertxt {margin-top:7px;}
+
+/* Returning Customer Box */
+div.signin_2cols fieldset.f-loginiam .registered {float:left; background:#F5F5F6; width:345px; height:180px; margin-left:10px;}
+div.signin_2cols fieldset.f-loginiam .ctype {margin:37px 0 0 0;}
+*:first-child+html div.signin_2cols fieldset.f-loginiam .ctype {margin-top:40px;}
+div.signin_2cols fieldset.f-loginiam .ctype #buttons {margin:20px 0 0 0;}
+div.signin_2cols fieldset.f-loginiam .registered h2 {background:#ccc;margin-bottom:5px;}
+div.signin_2cols fieldset.f-loginiam .registered .passtxt {display:block;}
+div.signin_2cols fieldset label#lLoginEmail {margin:0 0 0 15px;width:50px;padding:0 0 0 15px;}
+div.signin_2cols fieldset input#email {width:209px;}
+div.signin_2cols fieldset .registered label#lLoginPassword{margin:5px 0 0 15px;width:auto;padding:0 0 0 15px;}
+div.signin_2cols fieldset .registered #password{margin-top:5px;margin-left:5px;float:left;width:200px;}
+div.signin_2cols #lLoginPassword {float:left;}
+div.signin_2cols .forgottenpassword {padding:10px 0 10px 0;width:100%;float:left;text-align:right;}
+div.signin_2cols .forgottenpassword a {color: #666666;padding-right:16px;}
+div.signin_2cols .notregister .notregisterbtn {bottom:10px;position:absolute;right:0;}
+
+div.signin_2cols input, div.signin_2cols p, div.signin_2cols .notregistertxt {margin-left:10px; margin-right:15px;}
+
+div.signin_2cols .expresscheckout h2 {background:#CCCCCC; margin-bottom:20px; width:100%; }
+div.signin_2cols .expresscheckout {background:#F5F5F6; padding-bottom:20px; margin:10px 0 0 5px; float:left;overflow:hidden; width:710px;}
+div.signin_2cols .expresscheckout #buttons img {padding-right:13px;}
+div.signin .expresscheckout h2 {background:#666666; padding-left:10px; margin: 0 0 5px 5px;font-size:1.3em;}
+div.signin .expresscheckout p {clear:both; padding-left:15px;}
+
+
+/*******************/
+/* BASKET */
+/********************/
+#yourbasket {margin:0 0 10px 0;}
+#yourbasket h1 {background-color:transparent;color:#000;font-weight:bold;}
+#yourbasket div.ordertable {margin: 5px 0;}
+#yourbasket .wizrtable thead tr th, #yourbasket .wizrtable tbody tr td, .orderitems .wizrtable thead tr th {text-align: center;}
+#yourbasket .wizrtable thead tr th {padding:5px 0 5px 0;background-color:transparent;color:#000;}
+#yourbasket .wizrtable thead tr th.name, #yourbasket .wizrtable tbody tr td.name, .orderitems .wizrtable tbody tr td.name, .orderitems .wizrtable thead tr th.name, .orderitems .wizrtable thead tr th.thumb, .orderitems .wizrtable tbody td.thumb {text-align:left;}
+#yourbasket .wizrtable thead tr th.totalprice, .orderitems .wizrtable tbody tr th.totalprice {/*padding-left:2%;*/}
+#yourbasket .wizrtable tbody tr td.totalprice, .orderitems .wizrtable tbody tr td.priceeach, .orderitems .wizrtable tbody tr td.quantity, .orderitems .wizrtable tbody tr td.totalprice, .orderitems .wizrtable thead tr th.status {text-align: center;}
+#yourbasket .wizrtable tbody tr.orsctotal th {text-align:left;padding-left:5px;margin-top:5px;}
+tr.orsctotal th, tr.orsctotal td {background-color:#666666;color:#ffffff}
+#yourbasket tr.orsctotal th, #yourbasket tr.orsctotal td {font-size:1.2em;font-weight:bold;}
+#yourbasket .wizrtable thead tr th.thumb, #yourbasket .wizrtable tbody tr td.thumb {text-align:left; padding-left:5px;}
+#yourbasket .wizrtable tbody tr td {padding:5px 0 5px 0;}
+#yourbasket .wizrtable .quantity input {text-align:center;}
+.orderdetails tr td{padding:0;}
+
+#buttons .btContinueShopping {/*padding-right: 33%*/}
+#yourbasket #buttons .btUpdateBasket {text-align:right;width:auto;margin-left:432px;}
+#yourbasket form p.paymentInstructions {text-align:right; margin:0 10px 0 78%;}
+
+.containerorscempty p{padding:0 0 0 16px;}
+
+/*******************/
+/* Order Summary */
+/********************/
+#orderconfirmation .deliveryaddress {position:relative;}
+#orderconfirmation #ordersummary .hdrOrderTotal, #orderconfirmation #ordersummary .ordertotal {background-color:#666;color:#FFF;}
+#orderconfirmation #paymentdetails {background-color:#CCC;border:3px solid #666;margin-top:10px;}
+#orderconfirmation #paymentdetails .f-payment_details {padding:10px;}
+#orderconfirmation #paymentdetails #ohccnum, #orderconfirmation #paymentdetails #ohccname {width:177px;}
+#orderconfirmation #paymentdetails #ohcccsc, #orderconfirmation #paymentdetails #ohccissue {width:50px;}
+#orderconfirmation #paymentdetails #startdateshow select,
+#orderconfirmation #paymentdetails #expiryshow select {width:80px;margin-right:19px;}
+#orderconfirmation #contactdetails {position:relative;}
+#orderconfirmation #additionalservices  {overflow:hidden;}
+#orderconfirmation #additionalservices h2 {display:none;}
+#orderconfirmation #additionalservices ul li {float:left;background-color:#333;padding:12px 0;text-align:center;}
+#orderconfirmation #additionalservices ul li a {color:#FFF;text-decoration:none;}
+#orderconfirmation #additionalservices .redeemgift {display:none;}
+#orderconfirmation #additionalservices .coupon {float:right;width:176px;}
+#orderconfirmation #additionalservices .giftwrap {float:left;width:156px;}
+#orderconfirmation .checkboxterms {float:left;width:225px;padding:20px 0;}
+#orderconfirmation .checkboxterms label, #orderconfirmation .checkboxterms input {float:left;}
+#orderconfirmation .checkboxterms label.termsLabel {width:200px;margin:2px 0 0 5px;}
+#orderconfirmation .checkboxterms label.termsLabel a {text-decoration:underline;}
+#orderconfirmation .orxfieldsset {width:100%;}
+#orderconfirmation .orxfieldsset label {padding:5px 0;margin:0;}
+#orderconfirmation .orxfieldsset input {width:400px;margin:0;}
+#orderconfirmation .helpinfo {clear:both;}
+#orderconfirmation .buttonsRight {float:right;width:160px;padding-top:20px;}
+
+/*Order History*/
+#paymentdetails_orlk table {margin-left:15px;}
+#paymentdetails_orlk h2 {display:none;}
+#paymentdetails h2 {display:block;}
+#orderdetail tr div {margin:0;}
+#orderdetail table div, .ohSumDetail div{margin-top:0;}
+#orderdetail .ohSumDetail h2, #orderdetail #paymentdetails h2, #orderdetail #contactdetails_orlk h2, #orderdetail .deliveryaddress h2, #orderdetail .orderitems h2 {background:#666666;}
+#orderdetail .ohSumDetail {border-left:3px solid #666666; border-right:3px solid #666666;border-bottom:3px solid #666666;}
+#orderdetail .ohSumDetail {background-color:#cccccc;}
+#orderdetail th.hdrOrderTotal, #orderdetail td.ordertotal div {font-weight:bold;}
+#orderdetail td.includingVat {font-size:0.9em;}
+.ohListVoucher .hdrPromotion {width:545px;}
+
+/* PayPal button styles */
+.paymentInstructions {clear:both;}
+.paypalselecttext {text-align:right; padding-right:10px;}
+.paypalbtn {float:right; display:block; clear:both;}
+
+/* instore/wes styles for search form and results */
+#searchUser h2, #searchResults h2 {margin:0;padding:5px 0pt 5px 4px;border-color:#000000;background-color:#666666;color:#FFFFFF;font-size:1.5em;}
+#searchResultsTable {height:150px;overflow:auto;}
+#searchResultsTable th, #searchResultsTable td {padding:2px 8px;}
+#searchResults a {cursor:pointer;}
+
+/*Gift Wrap*/
+#checkout #giftwrap{margin:0 10px;}
+.wizrtable_wrap {margin:0 20px;}
+#checkout #giftwrap p {margin:0.5em 20px;}
+
+/*Footer*/
+#Lsocialbookmarking {display:none;}
+
+#yourbasket .sku, #orderconfirmation .sku, #orderreceipt .sku,  #orderdetail .sku {display:block;}
+#orderhistory .sku{display:none;}

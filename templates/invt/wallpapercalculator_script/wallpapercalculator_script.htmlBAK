@@ -1,0 +1,174 @@
+var totalFeet = 30;
+var totalInches = 11;
+var totalWalls = 15;
+var wallSizesARR = new Array();
+
+function initCalc(){
+	$('summaryPaperName').innerHTML = "";
+	//$('wlprCalcWrapper').style.height = "525px";
+	//$('wlprCalcWrapper').style.width = "428px";
+	buildWallOptions(4);
+}
+function buildPaperList(){
+	var tempHTML = "<option value=\"\">choose paper</option>";
+	for(var x = 0;x < wlprARR.length; x++){
+		tempHTML += "<option value=\"" + wlprARR[x][0] + "\">" + wlprARR[x][1] + "</option>";
+	}
+	document.write(tempHTML);
+}
+function updateSpecs(){
+	if($('wlprCalcPaper').value != ""){
+		for(var x = 0; x < wlprARR.length; x++){
+			if(wlprARR[x][0] == $('wlprCalcPaper').value){
+				$('paperPrice').value = wlprARR[x][2];
+				$('paperLength').value = wlprARR[x][3];
+				$('paperWidth').value = wlprARR[x][4];
+				$('patternRepeat').value = wlprARR[x][5];
+			}
+		}
+	}
+}
+function adjustCalc(){
+	var screenHeight,screenWidth,tempTop,tempLeft;
+	if (parseNavOBJ("userAgent","MSIE")){screenWidth = document.body.offsetWidth;screenHeight = document.body.offsetHeight;}
+	else{screenWidth = window.innerWidth;screenHeight = window.innerHeight;}
+	tempTop = (screenHeight/2)-(parseInt($('wlprCalcWrapper').style.height.substring(0,$('wlprCalcWrapper').style.height.indexOf("px")))/2);
+	tempLeft = (screenWidth/2)-(parseInt($('wlprCalcWrapper').style.width.substring(0,$('wlprCalcWrapper').style.width.indexOf("px")))/2);
+	
+	if (parseNavOBJ("userAgent","MSIE")){tempTop = tempTop - 200;}
+	
+	if(tempTop > 0){$('wlprCalcWrapper').style.top = tempTop + "px";}
+	else{$('wlprCalcWrapper').style.bottom = (tempTop * -1) + "px";}
+	if(tempLeft > 0){$('wlprCalcWrapper').style.left = tempLeft + "px";}
+	else {$('wlprCalcWrapper').style.right = (tempLeft * -1) + "px";}
+}
+function showCalc(){
+	adjustCalc();
+	if (parseNavOBJ("userAgent","MSIE")){
+		$('wlprCalcRmFeet').outerHTML = "<select id=\"wlprCalcRmFeet\" class=\"typeText\">" + buildFeetSelect("") + "</select>";
+		$('wlprCalcRmInches').outerHTML = "<select id=\"wlprCalcRmInches\" class=\"typeText\">" + buildInchesSelect("") + "</select>";
+		$('wlprCalcWlsNmbr').outerHTML = "<select id=\"wlprCalcWlsNmbr\" class=\"typeText\" onChange=\"buildWallOptions()\">" + buildWallsSelect("") + "</select>";
+		$('wlprCalcCurtain').style.height = document.body.offsetHeight + document.body.offsetTop + "px";
+		$('wlprCalcCurtain').style.width = document.body.offsetWidth + document.body.offsetLeft + "px";
+	}
+	else{$('wlprCalcCurtain').style.height = window.innerHeight + window.scrollMaxY + "px";}
+	$('wlprCalcCurtain').style.display = "block";
+	$('wlprCalcWrapper').style.visibility = "visible";
+	buildWallOptions(4);
+	$('wlprCalcRmFeet').value = 8;
+}
+function buildFeetSelect(returnType){
+	var tempHTML = "";
+	for(var x = 0; x < totalFeet;x++){
+		if(arguments.length > 1){
+			if(arguments[1] == x){tempHTML += "<option value=\"" + x + "\" selected>" + x + " ft.</option>";}
+			else{tempHTML += "<option value=\"" + x + "\">" + x + " ft.</option>";}
+		}
+		else{tempHTML += "<option value=\"" + (x+1) + "\">" + (x+1) + " ft.</option>";}
+	}
+	if(returnType == "inline"){document.write(tempHTML);}
+	else{return tempHTML;}
+}
+function buildInchesSelect(returnType){
+	var tempHTML = "";
+	for(var x = 0; x <= totalInches;x++){
+		if(arguments.length > 1){
+			if(arguments[1] == x){tempHTML += "<option value=\"" + x + "\" selected>" + x + " in.</option>";}
+			else{tempHTML += "<option value=\"" + x + "\">" + x + " in.</option>";}
+		}
+		else{tempHTML += "<option value=\"" + x + "\">" + x + " in.</option>";}
+	}
+	if(returnType == "inline"){document.write(tempHTML);}
+	else{return tempHTML;}
+}
+function buildWallsSelect(returnType){
+	var tempHTML = "";
+	for(var x = 0; x <= totalWalls;x++){tempHTML += "<option value=\"" + (x+1) + "\">" + (x+1) + "</option>";}
+	if(returnType == "inline"){document.write(tempHTML);}
+	else{return tempHTML;}
+}
+function buildWallOptions(){
+	var totalWalls;
+	var tempHTML = "";
+	var wallSizeStyle = "wallSize";
+	if(parseNavOBJ("userAgent","Safari")){wallSizeStyle = "wallSizeSF";}
+	if(arguments.length == 0){totalWalls = $('wlprCalcWlsNmbr').value;}
+	else{$('wlprCalcWlsNmbr').value = arguments[0];totalWalls = arguments[0];}
+	if(totalWalls > 4){$('wallSizeCTNR').style.overflow = "auto";}
+	else{$('wallSizeCTNR').style.overflow = "hidden";}
+	for(var x = 1;x <= totalWalls;x++){
+		if(wallSizesARR[x] == undefined){wallSizesARR[x] = new Array(1,0);}
+		
+		tempHTML += "<div id=\"wall" + x + "\" class=\"" + wallSizeStyle + "\"><div class=\"wallSizeLabel\">wall " + x + " width";
+		if(x < 10){tempHTML += " . . . . . . . . .";}
+		else{tempHTML += " . . . . . . . .";}
+		tempHTML += "</div>";
+		tempHTML += "<div class=\"wallSizeSelect\"><select id=\"wall" + x + "FeetSelect\" class=\"typeText\" onChange=\"updateWallSizeCache(" + x + ",'f',this.value);\">";
+		
+		tempHTML += (wallSizesARR[x][0] != undefined) ? buildFeetSelect('',wallSizesARR[x][0]) : buildFeetSelect('');
+		
+		tempHTML += "</select></div>";
+		tempHTML += "<div class=\"wallSizeSelect\"><select id=\"wall" + x + "InchesSelect\" class=\"typeText\" onChange=\"updateWallSizeCache(" + x + ",'i',this.value);\">";
+
+		tempHTML += (wallSizesARR[x][1] != undefined) ? buildInchesSelect('',wallSizesARR[x][1]) : buildInchesSelect('');
+		
+		tempHTML += "</select></div>";
+		tempHTML += "</div>";
+	}
+	$('wallSizeCTNR').innerHTML = "<form>" + tempHTML + "</form>"; 
+}
+function updateWallSizeCache(wNmbr,wDim,wValue){
+	var myRow = (wDim == "f") ? 0 : 1;
+	wallSizesARR[wNmbr][myRow] = wValue;
+}
+function getTotalRolls(){
+	var totalPatterns;
+	var totalRollsNeeded = 0;
+	var totalCols = 0;
+	var roomHeight = parseInt($('wlprCalcRmFeet').value) + (parseInt($('wlprCalcRmInches').value)/12);
+	var totalWalls = $('wlprCalcWlsNmbr').value;
+	var rollLength = $("paperLength").value;
+	var rollWidth = $("paperWidth").value;
+	var patternHeight = $("patternRepeat").value;
+	var totalRows = Math.ceil(roomHeight/(patternHeight/12));
+	var totalRollPatterns = rollLength/(patternHeight/12);
+	for(var x = 0;x < totalWalls;x++) {
+		var roomWidth,wallCols;
+		var wallFeetSelect = 'wall' + (x+1) + 'FeetSelect';
+		var wallInchesSelect = 'wall' + (x+1) + 'InchesSelect';
+		roomWidth = parseInt($(wallFeetSelect).value) + (parseInt($(wallInchesSelect).value)/12);
+		wallCols = Math.ceil(roomWidth/(rollWidth/12));
+		totalCols += wallCols;
+	}
+	totalPatterns = totalCols * totalRows;
+	totalRollsNeeded = totalPatterns/totalRollPatterns;
+	totalRollsNeeded = Math.ceil(totalRollsNeeded);
+	$('summaryQuantityValue').innerHTML = totalRollsNeeded;
+	$('summaryPriceValue').innerHTML = '$' + (totalRollsNeeded * $("paperPrice").value);
+	totalRollsNeeded = 0;
+}
+function addRollsToBag(){
+	var qtyInput = $$('#p_qty input.qty')[0];
+	qtyInput.value = parseInt($('summaryQuantityValue').innerHTML);
+	addItemToBag();
+	if($('wlprCalcAddButtonActor')){$('wlprCalcAddButtonActor').removeEventListener("click",function(){},false);}
+}
+function closeWlprCalc(){
+	$('wlprCalcWrapper').style.visibility = "hidden";
+	$('wlprCalcCurtain').style.display = "none";
+}
+function resetCalc(){
+	$('summaryQuantityValue').innerHTML = "";
+	wallSizesARR.length = 0;
+	buildWallOptions(4);
+	$('wlprCalcRmFeet').value = 8;
+}
+function parseNavOBJ(index,value,response){
+	var myNavARR = new Array();
+	for(attribs in navigator){myNavARR[attribs] = navigator[attribs];}
+	if(myNavARR[index].indexOf(value) != -1){
+		if(response != 1){return myNavARR[index];}
+		else{return true;}
+	}
+	else{return false;}
+}

@@ -1,0 +1,26 @@
+<script type="text/javascript">
+var imageURL = "";
+
+<venda_block label=10,mode=value,<venda_protocol>=http>var protocol = "http://";</venda_block label=10>
+<venda_block label=11,mode=value,<venda_protocol>=https>var protocol = "https://";</venda_block label=11>
+<venda_block label=101,invtivtype=accessories,invtivtype=apparel,invtivtype=shoes,invtivtype=home,invtivtype=family,invtivtype=giftcard,invtivtype=wallpaper,operator=or>var slot = "_b";</venda_block label=101>
+<venda_block label=102,invtivtype!=accessories,invtivtype!=apparel,invtivtype!=shoes,invtivtype!=home,invtivtype!=family,invtivtype!=giftcard,invtivtype!=wallpaper>var slot = "_a";</venda_block label=102>
+
+for (var obj in attributeData){
+	for (var each in attributeSwatchImage) {
+		if (typeof(attributeData[obj].attr) == "object"){
+			if (attributeData[obj].attr.att1 == attributeSwatchImage[each].attr){
+				imageURL = attributeSwatchImage[each].imageURL;
+			}
+		}
+	}
+	if (typeof(attributeData[obj].attr) == "object") {
+		allItems["<venda_invtuuid>"].loadImage(attributeData[obj].attr.att1,{
+			setswatch: imageURL,
+			setimage: protocol+"images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_"+attributeData[obj].detail.atrsuplsku+slot+"?$uk_category_thumb$&defaultImage=/Anthropologie/spacer"
+		});
+	}
+}
+allItems['<venda_invtuuid>'].displaySwatch();
+allItems['<venda_invtuuid>'].selectFirstAtt(allItems["<venda_invtuuid>"]);
+</script>

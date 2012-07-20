@@ -1,0 +1,10 @@
+==============================================================================<cr>
+<venda_text id=site.email.update_details.title1><cr>
+==============================================================================<cr><cr>
+
+<venda_inctemplate name=textEmailHeader2,type=includes>
+
+<venda_text id=site.email.update_details.body.msg1><cr><cr>
+<venda_text id=site.email.update_details.body.msg2> <venda_ebizemail>.<cr><cr>
+
+<venda_inctemplate name=textEmailFooter,type=includes>

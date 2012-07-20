@@ -1,0 +1,256 @@
+<script type="text/javascript">
+function wc_init() {
+
+      wc_unitList = ['wallHeight', 'roomWidth', 'roomLength', 'doorHeight', 'doorWidth', 'windowHeight', 'windowWidth', 'rollWidth', 'rollLength'];
+      wc_unitType = 'metric';
+      if (findObj('wc_units')) wc_unitType = findObj('wc_units').options[findObj('wc_units').selectedIndex].value;
+   }
+   var wc_unitList;
+   var wc_unitType;
+   
+   function wc_calc() {
+      wc_parse();
+      // get total area:
+      var wc_areaTotal = (2 * wc_wallHeight * wc_roomWidth) + (2 * wc_wallHeight * wc_roomLength);
+      // subtractable:
+      var wc_areaDoors = wc_doorNumber * wc_doorHeight * wc_doorWidth;
+      var wc_areaWindows = wc_windowNumber * wc_windowHeight * wc_windowWidth;
+      // actual area:
+      var wc_areaActual = wc_areaTotal - wc_areaDoors - wc_areaWindows;
+      // roll area:
+      var wc_areaRoll = wc_rollWidth * wc_rollLength;
+      // number of rolls:
+      var wc_rolls = wc_areaActual / wc_areaRoll;
+      // wastage:
+      wc_rolls *= (100 + wc_rollWaste) / 100;
+      // 'rounding':
+      wc_rolls = Math.ceil(wc_rolls);
+      // cost:
+      wc_cost = wc_rolls * wc_rollCost;
+      // output:
+      findObj('wc_output_noof').value = wc_rolls;
+      findObj('wc_output_cost').value = pad0(wc_cost);
+      // return false:
+      return false;
+   }
+   function wc_parse() {
+      for (var i = 0; i < wc_unitList.length; i++) {
+         var unt = wc_unitList[i];
+         eval('wc_' + unt + '1 = Number(findObj(\'wc_' + unt + '1\').value)');
+         eval('wc_' + unt + '2 = Number(findObj(\'wc_' + unt + '2\').value)');
+      }
+      // non "unitified" calculations:
+      wc_doorNumber = Number(findObj('wc_doorNumber').value);
+      wc_windowNumber = Number(findObj('wc_windowNumber').value);
+      wc_rollCost1 = Number(findObj('wc_rollCost1').value);
+      wc_rollCost2 = Number(findObj('wc_rollCost2').value);
+      wc_rollWaste = Number(findObj('wc_rollWaste').value);
+      if (isImperial()) {
+         for (var i = 0; i < wc_unitList.length; i++) {
+            var unt = wc_unitList[i];
+            eval('wc_' + unt + '2 = wc_' + unt + '2 * 25 / 3');
+         }
+      }
+      for (var i = 0; i < wc_unitList.length; i++) {
+         var unt = wc_unitList[i];
+         eval('wc_' + unt + ' = wc_' + unt + '1 + wc_' + unt + '2/100;');
+      }
+      // non "unitified" calculations:
+      wc_rollCost = wc_rollCost1 + wc_rollCost2 / 100;
+   }
+   function switchImperial() {
+      var wc_unitTemp = findObj('wc_units').options[findObj('wc_units').selectedIndex].value;
+      if (isImperial() == (wc_unitTemp == 'imperial')) {
+         // hasn't changed, return:
+         return;
+      }
+      wc_parse();
+      // convert values:
+      for (var i = 0; i < wc_unitList.length; i++) {
+         if (isImperial()) {
+            eval('wc_' + wc_unitList[i] + ' *= 0.3048');
+         } else {
+            eval('wc_' + wc_unitList[i] + ' *= 3.2808');
+         }
+      }
+      // change setting:
+      wc_unitType = wc_unitTemp;
+      // output new values:
+      for (var i = 0; i < wc_unitList.length; i++) {
+         var tmp1 = Math.floor(eval('wc_' + wc_unitList[i]));
+         //alert(tmp1);
+         var tmp2 = 100 * (eval('wc_' + wc_unitList[i]) - tmp1);
+         if (isImperial()) {
+            // convert to Inches instead of decimal:
+            tmp2 *= 12 / 100;
+            tmp2 = Math.round(tmp2);
+            //if ( i == 0 ) alert(tmp2);
+            if (tmp2 >= 12) {
+               tmp1 += Math.floor(tmp2 / 12);
+               tmp2 = tmp2 - 12 * Math.floor(tmp2 / 12);
+            }
+         } else {
+            tmp2 = 100 * Math.round(tmp2 / 100);
+            if (tmp2 >= 100) {
+               tmp1 += Math.floor(tmp2 / 100);
+               tmp2 = tmp2 - 100 * Math.floor(tmp2 / 100);
+            }
+         }
+         findObj('wc_' + wc_unitList[i] + '1').value = tmp1;
+         findObj('wc_' + wc_unitList[i] + '2').value = tmp2;
+      }
+      // update unit display:
+      for (var i = 0; i < wc_unitList.length; i++) {
+         var span1 = findObj('wc_' + wc_unitList[i] + '1_units');
+         var span2 = findObj('wc_' + wc_unitList[i] + '2_units');
+         if (isImperial()) {
+            span1.innerHTML = 'Feet';
+            span2.innerHTML = 'Inches';
+         } else {
+            span1.innerHTML = 'Meters';
+            span2.innerHTML = 'CM';
+         }
+      }
+   }
+   function isImperial() {
+      return (wc_unitType == 'imperial');
+   }
+   function findObj(str) {
+      if (document.getElementById) return document.getElementById(str);
+      if (document.all) return document.all[str];
+      var f = document.forms;
+      if (f) for (var i = 0; i < f.length; i++) if (f[i][str]) return f[i][str];
+      return false;
+   }
+   function pad0(n) {
+      n = String(Math.round(n * 100) / 100);
+      a = n.split('.');
+      if (a.length == 1) a[1] = '';
+      while (a[1].length < 2) a[1] = a[1] + '0';
+      return a.join('.');
+   }
+   //BJ's Functions to show/hide advanced/standard		
+   function switchid(divstatus) {
+      if (divstatus == 'show') {
+         showhidediv('wc_advanced_1', 'block');
+         showhidediv('wc_advanced_2', 'block');
+         showhidediv('wc_advanced_3', 'block');
+         showhidediv('wc_advanced_4', 'none');
+         showhidediv('wc_advanced_5', 'block');
+      }
+      else {
+         showhidediv('wc_advanced_1', 'none');
+         showhidediv('wc_advanced_2', 'none');
+         showhidediv('wc_advanced_3', 'none');
+         showhidediv('wc_advanced_4', 'block');
+         showhidediv('wc_advanced_5', 'none');
+      }
+   }
+   function showhidediv(id, disp_style) {
+
+      if (document.getElementById) {
+         document.getElementById(id).style.display = disp_style;
+      }
+   }
+
+</script>
+
+<div>
+   <form id="wallpapercalc" name="wallpapercalc">
+   <fieldset>
+      <div class="ow-grp-head">
+         ROOM</div>
+      <div class="ow-wpc-sect">
+         <label for="wc_units" style="display:none;">Unit of Measurement</label>
+         <select style="border: 1px solid rgb(156, 208, 197); display:none;" onchange="switchImperial()" id="wc_units" name="wc_units">
+         <option selected="" value="metric">Meters &amp; CentiMeters</option>
+               <option value="imperial">Feet &amp; Inches</option>
+            </select><br>
+         <label for="wc_wallHeight1">Height of Wall:</label><input size="2" value="2" id="wc_wallHeight1" name="wc_wallHeight1">
+         <span id="wc_wallHeight1_units">Meters</span><input size="2" value="2" id="wc_wallHeight2" name="wc_wallHeight2">
+         <span id="wc_wallHeight2_units">CM</span><br>
+         <label for="wc_roomWidth1">Width of Room :</label><input size="2" value="4" id="wc_roomWidth1" name="wc_roomWidth1">
+         <span id="wc_roomWidth1_units">Meters</span><input size="2" value="4" id="wc_roomWidth2" name="wc_roomWidth2">
+         <span id="wc_roomWidth2_units">CM</span><br>
+         <label for="wc_roomLength1">Length of Room:</label><input size="2" value="4" id="wc_roomLength1" name="wc_roomLength1">
+         <span id="wc_roomLength1_units">Meters</span><input size="2" value="4" id="wc_roomLength2" name="wc_roomLength2">
+         <span id="wc_roomLength2_units">CM</span><br>
+         <br>
+         <div style="display: none;" id="wc_advanced_1">
+            <hr>
+            <label style="width: 100%;" for="wc_doorNumber">Doors:<br></label>
+            <span>Number of doors </span>
+            <input value="0" size="1" id="wc_doorNumber" name="wc_doorNumber">
+            <div style="padding-left: 50px;" class="wc_dimensions">
+            <label class="smallLabel" for="wc_doorHeight1">Height:</label>
+            <input size="1" value="0" id="wc_doorHeight1" name="wc_doorHeight1">
+            <span id="wc_doorHeight1_units">Meters</span>
+            <input size="1" value="0" id="wc_doorHeight2" name="wc_doorHeight2">
+            <span id="wc_doorHeight2_units">CM</span><label class="smallLabel" for="wc_doorWidth1">Width:</label>
+            <input size="1" value="0" id="wc_doorWidth1" name="wc_doorWidth1">
+            <span id="wc_doorWidth1_units">Meters</span>
+            <input size="1" value="0" id="wc_doorWidth2" name="wc_doorWidth2"><span id="wc_doorWidth2_units">CM</span></div>
+            <br>
+            <br>
+            <hr>
+            <label style="width: 100%;" for="wc_windowNumber">Windows:<br></label>
+            <span>Number of windows </span>
+            <input value="0" size="1" id="wc_windowNumber" name="wc_windowNumber">
+            <div style="padding-left: 50px;" class="wc_dimensions">
+            <label class="smallLabel" for="wc_windowHeight1">Height:</label>
+            <input size="1" value="0" id="wc_windowHeight1" name="wc_windowHeight1">
+            <span id="wc_windowHeight1_units">Meters</span>
+            <input size="1" value="0" id="wc_windowHeight2" name="wc_windowHeight2"><span id="wc_windowHeight2_units">CM</span><br>
+            <label class="smallLabel" for="wc_windowWidth1">Width:</label>
+            <input size="1" value="0" id="wc_windowWidth1" name="wc_windowWidth1">
+            <span id="wc_windowWidth1_units">Meters</span>
+            <input size="1" value="0" id="wc_windowWidth2" name="wc_windowWidth2">
+            <span id="wc_windowWidth2_units">CM</span></div>
+            <br>
+            <br>
+            <br>
+         </div>
+      </div>
+   </fieldset>
+   <div style="display: none;" id="wc_advanced_2">
+      <fieldset>
+         <div class="ow-grp-head">ROLL</div>
+         <div class="ow-wpc-sect">
+            <label for="wc_rollWidth1">Width of Roll :</label><input size="2" value="1" id="wc_rollWidth1" name="wc_rollWidth1">
+            <span id="wc_rollWidth1_units">Meters</span><input size="2" value="0" id="wc_rollWidth2" name="wc_rollWidth2"><span id="wc_rollWidth2_units">CM</span><br>
+            <label for="wc_rollLength1">Length of Roll :</label><input size="2" value="<venda_pdxtlength>" id="wc_rollLength1" name="wc_rollLength1">
+            <span id="wc_rollLength1_units">Meters</span><input size="2" value="0" id="wc_rollLength2" name="wc_rollLength2"><span id="wc_rollLength2_units">CM</span><br>
+            <label for="wc_cost_roll">Cost Per Roll (£):</label><input value="0" size="2" id="wc_rollCost1" name="wc_rollCost1">
+            <span id="wc_rollCost2_units">.</span><input value="00" size="2" id="wc_rollCost2" name="wc_rollCost2"><br>
+            <br>
+            <hr>
+            <label style="width: 100%;" for="wc_rollWaste">Wastage:</label>
+            <span>Please enter the estimated wastage (offcuts, etc)</span>
+            <input value="0" size="2" id="wc_rollWaste" name="wc_rollWaste"><span id="wc_rollWaste_units">%</span><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+         </div>
+      </fieldset>
+   </div>
+   <fieldset id="results">
+      <div class="ow-grp-head">RESULTS (Estimated)</div>
+      <div class="ow-wpc-sect"><label for="wc_output_noof">Number of Rolls:</label>
+      <input readonly="" size="6" id="wc_output_noof" name="wc_output_noof">
+      <div style="display: none;" id="wc_advanced_3">
+      <br>
+      <label for="wc_output_cost">Total Cost (£):</label>
+      <input readonly="" size="6" id="wc_output_cost" name="wc_output_cost"></div>
+      <input type="button" class="submit" onclick="wc_calc()" value="Calculate" id="wc_calculate" name="wc_calculate">
+      <br><br><br><br>
+      </div>
+   </fieldset>
+   </form>
+</div>
+<script type="text/javascript">
+<!--
+   wc_init();
+//-->
+</script>

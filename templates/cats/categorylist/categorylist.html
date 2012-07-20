@@ -1,0 +1,22 @@
+<div id="categorylist">
+<venda_category rec=elementcat,ref=categorylist>
+<div class="landingpage_categorylist"><venda_page page=<venda_icatref>lp></div>
+<venda_block errors=notnull><h2 class="error"><venda_errors></h2></venda_block>
+<venda_block label=13,mode=value,<venda_addedmsg msg=<venda_text id=site.addedmsg>>=notnull><p><venda_addedmsg msg=<venda_text id=site.addedmsg>></p></venda_block label=13>
+<venda_category rec=icat,ref=<venda_icatref>fp,temp=featprods,cacheall=1>
+</div>
+<style type="text/css">
+.Lcat_headerbtm a.mm_icat<venda_cattree index=1,value=catref> , .Lcat_headerbtm a.mm_icat<venda_cattree index=1,value=catref>:hover {color: #c33!important; background: url(<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/star.gif) no-repeat left 11px;}
+.Lcatnav ul li.nav<venda_cattree index=1,value=catref>, .Lcatnav ul li.nav<venda_cattree index=1,value=catref> li {display:block;}
+.Lcatnav ul li.nav<venda_cattree index=1,value=catref> li ul li ul {display:none;}
+.Lcatnav ul li.nav<venda_cattree index=3,value=catref> a {font-weight:bold; font-style:italic; color:#000;}
+<venda_block label=90,catref0!=shop>
+.Lcatnav ul li.nav<venda_cattree index=3,value=catref> ul {display:block !important;}
+.Lcatnav ul li.nav<venda_cattree index=3,value=catref> ul a {font-weight:normal; font-style:normal; color:#333;}
+</venda_block label=90>
+</style>
+
+<!-- tpxt used for showing the bestseller products based on current category -->
+<venda_tpxt mode=set,name=activepcatid,value=<venda_icatref>>
+<!-- pagination -->
+<venda_tpxt mode=set,name=track,value=categorylist>

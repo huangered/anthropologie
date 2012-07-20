@@ -1,0 +1,154 @@
+
+   function wc_init() {
+      wc_unitList = ['wallHeight', 'roomWidth', 'roomLength', 'doorHeight', 'doorWidth', 'windowHeight', 'windowWidth', 'rollWidth', 'rollLength'];
+      wc_unitType = 'metric';
+      if (findObj('wc_units')) wc_unitType = findObj('wc_units').options[findObj('wc_units').selectedIndex].value;
+   }
+   var wc_unitList;
+   var wc_unitType;
+   
+   function wc_calc() {
+      wc_parse();
+      // get total area:
+      var wc_areaTotal = (2 * wc_wallHeight * wc_roomWidth) + (2 * wc_wallHeight * wc_roomLength);
+      // subtractable:
+      var wc_areaDoors = wc_doorNumber * wc_doorHeight * wc_doorWidth;
+      var wc_areaWindows = wc_windowNumber * wc_windowHeight * wc_windowWidth;
+      // actual area:
+      var wc_areaActual = wc_areaTotal - wc_areaDoors - wc_areaWindows;
+      // roll area:
+      var wc_areaRoll = wc_rollWidth * wc_rollLength;
+      // number of rolls:
+      var wc_rolls = wc_areaActual / wc_areaRoll;
+      // wastage:
+      wc_rolls *= (100 + wc_rollWaste) / 100;
+      // 'rounding':
+      wc_rolls = Math.ceil(wc_rolls);
+      // cost:
+      wc_cost = wc_rolls * wc_rollCost;
+      // output:
+      findObj('wc_output_noof').value = wc_rolls;
+      findObj('wc_output_cost').value = pad0(wc_cost);
+      // return false:
+      return false;
+   }
+   function wc_parse() {
+      for (var i = 0; i < wc_unitList.length; i++) {
+         var unt = wc_unitList[i];
+         eval('wc_' + unt + '1 = Number(findObj(\'wc_' + unt + '1\').value)');
+         eval('wc_' + unt + '2 = Number(findObj(\'wc_' + unt + '2\').value)');
+      }
+      // non "unitified" calculations:
+      wc_doorNumber = Number(findObj('wc_doorNumber').value);
+      wc_windowNumber = Number(findObj('wc_windowNumber').value);
+      wc_rollCost1 = Number(findObj('wc_rollCost1').value);
+      wc_rollCost2 = Number(findObj('wc_rollCost2').value);
+      wc_rollWaste = Number(findObj('wc_rollWaste').value);
+      if (isImperial()) {
+         for (var i = 0; i < wc_unitList.length; i++) {
+            var unt = wc_unitList[i];
+            eval('wc_' + unt + '2 = wc_' + unt + '2 * 25 / 3');
+         }
+      }
+      for (var i = 0; i < wc_unitList.length; i++) {
+         var unt = wc_unitList[i];
+         eval('wc_' + unt + ' = wc_' + unt + '1 + wc_' + unt + '2/100;');
+      }
+      // non "unitified" calculations:
+      wc_rollCost = wc_rollCost1 + wc_rollCost2 / 100;
+   }
+   function switchImperial() {
+      var wc_unitTemp = findObj('wc_units').options[findObj('wc_units').selectedIndex].value;
+      if (isImperial() == (wc_unitTemp == 'imperial')) {
+         // hasn't changed, return:
+         return;
+      }
+      wc_parse();
+      // convert values:
+      for (var i = 0; i < wc_unitList.length; i++) {
+         if (isImperial()) {
+            eval('wc_' + wc_unitList[i] + ' *= 0.3048');
+         } else {
+            eval('wc_' + wc_unitList[i] + ' *= 3.2808');
+         }
+      }
+      // change setting:
+      wc_unitType = wc_unitTemp;
+      // output new values:
+      for (var i = 0; i < wc_unitList.length; i++) {
+         var tmp1 = Math.floor(eval('wc_' + wc_unitList[i]));
+         //alert(tmp1);
+         var tmp2 = 100 * (eval('wc_' + wc_unitList[i]) - tmp1);
+         if (isImperial()) {
+            // convert to Inches instead of decimal:
+            tmp2 *= 12 / 100;
+            tmp2 = Math.round(tmp2);
+            //if ( i == 0 ) alert(tmp2);
+            if (tmp2 >= 12) {
+               tmp1 += Math.floor(tmp2 / 12);
+               tmp2 = tmp2 - 12 * Math.floor(tmp2 / 12);
+            }
+         } else {
+            tmp2 = 100 * Math.round(tmp2 / 100);
+            if (tmp2 >= 100) {
+               tmp1 += Math.floor(tmp2 / 100);
+               tmp2 = tmp2 - 100 * Math.floor(tmp2 / 100);
+            }
+         }
+         findObj('wc_' + wc_unitList[i] + '1').value = tmp1;
+         findObj('wc_' + wc_unitList[i] + '2').value = tmp2;
+      }
+      // update unit display:
+      for (var i = 0; i < wc_unitList.length; i++) {
+         var span1 = findObj('wc_' + wc_unitList[i] + '1_units');
+         var span2 = findObj('wc_' + wc_unitList[i] + '2_units');
+         if (isImperial()) {
+            span1.innerHTML = 'Feet';
+            span2.innerHTML = 'Inches';
+         } else {
+            span1.innerHTML = 'Meters';
+            span2.innerHTML = 'CM';
+         }
+      }
+   }
+   function isImperial() {
+      return (wc_unitType == 'imperial');
+   }
+   function findObj(str) {
+      if (document.getElementById) return document.getElementById(str);
+      if (document.all) return document.all[str];
+      var f = document.forms;
+      if (f) for (var i = 0; i < f.length; i++) if (f[i][str]) return f[i][str];
+      return false;
+   }
+   function pad0(n) {
+      n = String(Math.round(n * 100) / 100);
+      a = n.split('.');
+      if (a.length == 1) a[1] = '';
+      while (a[1].length < 2) a[1] = a[1] + '0';
+      return a.join('.');
+   }
+   //BJ's Functions to show/hide advanced/standard		
+   function switchid(divstatus) {
+      if (divstatus == 'show') {
+         showhidediv('wc_advanced_1', 'block');
+         showhidediv('wc_advanced_2', 'block');
+         showhidediv('wc_advanced_3', 'block');
+         showhidediv('wc_advanced_4', 'none');
+         showhidediv('wc_advanced_5', 'block');
+      }
+      else {
+         showhidediv('wc_advanced_1', 'none');
+         showhidediv('wc_advanced_2', 'none');
+         showhidediv('wc_advanced_3', 'none');
+         showhidediv('wc_advanced_4', 'block');
+         showhidediv('wc_advanced_5', 'none');
+      }
+   }
+   function showhidediv(id, disp_style) {
+
+      if (document.getElementById) {
+         document.getElementById(id).style.display = disp_style;
+      }
+   }
+

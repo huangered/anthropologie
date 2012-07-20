@@ -1,0 +1,94 @@
+<venda_block label=1230,param1!=delivery,curstep!=editadd>
+<venda_block label=123,mode=value,<venda_sessionlocation>=uk,<venda_sessionlocation>=restofworld,operator=or>
+<select name="cntry" class="admn_fieldsLarge" id="cntrylist">
+<option value=""><venda_text id=site.country.please.select.option></option>
+<option value="United Kingdom"<venda_block label=15,cntry=United Kingdom,cntry=null,cntry=Empty,operator=or> selected="selected"</venda_block label=15>><venda_text id=site.country.please.select.option.uk></option>
+<option value="Channel Islands"><venda_text id=site.country.please.select.option.islands></option>
+</select>
+<venda_block label=1231,curstep=zipcode,curstep=billto,operator=or>
+<venda_block label=1232,workflow!=register>
+<style type="text/css">
+.container #zipc {width:281px;}
+</style>
+</venda_block label=1232>
+</venda_block label=1231>
+</venda_block label=123>
+
+<venda_block label=124,mode=value,<venda_sessionlocation>=europe>
+<select name="cntry" class="admn_fieldsLarge" id="cntrylist" onchange="hasState(document.getElementById('statelistbox'),document.getElementById('statetextbox'),document.getElementById('statelist'),this.value);">
+<option value=""><venda_text id=site.country.please.select.option></option>
+<option value="Austria"><venda_text id=site.country.please.select.option.austria></option>
+<option value="Belgium"><venda_text id=site.country.please.select.option.belgium></option>
+<option value="Bulgaria"><venda_text id=site.country.please.select.option.bulgaria></option>
+<option value="Cyprus"><venda_text id=site.country.please.select.option.cyprus></option>
+<option value="Czech Republic"><venda_text id=site.country.please.select.option.czech></option>
+<option value="Denmark"><venda_text id=site.country.please.select.option.denmark></option>
+<option value="Estonia"><venda_text id=site.country.please.select.option.estonia></option>
+<option value="Finland"><venda_text id=site.country.please.select.option.finland></option>
+<option value="France"><venda_text id=site.country.please.select.option.france></option>
+<option value="Germany"><venda_text id=site.country.please.select.option.germany></option>
+<option value="Greece"><venda_text id=site.country.please.select.option.greece></option>
+<option value="Hungary"><venda_text id=site.country.please.select.option.hungary></option>
+<option value="Ireland"><venda_text id=site.country.please.select.option.ireland></option>
+<option value="Italy"><venda_text id=site.country.please.select.option.italy></option>
+<option value="Latvia"><venda_text id=site.country.please.select.option.latvia></option>
+<option value="Lithuania"><venda_text id=site.country.please.select.option.lithuania></option>
+<option value="Luxembourg"><venda_text id=site.country.please.select.option.luxembourg></option>
+<option value="Malta"><venda_text id=site.country.please.select.option.malta></option>
+<option value="Netherlands"><venda_text id=site.country.please.select.option.netherlands></option>
+<option value="Norway"><venda_text id=site.country.please.select.option.norway></option>
+<option value="Poland"><venda_text id=site.country.please.select.option.poland></option>
+<option value="Portugal"><venda_text id=site.country.please.select.option.portugal></option>
+<option value="Romania"><venda_text id=site.country.please.select.option.romania></option>
+<option value="Slovak Republic"><venda_text id=site.country.please.select.option.slovak></option>
+<option value="Slovenia"><venda_text id=site.country.please.select.option.slovenia></option>
+<option value="Spain"><venda_text id=site.country.please.select.option.spain></option>
+<option value="Sweden"><venda_text id=site.country.please.select.option.sweden></option>
+<option value="Switzerland"><venda_text id=site.country.please.select.option.switzerland></option>
+</select>
+<style type="text/css">
+#postcodelookup {display:none;}
+.container #zipc {width:281px;}
+</style>
+</venda_block label=124>
+</venda_block label=1230>
+<venda_block label=125,param1=delivery,curstep=editadd,operator=or>
+<select name="cntry" class="admn_fieldsLarge" id="cntrylist" onchange="hasState(document.getElementById('statelistbox'),document.getElementById('statetextbox'),document.getElementById('statelist'),this.value);">
+<option value=""><venda_text id=site.country.please.select.option></option>
+<option value="Austria"><venda_text id=site.country.please.select.option.austria></option>
+<option value="Belgium"><venda_text id=site.country.please.select.option.belgium></option>
+<option value="Bulgaria"><venda_text id=site.country.please.select.option.bulgaria></option>
+<option value="Channel Islands"><venda_text id=site.country.please.select.option.islands></option>
+<option value="Cyprus"><venda_text id=site.country.please.select.option.cyprus></option>
+<option value="Czech Republic"><venda_text id=site.country.please.select.option.czech></option>
+<option value="Denmark"><venda_text id=site.country.please.select.option.denmark></option>
+<option value="Estonia"><venda_text id=site.country.please.select.option.estonia></option>
+<option value="Finland"><venda_text id=site.country.please.select.option.finland></option>
+<option value="France"><venda_text id=site.country.please.select.option.france></option>
+<option value="Germany"><venda_text id=site.country.please.select.option.germany></option>
+<option value="Greece"><venda_text id=site.country.please.select.option.greece></option>
+<option value="Hungary"><venda_text id=site.country.please.select.option.hungary></option>
+<option value="Ireland"><venda_text id=site.country.please.select.option.ireland></option>
+<option value="Italy"><venda_text id=site.country.please.select.option.italy></option>
+<option value="Latvia"><venda_text id=site.country.please.select.option.latvia></option>
+<option value="Lithuania"><venda_text id=site.country.please.select.option.lithuania></option>
+<option value="Luxembourg"><venda_text id=site.country.please.select.option.luxembourg></option>
+<option value="Malta"><venda_text id=site.country.please.select.option.malta></option>
+<option value="Netherlands"><venda_text id=site.country.please.select.option.netherlands></option>
+<option value="Norway"><venda_text id=site.country.please.select.option.norway></option>
+<option value="Poland"><venda_text id=site.country.please.select.option.poland></option>
+<option value="Portugal"><venda_text id=site.country.please.select.option.portugal></option>
+<option value="Romania"><venda_text id=site.country.please.select.option.romania></option>
+<option value="Slovak Republic"><venda_text id=site.country.please.select.option.slovak></option>
+<option value="Slovenia"><venda_text id=site.country.please.select.option.slovenia></option>
+<option value="Spain"><venda_text id=site.country.please.select.option.spain></option>
+<option value="Sweden"><venda_text id=site.country.please.select.option.sweden></option>
+<option value="Switzerland"><venda_text id=site.country.please.select.option.switzerland></option>
+<option value="United Kingdom"><venda_text id=site.country.please.select.option.uk></option>
+</select>
+<venda_block label=1251,curstep=editadd>
+<style type="text/css">
+.container #zipc {width:281px;}
+</style>
+</venda_block label=1251>
+</venda_block label=125>

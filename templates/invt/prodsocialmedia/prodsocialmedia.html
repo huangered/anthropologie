@@ -1,0 +1,45 @@
+<style type="text/css">
+#sbblock {
+	width: 400px;
+	display: inline-block;
+	clear: both;
+	margin-top: 15px;
+}
+#sbfacebook {
+	float: left;
+	padding: 0 0 0 10px;
+}
+#sbtwitter2 {
+	float: left;
+	padding: 0 10px 0 0;
+	border-right: 1px solid #999999;
+}
+#sbpinterest {
+	float: left;
+	padding: 0 10px 0 10px;
+	border-right: 1px solid #999999;
+}
+</style>
+
+<script type="text/javascript">
+var twurl = encodeURIComponent("http://www.anthropologie.eu/invt/<venda_invtref>");
+var twtext = encodeURIComponent("<venda_invtname> - ");
+var twcomplete = "https://twitter.com/share?url=" + twurl + "&text=" + twtext;
+jQuery(document).ready(function($) {
+	$('.twsharelink').attr('href', twcomplete);
+	});
+</script>
+
+<!-- using addthis and widgets -->
+<div id="sbblock">
+  <div id="sbtwitter2">
+  <a class="twsharelink" href="https://twitter.com/Anthropologie" target="_blank" rel="popup console 600 450"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/tweet_bird_small.png" border="0" alt=""></a>
+  </div>
+    <div id="sbpinterest">
+  	<a href="http://pinterest.com/pin/create/button/?url=<venda_dispview invt=<venda_invtref>>&media=http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b&description=<venda_invtname>" class="pin-it-button" count-layout="none">Pin It</a>
+<script type="text/javascript" src="<venda_protocol>://assets.pinterest.com/js/pinit.js"></script>
+  </div>
+  <div id="sbfacebook">
+                    <iframe src="<venda_protocol>://www.facebook.com/plugins/like.php?href=<venda_dispview invt=<venda_invtref>>&amp;layout=button_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+  </div>
+</div>

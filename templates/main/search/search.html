@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="<venda_block mode=value,<venda_sessionlanguage>=ae>en-US</venda_block><venda_block mode=value,<venda_sessionlanguage>!=ae><venda_sessionlanguage></venda_block>">
+<head>
+<venda_menu template=title>
+<venda_menu template=metatags>
+<venda_menu template=css>
+<venda_menu template=js>
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>
+</head>
+<body id="mainlayout-search">
+<venda_inctemplate name=coremetricsFunctions,type=includes/tracking/coremetrics>
+<venda_menu template=admin>
+<venda_menu template=demo>
+<venda_menu template=nojavascript>
+
+<p class="re-waiHide"><a href="#content"><venda_text id=site.skip_to_content></a></p>
+
+<!-- start wrapper -->
+<div id="wrapper">
+
+<!-- start header -->
+<div id="header">
+<venda_category rec=elementcat,ref=header>
+</div>
+<!-- end header -->
+
+<venda_block label=hideifsolr,mode=value,<venda_tpxt mode=get,name=solr>!=1>
+<!-- start content-search -->
+<div id="content-search">
+<venda_content>
+<div class="clear-all"><!-- ns6 hack --></div>
+</div>
+<!-- end columns 2 and 3 -->
+</div>
+<!-- end content-search -->
+</venda_block label=hideifsolr>
+
+<venda_block label=showifsolr,mode=value,<venda_tpxt mode=get,name=solr>=1>
+<!-- start content-search_nocolthree -->
+<div id="content-search_nocolthree">
+<venda_content>
+<div class="clear-all"><!-- ns6 hack --></div>
+</div>
+<!-- end columns 2 and 3 -->
+</div>
+<!-- end content-search_nocolthree -->
+</venda_block label=showifsolr>
+
+<div id="footer"><venda_category rec=elementcat,ref=footer></div>
+<venda_block mode=value,<venda_setting type=ebiz,name=powerreviews>=1>
+<div id="productreviews"><a href="<venda_serveradd>/partners/pwr/product-reviews/c/index.html"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/spacer.gif" width="1" height="1" alt="product reviews"></a></div>
+</venda_block>
+</div>
+<!-- end wrapper -->
+<venda_inctemplate name=SiteWideTracking,type=includes>
+</body>
+</html>

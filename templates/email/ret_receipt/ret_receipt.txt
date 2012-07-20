@@ -1,0 +1,20 @@
+<venda_inctemplate name=textEmailDetblocks,type=includes>
+
+<venda_inctemplate name=textEmailHeader,type=includes>
+
+<venda_block label=834,ohusgrrf!=ebayguest><venda_text id=site.email.ret_receipt.msg1> <venda_ohordnum>.<cr><cr></venda_block label=834>
+<venda_block label=835,ohusgrrf=ebayguest><venda_text id=site.email.ret_receipt.msg2> <venda_text id=site.email.ret_receipt.msg3> <venda_com>.<cr><cr></venda_block label=835>
+
+<venda_text id=site.email.ret_receipt.msg4><cr><cr>
+
+<venda_inctemplate name=textEmailBody,type=includes>
+
+<venda_text id=site.email.ret_receipt.msg5><cr><cr>
+
+<venda_text id=site.email.ret_receipt.msg6><cr><cr>
+
+<venda_text id=site.email.ret_receipt.msg7><cr><cr>
+
+<venda_text id=site.email.ret_receipt.msg8> <venda_ebizemail>.<cr><cr>
+
+<venda_inctemplate name=textEmailFooter,type=includes>

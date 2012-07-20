@@ -1,0 +1,24 @@
+<!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. -->
+<div id="addreminder">
+<venda_inctemplate type=includes/wizr/wz_usxt-add,name=heading_intro>
+
+<venda_form>
+<!-- order fields used to sort the display order when you view reminders -->
+<input type="hidden" name="order1" value="remmonth">
+<input type="hidden" name="order2" value="remday">
+<input type="hidden" name="subgroup" value="4">
+<venda_inctemplate type=includes/wizr/wz_usxt-add,name=add_reminder_table>
+<venda_inctemplate type=includes/wizr/wz_usxt-add,name=js_buttons>
+</form>
+</div>
+<venda_tpxt mode=set,name=track,value=usxt-add>
+<venda_inctemplate name=hbxlocalvars1,type=includes/tracking>
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>
+<venda_inctemplate name=cmCreateRegistrationTag,type=includes/tracking/coremetrics>
+<venda_inctemplate name=cm-wz_usxt-add,type=includes/tracking/coremetrics> 
+<!-- 
+workflow: <venda_workflow>
+param1: <venda_param1>
+param2: <venda_param2>
+page: wz_usxt-add.html
+-->

@@ -1,0 +1,181 @@
+/* SOLR SEARCH */
+#content-search_nocolthree {margin-left:15px;}
+#content-search { position: relative; margin-left:0}
+.viewScroll {max-height:200px;overflow-y:auto;overflow-x: hidden; margin-left: 7px;}
+.typeresults, .brandresults, .parentCategoryNameresults, .atrattrvalue1results, .atrattrvalue2results{border:1px solid #cccccc;}
+#typeform, #filtertype {/*margin-left:12px;width:150px;*/}
+#collate .termtext .facet .highlight {background-color:#900;color:white;}
+#loadingsearch{background:#FFFFFF none repeat scroll 0 0;height:100%;z-index:6;position:absolute;top:0;width:100%;filter:alpha(opacity=70);-moz-opacity:.70;opacity:.70;}
+#loadingsearch img{display:block;margin:50px auto;}
+#content-search #col-two {position:relative;}
+#collate h3.collateheading {cursor:pointer;padding:7px 0 2px 0;/*background:#fff url(../images/Search/sprite.png) no-repeat -1px -521px;*/}
+.toggleviewall {padding-left:12px;}
+.toggleviewall a {text-transform:lowercase;text-decoration:underline;}
+#pricerange p {text-transform:capitalize;padding:0 0 15px 5px;font-size:1.2em;font-family:"Courier New",Arial,Helvetica,Verdana,sans-serif;}
+.pricecollateresult {padding-left:7px;width:153px;}
+.brandcollateresult .termtext a {display:block;padding:0;width:163px;}
+.brandcollateresult .termtext {margin:2px;background-repeat:no-repeat;background-position:12px 0;}
+.collatedresult .zerocount {padding:0px !important;color: #CCCCCC;}
+.pdxtcolournormBox, .priceBox {height:70px;}
+	.pdxtcolournormBox .termtext {margin: 0 4px; float:left; }
+	.pdxtcolournormBox .chosen {border: 1px solid #333333; }
+	.pdxtcolournormBox .zerocount {opacity:0.4; display:none;}
+
+.colourbox {border: 1px solid #CCCCCC; height: 18px; text-indent: -9999px; width: 18px;  float:left;}
+.pdxtcolournormRed {background:#ff0000;}
+.pdxtcolournormBlack {background:#000000;}
+.pdxtcolournormBlue {background:#0000CD;}
+.pdxtcolournormGreen {background:#228B22;}
+.pdxtcolournormGrey {background:#E4EAF2;}
+
+/*.ui-widget-content {border:5px solid #777777; background:#ffffff; color:#656565; padding:0 5px;}*/
+.ui-dialog {position:absolute; width:auto; overflow:hidden; text-align:left;}
+.ui-dialog .ui-dialog-titlebar { position: relative;}
+.ui-dialog .ui-dialog-titlebar-close {cursor:pointer;position:absolute; right:0;  width:18px;padding:1px; margin: 4px 0 0 5px; height:17px;}
+.ui-dialog .ui-dialog-titlebar-close span {display:block; margin: -1px 0 0 3px;}
+.ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus {padding:0px;}
+/*.ui-dialog .ui-dialog-content {border:0; padding:10px 15px 5px 15px; zoom: 1; margin:0 0 5px;overflow:hidden;}*/
+.ui-dialog .ui-dialog-buttonpane {text-align: left; border-width: 1px 0 0 0; background-image: none; margin: .5em 0 0 0; padding: .3em 1em .5em .4em;}
+.ui-dialog .ui-dialog-buttonpane button { float: right; margin: .5em .4em .5em 0; cursor: pointer; line-height: 1.4em; width:auto; overflow:visible; }
+.ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
+.ui-draggable .ui-dialog-titlebar { cursor: move; }
+.ui-corner-all {-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;}
+.pricecollateresult .ui-widget-content {border:1px solid #777;}
+.ui-slider-horizontal {height:0.8em;}
+.ui-slider {position:relative;text-align:left;}
+.ui-slider-horizontal .ui-slider-range {height:100%;top:0;}
+.ui-slider .ui-slider-range {background-position:0 0;border:0 none;display:block;font-size:0.7em;position:absolute;z-index:1;}
+.ui-slider-horizontal .ui-slider-handle {margin-left:-0.6em;top:-0.3em;background-color:#fff;border:1px solid #777;}
+.ui-slider .ui-slider-handle {cursor:default;height:1.2em;position:absolute;width:1.2em;z-index:2;}
+
+
+/*search terms box*/
+#term h2 {margin-bottom: 10px;}
+#term .refine-list {margin: 6px 14px 0; overflow: hidden;}
+	#term .removesearch,
+	#term .refine-text {float: left; display: inline; width: auto; margin-right: 6px; padding: 0; line-height: 1em;}
+	#term .refine-link {font-weight: bold; color: #000; text-transform: lowercase;}
+	#term .refine-remove {}
+	#term a.refine-remove:hover {text-decoration:underline;}
+
+/*facets*/
+/*.collateresults {margin-bottom: 10px; max-height: 150px; overflow: auto; overflow-x: hidden;}*/
+.collateresults {margin-bottom: 10px;}
+#collate h3.collateheading {margin: 0 14px; padding: 1px 0 2px;}
+#collate .termtext {margin: 0 0 0 36px; padding:0 12px 4px 0; letter-spacing: -.5px;}
+	#collate .termtext input {margin-left: -22px; margin-right: 8px;}
+	#collate .termtext label {line-height: 1.1em;}
+	#collate .termtext.chosen {color: #000;}
+#collate .termtext label .facet {margin-left:-5px;}
+.toggleviewall {display: block; clear: both; margin: 0 0 5px 25px; font-size: 1.2em; font-family: "Courier New",Arial,Helvetica,Verdana,sans-serif;}
+
+/*search results*/
+.boxSearchAlt {overflow: hidden;}
+	.boxSearchAlt .resultDetail {float: left; display: inline; width: auto;}
+	.boxSearchAlt .resultDetail h4 {line-height: 1.1em; margin: 0;}
+	.boxSearchAlt .resultDetail .resultMsg,
+	.boxSearchAlt .resultDetail .sort {float: left; display: inline; width: auto;}
+		.boxSearchAlt .resultDetail .sort {margin-left: 5px;}
+
+.resultDetail .sort label {float: left; padding: 2px 0 0;}
+.resultDetail .sort label, .resultDetail .sort select {color: #CC3333; font-family: "Courier New"; font-size: 1.1em; margin-right: 5px; text-transform: lowercase;}
+	.resultDetail .sort select {border: 1px solid #ccc; width: auto;}
+
+/*pagination*/
+.pagnBtm {margin-top: 5px;}
+
+/*actual search results - items*/
+#searchResults .details h2 {background:none;border:none;}
+ul.prods {overflow: hidden;}
+	ul.prods li {float: left; display: inline; width: 179px; min-height: 365px; height: auto !important; height: 365px; margin: 0 0 0 2px;}
+		ul.prods li .image {height: 269px; overflow: hidden;}
+		ul.prods li .details {background: url(../images/bg_pricetag.jpg) no-repeat; min-height: 85px; height: auto !important; height: 85px; padding: 1px 0 0;}
+		ul.prods li .details h2 {font-family: "Courier New",Arial,Helvetica,Verdana,sans-serif; text-align: center; font-size: 11px; line-height: 14px; height: 32px; margin: 3px 0 0;}
+		ul.prods li .details h2 a {color: #333;}
+		ul.prods li .details h2 a:hover {text-decoration: underline;}
+		ul.prods div.details p.pricetag {text-align: center;}
+		ul.prods div.details p.pricetag span.price {text-align: center; font-size: 11px; font-weight: bold; font-family: Georgia, "Times New Roman", serif;}
+
+/*
+.Ltopnavcats {background-image: url(../images/bg_header_bt.jpg); background-position: -50px 11px; background-repeat: no-repeat; height: 55px; margin: 0 0 0 14px; padding: 12px 0 0 90px;}
+	.topnavclothes {margin-left: 26px;width: 110px;}
+	.topnavshoesbags {width: 151px;}
+	.topnavjwlacc {width: 216px;}
+	.topnavforhome {width: 132px;}
+	.topnavsale,.topnavforchristmas {margin-left: 0;width: 93px;}
+.Lcat_footer {margin: 0 auto; text-align: left;}
+*/
+
+body {background: none transparent; background-color: #fff;}
+/*.Ltopnavcats {background: none transparent!;}*/
+
+#searchResults .pagntop {margin-top:-23px;margin-bottom:10px;} /*IE6 7 8*/
+#searchResults.categorylistsearch .pagntop {margin-top:0;margin-bottom:3px;}
+
+/*remove this style on Phase 2*/
+#searchResults .prods ul li .image{
+	height:269px !important;
+	width:179px !important;
+}
+#searchResults .attrproducts img {display:none;}
+#searchResults .prods ul li div{
+	text-align:center;
+}
+#searchResults p.nostock, #searchResults p.emailme {width:100%;}
+#searchResults {min-height:529px; width:730px; margin-top:10px;}
+#searchResults ul {
+	background:url(../images/bg_divider.gif) no-repeat top left;
+	overflow:hidden;
+	padding:5px 0 0 4px;
+	margin:0;
+	width: 726px;
+}
+
+
+#searchResults ul li .details {margin:3px auto 0 auto;height:86px;width:179px;background:url(../images/bg_pricetag.jpg) no-repeat;}
+#searchResults .image {height:269px;}
+#searchResults .details h2 {color:#333;padding:0 10px;margin:0;height:30px;font-weight:normal;font-size:1.1em;font-family:Courier New;overflow:hidden;}
+#searchResults .details h2 a {color:#333;}
+#searchResults .pricetag {height:24px;line-height:24px;margin:0;}
+#searchResults .price {margin:0;font-size:1.1em;font-family:Georgia;font-weight:bold;}
+#searchResults .was {margin:0;font-size:0.8em;font-family:Arial;font-weight:normal;}
+#searchResults .waslabel {margin:0 3px 0 0;} 
+#searchResults ul li {float:left;width:179px;height:365px;margin:0 0 0 2px;}
+#searchResults .details p.compbutton,
+#searchResults .details p.moreinfo,
+#searchResults .details label,
+#searchResults .details select,
+#searchResults .details input {margin:1.5px;padding:0;float:left;}
+#searchResults h1{display:none;}
+#searchResults .details input#qty {margin:1.5px 4px 0 0;padding:0;float:left;}
+#searchResults .details label {margin-left:5px;margin-top:1.5px;}
+#searchResults .details .attrproducts fieldset label {display:none;}
+#searchResults .details .attrproducts fieldset {padding-left:5px;}
+#searchResults .details .unpublished {padding-top:8px;}
+
+/*searchresults*/
+#searchResults .Lcat_hdrcatsrchcontent p.icatldesc {padding:0 0 0 7px;}
+#searchResults h4 {display:none;}
+#searchResults h4.noresult {display:block; margin-left:5px; font-size:1em;}
+#content-default_nocolthree #searchResults h4 {display:none;}
+#searchResults .sort {margin:0; padding:0 0 5px 5px; float:left;}
+#searchResults.categorylistsearch .sort {display:none;}
+#searchResults .sort h2{display:none;}
+#searchResults .sort label, #searchResults .sort select {color:#C33;font-family:Courier New;font-size:1.1em;margin-right:5px;text-transform:lowercase;}
+#searchResults .sort select.refinesearch {color:#666666;}
+#searchResults .sort label {float:left;padding:2px 0 0 0;} /*IE6 7 8*/
+#searchResults .sort select {border:1px solid #CCC;height:20px;float:left;}
+#searchResults #switcher {float:right;padding-right:7px;display:none;}
+#searchResults .prods {clear:right; margin-top:3px;}
+
+.swatchContainer {text-align:center;}
+.swatchContainer .sw_selected span {border:none;}
+
+
+
+/*SOLR search form - top*/
+.headerSearch {margin-top: 13px; float: right; display: inline; width: 193px;}
+.headerSearch label {clear: both; display: block; color: #c33; font-size: 1.2em; letter-spacing: 4px; margin: 0; padding: 0 0 8px; text-transform: uppercase; font-family: "Courier New",Arial,Helvetica,Verdana,sans-serif;}
+.headerSearch input {outline:none; border: 0; margin: 1px 0 0; padding: 3px; width: 138px; float: left; display: inline;}
+.headerSearch input#searchsubmit {width: auto; margin-left: 0; float: left; width: 20px; height: 22px; text-indent: -99999em; line-height: 8em; cursor: pointer; background: transparent none;}
+

@@ -1,0 +1,44 @@
+<venda_inctemplate name=htmlEmailDetblocks,type=includes>
+
+<html>
+<head>
+	<title><venda_ebizname> <venda_block label=76,ohreplnbr=null><venda_text id=site.email.order_receipt.title></venda_block label=76><venda_block label=77,ohreplnbr=notnull><venda_block label=78,ohpaytype=6><venda_text id=site.email.order_receipt.title.free></venda_block label=78> <venda_text id=site.email.order_receipt.title.repl_order></venda_block label=77> - <venda_ohordnum></title>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" width="726">
+<tr>
+	<td height="48" align="left" valign="top" style="padding-top:11px; padding-bottom:42px;"><venda_inctemplate name=htmlEmailLogo,type=includes></td>
+</tr>
+</table>
+<table cellpadding="0" cellspacing="0" style="font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;" width="726">
+<tr>
+	<td>
+	<venda_inctemplate name=htmlEmailHeader,type=includes>
+	<venda_block label=66,ohreplnbr=null>
+	<!-- for standard orders -->
+		<p style="margin:0 0 15px 0; padding:0;"><venda_text id=site.email.order_receipt.msg1> <span style="color:#000;"><venda_ohordnum></span>. <venda_text id=site.email.order_receipt.msg2></p>
+		<p style="margin:0 0 15px 0; padding:0;"><venda_text id=site.email.order_receipt.msg3> <a href="<venda_dispview page=signin>" style="color:#666;"><venda_text id=site.email.order_receipt.msg4></a> <venda_text id=site.email.order_receipt.msg5> <a href="<venda_serveradd>" style="color:#c33; text-decoration:underline"><venda_ebizname></a> <venda_text id=site.email.order_receipt.msg6>
+	</venda_block label=66>
+	<venda_block label=67,ohreplnbr=notnull>
+	<!-- for replacement orders -->
+		<p style="margin:0 0 15px 0; padding:0;"><venda_text id=site.email.order_receipt.msg7> <venda_block label=68,ohpaytype=6><venda_text id=site.email.order_receipt.msg8> </venda_block label=68><venda_text id=site.email.order_receipt.msg9> <span style="color:#000;"><venda_ohordnum></span>.</p>
+	</venda_block label=67>
+	</td>
+</tr>
+<tr>
+	<td align="left" valign="top" style="padding-top:5px; padding-bottom:5px;"><img src="<venda_ebizurl>/content/ebiz/<venda_bsref>/resources/images/email-linebr.jpg" alt="" border="0"></td>
+</tr>
+</table>
+<venda_inctemplate name=htmlEmailBody,type=includes>
+<venda_block label=68,ohreplnbr=null>
+<!-- for standard orders -->
+	<venda_inctemplate name=htmlEmailMessage,type=includes>
+</venda_block label=68>
+<venda_block label=69,ohreplnbr=notnull>
+<p style="margin:0 0 15px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#c00;"><venda_text id=site.email.order_receipt.msg10></p>
+</venda_block label=69>
+<p style="margin:0 0 15px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_text id=site.email.order_receipt.msg11></p>
+<p style="margin:0 0 15px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_text id=site.email.order_receipt.msg12> <a href="mailto:<venda_ebizemail>" style="color:#000; text-decoration:none;"><venda_ebizemail></a>.</p>
+<venda_inctemplate name=htmlEmailFooter,type=includes>
+</body>
+</html>

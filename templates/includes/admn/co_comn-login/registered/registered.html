@@ -1,0 +1,14 @@
+<venda_tpcomment><!-- Use for Login Type C, D, E - This is cloned from co_comn-login/password template but need to seperate to two forms and fieldsets. If any changes committing to venda-support made to this template, please also change the original templates, password.html  --></venda_tpcomment>
+<fieldset class="dontFloat f-loginiam">
+<div class="registered <venda_block label=704,mode=value,<venda_setting type=ebiz,name=setlogindisplaytype>=c>ctype</venda_block label=704>">
+	<h2><venda_text id=site.sign_in.heading.returningcustomer><span></span></h2>
+	<p class="registertxt"><venda_text id=site.sign_in.registered_text></p>
+	<venda_tpcomment><!-- Login Type D, E : show email field in form two (returning customer box) --></venda_tpcomment> 
+	<venda_block label=705,mode=value,<venda_setting type=ebiz,name=setlogindisplaytype>=d,<venda_setting type=ebiz,name=setlogindisplaytype>=e,operator=or>
+		<venda_inctemplate type=includes/admn/co_comn-login,name=email_address>
+	</venda_block label=705>
+	<label for="password" id="lLoginPassword" class="dontFloat" title="<venda_text id=site.password.label.title_text>"><venda_text id=site.sign_in.label.my_password> </label> <input type="password" name="password" id="password" size="20" maxlength="30">
+	<div class="forgottenpassword"><a href="<venda_passcode>"><venda_text id=site.sign_in.forgotten_password></a></div>
+	<venda_inctemplate type=includes/admn/co_comn-login,name=js_buttons>
+</div>
+</fieldset>

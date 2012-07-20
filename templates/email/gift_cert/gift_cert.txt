@@ -1,0 +1,61 @@
+==============================================================================<cr>
+<venda_ebizname> <venda_text id=site.email.gift_cert.title><cr>
+==============================================================================<cr><cr>
+
+<venda_text id=site.email.gift_cert.dear> <venda_to><cr>
+
+<venda_from> <venda_text id=site.email.gift_cert.sent_you> <venda_amount> <venda_text id=site.email.gift_cert.gift_certificate><cr>
+
+<venda_text id=site.email.gift_cert.to> <venda_to><cr>
+<venda_text id=site.email.gift_cert.from> <venda_from><cr>
+<venda_text id=site.email.gift_cert.message> <venda_comment><cr><cr>
+
+<venda_text id=site.email.gift_cert.amount> <venda_amount><cr>
+<venda_text id=site.email.gift_cert.claim_code> <venda_giftcode><cr>
+<venda_text id=site.email.gift_cert.expiry_date> <venda_block label=611,gcexpirydate!=0><venda_gcexpires></venda_block label=611><venda_block label=612,gcexpirydate=0><venda_text id=site.email.gift_cert.no_expiry_date></venda_block label=612><cr><cr>
+
+==============================================================================<cr>
+<venda_text id=site.email.gift_cert.howto><cr>
+==============================================================================<cr><cr>
+
+- <venda_text id=site.email.gift_cert.go_to> <venda_serveradd>.
+
+- <venda_text id=site.email.gift_cert.howto.item1>
+
+- <venda_text id=site.email.gift_cert.howto.item2>
+
+- <venda_text id=site.email.gift_cert.howto.item3>
+
+- <venda_text id=site.email.gift_cert.howto.item4>
+
+- <venda_text id=site.email.gift_cert.howto.item5>
+
+- <venda_text id=site.email.gift_cert.howto.item6>
+
+<venda_text id=site.email.gift_cert.howto.item7>
+
+==============================================================================<cr>
+<venda_text id=site.email.gift_cert.terms_conditions><cr>
+==============================================================================<cr><cr>
+
+   1. <venda_text id=site.email.gift_cert.terms.item1> <venda_serveradd>.
+
+   2. <venda_text id=site.email.gift_cert.terms.item2>
+
+   3. <venda_text id=site.email.gift_cert.terms.item3>
+
+   4. <venda_text id=site.email.gift_cert.terms.item4>
+
+   5. <venda_text id=site.email.gift_cert.terms.item5>
+
+   6. <venda_text id=site.email.gift_cert.terms.item6>
+   
+   7. <venda_text id=site.email.gift_cert.terms.item7>
+
+8. <venda_text id=site.email.gift_cert.terms.item8>
+
+9. <venda_text id=site.email.gift_cert.terms.item9>
+
+10. <venda_text id=site.email.gift_cert.terms.text.item10>
+
+<venda_inctemplate name=textEmailFooter,type=includes>

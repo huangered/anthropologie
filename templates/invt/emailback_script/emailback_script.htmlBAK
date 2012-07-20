@@ -1,0 +1,23 @@
+isPopup = document.getElementById('popupcontent');
+if(isPopup){YAHOO.util.Event.addListener("back_link", "click", Venda.Widget.InvtPopups.featureHide);}
+
+function validateFields() {
+
+        document.emailbackform.layout.value = "noheaders";
+        ajaxFunction('<venda_codehttp>','popupcontent','emailbackform');
+
+        if (document.emailbackform.field1.value == '') {
+                alert('<venda_text id=site.tell_friend.js_validation.name>');
+                document.emailbackform.name.focus();
+                return;
+        }
+
+        if (document.emailbackform.field2.value == '') {
+                alert('<venda_text id=site.tell_friend.js_validation.email_address>');
+                document.emailbackform.email.focus();
+                return;
+        }
+        else {
+                document.emailbackform.submit();
+        }
+}

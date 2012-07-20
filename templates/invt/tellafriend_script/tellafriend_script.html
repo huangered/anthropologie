@@ -1,0 +1,46 @@
+<venda_tpcomment>// treat this template like an external .js file</venda_tpcomment>
+<venda_tpcomment>// changes the back link behaviour if viewing via popup div</venda_tpcomment>
+isPopup = document.getElementById('popupcontent');
+if(isPopup){YAHOO.util.Event.addListener("back_link", "click", Venda.Widget.InvtPopups.featureHide);}
+
+function validateFields() {
+	<venda_tpcomment>// check sender's name</venda_tpcomment>
+	if (document.tellafriendform.fname.value == '') {
+		alert('<venda_text id=site.tell_friend.js_validation.fname>');
+		document.tellafriendform.fname.focus();
+		return;
+	}
+	<venda_tpcomment>// check name</venda_tpcomment>
+	if (document.tellafriendform.name.value == '') {
+		alert('<venda_text id=site.tell_friend.js_validation.name>');
+		document.tellafriendform.name.focus();
+		return;
+	}
+	<venda_tpcomment>// check email address</venda_tpcomment>
+	if (document.tellafriendform.email.value == '') {
+		alert('<venda_text id=site.tell_friend.js_validation.email_address>');
+		document.tellafriendform.email.focus();
+		return;
+	}
+	var checkEmail = document.tellafriendform.email.value;
+		if (!checkemail(checkEmail)) {
+		alert("<venda_text id=site.tell_friend.js_validation.valid_email_address>");
+		document.tellafriendform.email.focus();
+		return;
+	}
+	<venda_tpcomment>// check message</venda_tpcomment>
+	if (document.tellafriendform.field1.value == '') {
+		alert('<venda_text id=site.tell_friend.js_validation.message>');
+		document.tellafriendform.field1.focus();
+		return;
+	}
+	
+	<venda_tpcomment>// must check first that we are still on the product detail</venda_tpcomment>
+	if(isPopup){ <venda_tpcomment>// there is an id called popupcontent so we can proceed with the ajax function</venda_tpcomment>
+		document.tellafriendform.layout.value = "noheaders";
+		ajaxFunction('<venda_codehttp>','popupcontent','tellafriendform');
+		}
+	else { <venda_tpcomment>// there is no id called popupcontent so we must be viewing the tell a friend screen in its own screen</venda_tpcomment>
+		document.tellafriendform.submit();
+		}
+}

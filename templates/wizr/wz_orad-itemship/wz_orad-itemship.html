@@ -1,0 +1,21 @@
+<!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. -->
+<div id="multideladdress">
+<venda_category rec=elementcat,ref=itemshiptopcontent>
+<venda_inctemplate type=includes/wizr/wz_orad-itemship,name=heading_intro>
+<venda_form>
+<venda_block label=33,mode=value,<venda_setting type=ebiz,name=bypasspclookup>=1><input type="hidden" name="htxt" value="<venda_htxt mode=make,changeaddby=multipledeliveryaddresses>"></venda_block label=33>
+<venda_inctemplate type=includes/wizr/wz_orad-itemship,name=multiple_delivery_addresses_table>
+<venda_inctemplate type=includes/wizr/wz_orad-itemship,name=js_buttons>
+</form>
+</div>
+
+<!--
+workflow: <venda_workflow>
+param1: <venda_param1>
+param2: <venda_param2>
+page: orad-itemship.html
+-->
+<venda_tpxt mode=set,name=track,value=orad-editadd>
+<venda_inctemplate name=googleTrackingWorkflows,type=includes>
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>
+<venda_inctemplate name=cmCreateRegistrationTag,type=includes/tracking/coremetrics>

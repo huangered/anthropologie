@@ -1,0 +1,33 @@
+<venda_detblock_single>
+	<venda_block label=342,type1=invt>
+		<venda_tpcomment><!-- The form tags have to be on this template because the searchparameters field has to be on this template. venda_searchparameters does not translate on templates/invt/locaytainvt and we cannot pass it as a tpxt because the value is too long. --></venda_tpcomment>
+		<form name="form<venda_ref1>" action="<venda_codehttp>" method="get" id="addproduct<venda_ref1>form">
+		<input type="hidden" name="searchparameters" value="<venda_searchparameters>">
+		<venda_inventory ref=<venda_ref1>,temp=locaytainvt,displayunpublished=1>
+		</form>
+	</venda_block label=342>
+	<venda_block label=343,type1=page>
+		<venda_page page=<venda_ref1>,template=locaytapage>
+	</venda_block label=343>
+	<venda_block label=344,type1=stry>
+		<venda_story story=<venda_ref1>,template=locaytastry>
+	</venda_block label=344>
+</venda_detblock_single>
+
+<div id="catbanner"><venda_page page=<venda_cattree index=3,value=catref>banner></div>
+<venda_block label=176,mode=value,<venda_setting type=ebiz,name=setpaginationstylesearch>!=psel_search_style><div class="pagn pagntop"><venda_pagination template=<venda_setting type=ebiz,name=setpaginationstylesearch>></div></venda_block label=176>
+<venda_block label=177,mode=value,<venda_setting type=ebiz,name=setpaginationstylesearch>=psel_search_style><div class="searchpsel searchpseltop"><venda_searchpsel></div></venda_block label=177>
+<script type="text/javascript">var allItems = new Array();</script>
+
+<div class="prods">
+<venda_block label=450,mode=value,<venda_tpxt mode=get,name=currentpage>=1>
+</venda_block label=450>
+	<ul><venda_detail_single></ul>
+</div><br class="clear-all">
+
+<venda_block label=178,mode=value,<venda_setting type=ebiz,name=setpaginationstylesearch>!=psel_search_style><div class="pagn pagnbtm"><venda_pagination template=<venda_setting type=ebiz,name=setpaginationstylesearch>></div></venda_block label=178>
+<venda_block label=179,mode=value,<venda_setting type=ebiz,name=setpaginationstylesearch>=psel_search_style><div class="searchpsel searchpselbtm"><venda_searchpsel></div></venda_block label=179>
+
+<venda_tpcomment>
+<!-- pagination - venda_pagination replaces venda_pagesel and venda_searchpsel. The old tags can be removed once all live sites are using the new one. So we could remove the conditions below. -->
+</venda_tpcomment>

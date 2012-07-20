@@ -1,0 +1,27 @@
+<script type="text/javascript">
+<!--
+	allItems["<venda_invtuuid>"] = new Venda.ColourSwatch({
+		id: "<venda_invtuuid>",
+		att1: "<venda_att1>",
+		configObjArea:{
+			objProductArea: (document.getElementById("comp-image<venda_invtref>")) ? document.getElementById("comp-image<venda_invtref>") : "",
+			objSwatchArea: (document.getElementById("swatch<venda_invtref>")) ? document.getElementById("swatch<venda_invtref>") : "",
+			objColourDefault: "<venda_pdxtdefaultimg>"
+		},
+		configProduct: {
+			productSKU: "<venda_invtref>",
+			productLink: "<venda_dispview invt=<venda_invtref>>&bklist="+myBklist,
+			productAlt: "<venda_invtname>",
+			productTitle: "<venda_invtname>",
+			noimageText: "", // left blank as it is linked to Scene7
+			fadeOutTime: 3500, // Duration in seconds for fade out message
+			noimage: {
+				defaultImage: "<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/spacer_s.gif"
+			}
+		},
+		configSwatch: {
+			swatchTitle: "<venda_invtref>"
+		}
+	});
+// -->
+</script>

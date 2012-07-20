@@ -1,0 +1,91 @@
+<venda_tpcomment><!-- DO NOT EDIT THIS TEMPLATE. See Hayley at heaston@venda.com if you are feeling the need to customise!!! --></venda_tpcomment>
+<venda_block label=91,elxthighlight2=1>
+<venda_block label=hideifsolr2,mode=value,<venda_tpxt mode=get,name=activekeyword>=null>
+<venda_block label=92,mode=value,<venda_addedmsg msg=addedref>=notnull>
+<script type="text/javascript">
+highlightAnimStatic = function() {
+	<venda_tpcomment>// check first if there is a minicart popup, because we don't need this function if there is</venda_tpcomment>
+	if(!document.getElementById('minicart_detail')){
+		var elementsStatic = YAHOO.util.Dom.getElementsByClassName('addedsku', 'li');
+		var highlightAnimStatic = new YAHOO.util.ColorAnim(elementsStatic, {backgroundColor: { from: '<venda_block label=90,elxthighlightbgrstart2=notnull><venda_elxthighlightbgrstart2></venda_block label=90><venda_block label=93,elxthighlightbgrstart2=null>#ccc</venda_block label=93>', to: '<venda_block label=94,elxthighlightbgrend2=notnull><venda_elxthighlightbgrend2></venda_block label=94><venda_block label=95,elxthighlightbgrend2=null>#fff</venda_block label=95>' } }, <venda_block label=96,elxthighlightduration2=notnull><venda_elxthighlightduration2></venda_block label=96><venda_block label=97,elxthighlightduration2=null>3</venda_block label=97>);
+		highlightAnimStatic.animate();
+	};
+};
+YAHOO.util.Event.onDOMReady(highlightAnimStatic);
+</script>
+</venda_block label=92>
+</venda_block label=hideifsolr2>
+</venda_block label=91>
+<venda_tpcomment><!-- The tpxt below is set in main/minicart_detail. The only time this layout is used is when the minicart popup is updated using AJAX. The tpxt condition puts the wrapper div around the static version of the minicart detail so that we can hide it. --></venda_tpcomment>
+<venda_block label=70,mode=value,<venda_tpxt mode=get,name=sourcedviapage>!=yes><div id="cartwrapper"></venda_block label=70>
+<div class="Lminicart_detail" id="minicart_element">
+<venda_block label=14,elxth2header=1><h2><span></span><venda_block label=15,elxth2tobasket=1><a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"></venda_block label=15><venda_elementname><venda_block label=16,elxth2tobasket=1></a></venda_block label=16></h2></venda_block label=14>
+
+<venda_block label=17,elxtitemstotaltop=1><venda_block label=24,mode=value,<venda_tpxt mode=get,name=instore>!=1>
+<venda_block label=57,elxtmditemstotal1=1>
+<ul id="minicart_totals"<venda_block label=50,mode=value,<venda_shopcart mode=getqty>!=0> class="items_added"</venda_block label=50><venda_block label=51,mode=value,<venda_shopcart mode=getqty>=0> class="items_empty"</venda_block label=51>>
+	<li class="items top"><a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"><venda_text id=site.minicart_detail.item><span id="updatemdItems"><venda_shopcart mode=getqty></span></a></li>
+	<li class="total top"><a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"><venda_text id=site.minicart_detail.before.total><span id="updatemdTotal" class="price"><venda_ohsubsell></span></a></li>
+</ul>
+</venda_block label=57>
+<venda_block label=58,elxtmditemstotal2=1>
+<venda_block label=59,elxtmditemstotal1!=1><venda_tpcomment><!-- This condition ensures that both formats of Items and Total information are not displayed together --></venda_tpcomment>
+<ul id="minicart_totals"<venda_block label=80,mode=value,<venda_shopcart mode=getqty>!=0> class="items_added"</venda_block label=80><venda_block label=81,mode=value,<venda_shopcart mode=getqty>=0> class="items_empty"</venda_block label=81>>
+	<li class="items top"><a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"><venda_elxtmdbeforeitemstotal><span id="updatemdItems"><venda_shopcart mode=getqty></span>&nbsp;<venda_elxtmdaftertotal><venda_block label=82,mode=value,<venda_shopcart mode=getqty>!=1>s</venda_block label=82><venda_elxtmdafterunit></a></li>
+	<li class="total top"><a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"><venda_elxtmdbeforetotal2><span id="updatemdTotal" class="price"><venda_ohsubsell></span></a></li>
+</ul>
+</venda_block label=59></venda_block label=58>
+</venda_block label=24></venda_block label=17>
+
+<venda_block label=52,mode=value,<venda_shopcart mode=getqty>!=0><venda_order shopcart=1,template=minicart_detail></venda_block label=52>
+<venda_block label=53,mode=value,<venda_shopcart mode=getqty>=0><p><venda_text id=site.empty_basket.basket_is_empty></p></venda_block label=53>
+
+<venda_block label=917,elxtitemstotalbottom=1><venda_block label=924,mode=value,<venda_tpxt mode=get,name=instore>!=1>
+<venda_block label=957,elxtmditemstotal1=1>
+<ul id="minicart_totals"<venda_block label=950,mode=value,<venda_shopcart mode=getqty>!=0> class="items_added"</venda_block label=950><venda_block label=951,mode=value,<venda_shopcart mode=getqty>=0> class="items_empty"</venda_block label=951>>
+	<li class="items bottom"><a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"><venda_text id=site.minicart_detail.item><span id="updatemdItems2"><venda_shopcart mode=getqty></span></a></li>
+	<li class="total bottom"><a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"><venda_text id=site.minicart_detail.before.total><span id="updatemdTotal2" class="price"><venda_ohsubsell></span></a></li>
+</ul>
+</venda_block label=957>
+<venda_block label=958,elxtmditemstotal2=1>
+<venda_block label=959,elxtmditemstotal1!=1><venda_tpcomment><!-- This condition ensures that both formats of Items and Total information are not displayed together --></venda_tpcomment>
+<ul id="minicart_totals"<venda_block label=980,mode=value,<venda_shopcart mode=getqty>!=0> class="items_added"</venda_block label=980><venda_block label=981,mode=value,<venda_shopcart mode=getqty>=0> class="items_empty"</venda_block label=981>>
+	<li class="items bottom"><a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"><venda_elxtmdbeforeitemstotal><span id="updatemdItems2"><venda_shopcart mode=getqty></span>&nbsp;<venda_elxtmdaftertotal><venda_block label=982,mode=value,<venda_shopcart mode=getqty>!=1>s</venda_block label=982><venda_elxtmdafterunit></a></li>
+	<li class="total bottom"><a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"><venda_elxtmdbeforetotal2><span id="updatemdTotal2" class="price"><venda_ohsubsell></span></a></li>
+</ul>
+</venda_block label=959></venda_block label=958>
+</venda_block label=924></venda_block label=917>
+
+<venda_block label=18,elxtbasketcheckoutbottom=1><venda_block label=34,mode=value,<venda_tpxt mode=get,name=instore>!=1>
+<ul id="minicart_links">
+<li class="viewbasket"><a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"><venda_block label=25,med-basket=notnull><venda_media rec=element,type=pict,key=basket,border=0></venda_block label=25><venda_block label=26,med-basket=null><venda_text id=site.minicart.view_basket.link></venda_block label=26></a></li>
+<li class="checkout">
+<venda_block label=11,mode=value,<venda_shopcart mode=getqty>!=0>
+<venda_block label=46,mode=value,<venda_setting type=ebiz,name=expresscheckout>!=2>
+	<venda_block label=100,ustype=R>
+		<venda_block label=210,mode=value,<venda_setting type=ebiz,name=skipsecondlogin>=1><a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"></venda_block label=210>
+		<venda_block label=211,mode=value,<venda_setting type=ebiz,name=skipsecondlogin>!=1><a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"></venda_block label=211>
+	</venda_block label=100>
+	<venda_block label=101,ustype!=R><a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"></venda_block label=101>
+	<venda_block label=27,med-checkout=notnull><venda_media rec=element,type=pict,key=checkout,border=0></venda_block label=27><venda_block label=28,med-checkout=null><venda_text id=site.minicart.checkout.link></venda_block label=28></a>
+</venda_block label=46>
+<venda_block label=47,mode=value,<venda_setting type=ebiz,name=expresscheckout>=2>
+<venda_tpcomment><!-- if using express checkout only --></venda_tpcomment>
+<venda_block label=129,mode=value,<venda_setting type=ebiz,name=bypasspclookup>!=1>
+<venda_tpcomment><!-- with postcode lookup --></venda_tpcomment>
+<a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22">"><venda_block label=29,med-checkout=notnull><venda_media rec=element,type=pict,key=checkout,border=0></venda_block label=29><venda_block label=30,med-checkout=null><venda_text id=site.minicart.checkout.link></venda_block label=30></a>
+</venda_block label=129>
+<venda_block label=130,mode=value,<venda_setting type=ebiz,name=bypasspclookup>=1>
+<venda_tpcomment><!-- without postcode lookup --></venda_tpcomment>
+<a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22">"><venda_block label=31,med-checkout=notnull><venda_media rec=element,type=pict,key=checkout,border=0></venda_block label=31><venda_block label=32,med-checkout=null><venda_text id=site.minicart.checkout.link>></venda_block label=32></a>
+</venda_block label=130>
+</venda_block label=47>
+</venda_block label=11>
+<venda_block label=12,,mode=value,<venda_shopcart mode=getqty>=0>
+<a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"><venda_block label=41,med-checkout=notnull><venda_media rec=element,type=pict,key=checkout,border=0></venda_block label=41><venda_block label=42,med-checkout=null><venda_text id=site.minicart.checkout.link></venda_block label=42></a>
+</venda_block label=12>
+</li>
+</ul>
+</venda_block label=34></venda_block label=18>
+</div>
+<venda_block label=71,mode=value,<venda_tpxt mode=get,name=sourcedviapage>!=yes></div></venda_block label=71>

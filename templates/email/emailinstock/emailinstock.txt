@@ -1,0 +1,18 @@
+<venda_detblock1>
+<venda_dispview invt=<venda_invtparef>> <venda_invtname><cr><cr>
+<venda_text id=site.email.emailinstock.msg3> <venda_dispview invt=<venda_invtparef>> <venda_text id=site.email.emailinstock.msg4>
+
+</venda_detblock1>
+
+==============================================================================<cr>
+<venda_text id=site.email.emailinstock.title1><cr><cr>
+==============================================================================<cr><cr>
+
+<venda_text id=site.email.emailinstock.msg1><cr><cr>
+
+<venda_text id=site.email.emailinstock.msg2><cr><cr>
+<venda_detail1><cr>
+<venda_text id=site.email.emailinstock.msg5><cr><cr>
+<venda_text id=site.email.emailinstock.msg6><cr><cr>
+
+<venda_inctemplate name=textEmailFooter,type=includes>

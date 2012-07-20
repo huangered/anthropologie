@@ -1,0 +1,275 @@
+<script type="text/javascript">
+<!--
+//check if textbox form element is empty and put focus on that element if empty
+//form: form name
+//elm: element to check
+//errMsg: error message - only appears if an error parameter is passed
+function chkField(form, elm, errMsg) {	
+	var curElm = document.forms[form].elements[elm];	
+	if (curElm.value != '' && curElm.value.length != 0) {
+		return true; 
+	} else {
+		if (arguments[2] != undefined) {
+			alert(errMsg);
+			curElm.focus();
+		}
+		return false;
+	}
+}
+
+//check if textbox form element is a number, all white spaces are removed
+//form: form name
+//elm: element to check
+//errMsg: error message - only appears if an error parameter is passed
+function isNum(form, elm, errMsg) {
+	var numOnly =/^\d+$/;
+	var curElm = document.forms[form].elements[elm];
+	var strpdField = curElm.value.replace(/\s+/g,'');
+	if (numOnly.test(strpdField)) {  
+		return true;
+	} else {
+		if (arguments[2] != undefined) {
+			alert(errMsg);
+			curElm.focus();
+		}
+		return false;
+	}
+}
+
+//check if select form element is empty and put focus on that element if empty
+//form: form name
+//elm: element to check
+//errMsg: error message
+function chkDropdown(form, elm, errMsg) {
+	var objDropdown = document.forms[form].elements[elm];
+	var objSelectValue = objDropdown.options[objDropdown.selectedIndex].value; 
+	if (objSelectValue != "") {
+		return true;
+	} else {
+		if (arguments[2] != undefined) {
+			alert(errMsg);
+			objDropdown.focus();
+		}
+		return false;
+	}
+}
+
+// isRequiredField - this param is set to 'true' when country field is 'US', for validating State and Zipcode
+var isRequiredField = false;
+
+function validateFields() {
+	var curFrm = "wizform"; //set form name
+	var isValid=0;
+	if (!chkField(curFrm, 'title', '<venda_text id=site.singlesteppc_lookup.contact_address.delivery_address.js_validation.title>')) { isValid=1; return false; }
+	if (!chkField(curFrm, 'fname', '<venda_text id=site.singlesteppc_lookup.contact_address.delivery_address.js_validation.first_name>')) { isValid=1; return false; }
+	if (!chkField(curFrm, 'lname', '<venda_text id=site.singlesteppc_lookup.contact_address.delivery_address.js_validation.last_name>')) { isValid=1; return false; }
+	
+	<venda_block label=190,mode=value,<venda_setting type=ebiz,name=hidearea>!=1>
+	if (chkField(curFrm, 'area')) { 
+		if (!isNum(curFrm, 'area', '<venda_text id=site.edit_contact_address.phone.alert>')) { isValid=1; document.forms[curFrm].elements['area'].select(); return false; }
+	}
+	</venda_block label=190>
+	if (chkField(curFrm, 'phone')) {
+		if (!isNum(curFrm, 'phone', '<venda_text id=site.edit_contact_address.phone.alert>')) { isValid=1; document.forms[curFrm].elements['phone'].select(); return false; }
+	}
+	<venda_block label=1901,mode=value,<venda_setting type=ebiz,name=showfax>=1>
+	<venda_block label=1911,mode=value,<venda_setting type=ebiz,name=hidearea>!=1>
+	if (chkField(curFrm, 'farea')) { 
+		if (!isNum(curFrm, 'farea', '<venda_text id=site.singlesteppc_lookup.contact_address.js_validation.farea_digits>')) { isValid=1; document.forms[curFrm].elements['farea'].select(); return false; }
+	}
+	</venda_block label=1911>
+	if (chkField(curFrm, 'fax')) {
+		if (!isNum(curFrm, 'fax', '<venda_text id=site.singlesteppc_lookup.contact_address.js_validation.fax_digits>')) { isValid=1; document.forms[curFrm].elements['fax'].select(); return false; }
+	}
+	</venda_block label=1901>
+	
+	<venda_block label=1900,param2=uk,errors=null>
+	if (!chkField(curFrm, 'zcdropdown', '<venda_text id=site.edit_contact_address.select.ads>')) { isValid=1; return false; }
+	</venda_block label=1900>
+	<venda_block label=1910,param2!=uk,errors=notnull,operator=or>
+	<venda_block label=88,mode=value,<venda_setting type=ebiz,name=nohousenum>!=1>
+	if (!chkField(curFrm, 'num', '<venda_text id=site.singlesteppc_lookup.contact_address.delivery_address.js_validation.num>')) { isValid=1; return false; }
+	</venda_block label=88>
+	if (!chkField(curFrm, 'addr1', '<venda_text id=site.singlesteppc_lookup.contact_address.delivery_address.js_validation.addr1>')) { isValid=1; return false; }
+	if (!chkField(curFrm, 'city', '<venda_text id=site.singlesteppc_lookup.contact_address.delivery_address.js_validation.city>')) { isValid=1; return false; }
+
+    if(isRequiredField){
+    	if (!chkField(curFrm, 'statelist', '<venda_text id=site.singlesteppc_lookup.contact_address.delivery_address.js_validation.state>')) { isValid=1; return false; }
+    	if (!chkField(curFrm, 'zipc', '<venda_text id=site.singlesteppc_lookup.contact_address.delivery_address.js_validation.zipc.us>')) { isValid=1; return false; }
+    }
+   	if (!chkField(curFrm, 'zipc', '<venda_text id=site.singlesteppc_lookup.contact_address.delivery_address.js_validation.zipc>')) { isValid=1; return false; }
+	if (!chkDropdown(curFrm, 'cntry', '<venda_text id=site.singlesteppc_lookup.contact_address.delivery_address.js_validation.cntry>')) { isValid=1; return false; }
+	</venda_block label=1910>
+	if(isValid===0){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function nextPage () {
+	if (!validateFields()) {
+		return;
+	}
+	if (document.wizform.title.value == "") {
+		alert('<venda_text id=site.delivery_address.js_validation.title>');
+		return ;
+	}
+    if(isRequiredField){
+    	if (document.wizform.statelist.value == "") { 
+            alert('<venda_text id=site.delivery_address.js_validation.state>');
+            return ; 
+        }
+    	if (document.wizform.zipc.value == "") { 
+            alert('<venda_text id=site.delivery_address.js_validation.zipc.us>');
+            return ; 
+        }
+    }
+	if (document.wizform.zipc.value == "") { 
+		alert('<venda_text id=site.delivery_address.js_validation.zipc>');
+		return ; 
+	}
+	<venda_block label=34,param2=uk>
+	if (document.wizform.zcdropdown.selectedIndex==0) {
+		alert("<venda_text id=site.delivery_address.js_validation.select_address>");
+		document.wizform.zcdropdown.focus();
+	}
+	else {
+	</venda_block label=34>
+		<venda_block label=36,workflow=manageaddresses>
+		// if in manageaddresses workflow
+		<venda_wizbutton step=shipadd,mode=process,check=yes,param2=password,callonly=yes>
+		</venda_block label=36>
+        <venda_block label=37,workflow=giftlist>
+		// if in giftlist workflow
+		<venda_wizbutton step=shipadd,mode=process,check=yes,param2=password,callonly=yes>
+		</venda_block label=37>
+		<venda_block label=38,workflow=shopcart,workflow=instore,operator=or>
+
+		<venda_block label=400,param3!=addgiftwrap>
+			<venda_block label=40,mode=value,<venda_htxt mode=get,name=changeaddby>=multipledeliveryaddresses>
+			// if in shopcart workflow - multipledeliveryaddresses no param3
+			<venda_wizbutton step=itemship,mode=process,check=yes,param2=password,callonly=yes>
+			</venda_block label=40>
+			<venda_block label=41,mode=value,<venda_htxt mode=get,name=changeaddby>!=multipledeliveryaddresses>
+			// if in shopcart workflow - edit button, no giftwrap
+			<venda_wizbutton step=confirm,mode=process,check=yes,param2=password,callonly=yes>
+			</venda_block label=41>
+		</venda_block label=400>
+		<venda_block label=401,param3=addgiftwrap>
+			<venda_block label=40,mode=value,<venda_htxt mode=get,name=changeaddby>=multipledeliveryaddresses>
+			// if in shopcart workflow - multipledeliveryaddresses param3
+			<venda_wizbutton step=addgiftwrap,mode=process,check=yes,param2=password,callonly=yes>
+			</venda_block label=40>
+			<venda_block label=41,mode=value,<venda_htxt mode=get,name=changeaddby>!=multipledeliveryaddresses>
+			// if in shopcart workflow - edit button, giftwrap
+			<venda_wizbutton step=addgiftwrap,mode=process,check=yes,param2=password,callonly=yes>
+			</venda_block label=41>
+		</venda_block label=401>
+
+		</venda_block label=38>
+		<venda_block label=139,workflow=singleadbook>
+		//express checkout
+		<venda_wizbutton step=confirm,mode=process,param1=copybillto,check=yes,wizard=shopcart,callonly=yes>
+		</venda_block label=139>
+		<venda_block label=39,workflow!=shopcart,workflow!=manageaddresses,workflow!=giftlist,workflow!=instore,workflow!=singleadbook>
+		// if in none of those workflows
+		<venda_wizbutton step=next,mode=process,check=yes,param2=password,callonly=yes>
+		</venda_block label=39>
+        
+	}
+<venda_block label=440,param2=uk>}</venda_block label=440>
+// -->
+</script>
+
+<div id="buttons">
+
+<venda_block label=716,workflow=giftlist>
+<venda_block label=811,param2=edit>
+		<a href="#" onClick='<venda_wizbutton step=shipadd,mode=display,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left"></a>
+		</venda_block label=811>
+		<venda_block label=812,param2!=edit>
+		<venda_block label=29,mode=value,<venda_sessionlocation>!=europe><a href="#" onClick='<venda_wizbutton step=zipcodedelivery,mode=display,param1=delivery,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left"></a></venda_block label=29>
+		<venda_block label=30,mode=value,<venda_sessionlocation>=europe><a href="#" onClick='<venda_wizbutton step=shipadd,mode=display,param1=delivery,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left"></a></venda_block label=30>
+
+		</venda_block label=812>
+</venda_block label=716>
+
+<venda_block label=714,workflow=manageaddresses>
+<venda_block label=14,param1=delivery>
+	<!--Adding new address-->
+	<venda_block label=32,mode=value,<venda_sessionlocation>!=europe><a href="#" onClick='<venda_wizbutton step=zipcodedelivery,mode=display,param1=delivery,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left"></a></venda_block label=32>
+	<venda_block label=33,mode=value,<venda_sessionlocation>=europe><a href="#" onClick='<venda_wizbutton step=shipadd,mode=display,param1=delivery,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left"></a></venda_block label=33>
+</venda_block label=14>
+<venda_block label=15,param1!=delivery>
+	<!--Editing existing address-->
+
+	<a href="<venda_codehttps>?ex=co_wizr-manageaddresses&bsref=<venda_bsref>"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left"></a>
+</venda_block label=15>
+</venda_block label=714>
+
+<venda_block label=313,workflow=shopcart>
+	<venda_block label=78,param2!=adbook>
+	<!-- if you were previously at the zipcode screen you are not allowed to go back as you would add an incomplete entry to your addresses -->
+	<!-- if you were previously at the billto screen you are not allowed to go back as you cannot resubmit the form - it has already been processed -->
+	</venda_block label=78>
+	<venda_block label=79,param2=adbook>
+	<!-- ie you were previously at the address book screen -->
+
+	<a href="#" onclick='<venda_wizbutton step=shipadd,mode=display,param2=adbook,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left"></a>
+	</venda_block label=79>
+</venda_block label=313>
+
+<venda_block label=31,workflow=singleadbook>
+		<!-- ie has no address book so this will go back to the order confirmation-->
+		<a href="#" onclick='<venda_wizbutton step=confirm,mode=display,wizard=shopcart,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left"></a>
+</venda_block label=31>
+
+<venda_block label=314,workflow!=shopcart,workflow!=manageaddresses,workflow!=giftlist,workflow!=singleadbook,workflow!=instore>
+<venda_block label=24,param2=uk,param2=add,param2=storeadd,operator=or>
+		<!-- try another postcode -->
+
+		<venda_block label=40,mode=value,<venda_sessionlocation>!=europe><a href="#" onClick='<venda_wizbutton step=zipcodedelivery,mode=display,param1=delivery,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left"></a></venda_block label=40>
+		<venda_block label=35,mode=value,<venda_sessionlocation>=europe><a href="#" onClick='<venda_wizbutton step=shipadd,mode=display,param1=delivery,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left"></a></venda_block label=35>
+	</venda_block label=24>
+	<venda_block label=25,param2!=uk,param2!=add,param2!=storeadd>
+		<!-- back to my account -->
+		<a href="<venda_dispview page=myaccount>"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left"></a>
+	</venda_block label=25>
+</venda_block label=314>
+
+<input type="image" onClick="nextPage(); return false;" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_continue.gif" alt="<venda_text id=site.button.continue>" class="right">
+</div>
+
+<venda_block label=244,param2!=uk>
+<script type="text/javascript">
+function swapLabel(){
+        var stateLabel = document.getElementById("stateLabel");
+        var zipcLabel = document.getElementById("zipcLabel");
+        var cntryLabel = document.getElementById("countryLabel");
+        var country = document.getElementById("cntrylist");
+
+	if(country == undefined) { return; } //if country is undefined do nothing
+
+		if(country.value == "United States"){
+                        stateLabel.innerHTML = '<venda_text id=site.contact_address.label.us_state> <span class="re-waiHide"> <venda_text id=site.accessible.label.required></span> <span class="required">*</span>';
+                        zipcLabel.innerHTML = '<venda_text id=site.contact_address.zipc.us_zipcode> <span class="re-waiHide"> <venda_text id=site.accessible.label.required></span> <span class="required">*</span>';
+                        isRequiredField = true;
+                }
+                else if(country.value == "United Kingdom"){
+                        stateLabel.innerHTML = '<venda_text id=site.contact_address.label.uk_county>';
+                        zipcLabel.innerHTML = '<venda_text id=site.contact_address.zipc.non_us_postcode>';
+                        isRequiredField = false;
+                }
+                else {
+                        stateLabel.innerHTML = '<venda_text id=site.contact_address.label.non_us_uk_region>';
+                        zipcLabel.innerHTML = '<venda_text id=site.contact_address.zipc.non_us_postcode>';
+                        isRequiredField = false;
+                }
+}
+				jQuery(document).ready(function(){
+					swapLabel();
+				});
+                addEvent(document.wizform.cntry, 'change', swapLabel, true);
+</script>
+</venda_block label=244>

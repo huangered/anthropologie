@@ -1,0 +1,8 @@
+<venda_inctemplate name=textEmailHeader2,type=includes>
+
+<venda_text id=site.email.new_register.msg1><cr>
+
+<venda_text id=site.email.new_register.msg2> <venda_dispview page=signin> <venda_text id=site.email.new_register.msg3> <venda_text id=site.email.new_register.msg4><cr><cr>
+<venda_text id=site.email.new_register.msg5> subscriptions@anthropologie.eu <venda_text id=site.email.new_register.msg6><cr><cr>
+<venda_text id=site.email.new_register.msg7><cr><cr>
+<venda_inctemplate name=textEmailFooter,type=includes>

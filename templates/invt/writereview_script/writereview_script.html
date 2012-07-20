@@ -1,0 +1,88 @@
+<venda_tpcomment>// treat this template like an external .js file</venda_tpcomment>
+<venda_tpcomment>// changes the back link behaviour if viewing via popup div</venda_tpcomment>
+isPopup = document.getElementById('popupcontent');
+if(isPopup){YAHOO.util.Event.addListener("back_link", "click", Venda.Widget.InvtPopups.featureHide);}
+
+function validate(){
+
+if (document.writereviewform.field1.value == '') {
+		alert("<venda_text id=site.write_review.js_validation.name>");
+		document.writereviewform.field1.focus();
+		return;
+		}	
+	
+	<venda_tpcomment>// email address validation</venda_tpcomment>
+	if (document.writereviewform.from.value == '') {
+		alert("<venda_text id=site.write_review.js_validation.valid_email_address>");
+		document.writereviewform.from.focus();
+		return;
+		}
+		
+	var checkEmail = document.writereviewform.from.value;
+	if (!checkemail(checkEmail)) {
+		alert("<venda_text id=site.write_review.js_validation.valid_email_address>");
+		document.writereviewform.from.focus();
+		return;
+	}
+	<venda_tpcomment>// phone number validation
+	//remove if not required
+	// strip hyphens</venda_tpcomment>
+	document.writereviewform.field2.value=document.writereviewform.field2.value.replace(/-/g,"");
+	<venda_tpcomment>// strip whitespace</venda_tpcomment>
+	document.writereviewform.field2.value=document.writereviewform.field2.value.replace(/ /g,"");
+	<venda_tpcomment>// not alpha characters</venda_tpcomment>
+	var filterNumber = /[^\d]/;
+	if (filterNumber.test(document.writereviewform.field2.value)==true) {
+		alert('<venda_text id=site.write_review.js_validation.phone_number_no_letters>');
+		document.writereviewform.field2.focus();
+		return;
+	}
+	<venda_tpcomment>// starts with 0</venda_tpcomment>
+	var filter=/^0/;
+	if (filter.test(document.writereviewform.field2.value)==false) {
+		alert('<venda_text id=site.write_review.js_validation.beginning_0>');
+		document.writereviewform.field2.focus();
+		return;
+	}
+	<venda_tpcomment>// is 10 or 11 characters</venda_tpcomment>
+	if (document.writereviewform.field2.value.length!=10) {
+		if (document.writereviewform.field2.value.length!=11) {
+			alert('<venda_text id=site.write_review.js_validation.digits>');
+			document.writereviewform.field2.focus();
+			return;
+		}
+	}
+	if (document.writereviewform.field2.value.length!=11) {
+		if (document.writereviewform.field2.value.length!=10) {
+			alert('<venda_text id=site.write_review.js_validation.digits>');
+			document.writereviewform.field2.focus();
+			return;
+		}
+	}
+	if (document.writereviewform.field2.value==''){
+		alert("<venda_text id=site.write_review.js_validation.phone_number>")
+		document.writereviewform.field2.focus();
+		return;
+		}
+		
+	if (document.writereviewform.field6.value==''){
+		alert("<venda_text id=site.write_review.js_validation.rating>")
+		document.writereviewform.field6.focus();
+		return;
+		}
+		
+	if (document.writereviewform.field3.value==''){
+		alert("<venda_text id=site.write_review.js_validation.review>")
+		document.writereviewform.field3.focus();
+		return;
+		}
+
+	<venda_tpcomment>// must check first that we are still on the product detail</venda_tpcomment>
+	if(isPopup){ <venda_tpcomment>// there is an id called popupcontent so we can proceed with the ajax function</venda_tpcomment>
+		document.writereviewform.layout.value = 'noheaders';
+		ajaxFunction('<venda_codehttp>','popupcontent','writereviewform');
+		}
+	else { <venda_tpcomment>// there is no id called popupcontent so we must be viewing the write a review area in its own screen</venda_tpcomment>
+		document.writereviewform.submit();
+		}
+}

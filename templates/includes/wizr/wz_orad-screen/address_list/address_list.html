@@ -1,0 +1,151 @@
+<venda_detblock>
+<li>
+	<venda_block label=10,abrfnbr1&gt;0>
+	<fieldset class="f-oradsaddbook">
+		<input type="hidden" name="abrfnbr" value="<venda_abrfnbr1>">
+		<legend class="oradsaddbook">
+		<venda_block label=9101,adtype1=1>
+			<venda_text id=site.address_book.legend.billing_address>
+		</venda_block label=9101>
+		<venda_block label=9102,adtype1=0>
+			<venda_block label=911,mode=value,<venda_company1>=c/o <venda_setting type=ebiz,name=name>><venda_text id=site.address_book.legend.store_delivery_address></venda_block label=911>
+			<venda_block label=912,mode=value,<venda_company1>!=c/o <venda_setting type=ebiz,name=name>><venda_text id=site.address_book.legend.delivery_address>
+			</venda_block label=912>
+			<venda_block label=913,addrname1=notnull><venda_addrname1>:</venda_block label=913>
+		</venda_block label=9102>
+		</legend>
+		<div class="addrbook">
+		<div class="headeraddr">
+		<venda_block label=101,adtype1=1>
+			<venda_text id=site.address_book.legend.billing_address>
+		</venda_block label=101>
+		<venda_block label=102,adtype1=0>
+			<venda_block label=11,mode=value,<venda_company1>=c/o <venda_setting type=ebiz,name=name>><venda_text id=site.address_book.legend.store_delivery_address></venda_block label=11>
+			<venda_block label=12,mode=value,<venda_company1>!=c/o <venda_setting type=ebiz,name=name>><venda_text id=site.address_book.legend.delivery_address>
+			</venda_block label=12>
+			<venda_block label=13,addrname1=notnull><venda_addrname1>:</venda_block label=13>
+		</venda_block label=102>
+		</div>
+		
+		<venda_block label=320,workflow=manageaddresses,adtype1=0>
+			<div class="bt_right"><a href='#' onClick='<venda_wizbutton step=editadd,param1=<venda_abrfnbr1>,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_edit2.gif" alt="<venda_text id=site.button.edit>" border="0"></a></div>
+		</venda_block label=320>
+		
+		<venda_block label=3211,workflow=shopcart,param2=adbook,adtype1=0>
+			<div class="bt_right"><a href='#' onClick='<venda_wizbutton step=editadd,param1=<venda_abrfnbr1>,param2=adbook,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_edit2.gif" alt="<venda_text id=site.button.edit>" border="0"></a></div>
+		</venda_block label=3211>
+		
+		</div>
+				
+		
+		
+		<p>
+			<span class="addrName"><strong>
+<venda_block label=101,mode=value,<venda_sessionlanguage>=en><venda_title1> </venda_block label=101>
+<venda_block label=102,mode=value,<venda_sessionlanguage>=de><venda_block label=1021,title1=Mr><venda_text id=site.please.select.mr> </venda_block label=1021><venda_block label=1021,title1=Mrs,title1=Miss,title1=Ms,operator=or><venda_text id=site.please.select.mrs> </venda_block label=1021></venda_block label=102> <venda_fname1><venda_block label=77,mname1=notnull> <venda_mname1></venda_block label=77> <venda_lname1></strong></span><br>
+			<venda_block label=31,company1=notnull><venda_company1><br></venda_block label=31>
+			<venda_block label=41,num1=notnull><venda_num1> </venda_block label=41><venda_addr11><venda_block label=3,addr21=notnull><br><venda_addr21></venda_block label=3><br>
+
+			<!-- if country is US or US Non-48 display this formatting -->
+			<venda_block label=999,mode=value,<venda_cntry1>=United States,<venda_cntry1>=United States Non-48,<venda_cntry1>=United States Armed Forces,operator=or>
+			<venda_city1>, <venda_block label=42,state1=notnull><venda_state1> </venda_block label=42><venda_zipc1><br>
+</venda_block label=999>
+
+			<!-- if country is NOT US or US entities display this formatting -->
+			<venda_block label=9991,mode=value,<venda_cntry1>!=United States,<venda_cntry1>!=United States Non-48,<venda_cntry1>!=United States Armed Forces,operator=and>
+			<venda_city1><br>
+			<venda_block label=42,state1=notnull><venda_state1> </venda_block label=42><venda_zipc1><venda_block label=1234,state1=notnull,zipc1=notnull,operator=or><br></venda_block label=1234>
+			</venda_block label=9991>
+			
+			<venda_block label=1000,cntry1=Austria><venda_text id=site.country.please.select.option.austria></venda_block label=1000>
+			<venda_block label=2000,cntry1=Belgium><venda_text id=site.country.please.select.option.belgium></venda_block label=2000>
+			<venda_block label=3000,cntry1=Bulgaria><venda_text id=site.country.please.select.option.bulgaria></venda_block label=3000>
+			<venda_block label=4000,cntry1=Channel Islands><venda_text id=site.country.please.select.option.islands></venda_block label=4000>
+			<venda_block label=5000,cntry1=Cyprus><venda_text id=site.country.please.select.option.cyprus></venda_block label=5000>
+			<venda_block label=6000,cntry1=Czech Republic><venda_text id=site.country.please.select.option.czech></venda_block label=6000>
+			<venda_block label=7000,cntry1=Denmark><venda_text id=site.country.please.select.option.denmark></venda_block label=7000>
+			<venda_block label=8000,cntry1=Estonia><venda_text id=site.country.please.select.option.estonia></venda_block label=8000>
+			<venda_block label=9000,cntry1=Finland><venda_text id=site.country.please.select.option.finland></venda_block label=9000>
+			<venda_block label=10000,cntry1=France><venda_text id=site.country.please.select.option.france></venda_block label=10000>
+			<venda_block label=11000,cntry1=Germany><venda_text id=site.country.please.select.option.germany></venda_block label=11000>
+			<venda_block label=12000,cntry1=Greece><venda_text id=site.country.please.select.option.greece></venda_block label=12000>
+			<venda_block label=13000,cntry1=Hungary><venda_text id=site.country.please.select.option.hungary></venda_block label=13000>
+			<venda_block label=14000,cntry1=Ireland><venda_text id=site.country.please.select.option.ireland></venda_block label=14000>
+			<venda_block label=15000,cntry1=Italy><venda_text id=site.country.please.select.option.italy></venda_block label=15000>
+			<venda_block label=16000,cntry1=Latvia><venda_text id=site.country.please.select.option.latvia></venda_block label=16000>
+			<venda_block label=17000,cntry1=Lithuania><venda_text id=site.country.please.select.option.lithuania></venda_block label=17000>
+			<venda_block label=18000,cntry1=Luxembourg><venda_text id=site.country.please.select.option.luxembourg></venda_block label=18000>
+			<venda_block label=19000,cntry1=Malta><venda_text id=site.country.please.select.option.malta></venda_block label=19000>
+			<venda_block label=20000,cntry1=Netherlands><venda_text id=site.country.please.select.option.netherlands></venda_block label=20000>
+			<venda_block label=21000,cntry1=Norway><venda_text id=site.country.please.select.option.norway></venda_block label=21000>
+			<venda_block label=22000,cntry1=Poland><venda_text id=site.country.please.select.option.poland></venda_block label=22000>
+			<venda_block label=23000,cntry1=Portugal><venda_text id=site.country.please.select.option.portugal></venda_block label=23000>
+			<venda_block label=24000,cntry1=Romania><venda_text id=site.country.please.select.option.romania></venda_block label=24000>
+			<venda_block label=25000,cntry1=Slovak Republic><venda_text id=site.country.please.select.option.slovak></venda_block label=25000>
+			<venda_block label=26000,cntry1=Slovenia><venda_text id=site.country.please.select.option.slovenia></venda_block label=26000>
+			<venda_block label=27000,cntry1=Spain><venda_text id=site.country.please.select.option.spain></venda_block label=27000>
+			<venda_block label=28000,cntry1=Sweden><venda_text id=site.country.please.select.option.sweden></venda_block label=28000>
+			<venda_block label=29000,cntry1=Switzerland><venda_text id=site.country.please.select.option.switzerland></venda_block label=29000>
+			<venda_block label=30000,cntry1=United Kingdom><venda_text id=site.country.please.select.option.uk></venda_block label=30000>
+			
+            <venda_block label=43,area1=notnull,phone1=notnull,operator=or><br><span class="addrPhone"><venda_text id=site.address_details.label.phone> <venda_block label=100,mode=value,<venda_setting type=ebiz,name=hidearea>!=1><venda_block label=11,area1=notnull><venda_area1>&nbsp;</venda_block label=11></venda_block label=100><venda_block label=12,phone1=notnull><venda_phone1></venda_block label=12></span></venda_block label=43>
+			<venda_block label=44,farea1=notnull,fax1=notnull,operator=or><br><span class="addrFax"><venda_text id=site.address_details.label.fax> <venda_block label=100,mode=value,<venda_setting type=ebiz,name=hidearea>!=1><venda_block label=11,farea1=notnull><venda_farea1>&nbsp;</venda_block label=11></venda_block label=100><venda_block label=12,fax1=notnull><venda_fax1></venda_block label=12></span></venda_block label=44>
+		</p>
+		
+		<venda_block label=132,adtype1=0>
+		<!-- if it's a delivery address -->
+		<venda_block label=330,mode=value,<venda_company1>!=c/o <venda_setting type=ebiz,name=name>>
+		<!-- Not Deliver to Store -->
+            <venda_block label=220,workflow=giftlist>
+			<div><a href='#' onClick='<venda_wizbutton step=editadd,param1=<venda_abrfnbr1>,param2=edit,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_edit.gif" alt="<venda_text id=site.button.edit>" border="0"></a></div>
+			</venda_block label=220>
+			<!--venda_block label=320,workflow=manageaddresses>
+			<div class="bt_right"><a href='#' onClick='<venda_wizbutton step=editadd,param1=<venda_abrfnbr1>,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_edit.gif" alt="<venda_text id=site.button.edit>" border="0"></a></div>
+			</venda_block label=320-->
+			<venda_block label=321,workflow=shopcart,workflow=instore,operator=or>
+				<venda_block label=325,param2!=multiple,param2!=adbook,operator=and>
+				<div><a href='#' onClick='<venda_wizbutton step=editadd,param1=<venda_abrfnbr1>,param2=adbook,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_edit.gif" alt="<venda_text id=site.button.edit>" border="0"></a></div>
+				</venda_block label=325>
+				<venda_block label=322,param2=multiple>
+				<div><a href='#' onClick='<venda_wizbutton step=editadd,param1=<venda_abrfnbr1>,param2=multiple,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_edit.gif" alt="<venda_text id=site.button.edit>" border="0"></a></div>
+				</venda_block label=322>
+			</venda_block label=321>
+			<venda_block label=324,workflow=register>
+			<div><a href='#' onClick='<venda_wizbutton step=editadd,param1=<venda_abrfnbr1>,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_edit.gif" alt="<venda_text id=site.button.edit>" border="0"></a></div>
+			</venda_block label=324>
+		</venda_block label=330>
+		<venda_block label=331,mode=value,<venda_company1>=c/o <venda_setting type=ebiz,name=name>>
+		<!-- Deliver to Store -->
+		<div><a href='#' onClick='<venda_wizbutton step=editadd,param1=<venda_abrfnbr1>,param2=storeadd,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_edit.gif" alt="<venda_text id=site.button.edit>" border="0"></a></div>
+		</venda_block label=331>
+		</venda_block label=132>
+		
+		<venda_block label=133,adtype1!=0>
+		<!-- if it's a billing address no edit button -->
+		</venda_block label=133>
+		
+		<venda_block label=63,default1=1>
+		<!-- if it's the current default address -->
+			<venda_block label=46,workflow!=shopcart,workflow!=instore><div class="default_addr"><venda_text id=site.address_book.default_delivery_address></div></venda_block label=46>
+			<venda_block label=47,workflow=instore>
+				<venda_text id=site.address_book.deliver_to_this_address>
+			</venda_block label=47>
+			<venda_block label=4711,workflow=shopcart>
+				<div class="default_addr"><venda_text id=site.address_book.deliver_to_this_address></div>
+			</venda_block label=4711>
+		</venda_block label=63>
+		
+		<venda_block label=5,default1=0>
+		<div class="makedefault">
+			<input type="radio" name="update" id="<venda_abrfnbr1>" value="<venda_abrfnbr1>"<venda_block label=4,default1=1> checked="checked"</venda_block label=4>>
+			<venda_block label=48,workflow!=shopcart,workflow!=instore><label for="<venda_abrfnbr1>" class="dontFloat"><venda_text id=site.address_book.label.default_delivery_address></label></venda_block label=48>
+			<venda_block label=49,workflow=shopcart,workflow=instore,operator=or><label for="<venda_abrfnbr1>" class="dontFloat"><venda_text id=site.address_book.label.use_this_address></label></venda_block label=49>
+		</div>
+		</venda_block label=5>
+	</fieldset>
+	</venda_block label=10>
+</li>
+</venda_detblock>
+<ul id="address_list">
+<venda_detail>
+</ul>

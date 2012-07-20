@@ -1,0 +1,36 @@
+<venda_detblock1>
+	<a href="<venda_dispview invt=<venda_invtparef>>"><venda_block label=5111,invtatt1=notnull><!-- if product has attributes --><img src="http://s7ondemand1.scene7.com/is/image/Anthropologie/<venda_extflds exfldtype=orderitem,group=5,template=oixtimage_display,type=includes,ref=<venda_invtref>,displayonly=1>?$redesign-cart$&defaultImage=/Anthropologie/spacer" border="0"></venda_block label=5111><venda_block label=5112,invtatt1=null><!-- if product has no attributes --><venda_inctemplate name=Scene7cart,type=includes/Scene7></venda_block label=5112></a> <a href="<venda_dispview invt=<venda_invtparef>>" style="color:#000;"><venda_invtname></a></p>
+	<p style="margin:0 0 15px 0; padding:0;">To order this item, please click <a href="<venda_dispview invt=<venda_invtparef>>" style="color:#000;">here</a></p>
+</venda_detblock1>
+
+<html>
+<head>
+	<title><venda_ebizname> Products In Stock</title>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" width="726">
+<tr>
+	<td height="48" align="left" valign="top" style="padding-top:11px; padding-bottom:42px;"><venda_inctemplate name=htmlEmailLogo,type=includes></td>
+</tr>
+<tr>
+	<td align="left" style="padding-bottom:17px;"><h1 style="font-family:Arial, Helvetica, Verdana, sans-serif; font-size:10px; font-weight:bold; text-transform:uppercase; color:#c33; margin:0 0 5px 0;">Per your request</h1>
+	</td>
+</tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" style="font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;" width="726">
+<tr>
+	<td><!-- Do not display prices because this email cannot incorporate Price Banding -->
+	<p style="margin:0 0 15px 0; padding:0;">Dear Customer</p>
+	<p style="margin:0 0 15px 0; padding:0;">We are pleased to inform you that the item you requested is now back in stock:</p>
+	
+	<venda_detail1>
+	
+	<p style="margin:0 0 15px 0; padding:0;">If you would like to order this item, please hurry back and place a new order.  The item was in stock at the time this e-mail was sent, however we cannot guarantee that stock will still be available, as some products are very popular.</p>
+	<p style="margin:0 0 15px 0; padding:0;">Thank you for your interest, and we look forward to seeing you again soon.</p>
+	</td>
+</tr>
+</table>
+<venda_inctemplate name=htmlEmailFooter,type=includes>
+</body>
+</html>

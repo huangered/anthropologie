@@ -1,0 +1,47 @@
+<!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. -->
+<venda_block label=31,ustype=R>
+<div id="referfriend">
+<venda_inctemplate type=includes/wizr/wz_refr-names,name=heading_intro>
+
+<venda_form>
+<input type="hidden" name="ex" value="wz_orcp-refer">
+<input type="hidden" name="bsref" value="<venda_bsref>">
+<input type="hidden" name="subject" value=" A message from <venda_sesname>">
+<input type="hidden" name="subjectref" value=" Your refered friends ">
+<input type="hidden" name="emailfrom" value="<venda_setting type=ebiz,name=email>">
+<input type="hidden" name="layout" value="myaccount">
+<venda_tpcomment>
+<!--
+If your curlayout doesn't myacount, you must do two things:
+1. Custom this template by changing curlayout value.
+2. Change a layout for refer workflow via VCP.
+-->
+</venda_tpcomment>
+<input type="hidden" name="curlayout" value="myaccount">
+<venda_inctemplate type=includes/wizr/wz_refr-names,name=voucher_info>
+<venda_inctemplate type=includes/wizr/wz_refr-names,name=friends_told>
+<venda_inctemplate type=includes/wizr/wz_refr-names,name=your_details>
+<venda_inctemplate type=includes/wizr/wz_refr-names,name=friends_details>
+<venda_inctemplate type=includes/wizr/wz_refr-names,name=preview_terms>
+<venda_inctemplate type=includes/wizr/wz_refr-names,name=js_buttons>
+</form>
+</div>
+<!-- 
+param1: <venda_param1>
+param2: <venda_param2>
+workflow: <venda_workflow>
+page: wz_refr-names.html
+ -->
+<venda_tpxt mode=set,name=track,value=refr-names> 
+</venda_block label=31>
+
+
+<venda_block label=33,ustype!=R>                
+<script type="text/javascript">
+// forward to log in page   
+location.href="<venda_codehttps>?ex=co_wizr-refer&bsref=<venda_bsref>&step=referlogin";
+</script> 
+</venda_block label=33>
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>
+<venda_inctemplate name=cmCreateRegistrationTag,type=includes/tracking/coremetrics>
+<venda_inctemplate name=cm-wz_refr-names,type=includes/tracking/coremetrics>

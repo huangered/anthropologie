@@ -1,0 +1,22 @@
+<venda_block label=814,mode=value,<venda_setting type=ebiz,name=tracktagcoremetrics>=1>
+<!-- BEGIN COREMETRICS SUPPORT -->
+<script type="text/javascript" src="//libs.coremetrics.com/eluminate.js"></script>
+<venda_block label=851,mode=value,<venda_islive>=notnull><!-- Pull in the Live client ID on Live-->
+<script type="text/javascript">cmSetClientID("<venda_setting type=ebiz,name=tracktagcoremetricsid>",true,"data.coremetrics.com","anthropologie.eu"); </script> 
+</venda_block label=851>
+<venda_block label=852,mode=value,<venda_islive>=null><!-- Pull in the TEST client ID if not live-->
+<script type="text/javascript">cmSetClientID("<venda_setting type=ebiz,name=tracktagcoremetricstestid>",false,"testdata.coremetrics.com","anthropologie.eu"); </script> 
+</venda_block label=852>
+<venda_tpcomment>
+<!-- using coremetrics hosted library so dont call-->
+<!-- <venda_block label=857,mode=value,<venda_islive>=notnull> -->
+<!-- only call the setProduction function on Live -->
+<!-- <script type="text/javascript"> -->
+<!-- 
+//cmSetProduction();
+ //-->
+<!--  </script>  -->
+<!-- </venda_block label=857> -->
+</venda_tpcomment>
+<!-- END COREMETRICS -->
+</venda_block label=814>

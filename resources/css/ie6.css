@@ -1,0 +1,49 @@
+#content-default_nocoltwothree,
+#content-default_nocolthree,
+#content-search,
+#content-search_colthree,
+#content-search_nocolthree,
+#content-checkout,
+#content-myaccount,
+#content-norecord,
+#content-staticpage {
+	margin: 0 0 0 19px;
+}
+.Lcat_headerright h3 {
+	 padding: 6px 3px 6px 0;
+}
+.addcontactaddress form {
+	float:left;
+	width:90%;
+}
+.Lcat_orbttopcontent,
+.Lcat_orzctopcontent,
+.Lcat_oradeditaddtopcontent {
+	height:0;
+}
+.regionLangSwitchContent .contentCurrency {padding:8px 12px 9px 12px;}
+p.selected#txtswitchcur,
+p.selected#txtswitchlang,
+#txtswitchcur.login {color:#656565;}
+.Lcatnav ul li ul li a {border-right:1px solid #F0F0F0;} /*hack left nav not show bg*/
+#searchresults .sort label {padding:3px 0 0 0;}
+#searchresults .pagntop {margin-top:-21px;}
+.container fieldset.f-oradedetail div div,
+.container fieldset.f-orbtfdetail div div,
+.addcontactaddress fieldset.f-orbtfaccdetail div div {width:123px;} 
+.pagecatnav li { display:inline;}
+.copyright {position:relative; z-index:1;} 
+.emailsignup span{
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size: 1.1em;
+}
+.cataloguelink span{
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size: 1.1em;
+}
+
+#paymentdetails div.paypalbox p#paypalmail{
+	width: 430px;
+}

@@ -1,0 +1,55 @@
+<style>
+   .treehome {display:none;}
+   .pagecontainer {margin:0px; padding:0; width:100%; float:left;}
+   .storeleft {float:left; width:420px;}
+   .storeright {float:right; width:300px;}
+   .storeleft p {margin:0 0 5px 5px;}
+   .clearall {clear:both;}
+   .storeleft ul {float:left; width:420px !important; background:none !important; padding:0 0 15px !important;}
+   .storeleft ul li {float:left; width:210px !important; border:none !important; height:auto !important; margin:0 !important;}
+   .storeleft h4 {display:block !important; font-size:1.1em; margin-left:5px !important;}
+</style>
+
+<div class="pagecontainer">
+  <div class="storeleft">
+	<h4><venda_text id=site.search_no_results></h4>
+   <p><venda_text id=site.search_no_results.try_again></p>
+   <br />
+      <ul>
+         <li>
+            <h4><venda_text id=site.search_no_results.new_arrivals.header></h4>
+            <p><a href="<venda_dispview icat=newclothes>"><venda_text id=site.search_no_results.new_arrivals.clothing></a></p>
+            <p><a href="<venda_dispview icat=newshoesbags>"><venda_text id=site.search_no_results.new_arrivals.shoebag></a></p>
+            <p><a href="<venda_dispview icat=newjwlacc>"><venda_text id=site.search_no_results.new_arrivals.acc></a></p>
+            <p><a href="<venda_dispview icat=newhome>"><venda_text id=site.search_no_results.new_arrivals.home></a></p>
+         </li>
+         <li>
+          <h4><venda_text id=site.search_no_results.specific_product.header></h4>
+            <p><a href="<venda_dispview icat=dresses>"><venda_text id=site.search_no_results.specific_product.dress></a></p>
+            <p><a href="<venda_dispview icat=sweaters>"><venda_text id=site.search_no_results.specific_product.knitwear></a></p>
+            <p><a href="<venda_dispview icat=bed>"><venda_text id=site.search_no_results.specific_product.bedding></a></p>
+            <p><a href="<venda_dispview icat=tabletopandlinens>"><venda_text id=site.search_no_results.specific_product.dining></a></p>
+         </li>
+      </ul>
+      <br class="clearall"/>
+      
+      <h4><venda_text id=site.search_no_results.need_assistance.header></h4>
+      <ul>
+         <li>
+            <p><a href="<venda_dispview page=helpinfo>"><venda_text id=site.search_no_results.need_assistance.help></a></p>
+            <p><a href="<venda_dispview page=shippinginformation>"><venda_text id=site.search_no_results.need_assistance.deliverinfo></a></p>
+            <p><a href="<venda_dispview page=returnsexchanges>"><venda_text id=site.search_no_results.need_assistance.return></a></p>
+         </li>
+         <li>
+            <p><a href="<venda_dispview page=contactus>"><venda_text id=site.search_no_results.need_assistance.contact></a></p>
+            <p><a href="<venda_dispview page=faqs>"><venda_text id=site.search_no_results.need_assistance.faq></a></p>
+            <p><a href="<venda_dispview page=storelocations>"><venda_text id=site.search_no_results.storelocator></a></p>
+         </li>
+      </ul>
+      <br class="clearall"/>
+   </div>
+   <div class="storeright">
+      <a href="<venda_dispview page=home>"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/search.jpg" alt="<venda_text id=site.search_no_results.button_alt.search>"></a>
+   </div>
+   <br class="clearall"/>
+</div>

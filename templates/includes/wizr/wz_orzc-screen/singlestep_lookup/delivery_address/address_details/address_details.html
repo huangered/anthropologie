@@ -1,0 +1,31 @@
+<fieldset>
+	<legend class="orzcdaddr-adddetail"><venda_text id=site.contact_address.legend.address_details></legend>
+	<venda_block label=565,curstep=zipcoderesults,param1=notnull>
+	<input type="hidden" name="copybillto" value="1" /><venda_tpcomment><!--if you're filling out your delivery address and you've clicked lookup write it to the same delivery address--></venda_tpcomment>     
+	</venda_block label=565>
+		<venda_block label=566,curstep=zipcodedelivery,param1=notnull>
+		<input type="hidden" name="deliveryAddress" value="1" />
+		</venda_block label=566>
+	<venda_block label=11,param2!=uk,errors=notnull,operator=or>
+		<venda_block label=124,mode=value,<venda_setting type=ebiz,name=showcompany>=1><div><label for="company"><venda_text id=site.contact_address.label.company></label> <venda_company field=text,size=25,maxlength=35></div></venda_block label=124>
+
+		<venda_block label=88,mode=value,<venda_setting type=ebiz,name=nohousenum>!=1><div><label for="num"><venda_text id=site.contact_address.label.house_name_flat_number><span class="re-waiHide"> <venda_text id=site.accessible.label.required></span> <span class="required">*</span></label> <venda_num field=text,size=25,maxlength=10></div></venda_block label=88>
+		<div id="zipcDiv"><label for="zipc" id="zipcLabel"><venda_text id=site.delivery_address.label.postcode></label><venda_zipc field=text,size=25,maxlength=11><span class="pclookup"><a href="#" onclick="lookUp('delivery'); return false;"><span></span><venda_text id=site.singlesteppc_lookup.delivery_address.address_details.lookuppostcode></a></span></div>
+		<div><label for="addr1"><venda_text id=site.contact_address.label.address><span class="re-waiHide"> <venda_text id=site.accessible.label.required></span> <span class="required">*</span></label> <venda_addr1 field=text,size=25,maxlength=25,required=yes></div>
+		<div><label for="addr2"><venda_text id=site.contact_address.label.address2></label> <venda_addr2 field=text,size=25,maxlength=35></div>
+
+		<div><label for="city"><venda_text id=site.contact_address.label.city><span class="re-waiHide"> <venda_text id=site.accessible.label.required></span> <span class="required">*</span></label> <venda_city field=text,size=25,maxlength=30></div>
+		<div id="stateDiv"><label for="state" id="stateLabel"><venda_text id=site.contact_address.label.county></label> <span id="statelistbox"></span><span id="statetextbox"><input type="text" id="statetext" name="state" value="<venda_state>" class="admn_fieldsLarge" size="15" maxlength="20" /></span></div>
+		<div id="countryDiv"><label for="cntry" id="countryLabel"><venda_text id=site.contact_address.label.country><span class="re-waiHide"> <venda_text id=site.accessible.label.required></span> <span class="required">*</span></label> <venda_inctemplate type=includes,name=countryByRegion> <span id="cntry_error" class="formerror"></span></div>
+	        <script type="text/javascript">
+		<venda_tpcomment>// generate the state dropdown in JS so that JS-free users don't see 2 fields</venda_tpcomment>
+		if (typeof Venda.Platform.Checkout.jsContent != "undefined" || Venda.Platform.Checkout.jsContent) {
+			Venda.Platform.Checkout.jsContent.create('statelistbox');
+		};
+        	setDropDownDefault(document.getElementById("cntrylist"), '<venda_bcntry>');
+                hasState(document.getElementById('statelistbox'),document.getElementById('statetextbox'),document.getElementById('statelist'),'<venda_bcntry>');
+            	setDropDownDefault(document.getElementById("statelist"), '<venda_bstate>');
+        	</script>
+
+	</venda_block label=11>
+</fieldset>

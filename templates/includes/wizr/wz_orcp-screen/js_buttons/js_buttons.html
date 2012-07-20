@@ -1,0 +1,33 @@
+<script type="text/javascript">
+<!--
+// disable enter
+var handleKeyPress = function(e) {
+	var keyPressed = e.charCode || e.keyCode;
+	if (keyPressed == 13) { 
+		validate();
+		return false;
+	}
+};
+
+function validate(){
+	if (document.wizform.promo.value == ''){
+		alert('<venda_text id=site.redeem_promotion_code.js_validation.enter_code>');
+		document.wizform.promo.focus();
+		return false;
+	}
+	<venda_wizbutton step=confirm,mode=process,callonly=yes>
+}
+
+function clearPromoValue(){
+	document.wizform.promo.value = '';
+	<venda_wizbutton step=confirm,mode=display,callonly=yes>
+}
+// -->
+</script>
+<!--[if IE]>
+<script type="text/javascript">if (document.getElementById("promo")) {addEvent(document.getElementById("promo"), 'keydown', handleKeyPress, false);}</script>
+<![endif]-->
+<div id="buttons">
+<a href="#" onclick="clearPromoValue(); return false;"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left"></a>
+<input type="image" onclick="validate(); return false;" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_continue.gif" alt="<venda_text id=site.button.continue>" class="right">
+</div>

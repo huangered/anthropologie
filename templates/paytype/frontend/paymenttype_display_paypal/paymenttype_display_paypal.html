@@ -1,0 +1,10 @@
+<venda_block label=12,paymentused=notnull>
+<div class="paypalbox">
+<span id="tag-displayPaypal-usemail" class="hide"><venda_paypalemail></span>
+<p id="paypaltext"><venda_text id=site.order_receipt.hdr_paypal></p>
+<img src="<venda_protocol>://www.paypal.com/en_US/i/logo/PayPal_mark_37x23.gif"  alt="<venda_text id=site.alt.paypallogo>" id="paypallogo">
+<p id="paypalmail"><strong><venda_text id=site.order_receipt.paypal_email></strong> <span id="displayPaypal-usemail">
+<noscript><venda_paypalemail></noscript></span></p>
+<script type="text/javascript">Venda.Ebiz.splitString(document.getElementById('tag-displayPaypal-usemail').innerHTML, 60, 'displayPaypal-usemail');</script>
+</div>
+</venda_block label=12>

@@ -1,0 +1,73 @@
+<style>
+.yui-nav li#desctab.selected a {
+background:url("/content/ebiz/anthropologie/resources/images/bg_deliverytab.gif") no-repeat scroll 0 0 transparent !important;
+}
+#productdetail-tab .yui-nav li#desctab a {
+width:170px !important;
+}
+ul.yui-nav {padding:0!important; list-style:none outside none !important;}
+.yui-content h2 {display:block!important;}
+
+.yui-nav {overflow:hidden;}
+.yui-nav li {padding:0;float:left;}
+.yui-nav li a {float:left;line-height:27px;text-align:center;text-transform:lowercase;text-decoration:none;font-size:1.2em;font-family:Courier New;font-weight:bold;}
+.yui-nav li#desctab a {color:#666;width:141px;height:27px;margin-right:14px;}
+.yui-nav li#reviewtab a {color:#333;width:181px;height:27px;margin-left:12px;}
+/*.yui-nav li#desctab.selected a {background:url(../images/bg_tab.gif) no-repeat 0 0;}*/
+.yui-nav li#reviewtab.selected a {background:url(/content/ebiz/anthropologie/resources/images/bg_tab2.gif) no-repeat 0 0;}
+.yui-content {
+	background:url(/content/ebiz/anthropologie/resources/images/bg_tab_content.jpg) no-repeat 0 0;
+	overflow:hidden;
+	min-height:100px;
+	clear:both;
+}
+.tableWrapper {
+	/*border:3px double #333;*/
+	background-color: #fbf9f5;
+	padding:10px;
+	margin:10px 0;
+}
+ .tableWrapper table {
+	border-collapse:collapse;
+	border:0 none;
+	width:100%;
+}
+ .tableWrapper table th {
+	font-family:Courier New;	
+}
+ .tableWrapper table tbody td {
+	border: 0 solid transparent;
+	border-top: 1px solid #e3cdb5;
+}
+ .tableWrapper table .cellcolor2 {
+	background-color:#e2e4de;
+}
+ .tableWrapper table .noborder {
+	border-top: 0 solid transparent;
+	border-right: 0 solid transparent;
+	border-bottom: 0 solid transparent;
+	border-left: 0 solid transparent;
+}
+ table thead,  table tbody {
+}
+.stcimg {display:none;}
+</style>
+
+<script type="text/javascript">
+  var productTab = new YAHOO.widget.TabView("productdetail-tab");
+</script> 
+
+<div id="productdetail-tab">
+	<ul class="yui-nav">
+		<li id="desctab" class="selected"><a href="#ship" title="<venda_text id=site.product.detail.delivery.info>"><venda_text id=site.product.detail.delivery.info></a></li>
+		<li id="reviewtab"><a href="#returns" title="<venda_text id=site.product.detail.delivery.exchange>"><venda_text id=site.product.detail.delivery.exchange></a></li>
+	</ul>            
+<div class="yui-content">
+	<div class="desc">
+		<venda_page page=shippinginformation>
+	</div>	
+<div class="reviews">
+	<venda_page page=returnsexchanges>
+</div>
+</div>
+</div>

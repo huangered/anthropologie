@@ -1,0 +1,55 @@
+<!-- use this template to display your user extended fields -->
+<venda_block label=1,param1!=survey>
+<!-- register -->
+</venda_block label=1>
+
+<venda_block label=2,param1=survey>
+	<!-- my account / user profile -->
+	<h1><venda_text id=site.my_account.edit.profile.header></h1>
+	<venda_form>
+	<venda_zipc field=hidden>
+	<input type="hidden" name="uslgemail" value="">
+	<input type="hidden" name="page" value="myaccount">
+	<input type="hidden" name="formusxtapparel" value="1">
+	<input type="hidden" name="formusxtaccessories" value="1">
+	<input type="hidden" name="formusxtshoes" value="1">
+	<input type="hidden" name="formusxthome" value="1">
+
+	<input type="hidden" name="blkpost" value="<venda_blkpost>">
+	<input type="hidden" name="blkemail" value="<venda_blkemail>">
+	<input type="hidden" name="blksms" value="<venda_blksms>">
+	<input type="hidden" name="blktrdcomm" value="<venda_blktrdcomm>">
+	<input type="hidden" name="usmailform" value="<venda_usmailform>">
+
+
+	<p><venda_text id=site.my_account.edit.profile.label.gettoknow></p>
+	<fieldset class="userprofile">
+	<div><label for="usxtdobday"><venda_text id=site.my_account.edit.profile.label.birthday></label>
+	<select name="usxtdobday" id="usxtdobday"><venda_usxselectusxtdobday></select><venda_defaultusxselectusxtdobday name=Please Select...>
+	</div>
+
+	<div><label for="usxtdobmonth"><venda_text id=site.my_account.edit.profile.label.birthmonth></label>
+	<select name="usxtdobmonth" id="usxtdobmonth"><venda_usxselectusxtdobmonth></select><venda_defaultusxselectusxtdobmonth name=Please Select...>
+	</div>
+	</fieldset>
+	<fieldset class="userprofile profileProducts">
+	<p><venda_text id=site.my_account.edit.profile.label.product></p>
+	<div><input type="checkbox" name="usxtapparel" id="usxtapparel" value="1" <venda_block usxusxtapparel=1>checked="checked"</venda_block>> <label for="usxtapparel"><venda_text id=site.my_account.edit.profile.cloths></label></div>
+
+	<div><input type="checkbox" name="usxtaccessories" id="usxtaccessories" value="1" <venda_block usxusxtaccessories=1>checked="checked"</venda_block>> <label for="usxtaccessories"><venda_text id=site.my_account.edit.profile.accessories></label></div>
+
+	<div><input type="checkbox" name="usxtshoes" id="usxtshoes" value="1" <venda_block usxusxtshoes=1>checked="checked"</venda_block>> <label for="usxtshoes"><venda_text id=site.my_account.edit.profile.shoes></label></div>
+
+	<div><input type="checkbox" name="usxthome" id="usxthome" value="1" <venda_block usxusxthome=1>checked="checked"</venda_block>> <label for="usxthome"><venda_text id=site.my_account.edit.profile.home></label></div>
+	</fieldset>
+	<fieldset class="userprofile profileAnthroID">
+	<div><label for="usxtloyaltylabid"><venda_text id=site.my_account.edit.profile.anthro.id></label> <input size="30" type="text" name="usxtloyaltylabid" value="<venda_block label=1521,usxusxtloyaltylabid=notnull><venda_usxusxtloyaltylabid></venda_block label=1521>"></div>
+	</fieldset>
+
+	<div id="buttons">
+	<a href="<venda_dispview page=myaccount>"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_backtomyaccount.gif" alt="<venda_text id=site.button.back_to_my_account>" border="0" class="left"></a>
+	<input type="image" onclick="if(Venda.Ebiz.validateUserExtendedFields) { if(Venda.Ebiz.validateUserExtendedFields(this.form)) {return true;}}; return false;" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_continue.gif" alt="<venda_text id=site.button.continue>" class="right">
+	</div>
+	</fieldset>
+	</form>
+</venda_block label=2>

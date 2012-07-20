@@ -1,0 +1,40 @@
+<style>
+   #selectCur .title {letter-spacing:3px; text-transform:uppercase; font-size:1em;}
+   #selectCur img {vertical-align: -2px;}
+</style>
+<div id="selectCur">
+<venda_block label=1,ustype!=R>
+<venda_block label=111,mode=value,<venda_sessionlocation>=uk,<venda_sessionlocation>=restofworld,operator=or>
+<div class="currency">
+	<span class="uk"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/flag_uk.gif" alt="UK selected" /> &#163;</span>&nbsp;|&nbsp;<span class="europe"><a href="/page/home&setlocn=europe&log=4" id="europe" class="europeon"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/flag_euro.gif" alt="Change to Europe" style="opacity:0.4;filter:alpha(opacity=40)"></a> &#8364;</span>
+</div>
+<script language="javascript" type="text/javascript">
+	Venda.Ebiz.currencySwitch("europe","<venda_sessionlocation>","<venda_ebizurl>",<venda_block cartitemtotal=0>""</venda_block><venda_block cartitemtotal&gt;0>"Changing region will empty your shopping bag. Do you wish to proceed?"</venda_block>);
+</script>
+</venda_block label=111>
+<venda_block label=112,mode=value,<venda_sessionlocation>=europe>
+<style>
+   .navfurniturehome {display:none !important;}
+</style>
+<div class="currency">
+	<span class="uk"><a href="/page/home&setlocn=uk&log=4" id="europe" class="europeon"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/flag_uk.gif" alt="Change to UK" style="opacity:0.4;filter:alpha(opacity=40)" /></a> &#163;</span>&nbsp;|&nbsp;<span class="europe"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/flag_euro.gif" alt="Europe selected"> &#8364;</span>	
+</div>
+<script language="javascript" type="text/javascript">
+	Venda.Ebiz.currencySwitch("uk","<venda_sessionlocation>","<venda_ebizurl>",<venda_block cartitemtotal=0>""</venda_block><venda_block cartitemtotal&gt;0>"Changing region will empty your shopping bag. Do you wish to proceed?"</venda_block>);
+</script>
+</venda_block label=112>
+</venda_block label=1>
+
+<venda_block label=21,ustype=R>
+<div class="flag">
+<venda_block label=113,mode=value,<venda_sessionlocation>=uk>
+<span class="uk"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/flag_uk.gif" alt="UK selected" />&nbsp;&nbsp;&#163;&nbsp;&nbsp;</span>
+</venda_block label=113>
+<venda_block label=114,mode=value,<venda_sessionlocation>!=uk>
+<style>
+   .navfurniturehome {display:none !important;}
+</style>
+<span class="europe"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/flag_euro.gif" alt="Europe selected">&nbsp;&nbsp;&#8364;&nbsp;&nbsp;</span>
+</venda_block label=114></div>
+</venda_block label=21>
+</div>

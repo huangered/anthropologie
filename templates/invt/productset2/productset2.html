@@ -1,0 +1,51 @@
+<venda_block label=1,invtivtype!=giftcertificate>
+<li<venda_block label=25,itemcount1=1> class="first"</venda_block label=25>>
+<venda_tpcomment><!-- div id 'invt_popup' is used to show the Tell A Friend, Write A Review, Read A Review and Email Me When Back In Stock features in a popup div --></venda_tpcomment>
+<div id="invt_popup"></div>
+   <div class="productsetdetail">
+   <!-- START PRODUCT DETAIL LEFT COLUMN  -->
+    <div class="set-image">
+    <!--a href="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$redesign-openLarger$&defaultImage=/Anthropologie/spacer" alt="<venda_invtname>" onclick="Venda.ProductDetail.doPopup('',this.href,0); return false;"><venda_inctemplate name=Scene7completelook,type=includes/Scene7></a-->
+    
+    <a href="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$redesign-openLarger$&defaultImage=/Anthropologie/spacer" alt="<venda_invtname>" onclick="return dopopup('http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$redesign-openLarger$&defaultImage=/Anthropologie/spacer')"><venda_inctemplate name=Scene7completelook,type=includes/Scene7></a>
+
+    </div>
+   <!-- END OF PRODUCT SET DETAIL LEFT  -->
+
+      <div class="set-details">
+         <h2><venda_invtname></h2>
+       <venda_block label=10,invtatrtot&lt;1>
+         <input type="hidden" name="itemlist" value="<venda_invtref>" id="<venda_invtref>">
+         <input type="hidden" name="att1list" value="">
+         <input type="hidden" name="att2list" value="">
+         <input type="hidden" name="att3list" value="">
+         <input type="hidden" name="att4list" value="">
+            <div class="att-price">
+            <!-- if product doesn't have attributes -->
+               <p class="price"><venda_currsym><venda_invtsell></p>
+             <venda_block label=11,invtsavingonwas=notnull,invtwas!=0.00>
+               <p class="was"><span class="waslabel"><venda_text id=site.was></span> <venda_currsym><venda_invtwas></p>
+               <p class="save"><span class="savelabel"><venda_text id=site.save></span> <venda_currsym><venda_invtsavingonwas></p>
+             </venda_block label=11>
+            </div>
+            <div class="att-button"></div>
+               <input type="text" name="qtylist" value="0" size="3" maxlength="3" class="qtylist">
+         </venda_block label=10>
+
+      <venda_block label=50,invtatrtot&lt;1,invtpreorder=1><p class="release"><venda_text id=site.release_date></p></venda_block label=50>
+      <venda_block label=20,invtatrtot&gt;0>
+         <venda_inventory ref=<venda_invtref>,temp=attributes_multi>
+      </venda_block label=20>
+
+      <venda_block label=40,invtavail&lt;1>
+      <!-- if out of stock -->
+      <div class="nostock"><venda_text id=site.out_of_stock></div>
+      </venda_block label=40>
+
+      <venda_block label=104,invtsell2=notnull>
+      <!--div class="multibuy"><venda_text id=site.multibuy></div-->
+      </venda_block label=104>
+      </div>
+   </div><!--end product_setdetail-->
+</li>
+</venda_block label=78>

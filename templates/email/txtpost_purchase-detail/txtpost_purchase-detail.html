@@ -1,0 +1,15 @@
+<venda_detblock_item>
+<venda_block label=12,invtpublish=1,invtref=notnull,ivtype!=3,operator=and>
+<venda_block label=111,invtatt1=notnull>
+<venda_tpcomment><!--If this IS an attribute product--></venda_tpcomment>
+<venda_invtname> - (<venda_dispview invt=<venda_invtparef>>) <venda_text id=site.postpurchase_detail.write_review>
+</venda_block label=111>
+
+<venda_block label=113,invtatt1=null>
+<venda_tpcomment><!--If this IS NOT an attribute product--></venda_tpcomment>
+<venda_invtname> - (<venda_dispview invt=<venda_invtref>>) <venda_text id=site.postpurchase_detail.write_review>
+</venda_block label=113>
+</venda_block label=12>
+</venda_detblock_item>
+
+<venda_detail_item>

@@ -1,0 +1,99 @@
+<div>
+   <form id="wallpapercalc" name="wallpapercalc">
+   <fieldset>
+      <div class="ow-grp-head">
+         ROOM</div>
+      <div class="ow-wpc-sect">
+         <label for="wc_units" style="display:none;">Unit of Measurement</label>
+         <select style="border: 1px solid rgb(156, 208, 197); display:none;" onchange="switchImperial()" id="wc_units" name="wc_units">
+         <option selected="" value="metric">Meters &amp; CentiMeters</option>
+               <option value="imperial">Feet &amp; Inches</option>
+            </select><br>
+         <label for="wc_wallHeight1">Height of Wall:</label><input size="2" value="2" id="wc_wallHeight1" name="wc_wallHeight1">
+         <span id="wc_wallHeight1_units">Meters</span><input size="2" value="2" id="wc_wallHeight2" name="wc_wallHeight2">
+         <span id="wc_wallHeight2_units">CM</span><br>
+         <label for="wc_roomWidth1">Width of Room :</label><input size="2" value="4" id="wc_roomWidth1" name="wc_roomWidth1">
+         <span id="wc_roomWidth1_units">Meters</span><input size="2" value="4" id="wc_roomWidth2" name="wc_roomWidth2">
+         <span id="wc_roomWidth2_units">CM</span><br>
+         <label for="wc_roomLength1">Length of Room:</label><input size="2" value="4" id="wc_roomLength1" name="wc_roomLength1">
+         <span id="wc_roomLength1_units">Meters</span><input size="2" value="4" id="wc_roomLength2" name="wc_roomLength2">
+         <span id="wc_roomLength2_units">CM</span><br>
+         <br>
+         <div style="display: none;" id="wc_advanced_1">
+            <hr>
+            <label style="width: 100%;" for="wc_doorNumber">Doors:<br></label>
+            <span>Number of doors </span>
+            <input value="0" size="1" id="wc_doorNumber" name="wc_doorNumber">
+            <div style="padding-left: 50px;" class="wc_dimensions">
+            <label class="smallLabel" for="wc_doorHeight1">Height:</label>
+            <input size="1" value="0" id="wc_doorHeight1" name="wc_doorHeight1">
+            <span id="wc_doorHeight1_units">Meters</span>
+            <input size="1" value="0" id="wc_doorHeight2" name="wc_doorHeight2">
+            <span id="wc_doorHeight2_units">CM</span><label class="smallLabel" for="wc_doorWidth1">Width:</label>
+            <input size="1" value="0" id="wc_doorWidth1" name="wc_doorWidth1">
+            <span id="wc_doorWidth1_units">Meters</span>
+            <input size="1" value="0" id="wc_doorWidth2" name="wc_doorWidth2"><span id="wc_doorWidth2_units">CM</span></div>
+            <br>
+            <br>
+            <hr>
+            <label style="width: 100%;" for="wc_windowNumber">Windows:<br></label>
+            <span>Number of windows </span>
+            <input value="0" size="1" id="wc_windowNumber" name="wc_windowNumber">
+            <div style="padding-left: 50px;" class="wc_dimensions">
+            <label class="smallLabel" for="wc_windowHeight1">Height:</label>
+            <input size="1" value="0" id="wc_windowHeight1" name="wc_windowHeight1">
+            <span id="wc_windowHeight1_units">Meters</span>
+            <input size="1" value="0" id="wc_windowHeight2" name="wc_windowHeight2"><span id="wc_windowHeight2_units">CM</span><br>
+            <label class="smallLabel" for="wc_windowWidth1">Width:</label>
+            <input size="1" value="0" id="wc_windowWidth1" name="wc_windowWidth1">
+            <span id="wc_windowWidth1_units">Meters</span>
+            <input size="1" value="0" id="wc_windowWidth2" name="wc_windowWidth2">
+            <span id="wc_windowWidth2_units">CM</span></div>
+            <br>
+            <br>
+            <br>
+         </div>
+      </div>
+   </fieldset>
+   <div style="display: none;" id="wc_advanced_2">
+      <fieldset>
+         <div class="ow-grp-head">ROLL</div>
+         <div class="ow-wpc-sect">
+            <label for="wc_rollWidth1">Width of Roll :</label><input size="2" value="1" id="wc_rollWidth1" name="wc_rollWidth1">
+            <span id="wc_rollWidth1_units">Meters</span><input size="2" value="0" id="wc_rollWidth2" name="wc_rollWidth2"><span id="wc_rollWidth2_units">CM</span><br>
+            <label for="wc_rollLength1">Length of Roll :</label><input size="2" value="5" id="wc_rollLength1" name="wc_rollLength1">
+            <span id="wc_rollLength1_units">Meters</span><input size="2" value="0" id="wc_rollLength2" name="wc_rollLength2"><span id="wc_rollLength2_units">CM</span><br>
+            <label for="wc_cost_roll">Cost Per Roll (£):</label><input value="0" size="2" id="wc_rollCost1" name="wc_rollCost1">
+            <span id="wc_rollCost2_units">.</span><input value="00" size="2" id="wc_rollCost2" name="wc_rollCost2"><br>
+            <br>
+            <hr>
+            <label style="width: 100%;" for="wc_rollWaste">Wastage:</label>
+            <span>Please enter the estimated wastage (offcuts, etc)</span>
+            <input value="0" size="2" id="wc_rollWaste" name="wc_rollWaste"><span id="wc_rollWaste_units">%</span><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+         </div>
+      </fieldset>
+   </div>
+   <fieldset id="results">
+      <div class="ow-grp-head">RESULTS (Estimated)</div>
+      <div class="ow-wpc-sect"><label for="wc_output_noof">Number of Rolls:</label>
+      <input readonly="" size="6" id="wc_output_noof" name="wc_output_noof">
+      <div style="display: none;" id="wc_advanced_3">
+      <br>
+      <label for="wc_output_cost">Total Cost (£):</label>
+      <input readonly="" size="6" id="wc_output_cost" name="wc_output_cost"></div>
+      <input type="button" class="submit" onclick="wc_calc()" value="Calculate" id="wc_calculate" name="wc_calculate">
+      <br><br><br><br>
+      </div>
+   </fieldset>
+   </form>
+</div>
+<script type="text/javascript">
+<!--
+   wc_init();
+//-->
+</script>

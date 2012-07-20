@@ -1,0 +1,139 @@
+<venda_block label=250,mode=value,<venda_pgn_currentpage>=1>
+   <venda_tpxt mode=set,name=currentpageicat,value=1>
+</venda_block label=250>
+
+<venda_block label=251,mode=value,<venda_pgn_currentpage>!=1>
+   <venda_tpxt mode=set,name=currentpageicat,value=0>
+</venda_block label=251>
+
+<venda_detblock_pageslist>
+	<venda_block label=1111,mode=value,<venda_currentpage>=<venda_number>>
+		<span class="pagnCurrent"><venda_number></span>
+	</venda_block label=1111>	
+	<venda_block label=1112,mode=value,<venda_currentpage>!=<venda_number>>           
+		<a href="<venda_baseurl>&curpage=<venda_number><venda_block label=1128,mode=value,<venda_pgn_isviewall>=1>&isviewall=1</venda_block label=1128>&itemsperpage=<venda_itemsperpage>" title="<venda_text id=site.page_numbers.gotopage>"><venda_number></a>
+	</venda_block label=1112>
+</venda_detblock_pageslist>
+
+<div class="pagnFirstRow">
+	<venda_block label=1139,mode=value,<venda_setting type=ebiz,name=viewpagedisplayicat>=1>
+		<div class="pagnPageInfo<venda_block label=1140,mode=value,<venda_setting type=ebiz,name=alwaysshowpagenumicat>!=1,<venda_pgn_totalpages>=1> alwaysShowPageNum</venda_block label=1140>"><venda_text id=site.page_numbers.showpaged></div>
+	</venda_block label=1139>
+	<div class="pagnLinkNavigate">
+		<div class="pagnNumList">
+			<venda_block label=4,mode=value,<venda_pgn_totalpages>&gt;1>
+				<venda_tpcomment><!-- show the previous link--></venda_tpcomment>
+				<venda_block label=1117,mode=value,<venda_pgn_currentpage>&gt;1>
+					<span class="pagnPrev"><a href="<venda_pgn_baseurl>&curpage=<venda_pgn_previouspage>&itemsperpage=<venda_itemsperpage><venda_block label=1129,mode=value,<venda_pgn_isviewall>=1>&isviewall=1</venda_block label=1129>" title="<venda_text id=site.page_numbers.gotopreviouspage>"><venda_text id=site.page_numbers.previous></a></span>
+				</venda_block label=1117>
+				<venda_block label=11171,mode=value,<venda_pgn_currentpage>=1>
+					<span class="pagnPrev-off"><venda_text id=site.page_numbers.previous></span>
+				</venda_block label=11171>
+				
+				<venda_block label=1115,mode=value,<venda_pgn_windowstartpage>&gt;1>
+					<venda_tpcomment><!-- show the first page link--></venda_tpcomment>
+					<span class="pagnFirst"><a href="<venda_pgn_baseurl>&curpage=1&itemsperpage=<venda_itemsperpage><venda_block label=1130,mode=value,<venda_pgn_isviewall>=1>&isviewall=1</venda_block label=1130>" title="<venda_text id=site.page_numbers.gotofirstpage>">1</a></span>
+				</venda_block label=1115>
+				
+				<venda_block label=1113,mode=value,<venda_pgn_leftgap>&gt;1>	
+					<venda_tpcomment><!-- show the left ... --></venda_tpcomment>
+					<span class="pagnEllipsis"><venda_text id=site.page_numbers.ellipsis></span>
+				</venda_block label=1113>
+				
+				<span class="pagnNumbers"><venda_detail_pageslist pgn_window_size=<venda_setting type=ebiz,name=windowsizeicat>></span>	
+		
+				<venda_block label=1114,mode=value,<venda_pgn_rightgap>&gt;1>
+					<venda_tpcomment><!-- show the right ... --></venda_tpcomment>
+					<span class="pagnEllipsis"><venda_text id=site.page_numbers.ellipsis></span>
+				</venda_block label=1114>
+				
+				<venda_block label=1118,mode=value,<venda_pgn_windowendpage>&lt;<venda_pgn_totalpages>>
+					<venda_tpcomment><!--show the last link -->	</venda_tpcomment>
+					<span class="pagnLast"><a href="<venda_pgn_baseurl>&curpage=<venda_pgn_totalpages>&itemsperpage=<venda_itemsperpage><venda_block label=1131,mode=value,<venda_pgn_isviewall>=1>&isviewall=1</venda_block label=1131>" class="pagnButtonLast" title="<venda_text id=site.page_numbers.gotolastpage>"><venda_pgn_totalpages></a></span>
+				</venda_block label=1118>
+				
+				<venda_tpcomment><!-- show the next page --></venda_tpcomment>
+				<venda_block label=1116,mode=value,<venda_pgn_currentpage>&lt;<venda_pgn_totalpages>>
+					<span class="pagnNext"><a href="<venda_pgn_baseurl>&curpage=<venda_pgn_nextpage>&itemsperpage=<venda_itemsperpage><venda_block label=1132,mode=value,<venda_pgn_isviewall>=1>&isviewall=1</venda_block label=1132>" title="<venda_text id=site.page_numbers.gotonextpage>"><venda_text id=site.page_numbers.next></a></span>
+				</venda_block label=1116>
+				<venda_block label=11161,mode=value,<venda_pgn_currentpage>=<venda_pgn_totalpages>>
+					<span class="pagnNext-off"><venda_text id=site.page_numbers.next></span>
+				</venda_block label=11161>
+							
+				<venda_block label=999,mode=value,<venda_pgn_isviewall>!=1>
+					<venda_block label=1122,mode=value,<venda_setting type=ebiz,name=showproductlistviewall>=1,<venda_pgn_totalpages>&gt;1>
+						<venda_tpcomment><!-- show 'view all' link --></venda_tpcomment>
+						<span class="pagnViewAll">
+							<venda_block label=1125,mode=value,<venda_setting type=ebiz,name=setproductlistviewallvalue>=notnull>
+								<venda_block label=1123,mode=value,<venda_pgn_totalitems>&lt;<venda_setting type=ebiz,name=setproductlistviewallvalue>>
+									<a href="<venda_pgn_baseurl>&itemsperpage=<venda_pgn_totalitems>&isviewall=1" title="<venda_text id=site.page_numbers.showall>"><venda_text id=site.page_numbers.viewall></a>
+								</venda_block label=1123>
+								<venda_block label=1124,mode=value,<venda_pgn_totalitems>&gt;<venda_setting type=ebiz,name=setproductlistviewallvalue>>
+									<a href="<venda_pgn_baseurl>&itemsperpage=<venda_setting type=ebiz,name=setproductlistviewallvalue>&isviewall=1" title="<venda_text id=site.productlist.page_numbers.showallmax>"><venda_text id=site.productlist.page_numbers.viewallmax></a>
+								</venda_block label=1124>
+							</venda_block label=1125>	
+						</span>
+					</venda_block label=1122>
+				</venda_block label=999>
+			</venda_block label=4>
+		</div>
+		<venda_block label=1120,mode=value,<venda_pgn_isviewall>=1>
+			<!-- show paged view -->
+			<venda_block label=11201,mode=value,<venda_sessionlanguage>=en>
+				<venda_tpxt mode=set,name=viewperpagetext,value=view>
+			</venda_block label=11201>
+			<venda_block label=11202,mode=value,<venda_sessionlanguage>=de>
+				<venda_tpxt mode=set,name=viewperpagetext,value=anzeigen>
+			</venda_block label=11202>
+			
+			<span class="pagnShowViewByPaged<venda_block label=1136,mode=value,<venda_pgn_totalpages>=1> setMarginPagedView</venda_block label=1136>"><a href="<venda_pgn_baseurl>&curpage=1&itemsperpage=<venda_tpxt mode=get,name=defaulticatitemsperpage>" title="<venda_tpxt mode=get,name=viewperpagetext> <venda_tpxt mode=get,name=defaulticatitemsperpage>"><venda_tpxt mode=get,name=viewperpagetext> <venda_tpxt mode=get,name=defaulticatitemsperpage></a></span>
+		</venda_block label=1120>
+		<venda_block label=1119,mode=value,<venda_pgn_isviewall>!=1>
+			<venda_tpcomment><!-- start itemsperpage style --></venda_tpcomment>
+			<venda_block label=20,mode=value,<venda_setting type=ebiz,name=setitemsperpagestyleicat>=itemsperpagedropdownicat>			
+				<venda_tpcomment><!-- show perpage dropdown --></venda_tpcomment>
+				<div class="pagnPerpage">
+					<form><label for="perpagedpd"><span class="pagnTextView"><venda_text id=site.page_numbers.textview></span></label>
+					<select name="perpagedpd" id="perpagedpd" onchange="location = this.options[this.selectedIndex].value;">
+						<venda_block label=30,mode=value,<venda_setting type=ebiz,name=setitemsperpage1dropdownicat>=notnull><option value="<venda_pgn_baseurl>&curpage=1&itemsperpage=<venda_setting type=ebiz,name=setitemsperpage1dropdownicat>" <venda_block label=71,mode=value,<venda_itemsperpage>=<venda_setting type=ebiz,name=setitemsperpage1dropdownicat>> selected</venda_block label=71>><venda_setting type=ebiz,name=setitemsperpage1dropdownicat></option></venda_block label=30>	
+						<venda_block label=31,mode=value,<venda_setting type=ebiz,name=setitemsperpage2dropdownicat>=notnull><option value="<venda_pgn_baseurl>&curpage=1&itemsperpage=<venda_setting type=ebiz,name=setitemsperpage2dropdownicat>" <venda_block label=72,mode=value,<venda_itemsperpage>=<venda_setting type=ebiz,name=setitemsperpage2dropdownicat>> selected</venda_block label=72>><venda_setting type=ebiz,name=setitemsperpage2dropdownicat></option></venda_block label=31>
+						<venda_block label=32,mode=value,<venda_setting type=ebiz,name=setitemsperpage3dropdownicat>=notnull><option value="<venda_pgn_baseurl>&curpage=1&itemsperpage=<venda_setting type=ebiz,name=setitemsperpage3dropdownicat>" <venda_block label=73,mode=value,<venda_itemsperpage>=<venda_setting type=ebiz,name=setitemsperpage3dropdownicat>> selected</venda_block label=73>><venda_setting type=ebiz,name=setitemsperpage3dropdownicat></option></venda_block label=32>
+						<venda_block label=33,mode=value,<venda_setting type=ebiz,name=setitemsperpage4dropdownicat>=notnul><option value="<venda_pgn_baseurl>&curpage=1&itemsperpage=<venda_setting type=ebiz,name=setitemsperpage4dropdownicat>" <venda_block label=74,mode=value,<venda_itemsperpage>=<venda_setting type=ebiz,name=setitemsperpage4dropdownicat>> selected</venda_block label=74>><venda_setting type=ebiz,name=setitemsperpage4dropdownicat></option></venda_block label=33>
+						<venda_block label=34,mode=value,<venda_setting type=ebiz,name=setitemsperpage5dropdownicat>=notnull><option value="<venda_pgn_baseurl>&curpage=1&itemsperpage=<venda_setting type=ebiz,name=setitemsperpage5dropdownicat>" <venda_block label=75,mode=value,<venda_itemsperpage>=<venda_setting type=ebiz,name=setitemsperpage5dropdownicat>> selected</venda_block label=75>><venda_setting type=ebiz,name=setitemsperpage5dropdownicat></option></venda_block label=34>
+						<venda_block label=35,mode=value,<venda_setting type=ebiz,name=setitemsperpage6dropdownicat>=notnull><option value="<venda_pgn_baseurl>&curpage=1&itemsperpage=<venda_setting type=ebiz,name=setitemsperpage6dropdownicat>" <venda_block label=76,mode=value,<venda_itemsperpage>=<venda_setting type=ebiz,name=setitemsperpage6dropdownicat>> selected</venda_block label=76>><venda_setting type=ebiz,name=setitemsperpage6dropdownicat></option></venda_block label=35>
+					</select>
+					</form>
+				</div>
+			</venda_block label=20>
+			<venda_block label=21,mode=value,<venda_setting type=ebiz,name=setitemsperpagestyleicat>=itemsperpagelinksicat>
+				<venda_tpcomment><!-- show perpage textlinks --></venda_tpcomment>
+				<div class="pagnPerpage">
+					<ul class="pagnItemPerPage">
+						<li class="pagnTextView"><venda_text id=site.page_numbers.textview></li>
+						<venda_block label=40,mode=value,<venda_setting type=ebiz,name=setitemsperpage1linksicat>=notnull><li class="<venda_block label=1137,mode=value,<venda_setting type=ebiz,name=setitemsperpage2linksicat>=null>setlastperpage</venda_block label=1137><venda_block label=1138,mode=value,<venda_setting type=ebiz,name=setitemsperpage2linksicat>=notnull>setperpage</venda_block label=1138> <venda_block label=91,mode=value,<venda_itemsperpage>=<venda_setting type=ebiz,name=setitemsperpage1linksicat>>setperpage_active</venda_block label=91>"><a href="<venda_pgn_baseurl>&curpage=1&itemsperpage=<venda_setting type=ebiz,name=setitemsperpage1linksicat>"><venda_setting type=ebiz,name=setitemsperpage1linksicat></a></li></venda_block label=40>
+						<venda_block label=41,mode=value,<venda_setting type=ebiz,name=setitemsperpage2linksicat>=notnull><li class="<venda_block label=1137,mode=value,<venda_setting type=ebiz,name=setitemsperpage3linksicat>=null>setlastperpage</venda_block label=1137><venda_block label=1138,mode=value,<venda_setting type=ebiz,name=setitemsperpage3linksicat>=notnull>setperpage</venda_block label=1138> <venda_block label=92,mode=value,<venda_itemsperpage>=<venda_setting type=ebiz,name=setitemsperpage2linksicat>>setperpage_active</venda_block label=92>"><a href="<venda_pgn_baseurl>&curpage=1&itemsperpage=<venda_setting type=ebiz,name=setitemsperpage2linksicat>"><venda_setting type=ebiz,name=setitemsperpage2linksicat></a></li></venda_block label=41>
+						<venda_block label=42,mode=value,<venda_setting type=ebiz,name=setitemsperpage3linksicat>=notnull><li class="<venda_block label=1137,mode=value,<venda_setting type=ebiz,name=setitemsperpage4linksicat>=null>setlastperpage</venda_block label=1137><venda_block label=1138,mode=value,<venda_setting type=ebiz,name=setitemsperpage4linksicat>=notnull>setperpage</venda_block label=1138> <venda_block label=93,mode=value,<venda_itemsperpage>=<venda_setting type=ebiz,name=setitemsperpage3linksicat>>setperpage_active</venda_block label=93>"><a href="<venda_pgn_baseurl>&curpage=1&itemsperpage=<venda_setting type=ebiz,name=setitemsperpage3linksicat>"><venda_setting type=ebiz,name=setitemsperpage3linksicat></a></li></venda_block label=42>
+						<venda_block label=43,mode=value,<venda_setting type=ebiz,name=setitemsperpage4linksicat>=notnull><li class="<venda_block label=1137,mode=value,<venda_setting type=ebiz,name=setitemsperpage5linksicat>=null>setlastperpage</venda_block label=1137><venda_block label=1138,mode=value,<venda_setting type=ebiz,name=setitemsperpage5linksicat>=notnull>setperpage</venda_block label=1138> <venda_block label=94,mode=value,<venda_itemsperpage>=<venda_setting type=ebiz,name=setitemsperpage4linksicat>>setperpage_active</venda_block label=94>"><a href="<venda_pgn_baseurl>&curpage=1&itemsperpage=<venda_setting type=ebiz,name=setitemsperpage4linksicat>"><venda_setting type=ebiz,name=setitemsperpage4linksicat></a></li></venda_block label=43>
+						<venda_block label=44,mode=value,<venda_setting type=ebiz,name=setitemsperpage5linksicat>=notnull><li class="<venda_block label=1137,mode=value,<venda_setting type=ebiz,name=setitemsperpage6linksicat>=null>setlastperpage</venda_block label=1137><venda_block label=1138,mode=value,<venda_setting type=ebiz,name=setitemsperpage6linksicat>=notnull>setperpage</venda_block label=1138> <venda_block label=95,mode=value,<venda_itemsperpage>=<venda_setting type=ebiz,name=setitemsperpage5linksicat>>setperpage_active</venda_block label=95>"><a href="<venda_pgn_baseurl>&curpage=1&itemsperpage=<venda_setting type=ebiz,name=setitemsperpage5linksicat>"><venda_setting type=ebiz,name=setitemsperpage5linksicat></a></li></venda_block label=44>
+						<venda_block label=45,mode=value,<venda_setting type=ebiz,name=setitemsperpage6linksicat>=notnull><li class="setlastperpage <venda_block label=96,mode=value,<venda_itemsperpage>=<venda_setting type=ebiz,name=setitemsperpage6linksicat>>setperpage_active</venda_block label=96>"><a href="<venda_pgn_baseurl>&curpage=1&itemsperpage=<venda_setting type=ebiz,name=setitemsperpage6linksicat>"><venda_setting type=ebiz,name=setitemsperpage6linksicat></a></li></venda_block label=45>
+					</ul>
+				</div>
+			</venda_block label=21><venda_tpcomment><!-- end itemsperpage style --></venda_tpcomment>
+		</venda_block label=1119><br class="clear-all">
+	</div><br class="clear-all">
+</div><br class="clear-all">
+
+<venda_tpcomment><!-- the following glxt is needed for Recent Search History, please do not remove --></venda_tpcomment>
+<!-- <venda_glxt mode=set,name=currentpage,value=<venda_currentpage>> -->
+
+<venda_tpcomment><!-- the following tpxt is needed for Search Results page, please do not remove --></venda_tpcomment>
+<venda_block label=6,totalpages=1,currentpage=1,operator=or><venda_tpxt mode=set,name=currentpage,value=1></venda_block label=6>
+
+<venda_tpcomment><!-- pass values to title.html template, please do not remove --></venda_tpcomment>
+<venda_tpxt mode=set,name=currentpageTitle,value=<venda_pgn_currentpage>>
+<venda_tpxt mode=set,name=totalpagesTitle,value=<venda_pgn_totalpages>>
+
+<!--   
+	windowstartpage - <venda_pgn_windowstartpage>
+	windowendpage   - <venda_pgn_windowendpage>
+-->

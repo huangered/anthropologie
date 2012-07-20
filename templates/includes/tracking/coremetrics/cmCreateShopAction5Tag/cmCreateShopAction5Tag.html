@@ -1,0 +1,18 @@
+<venda_block label=814,mode=value,<venda_setting type=ebiz,name=tracktagcoremetrics>=1>
+<script type="text/javascript">
+<!--
+// set var for coremetrics
+cmSetCurrencyCode("<venda_block label=112,mode=value,<venda_sessionlocation>=uk>GBP</venda_block label=112><venda_block label=113,mode=value,<venda_sessionlocation>!=uk>EUR</venda_block label=113>");
+if (document.getElementById("attr-sellprice")){
+			prodprice = document.getElementById("attr-sellprice").innerHTML;
+			prodprice = prodprice.slice(1);
+} else {
+	prodprice = <venda_invtsell>;
+}
+names=new Array("prodId", "prodName", "prodQty", "prodPrice", "catId");
+values=new Array("<venda_block label=114,invtparef=notnull><venda_invtparef></venda_block label=114><venda_block label=115,invtparef=null><venda_invtref></venda_block label=115>", "<venda_invtname>", "<venda_oiqty>", prodprice, "<venda_invtcatref0>");
+cmCreateShopAction5Tag(values[0], values[1], values[2], values[3], values[4]);
+// -->
+</script>
+<!-- cmCreateShopAction5Tag -->
+</venda_block label=814>

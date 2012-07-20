@@ -1,0 +1,12 @@
+<venda_tpcomment><!-- This template is used by product detail when the product has attributes, it cycles through and stores the image paths to the various attribute 1 association values (e.g. xsmall,medium,large image path for Red Shirt) --></venda_tpcomment>
+
+<venda_detblock_mediagridrow><venda_detail_mediagridcell></venda_detblock_mediagridrow>
+<venda_detblock_mediagridcell>
+	<venda_block label=1,emptycell!=1,medatrvalue!=>
+	<a class="sw_<venda_block label=597,mode=value,<venda_media rec=invt,type=pict,key=setswatch,medatr=yes,img=no>=>no</venda_block label=597>image" href="<venda_dispview invt=<venda_invtref>>&colour=<venda_medatrvalue>" title="<venda_medatrvalue>" aria-prodid="comp-image<venda_invtref>" aria-uuid="<venda_invtuuid>" aria-ivtype="<venda_invtivtype>" aria-suplsku="<venda_invtsuplsku>" aria-color="<venda_medatrvalue>" aria-setimage="" aria-setimagehover="" aria-defaultcolour="<venda_invtpdxtdefaultimg>"><span><venda_block label=598,mode=value,<venda_media rec=invt,type=pict,key=setswatch,medatr=yes,img=no>!=><venda_media rec=invt,type=pict,key=setswatch,medatr=yes></venda_block label=598>
+	<venda_block label=599,mode=value,<venda_media rec=invt,type=pict,key=setswatch,medatr=yes,img=no>=>
+<img src="/content/ebiz/<venda_bsref>/resources/images/no_swatchimg.gif" alt="<venda_medatrvalue>">
+</venda_block label=599></span></a>
+	</venda_block label=1>
+</venda_detblock_mediagridcell>
+<div class="swatchContainer sw"><div id="swatch<venda_invtref>"><venda_detail_mediagridrow></div></div>

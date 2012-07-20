@@ -1,0 +1,26 @@
+<venda_tpcomment>
+<!-- 
+- Setting are found in VCP > add/edit/delete (scroll down to Category Search Parameters)
+- record type needs to be set to 'invt'
+- tpxt used to set activepcatid in srch/refinelist template cannot translate tpxt 'get' tag with value outside of the venda_locayta tag due to the translation order. So a tpxt is required to set activepcatid on this template.
+ -->
+</venda_tpcomment>
+<script type="text/javascript">
+var myBklist = "<venda_cattree ref=<venda_icatref>,bklist=<venda_icatref>,type=icat>";
+Venda.Ebiz.BKList.init("<venda_cattree ref=<venda_icatref>,bklist=<venda_icatref>,type=icat>");
+</script>
+<venda_locayta template=wz_locayta_catlist,template_type=wizr,perpage=<venda_setting type=ebiz,name=setsearchperpage>,threshold=<venda_setting type=ebiz,name=setsearchthreshold>,fieldrtype=type,termtextrtype=<venda_block label=80,mode=value,<venda_setting type=ebiz,name=setsearchrecordtype>=null>invt</venda_block label=80><venda_setting type=ebiz,name=setsearchrecordtype>,typertype=exact,collate=<venda_setting type=ebiz,name=setsearchcollatestring>,termorder=<venda_setting type=ebiz,name=setsearchtermorder>,setsortorder=<venda_setting type=ebiz,name=setsearchsortorder>,setsortprice=<venda_setting type=ebiz,name=setsearchsortpriceorder>,setsortname=<venda_setting type=ebiz,name=setsearchsortnameorder>,setsortrelease=<venda_setting type=ebiz,name=setsearchsortreleaseorder>,fieldpcatid=pcatid,termtextpcatid=<venda_icatref>,typepcatid=exact,fieldcatrestrict=xancestorid,termtextcatrestrict=<venda_icatref>,typecatrestrict=exact>
+<style type="text/css">
+.Lcat_headerbtm a.mm_icat<venda_cattree index=1,value=catref> , .Lcat_headerbtm a.mm_icat<venda_cattree index=1,value=catref>:hover {color: #c33!important; background: url(<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/star.gif) no-repeat left 11px;}
+#searchresults h4 {display:none;}
+.Lcatnav ul li.nav<venda_cattree index=1,value=catref>, .Lcatnav ul li.nav<venda_cattree index=1,value=catref> li {display:block;}
+.Lcatnav ul li.nav<venda_cattree index=1,value=catref> li ul li ul {display:none;}
+.Lcatnav ul li.nav<venda_cattree index=3,value=catref> a {font-weight:bold; font-style:italic; color:#000;}
+<venda_block label=90,catref0!=shop>
+.Lcatnav ul li.nav<venda_cattree index=3,value=catref> ul {display:block !important;}
+.Lcatnav ul li.nav<venda_cattree index=3,value=catref> ul a {font-weight:normal; font-style:normal; color:#333;}
+</venda_block label=90>
+</style>
+
+<venda_tpxt mode=set,name=activepcatid,value=<venda_icatref>>
+<venda_tpxt mode=set,name=track,value=categorylistsearch>

@@ -1,0 +1,26 @@
+isPopup = document.getElementById('popupcontent');
+if (isPopup) { YAHOO.util.Event.addListener("back_link", "click", Venda.Widget.InvtPopups.featureHide); }
+
+function validateFields() {
+
+   if (document.emailbackform.field1.value == '') {
+      alert('Please enter email address');
+      document.emailbackform.field1.focus();
+      return;
+   }
+
+   if (document.emailbackform.field2.value == '') {
+      alert('Please enter your name');
+      document.emailbackform.email.focus();
+      return;
+   }
+   
+   
+if(isPopup){ <venda_tpcomment>// there is an id called popupcontent so we can proceed with the ajax function</venda_tpcomment>
+	document.emailbackform.layout.value = "noheaders";
+        ajaxFunction('<venda_codehttp>','popupcontent','emailbackform');
+		}
+	else { <venda_tpcomment>// there is no id called popupcontent so we must be viewing the emwbis area in its own screen</venda_tpcomment>
+		document.emailbackform.submit();
+	}
+}

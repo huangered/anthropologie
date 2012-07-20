@@ -1,0 +1,21 @@
+<!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. -->
+<div id="editreminder">
+<venda_inctemplate type=includes/wizr/wz_remd-edit,name=heading_intro>
+
+<venda_form>
+<input type="hidden" name="remdgroup" value="<venda_remdgroup>">
+<input type="hidden" name="order1" value="remmonth">
+<input type="hidden" name="order2" value="remday">
+<input type="hidden" name="subgroup" value="4">
+<venda_inctemplate type=includes/wizr/wz_remd-edit,name=edit_reminder_table>
+<venda_inctemplate type=includes/wizr/wz_remd-edit,name=js_buttons>
+</form>
+</div>
+
+<!-- 
+page: wz_remd-edit.html
+param1: <venda_param1>
+param2: <venda_param2>
+workflow: <venda_workflow>
+ -->
+<venda_tpxt mode=set,name=track,value=remd-edit> 

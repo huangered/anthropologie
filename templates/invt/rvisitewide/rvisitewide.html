@@ -1,0 +1,26 @@
+<venda_block label=45,invtpublish=1>
+<li>
+	<div class="toolwrap">
+		<div id="tab<venda_invtref>_tooltip" class="tooltip">
+			<p><a href="<venda_dispview invt=<venda_invtref>>"><venda_inctemplate name=Scene7cart,type=includes/Scene7></a></p>
+		</div>
+		<div>
+			<p class="textLink"><a href="<venda_dispview invt=<venda_invtref>>" onmouseover="showOrHide(1,'<venda_invtref>_tooltip');" onmouseout="showOrHide(0,'<venda_invtref>_tooltip');"><venda_invtname> <span class="price"><venda_currsym><venda_invtsell></span></a></p>
+		</div>
+	</div>
+</li>
+</venda_block label=45>
+<venda_block label=46,invtpublish!=1>
+<!-- unpublished -->
+<li>
+	<div class="toolwrap">
+		<div id="tab<venda_invtref>_tooltip" class="tooltip">
+			<p><venda_inctemplate name=Scene7cart,type=includes/Scene7></p>
+		</div>
+		<div>
+			<p class="textLink"><venda_invtname> <span class="price"><venda_currsym><venda_invtsell></span></p>
+			<p class="unpublished"><venda_text id=site.unpublished></p>
+		</div>
+	</div>
+</li>
+</venda_block label=46>

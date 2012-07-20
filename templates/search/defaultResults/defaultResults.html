@@ -1,0 +1,233 @@
+<div>
+<venda_tpxt mode=set,name=solr,value=1>
+<script type="text/javascript">
+	if(myBklist==null){
+        var myBklist = "";
+	}
+</script>
+<venda_tpcomment><!-- CSS would ideally live in the header, but simpler for go-live to keep them modular. Need jQuery 1.5+ and jQuery UI (slider specifically - probably already in header). --></venda_tpcomment>
+<link rel="stylesheet" href="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/css/search.css" type="text/css" media="all">
+<!--[if IE]><style>#loadingsearch img {margin-left:240px;}</style><![endif]-->
+<div id="content-search">
+<a id="content-top"></a>
+
+	<div id="col-one">	
+	
+<venda_block label=icatnav,mode=value,<venda_tpxt mode=get,name=nav>=1>
+<venda_tpcomment><!-- replace facets with left nav --></venda_tpcomment>
+<venda_category rec=elementcat,ref=colone>
+<venda_inctemplate name=cm-wz_locayta-colone,type=includes/tracking/coremetrics>
+</venda_block label=icatnav>
+
+<venda_block label=facetnav,mode=value,<venda_tpxt mode=get,name=nav>!=1>	
+<venda_inctemplate name=recentSearch,type=widgets>		
+<div class="refinelist"><venda_inctemplate name=refineList,type=search></div>
+<venda_category rec=elementcat,ref=searchcolone>
+</venda_block label=facetnav>
+
+	</div><!--/#col-one-->
+  
+<venda_block label=151,mode=value,<venda_setting type=ebiz,name=powerreviews>=1,<venda_setting type=ebiz,name=powerreviewsproddetail>=1><script type="text/javascript"><venda_inctemplate type=includes,name=powerreviewscripts></script></venda_block label=151>
+  <div id="col-two-three">
+  <div id="col-two">
+  
+	<div id="searchResults">
+		<a name="content" id="content"></a>
+		<venda_block label=222,mode=value,<venda_setting type=ebiz,name=tracktagvbm>=1><div class="searchVBM vbmsearchlist"><venda_inctemplate type=vbm,name=searchResults></div><script type="text/javascript">var searchVBMstr = "<venda_primarysearchtext>";var tabview = "";</script></venda_block label=222>
+		<div class="box searchAlt searchContent">
+			<venda_tpcomment><!-- stiart: keyword header / category search header --></venda_tpcomment>
+			<div id="catbanner"><venda_page page=<venda_cattree index=3,value=catref>banner></div>
+			<venda_tpcomment><!-- end: keyword header / category search header --></venda_tpcomment>
+			
+			<div id="response"><venda_block label=1,errors=notnull><h2 class="error"><venda_errors></h2></venda_block label=1></div>
+			
+			<venda_tpcomment><!-- start: results found content --></venda_tpcomment>
+			<venda_block label=345,totalresults!=0>
+				<venda_tpcomment><!-- start: addmsg + results found query text --></venda_tpcomment>
+				<div id="addedmsg"><venda_block label=32,mode=value,<venda_addedmsg msg=<venda_text id=site.addedmsg>>=notnull><p id="atbmsg"><venda_addedmsg msg=<venda_text id=site.addedmsg>></p></venda_block label=32></div>
+				<div class="box boxSearchAlt">
+				<div class="boxContent">
+				<div class="resultDetail">
+        
+  
+				<venda_tpcomment><!-- removed by ED: complete resultMsg DIV, can be copied from github version --></venda_tpcomment>
+			
+				<venda_tpcomment><!-- start: sort by options --></venda_tpcomment>	
+				<div class="sort">
+					<venda_detblock_sortedby>
+						<option value="<venda_url>"<venda_block sortedon=notnull> selected="selected"</venda_block>><venda_option></option>
+					</venda_detblock_sortedby>
+					<form>
+					<label for="sortby"><venda_text id=site.search_results.label.sort_by></label>
+					<select name="sortby" id="sortby">
+						<venda_block label=12,mode=value,<venda_setting type=ebiz,name=sortrelevantfirst>=1><option value="<venda_searchurl sort=,setpagenum=1>"><venda_text id=site.search_results.option.most_relevant></option></venda_block label=12>
+						<venda_detail_sortedby options=price~desc:asc;release~desc:asc>
+					</select>
+					</form>
+				</div>
+				</div>
+				<venda_tpcomment><!-- end: sort by options --></venda_tpcomment>
+				
+				<venda_tpcomment><!-- start: search results - product - pagination --></venda_tpcomment>
+				<venda_detblock_results>
+					<li><form name="form<venda_ref>" action="<venda_codehttp>" method="get" id="addproduct<venda_ref>form">
+					<venda_inventory ref=<venda_ref>,temp=searchInvt,displayunpublished=1>
+					</form></li>
+				</venda_detblock_results>
+				<venda_block label=21,mode=value,<venda_setting type=ebiz,name=tracktagvbm>=1>
+				<venda_tpcomment><!-- start: translate htxt for VBM --></venda_tpcomment>
+				<script type="text/javascript">
+				var vbmsrch="<venda_block primarysearchtext=notnull><venda_htxt mode=make,vbmsrch=<venda_primarysearchtext>></venda_block>"
+				</script>
+				<venda_tpcomment><!-- end: translate htxt for VBM --></venda_tpcomment>
+				</venda_block label=21>
+				<venda_inctemplate name=styleSwitch,type=widgets>				
+				<div class="pagn pagnTop"><venda_pagination template=pagn_search_style1_v2></div>
+				<venda_inctemplate name=compareItems,type=widgets>
+				</div>
+				</div>
+				
+<script type="text/javascript">var allItems = new Array();</script>
+				<ul class="prods prodsFourColumns prodsGrid"><venda_detail_results></ul>
+				<div class="pagn pagnBtm"><venda_pagination template=pagn_search_style1_v2></div>
+				<venda_tpcomment><!-- end: search results - product/page/story - pagination --></venda_tpcomment>
+			</venda_block label=345>
+			<venda_tpcomment><!-- end: results found content --></venda_tpcomment>
+			
+			<venda_tpcomment><!-- start: results not found query text --></venda_tpcomment>	
+			<venda_block label=346,totalresults=0><h4 class="noresults"><venda_text id=site.search_results.your_search> <venda_block label=95,primarysearchtext=notnull><venda_text id=site.search_results.for> <span class="primarysearchtext">"<span class="keywordsearchtext"><venda_primarysearchtext></span>"</span> </venda_block label=95><venda_text id=site.search_results.returned> <venda_text id=site.search_results.no> <venda_text id=site.search_results.result><venda_text id=site.search_results.results><venda_text id=site.search_results.full_stop></h4>
+<venda_inctemplate type=includes/wizr/wz_locayta,name=your_search_no_results>
+</venda_block label=346>
+			<venda_tpcomment><!-- end: results not found query text --></venda_tpcomment>
+		</div>	
+  </div>
+  
+	</div><!-- #col-two -->
+  </div><!-- #col-two-three -->
+	
+<venda_inctemplate name=hbxlocalvars5,type=includes/tracking>
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>
+<venda_inctemplate name=cmSearch,type=includes/tracking/coremetrics>
+<!-- <venda_glxt mode=set,name=searchurl,value=<venda_searchurl>> --><venda_tpcomment><!-- glxt used for recent search widget in templates/widgets/recentSearch --></venda_tpcomment>
+<venda_tpcomment><!-- TPXTs are set for webtrends meta tag --></venda_tpcomment>
+<venda_tpxt mode=set,name=totalresults,value=<venda_totalresults>>
+<venda_tpxt mode=set,name=primarysearchtext,value=<venda_primarysearchtext>>
+<venda_block label=3,mode=value,<venda_setting type=ebiz,name=tracktagvbm>=1>
+<script type="text/javascript" src="http://service.avail.net/2009-02-13/dynamic/<venda_block label=22,mode=value,<venda_islive>=1><venda_setting type=ebiz,name=tracktagvbmid></venda_block label=22><venda_block label=23,mode=value,<venda_islive>!=1><venda_setting type=ebiz,name=tracktagvbmtestid></venda_block label=23>/emark.js"></script>
+<script type="text/javascript">
+jQuery('.add,.buy,.preorder').click(function() {
+var invtref = this.id;
+	invtref = invtref.replace("addproduct", "");
+	invtref = invtref.replace("buy-", "");
+	invtref = invtref.replace("preorder-", "");
+	Venda.Widget.VBM.SetCookie("<venda_primarysearchterm>",invtref);
+	});
+	var vbmLinks = (jQuery("a.moredetail"));
+	for (var i=0; i<vbmLinks.length; i++) {
+		if(vbmsrch!==""){
+		vbmLinks[i].href = (vbmLinks[i].href+'?htxt='+vbmsrch);
+		}
+	};
+</script>
+</venda_block label=3>
+<venda_tpcomment><!-- Tags for JS --></venda_tpcomment>
+<div style="display:none;" id="tag-error"><venda_text id=site.search_results.ajaxerror></div>
+<div id="loadingsearch" class="hide"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/Search/loadingsearch.gif" alt="<venda_text id=site.search_results.loading>"></div>	
+</div>
+<div style="display:none;" id="multirefine-tmpl">
+ <label>
+  <input type="checkbox" value="" class="updatesearch">
+  <span class="facet"></span>
+ </label>
+</div>
+<venda_tpcomment><!-- External JS would ideally be called in in the header, but simpler for go-live to keep them modular.. --></venda_tpcomment>
+<script type='text/javascript' src='<venda_entmediaadd>/ebiz/<venda_bsref>/resources/js/jquery.history.js'></script>
+<script type='text/javascript' src='<venda_entmediaadd>/ebiz/<venda_bsref>/resources/js/jquery.viewport.mini.js'></script>
+<script type='text/javascript' src='<venda_entmediaadd>/ebiz/<venda_bsref>/resources/js/jsuri-1.1.1.min.js'></script>
+<script type='text/javascript' src='<venda_entmediaadd>/ebiz/<venda_bsref>/resources/js/Venda/Search.js'></script>
+<script>
+jQuery(Venda.Search.start);
+jQuery('#content-search').bind('search-loading-end', function(evt) {
+<venda_tpcomment>/* JS that triggers when results load */</venda_tpcomment>
+	<venda_block label=snippet,mode=value,<venda_setting type=ebiz,name=powerreviews>=1,<venda_setting type=ebiz,name=powerreviewslocayta>=1><venda_tpcomment><!-- power reviews snippets for product reviews --></venda_tpcomment>
+	var pr = jQuery('.reviewstar');
+	var pr_array = jQuery.makeArray(pr);
+	jQuery.each(pr_array,function() {
+			var pr_page_id1 = jQuery(this).children('.pr_page_id').attr('value');
+			var pr_write_review1 = jQuery(this).children('.pr_write_review').attr('value');
+			var pr_read_review1 = jQuery(this).children('.pr_read_review').attr('value');
+			POWERREVIEWS.display.snippet(
+				{ write : function(content) { jQuery('div#prs-'+pr_page_id1).append(content); } }, {
+					pr_page_id : pr_page_id1,
+					pr_write_review : pr_write_review1,
+					pr_read_review : pr_read_review1,
+					pr_snippet_min_reviews : 0
+				});
+		});
+		</venda_block label=snippet>
+	//equalheight
+	if(typeof Venda.Platform.EqualHeight != "undefined"){Venda.Platform.EqualHeight.jq(document).ready(function(){  var classtoset = new Array ('#searchResults .prods ul li', '#searchResults .prods ul li .details h2','#searchResults .prods ul li .details .attrproducts','#searchResults .prods ul li .details .swatchContainer', '#searchResults .prods ul li .details .price', '#searchResults .prods ul li .details .swatchContainer div', '#searchResults .prods ul li .image','#searchResults .prods ul li .details','.addressbook #address_list li');  Venda.Platform.EqualHeight.init(classtoset);  });  }
+	//rvi
+	Venda.Widget.RecentlyViewedItems.setRVISiteWide(cj);
+	//swatches
+    
+    jQuery('#content-search').delegate('.swatchContainer a','click', function(){
+
+            var mainImg = jQuery(this).attr("aria-setimage");
+            var colorLink = this.href || "";
+            var mainImgId = jQuery(this).attr("aria-prodid");
+            var mainImgObj = jQuery("#"+mainImgId);
+            var defaultImage = mainImgObj.find("a:first").attr("aria-defaultImage");
+            var prodLink = mainImgObj.find("a:first").attr("aria-prodLink");
+            
+            if(mainImg == ""){
+                mainImg=defaultImage;
+            }
+            mainImgObj.find('img:first').attr("src", mainImg);
+            mainImgObj.find("a:first").attr("href", colorLink);
+	//mainImgObj.find("a:first").removeAttr('onmouseover');
+	//mainImgObj.find("a:first").removeAttr('onmouseout');
+            jQuery(this).parent("").find("a").removeClass("sw_selected");
+            jQuery(this).addClass("sw_selected");
+            return false;
+	});
+
+	/* Build up the attribute data from JSON embedded in the page */
+	var attributes = {};
+	jQuery('.attr-json').each(function() {
+		var at = jQuery.parseJSON(jQuery(this).html());
+		attributes[at.uuid] = attributes[at.uuid] || {};
+		var idAt = attributes[at.uuid];
+		idAt[at.attributes.att1] = at.values;
+	});
+
+	var validSlots = ["accessories","apparel","shoes","home","family","giftcard","wallpaper","familysale"];
+	jQuery('.swatchContainer a').each(function(){
+		var $this = jQuery(this);
+		if($this.siblings().length==0){
+			$this.hide();
+		}else{
+			$this.parents('form').find('.image a').removeAttr('onmouseover').removeAttr('onmouseout');
+		}
+		
+		var venda_invtsuplsku 	= $this.attr("aria-suplsku"),
+			venda_atrsuplsku1 	= attributes[$this.attr('aria-uuid')][$this.attr('aria-color')].atrsuplsku,
+			slot 				= jQuery.inArray($this.attr("aria-ivtype"), validSlots)>-1 ? '_b' : '_a';
+
+		$this.attr("aria-setimage", 'http://images.anthropologie.eu/is/image/Anthropologie/' + venda_invtsuplsku + '_' + venda_atrsuplsku1 + slot + '?$uk_category_thumb$&defaultImage=/Anthropologie/spacer');
+
+	});
+
+	jQuery('.swatchContainer div').find(" > a:first").click();
+	jQuery('.swatchContainer div a').each(function(){
+		var colDefault = jQuery(this).attr("aria-defaultcolour");
+		var swatchCol = jQuery(this).find("img").attr("src").indexOf(colDefault);
+		if(swatchCol == 82){
+			jQuery(this).click();
+		}
+	});
+
+
+});
+</script>
+

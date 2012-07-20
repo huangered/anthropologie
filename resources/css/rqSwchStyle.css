@@ -1,0 +1,50 @@
+﻿#rqSwchIeFrameFix{display:none;position:absolute;width:876px;height:600px;z-index:2;filter:alpha(opacity=0);}
+#rqSwch{width:864px;height:530px;}
+#rqSwchLink a{color:#052caa;font-family:"Courier New",Courier,monospace!important;vertical-align:baseline!important;font-size:9pt!important;}
+#rqSwchLink a:hover{text-decoration:underline;}
+#rqSwchHeader{height:27px;overflow:hidden;background-color:#fff;}
+#rqSwchHeaderSwatch{float:left;width:253px;height:27px;margin-right:189px;background-image:url('/content/ebiz/anthropologie/resources/images/wlprSwatches/bg_rqSwchHeaderSwatch_wlpr.png');background-repeat:no-repeat;}
+#rqSwchHeaderForm{float:left;width:235px;height:25px;background-image:url('/content/ebiz/anthropologie/resources/images/wlprSwatches/bg_rqSwchHeaderSwatch_form.png');background-repeat:no-repeat;}
+#rqSwchBody{overflow:hidden;width:864px;height:500px;}
+#rqSwchBodySwatch{float:left;width:469px;height:466px;margin-right:8px;}
+.rqSwchBodyParagraph{background-image:url('/content/ebiz/anthropologie/resources/images/wlprSwatches/bg_rqSwchBodyParagraph.png');background-repeat:no-repeat;width:439px;height:86px;margin-top:1px;font-family:"Trebuchet MS",Trebuchet,sans-serif;font-size:11px;line-height:13px;padding:12px 10px 0px 20px;margin-bottom:2px;}
+.rqSwchBodyParagraphItalics{font-style:italic;}
+#rqSwchCounter{width:424px;height:13px;background-image:url("/content/ebiz/anthropologie/resources/images/wlprSwatches/bg_rqSwchCounter.png");background-repeat:no-repeat;font-family:"Courier New",Courier,monospace;font-size:8pt;color:#052CAA;text-align:right;padding:3px 44px 0px 0px;}
+#rqSwchBodyScroller{overflow:auto;position:relative;width:460px;height:367px;background-color:#fff;margin-top:2px;}
+.rqSwchScrollerItem{float:left;position:relative;background-image:url('/content/ebiz/anthropologie/resources/images/wlprSwatches/bg_rqSwchScrollerItem.png');background-repeat:no-repeat;width:138px;height:175px;margin:4px 0px 3px 4px;text-align:center;cursor:pointer;}
+.rqSwchScrollerItemSelect{z-index:2;background-color:#fff;position:absolute;width:138px;height:175px;opacity:0.75;filter:alpha(opacity=75);}
+.rqSwchScrollerItemSelectLabel{z-index:3;background:#666;position:absolute;color:#fff;margin:60px 0px 0px 19px;padding:5px 10px;text-transform:uppercase;font-family:"Courier New",Courier,monospace;font-size:10pt;letter-spacing:2px;}
+.rqSwchScrollerItemData{z-index:1;}
+.rqSwchScrollerItem img{margin-top:12px;border:2px solid #f8f7f1;}
+.rqSwchScrollerItemLabel{font-family:Georgia,Times,sans-serif;font-size:9pt;height:36px;margin-left:8px;padding-top:5px;width:123px;}
+.rqSwchScrollerItemLabel:hover{text-decoration:underline;color:#052CAA;}
+#rqSwchBodyForm{float:left;width:363px;height:446px;background-image:url('/content/ebiz/anthropologie/resources/images/wlprSwatches/bg_rqSwchBodyForm.png');background-repeat:no-repeat;padding:43px 0px 0px 24px;}
+.rqSwchFormCTNR{overflow:hidden;margin-top:10px;}
+.rqSwchFormOBJ{float:left;margin-right:4px;}
+.rqSwchFormOBJ input, .rqSwchFormOBJ select{color:#6b5b5b;border-color:#8f8f8f #eee #e3e3e3 #cecece;border-right:1px solid #eee;border-style:solid;border-width:1px 1px 1px 2px;color:#333;font-family:Tahoma,Arial,Helvetica,sans-serif;font-size:11px;height:17px;padding:3px 2px 0px 2px;}
+.rqSwchFormOBJ select{line-height:20px;padding:1px 0px;}
+.rqSwchFormOBJ .rqSwchFormInputShort{width:135px;}
+.rqSwchFormOBJ .rqSwchFormInputMed{width:158px;}
+.rqSwchFormOBJ .rqSwchFormInputLong{width:324px;}
+.rqSwchFormOBJ #rqSwchForm_state{height:21px;width:331px!important;}
+.rqSwchFormOBJ #rqSwchForm_country{height:21px;width:162px!important;}
+.rqSwchFormLabel{font-family:Arial,Helvetica,sans-serif;font-size:7.25pt;text-transform:uppercase;color:#996699;}
+#rqSwchForm_mi{width:32px;}
+.rqSwchFormBtn{background-image:url('/content/ebiz/anthropologie/resources/images/wlprSwatches/bg_rqSwchFormBtn.png');background-repeat:no-repeat;float:right;position:relative;right:30px;top:20px;width:155px;height:20px;padding-top:2px;text-align:center;cursor:pointer;text-transform:uppercase;font-family:"Courier New",Courier,monospace;font-size:10pt;}
+.rqSwchFormBtn:hover{color:#052CAA;}
+#rqSwchFormAlert{clear:both;margin-top:54px;width:340px;font-family:"Courier New",Courier,monospace;color:#CC3333;font-size:8pt;font-weight:400;visibility:hidden;}
+#rqSqchDynErrorCTNR{border-top:1px solid #052CAA;border-bottom:1px solid #052CAA;padding:10px 0px;text-align:center;}
+.rqSwchDynError{color:#052CAA;font-family:Arial,Helvetica,Tahoma,sans-serif;font-size:8pt;text-transform:uppercase;}
+#rqSwchReceiptCurtain{display:none;z-index:3;position:absolute;display:none;width:100%;height:100%;background:#eee;top:0px;left:0px;opacity:0.75;filter:alpha(opacity=75);}
+#rqSwchReceipt{display:none;background-color:#fff;padding:25px;height:280px;width:320px;overflow:hidden;}
+#rqSwchLoader{display:none;height:32px;width:32px;background-image:url('rqSwchLoader.gif');background-repeat:no-repeat;}
+#rqSwchReceiptWrapper{display:none;z-index:4;padding:14px 18px;background-color:#e0e3e1;border:1px solid #e5e0d6;position:absolute;top:43px;left:234px;}
+#rqSwchReceiptNotes{background-image:url('/content/ebiz/anthropologie/resources/images/wlprSwatches/bg_rqSwchReceiptNotes.png');background-repeat:no-repeat;width:320px;height:39px;padding:5px 0px 0px 5px;}
+#rqSwchReceiptNotes div{width:320px;color:#052CAA;font-family:Arial,Helvetica,Tahoma,sans-serif;font-size:11px;font-weight:700;}
+#rqSwchReceiptCTNR{height:160px;overflow:auto;width:325px;}
+#rqSwchReceipt .rqSwchFormBtn{position:relative;right:20px;}
+#rqSwchReceiptHeader{background-image:url('/content/ebiz/anthropologie/resources/images/wlprSwatches/bg_rqSwchReceiptHeader.png');background-repeat:no-repeat;width:308px;height:35px;}
+.rqSwchReceiptLightCol,.rqSwchReceiptDarkCol,#rqSwchReceiptLastCol{font-size:8pt;font-family:Georgia,"Times New Roman",sans-serif;background-repeat:no-repeat;width:286px;}
+.rqSwchReceiptLightCol{background-color:#fff;height:22px;padding:5px 0px 0px 21px;}
+.rqSwchReceiptDarkCol{background-image:url('/content/ebiz/anthropologie/resources/images/wlprSwatches/bg_rqSwchReceiptDarkCol.png');height:27px;padding:10px 0px 0px 21px;}
+#rqSwchReceiptLastCol{background-image:url('/content/ebiz/anthropologie/resources/images/wlprSwatches/bg_rqSwchReceiptLastCol.png');height:24px;padding:13px 0px 0px 21px;}

@@ -1,0 +1,100 @@
+<venda_tpcomment><!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. --></venda_tpcomment>
+<venda_form>
+<input type="hidden" name="rfrfnbr" value="<venda_defaultrefer>">
+<input type="hidden" name="exgroup" value="all">
+
+<script type="text/javascript">
+<!-- 
+<venda_block label=71,usgrref=instore><venda_block label=72,mode=value,<venda_glxt mode=get,name=addsnotdone>=1>
+<venda_tpcomment>// this was an instore user who was not logged in before checking out: send back to fill in addresses</venda_tpcomment>
+location.href='<venda_codehttps>?ex=co_wizr-instore&bsref=<venda_bsref>&step=searchuser&param1=details';
+</venda_block label=72></venda_block label=71>
+
+numberAddresses=0;
+// -->
+</script>
+
+<div id="orderconfirmation">
+<venda_category rec=elementcat,ref=orcftopcontent>
+<div class="checkoutorcfL">
+<venda_inctemplate type=includes/wizr/wz_orcf-screen,name=heading_intro>
+<venda_inctemplate type=includes/wizr/wz_orcf-screen,name=package_summary>
+<venda_inctemplate type=includes/wizr/wz_orcf-screen,name=order_summary>
+<venda_inctemplate type=includes/wizr/wz_orcf-screen,name=promotions>
+<venda_inctemplate type=includes/wizr/wz_orcf-screen,name=additional_services>
+<venda_inctemplate type=includes/wizr/wz_orcf-screen,name=js_buttons>
+<venda_category rec=elementcat,ref=orcfcolone>
+<div id="deliveryrateMessage" class="re-waiHide"><venda_block label=14,realpktot&gt;1><venda_block label=15,ohship&gt;0.00><venda_text id=site.order_confirmation.js_validation.delivery_charge></venda_block label=15></venda_block label=14></div>
+<script type="text/javascript">
+var deliveryrateMessage = document.getElementById('deliveryrateMessage');
+if (deliveryrateMessage.innerHTML!=" " && deliveryrateMessage.innerHTML!="") {
+	alert(deliveryrateMessage.innerHTML);
+}
+</script>
+</div>
+<div class="checkoutorcfR">
+<venda_inctemplate type=includes/wizr/wz_orcf-screen,name=contact_details>
+<venda_inctemplate type=includes/wizr/wz_orcf-screen,name=payment_details>
+<div class="checkboxterms"><input type="checkbox" id="orxorxtterms" name="orxorxtterms" value="on" /><label class="termsLabel" for="orxorxtterms"><venda_text id=site.order_confirmation.accept> <a href="<venda_dispview page=termsofuse>&layout=empty" target="_blank" rel="popup console 550 450"><venda_text id=site.order_confirmation.term.condition></a> <venda_text id=site.order_confirmation.purchase></label></div>
+<div class="buttonsRight">
+	<input type="image" onClick='validateTerms();return false;' src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_placeyourorder.gif" alt="<venda_text id=site.button.place_order>" class="right">
+	<p class="final"><venda_text id=site.order_confirmation.final_step></p>
+</div>
+<script type="text/javascript">
+function validateTerms (){
+	//Check click pay by paypal
+	if(jQuery('input#formpaypal').attr("checked") == false){
+		if (document.wizform.ohpaytype.type!="hidden"){
+			if (document.wizform.ohccnum.value == "") {
+				alert("<venda_text id=cc_no_required>");
+				document.wizform.ohccnum.focus();
+				return;
+			}
+			if (document.wizform.ohccname.value == "") {
+				alert("<venda_text id=ccholder_required>");
+				document.wizform.ohccname.focus();
+				return;
+			}
+		}
+	}
+
+	var acceptedTerm =document.wizform.orxorxtterms.checked;
+	if (!acceptedTerm){
+		alert("<venda_text id=ustandc_requiredsite.alert.terms.orcf>");
+		document.wizform.orxorxtterms.focus();
+		return;
+	} else {
+		<venda_wizbutton step=payment,mode=process,param1=process,check=yes,callonly=yes>
+	}
+}
+
+$(document).ready(function() {
+	$('.f-paypal').insertAfter($('.f-payment_details.paymenttype_card_de'));
+	if ($('input:[name=ohpaytype]:checked').length > 1) { $('input#formpaypal').attr("checked",""); }
+});
+</script>
+<venda_category rec=elementcat,ref=orcfcoltwo>
+</div>
+<venda_category rec=elementcat,ref=orcfcolonetwo>
+</div>
+</form>
+<venda_category rec=elementcat,ref=orderconfirmationcolone>
+
+
+<venda_block label=20,workflow=instore>
+<venda_tpxt mode=set,name=instore,value=1>
+</venda_block label=20>
+
+<!-- 
+workflow: <venda_workflow>
+step: <venda_curstep>
+param1: <venda_param1>
+param2: <venda_param2>
+page: wz_orcf-screen.html
+ -->
+<venda_tpxt mode=set,name=track,value=orcf-screen> 
+<venda_inctemplate name=googleTrackingWorkflows,type=includes>
+<venda_inctemplate name=hbxlocalvars1,type=includes/tracking>
+<venda_inctemplate name=hitboxOrcf,type=includes/tracking>
+<venda_inctemplate name=cmCreateRegistrationTag,type=includes/tracking/coremetrics>
+<venda_inctemplate name=mycouponsSetCookie,type=includes/tracking/mycoupons>

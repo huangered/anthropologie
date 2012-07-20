@@ -1,0 +1,25 @@
+<!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. -->
+<div id="orderdetail">
+<venda_inctemplate type=includes/wizr/wz_orlk-userord,name=heading_intro>
+<venda_form>
+<input type="hidden" name="ohrfnbr" value="">
+<input type="hidden" name="layout" value="myaccount">
+<venda_inctemplate type=includes/wizr/wz_orlk-userord,name=order_comments>
+<venda_inctemplate type=includes/wizr/wz_orlk-userord,name=order_summary>
+<venda_inctemplate type=includes/wizr/wz_orlk-userord,name=payment_details>
+<venda_inctemplate type=includes/wizr/wz_orlk-userord,name=contact_details>
+<venda_inctemplate type=includes/wizr/wz_orlk-userord,name=package_summary>
+<venda_inctemplate type=includes/wizr/wz_orlk-userord,name=js_buttons>
+</form>
+</div>
+<!-- 
+workflow: <venda_workflow>
+step: <venda_curstep>
+param1: <venda_param1>
+param2: <venda_param2>
+page: wz_orlk-userord.html
+ -->
+<venda_tpxt mode=set,name=track,value=orlk-userord> 
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>
+<venda_inctemplate name=cmCreateRegistrationTag,type=includes/tracking/coremetrics>
+<venda_inctemplate name=cm-wz_orlk-userord,type=includes/tracking/coremetrics>

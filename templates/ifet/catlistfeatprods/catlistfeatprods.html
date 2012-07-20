@@ -1,0 +1,34 @@
+<venda_detblock>
+<li>
+	<div class="details">
+		<h2><a href="<venda_dispview invt=<venda_invtref>>"><venda_invtname></a></h2>
+		<p class="invtdesc2"><venda_invtdesc2></p>
+		<venda_block label=10,invtatrtot&lt;1>
+		<!-- if product doesn't have attributes -->
+		<p class="price"><venda_currsym><venda_invtsell></p>
+		</venda_block label=10>
+		<venda_block label=20,invtatrtot&gt;0>
+		<!-- if product does have attributes -->
+		<p class="price">
+			<venda_block invtatrminsubsell&gt;0.00>From <venda_currsym><venda_invtatrminsubsell></venda_block>
+			<venda_block invtatrminsubsell=0.00><venda_invtsymsell></venda_block>
+		</p>
+		</venda_block label=20>
+		<p class="moreinfo"><a href="<venda_dispview invt=<venda_invtref>>">More Info</a></p>
+	</div>
+	<div class="image">
+	<venda_block label=141,med-small=notnull>
+		<a href="<venda_dispview invt=<venda_invtref>>"><venda_media rec=invt,type=movie-swf-pict,key=small></a>
+	</venda_block label=141>
+	<venda_block label=142,med-small=null>
+		<a href="<venda_dispview invt=<venda_invtref>>"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/no_image_small.gif" alt="Sorry, no image available"></a>
+	</venda_block label=142>
+	</div>
+</li>	
+</venda_detblock>
+
+<li class="catlistfeat"><h3><span></span>You may like...</h3>
+	<ul>
+	<venda_detail>
+	</ul>
+</li>

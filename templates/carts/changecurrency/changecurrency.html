@@ -1,0 +1,80 @@
+<div class="regionLangSwitch">
+<p class="showFlaglang"><venda_block label=102,workflow!=shopcart><a href="#" class="chRegion"></venda_block label=102><venda_block label=1021,workflow=shopcart><venda_block label=1022,mode=value,<venda_tpxt mode=get,name=orsc>=1><a href="#" class="chRegion"></venda_block label=1022></venda_block label=1021><span class="<venda_sessionlanguage>"><venda_block label=114,mode=value,<venda_sessionlocation>=uk><span>&#163;</span><span>GBP</span></venda_block label=114><venda_block label=115,mode=value,<venda_sessionlocation>=europe><span>&#8364;</span><span>EUR</span></venda_block label=115></span>	
+<venda_block label=103,workflow!=shopcart></a></venda_block label=103><venda_block label=1031,workflow=shopcart><venda_block label=1032,mode=value,<venda_tpxt mode=get,name=orsc>=1></a></venda_block label=1032></venda_block label=1031></p>
+
+<div class="regionLangSwitchContent hide">
+	<div class="regionLangTitle">
+		<p><venda_text id=site.regionlanguage.please.choose.your></p>
+	</div>
+	<div class="contentCurrency">
+		<div id="selectCur">
+			<div class="currency">
+			<venda_block label=1,ustype!=R>				
+			<p id="txtswitchcur"><venda_text id=site.regionlanguage.switch.choose.region></p>
+				<span class="uk"><a rel="uk" href="#"> &#163;</a></span><span><venda_text id=site.regionlanguage.solid.vertical.bar></span><span class="europe"><a rel="europe" href="#"> &#8364;</a></span>			
+			</venda_block label=1>
+
+			<venda_block label=21,ustype=R>		
+			<p id="txtswitchcur" class="selected login"><venda_text id=site.regionlanguage.switch.choose.region></p>
+				<venda_block label=111,mode=value,<venda_sessionlocation>=uk,<venda_sessionlocation>=restofworld,operator=or>
+					<span class="uk"> <a href="#" rel="uk" class="selected login">&#163;</a></span>
+				</venda_block label=111>
+				<span><venda_text id=site.regionlanguage.solid.vertical.bar></span>
+				<venda_block label=112,mode=value,<venda_sessionlocation>=europe>
+					<span class="europe"><a href="#" rel="europe" class="selected login">&#8364;</a></span>	
+				</venda_block label=112>
+			</venda_block label=21>
+			</div>
+		</div>
+	</div>
+	<br class="clear-all">
+	<div class="contentLlanguage">
+		<p id="txtswitchlang"><venda_text id=regionlanguage.switch.choose.language></p>
+		<span class="region uk"><a rel="en" href="#" title="<venda_text id=site.regionlanguage.switch.en>"><venda_text id=site.regionlanguage.switch.en></a></span>
+		<span class="solidVerticalBar"><venda_text id=site.regionlanguage.solid.vertical.bar></span>
+		<span class="region germany"><a rel="de" href="#"title="<venda_text id=site.regionlanguage.switch.de>"><venda_text id=site.regionlanguage.switch.de></a></span>
+		</ul>
+	</div>
+	<br class="clear-all">
+	<div class="linesubmit">
+		<a href="#" title="<venda_text id=site.regionlanguage.switch.cancel>" class="cancel left"><venda_text id=site.regionlanguage.switch.cancel></a>
+		<a href="#" class="rLSwitchSubmit" title="<venda_text id=site.regionlanguage.switch.submit>" class="right"><venda_text id=site.regionlanguage.switch.submit></a>
+	</div>
+</div>
+</div>
+<div id="ebizurl" class="hide"><venda_serveradd></div>
+
+
+<style type="text/css">.regionLangSwitch img {vertical-align: -2px;}</style>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+regionSet = {'americas':'us canada','emea':'uk france germany netherlands'};
+langSet = { 'americas' : 'ae fr', 'emea' : 'fr en de nl'};
+RLSwitchEnable = 0; // Disable the region selection landing lightbox by default. '1' for anable
+
+if(RLSwitchEnable == 1){ // Open the region selection landing lightbox for first time
+if((!Venda.Ebiz.CookieJar.get("lang")) && (!Venda.Ebiz.CookieJar.get("locn"))){
+Venda.Widget.RegionLangSwitch.createDialog('.regionLangSwitchContent');
+}
+}else{
+currRegion = "<venda_sessionlocation>";
+}
+for( var iSet in regionSet){
+var splitSet = regionSet[iSet].split(" ");
+for(var j=0; j < splitSet.length; j++){
+if(splitSet[j] == currRegion){
+jQuery("."+iSet).removeClass("hide");
+}
+}
+}
+workflow = '<venda_workflow>';
+jQuery(".chRegion").click(function(){
+Venda.Widget.RegionLangSwitch.createDialog('.regionLangSwitchContent');
+return false;
+});
+jQuery(".currency a").click(function() {Venda.Widget.RegionLangSwitch.changeRegionLang(this,'region'); return false;}); 
+jQuery(".contentLlanguage a").click(function() {Venda.Widget.RegionLangSwitch.changeRegionLang(this,'lang'); return false;});
+jQuery(".rLSwitchSubmit").click(function() {Venda.Widget.RegionLangSwitch.changeRegionLangSubmit();return false;});
+});
+</script>

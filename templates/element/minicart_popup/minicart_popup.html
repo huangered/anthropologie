@@ -1,0 +1,75 @@
+<venda_tpcomment><!-- If there is a minicart popup element then we hide the static version. This style must NOT have a height value. --></venda_tpcomment>
+<style type="text/css">#cartwrapper {position:absolute;left:0px;top:-5000px;width:1px;overflow:hidden;}</style>
+
+<venda_tpcomment><!-- window and animation settings to send to MinicartPopup.js --></venda_tpcomment>
+<div id="tag-elxtdraggable" style="display:none;"><venda_elxtdraggable></div>
+<div id="tag-elxtfade" style="display:none;"><venda_elxtfade></div>
+<div id="tag-elxtscroll" style="display:none;"><venda_elxtscroll></div>
+<div id="tag-elxtheader" style="display:none;"><venda_elxtheader></div>
+<div id="tag-elxtnopopupadded" style="display:none;"><venda_elxtnopopupadded></div>
+<div id="tag-elxthighlight" style="display:none;"><venda_elxthighlight></div>
+<div id="tag-elxtwidth" style="display:none;"><venda_block elxtwidth=null>200</venda_block><venda_block elxtwidth=notnull><venda_elxtwidth></venda_block></div>
+<div id="tag-elxtmouseover" style="display:none;"><venda_elxtmouseover></div>
+<div id="tag-elxtautoclose" style="display:none;"><venda_elxtautoclose></div>
+<div id="tag-elxtnoreload" style="display:none;"><venda_elxtnoreload></div>
+<div id="tag-elxtscrolledheight" style="display:none;"><venda_elxtscrolledheight></div>
+<venda_tpcomment><!-- tags to send to MinicartPopup.js --></venda_tpcomment>
+<div id="tag-elxtclose" style="display:none;"><venda_block elxtclose=1>minicart-close</venda_block></div>
+<div id="tag-elxtheadertext" style="display:none;"><span><venda_text id=site.minicart.header.text></span></div>
+<div id="tag-elxtloadingmessage" style="display:none;"><venda_text id=site.minicart.loading_message></div>
+<div id="tag-elxthighlightbgrstart" style="display:none;"><venda_block elxthighlightbgrstart=notnull><venda_elxthighlightbgrstart></venda_block><venda_block elxthighlightbgrstart=null>#ccc</venda_block></div>
+<div id="tag-elxthighlightbgrend" style="display:none;"><venda_block elxthighlightbgrend=notnull><venda_elxthighlightbgrend></venda_block><venda_block elxthighlightbgrend=null>#fff</venda_block></div>
+<div id="tag-elxthighlightduration" style="display:none;"><venda_block elxthighlightduration=notnull><venda_elxthighlightduration></venda_block><venda_block elxthighlightduration=null>3</venda_block></div>
+<div id="tag-elxteffectsduration" style="display:none;"><venda_block elxteffectsduration=notnull><venda_elxteffectsduration></venda_block><venda_block elxteffectsduration=null>1</venda_block></div>
+<div id="tag-addedmsg" style="display:none;"><venda_block label=hideifsolr,mode=value,<venda_tpxt mode=get,name=activekeyword>=null><venda_block label=32,mode=value,<venda_addedmsg msg=addedref>=notnull><venda_addedmsg msg=addedref></venda_block label=32></venda_block label=hideifsolr></div>
+<div id="tag-bsref" style="display:none;"><venda_bsref></div>
+<div id="tag-codehttp" style="display:none;"><venda_codehttp></div>
+<div id="tag-elxtitemspricestart" style="display:none;"><venda_block elxtnoreload=1,elxthlfrom=notnull><venda_elxthlfrom></venda_block><venda_block elxtnoreload=1,elxthlfrom=null,elxthlto=notnull>#f00</venda_block></div>
+<div id="tag-elxtitemspriceend" style="display:none;"><venda_block elxtnoreload=1,elxthlto=notnull><venda_elxthlto></venda_block><venda_block elxtnoreload=1,elxthlto=null,elxthlfrom=notnull>#fff</venda_block></div>
+<div id="tag-elxtitemspricebgrstart" style="display:none;"><venda_block elxtnoreload=1,elxthlbgrfrom=notnull><venda_elxthlbgrfrom></venda_block><venda_block elxtnoreload=1,elxthlbgrfrom=null,elxthlbgrto=notnull>#ff0</venda_block></div>
+<div id="tag-elxtitemspricebgrend" style="display:none;"><venda_block elxtnoreload=1,elxthlbgrto=notnull><venda_elxthlbgrto></venda_block><venda_block elxtnoreload=1,elxthlbgrto=null,elxthlbgrfrom=notnull>#00f</venda_block></div>
+<div id="tag-elxtitemspriceduration" style="display:none;"><venda_block elxthlduration=notnull><venda_elxthlduration></venda_block><venda_block elxthlduration=null>3</venda_block></div>
+<div id="tag-elxtscrolledheightpad" style="display:none;"><venda_block elxtscrolledheightpad=notnull><venda_elxtscrolledheightpad></venda_block><venda_block elxtscrolledheightpad=null>0</venda_block></div>
+<div id="tag-addtobaskettext" style="display:none;"><venda_text id=site.productdetail.adding_item_to_basket></div>
+<div id="tag-seslang" style="display:none;"><venda_sessionlanguage></div>
+<script type="text/javascript">
+<venda_tpcomment>//to enable new hooks enter ids in the element field 'Custom popup trigger ids' </venda_tpcomment>
+	if (typeof Venda.Widget.MinicartPopup != "undefined" || Venda.Widget.MinicartPopup) {
+	Venda.Widget.MinicartPopup.create(['minicart-close<venda_block elxtmouseover=1>-disabled</venda_block>'<venda_block elxtdisablebaskettrigger=null>, 'showminicart'</venda_block><venda_block elxttriggerids=notnull>, <venda_elxttriggerids></venda_block>],
+ 	{
+		draggable:		document.getElementById('tag-elxtdraggable').innerHTML,
+		fade:			document.getElementById('tag-elxtfade').innerHTML,
+		scroll:			document.getElementById('tag-elxtscroll').innerHTML,
+		nopopupadded:	document.getElementById('tag-elxtnopopupadded').innerHTML,
+		header:			document.getElementById('tag-elxtheader').innerHTML,
+		highlight:		document.getElementById('tag-elxthighlight').innerHTML,
+		width:			document.getElementById('tag-elxtwidth').innerHTML,
+		mouseover:		document.getElementById('tag-elxtmouseover').innerHTML,
+		mouseover:		document.getElementById('tag-elxtmouseover').innerHTML,
+		milliseconds:	document.getElementById('tag-elxtautoclose').innerHTML,
+		noreload:		document.getElementById('tag-elxtnoreload').innerHTML,
+		relativeHeight:	document.getElementById('tag-elxtscrolledheight').innerHTML
+		}, 
+	{
+		effectsduration:	document.getElementById('tag-elxteffectsduration').innerHTML,
+		close:				document.getElementById('tag-elxtclose').innerHTML,
+		headertext: 		document.getElementById('tag-elxtheadertext').innerHTML,
+		loadingmessage: 	document.getElementById('tag-elxtloadingmessage').innerHTML,
+		highlightbgrstart:	document.getElementById('tag-elxthighlightbgrstart').innerHTML,
+		highlightbgrend:	document.getElementById('tag-elxthighlightbgrend').innerHTML,
+		highlightduration:	document.getElementById('tag-elxthighlightduration').innerHTML,
+		addedsku:			document.getElementById('tag-addedmsg').innerHTML,
+		bsref:				document.getElementById('tag-bsref').innerHTML,
+		formaction:			document.getElementById('tag-codehttp').innerHTML,
+		fromcolor:			document.getElementById('tag-elxtitemspricestart').innerHTML,
+		tocolor:			document.getElementById('tag-elxtitemspriceend').innerHTML,
+		frombgrcolor:		document.getElementById('tag-elxtitemspricebgrstart').innerHTML,
+		tobgrcolor:			document.getElementById('tag-elxtitemspricebgrend').innerHTML,
+		fromtoduration:		document.getElementById('tag-elxtitemspriceduration').innerHTML,
+		relativeHeightPad:	document.getElementById('tag-elxtscrolledheightpad').innerHTML,
+		addtoBasketText:	document.getElementById('tag-addtobaskettext').innerHTML,
+		seslang:			document.getElementById('tag-seslang').innerHTML
+	});
+};
+</script>
+<div id="minicart_detail"></div>

@@ -1,0 +1,30 @@
+<script type="text/javascript" src="<venda_dispview invt=<venda_invtref>>&temp=emailback_script&layout=noheaders"></script>
+<div id="emailmeback">
+        <form method="post" action="<venda_codehttp>" name="emailbackform" id="emailbackform">  
+   <input type="hidden" name="ex" value="co_disp-eproc">
+        <input type="hidden" name="bsref" value="<venda_bsref>">  
+        <input type="hidden" name="subject" value="Query regarding : <venda_invtname> (<venda_invtref>)">  
+        <!--input type="hidden" name="to" value="narshad@anthropologie.com"-->
+        <input type="hidden" name="to" value="service@anthropologie.eu">  
+        <input type="hidden" name="from" value="">  
+   <input type="hidden" name="label1" value="Customer email address:">  
+   <input type="hidden" name="label2" value="Customer name:">  
+   <input type="hidden" name="label3" value="Customer message:">  
+        <input type="hidden" name="label4" value="<venda_invtref>">
+   <input type="hidden" name="layout" value="">
+   <input type="hidden" name="page" value="emailbackthanks">
+        <fieldset class="text-fields">  
+        <div><label for="email">Your Email Address: <span class="required">*</span></label> <input type="text" name="field1" id="email" size="25">
+        </div>  
+        <div>
+        <label for="name">Your Name: <span class="required">*</span></label> <input type="text" name="field2" size="25" id="name">
+        </div>  
+        <div><label for="message">Your Message: <span class="required">*</span></label> <br />
+        <textarea name="field3" cols="50" rows="10" id="message">Please let me know when this item becomes available.</textarea></div>  
+        </fieldset>    
+<div id="buttons">
+<a href="<venda_dispview invt=<venda_invtref>>" id="back_link"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left"></a>
+<input type="image" onclick="validateFields(); return false;" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_continue.gif" alt="<venda_text id=site.tell_friend.button.continue>" class="right">
+</div>   
+        </form>
+</div>

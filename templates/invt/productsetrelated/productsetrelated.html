@@ -1,0 +1,38 @@
+<venda_tpcomment> 
+<!--
+- Include for looping through the multiple product extended field values
+-->
+</venda_tpcomment>
+
+<venda_detblock1>
+
+<venda_block label=1012,ismultivalue=notnull,exname=Product Set Related Products,operator=and>
+
+<venda_detblock_extvalue>
+
+<li class="" id="product-related-<venda_exvalue>" class="product-set-related-li">
+	<venda_inventory ref=<venda_exvalue>,temp=productsetrelatedthumbs,displayunpublished=0>	
+</li>
+
+<style>
+#productsetrelated{
+	display:block;
+}
+</style>
+
+
+</venda_detblock_extvalue>
+
+<venda_detail_extvalue>
+
+</venda_block label=1012>
+
+</venda_detblock1>
+
+<div id="productsetrelated">
+<h2><span></span><venda_text id=site.related_products.heading></h2>
+<ul>
+<venda_detail1>
+</ul>
+</div>
+

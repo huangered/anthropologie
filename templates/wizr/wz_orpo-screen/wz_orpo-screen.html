@@ -1,0 +1,29 @@
+<!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. -->
+<venda_block label=34,ustype=R>
+<div id="orderhistory">
+<venda_inctemplate type=includes/wizr/wz_orpo-screen,name=heading_intro>
+
+<venda_inctemplate type=includes/wizr/wz_orpo-screen,name=recent_orders>
+
+<venda_inctemplate type=includes/wizr/wz_orpo-screen,name=no_orders>
+<venda_inctemplate type=includes/wizr/wz_orpo-screen,name=js_buttons>
+</div>
+</venda_block label=34>
+
+<venda_block label=33,ustype!=R>    
+<script type="text/javascript">
+// forward to log in page
+location.href="<venda_codehttps>?ex=co_wizr-register&bsref=<venda_bsref>";
+</script>
+</venda_block label=33>
+<!-- 
+workflow: <venda_workflow>
+step: <venda_curstep>
+param1: <venda_param1>
+param2: <venda_param2>
+page: wz_orpo-screen.html
+ -->
+<venda_tpxt mode=set,name=track,value=orpo-screen> 
+<venda_inctemplate name=googleTrackingWorkflows,type=includes>
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>
+<venda_inctemplate name=cmCreateRegistrationTag,type=includes/tracking/coremetrics>

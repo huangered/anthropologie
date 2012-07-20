@@ -1,0 +1,78 @@
+<productinformation>
+	<sku><venda_invtref></sku>
+	<name><venda_encode><venda_invtname></venda_encode></name>
+	<producttype><venda_invtivtype></producttype>
+	<brand><venda_encode><venda_invtbrand></venda_encode></brand>
+</productinformation>
+<pricing>
+	<sellingprice><venda_encode><venda_invtsell></venda_encode></sellingprice>
+	<msrpprice><venda_encode><venda_invtmsrp></venda_encode></msrpprice>
+	<wasprice><venda_encode><venda_invtwas></venda_encode></wasprice>
+	<startqty><venda_invtstartqty1></startqty>
+	<endqty><venda_invtendqty1></endqty>
+</pricing>
+<stock>
+	<releasedate><venda_invtrelease></releasedate>
+	<stocketadate><venda_invtetadate></stocketadate>
+	<stocketadaysleft><venda_etadyleft></stocketadaysleft>
+	<onhand><venda_invtonhand></onhand>
+	<attributesinstock><venda_invtatrinstock></attributesinstock>
+	<preorder><venda_invtpreorder></preorder>
+	<published><venda_invtpublish></published>
+</stock>
+<images>
+	<scene7baseUrl><![CDATA[http://s7ondemand1.scene7.com/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>]]></scene7baseUrl>
+	<defaultView>
+	<venda_block label=101,invtivtype=accessories,invtivtype=apparel,invtivtype=shoes,invtivtype=home,invtivtype=family,operator=or>_b</venda_block label=101>
+	<venda_block label=102,invtivtype!=accessories,invtivtype!=apparel,invtivtype!=shoes,invtivtype!=home,invtivtype!=family>_a</venda_block label=102>
+	</defaultView>
+	<thumb>?$uk_pdt_thumb$</thumb>
+	<medium>?$uk_pdt_medium$</medium>
+	<large>?$redesign-openLarger$</large>
+</images>
+<venda_inventory ref=<venda_invtref>,temp=alternateview_xml><venda_tpcomment><!--attribute images--></venda_tpcomment>
+<swatch>
+<setswatch><![CDATA[<venda_media rec=invt,type=pict,key=setswatch,img=no>]]></setswatch>
+<venda_mediagrid template=alternateview_xml><venda_tpcomment><!--attribute colour swatches--></venda_tpcomment>
+</swatch>
+<descriptions>
+	<description1><venda_block invtdesc1=null></venda_block><venda_block invtdesc1=notnull><venda_encode><venda_invtdesc1></venda_encode></venda_block></description1>
+	<description2><venda_block invtdesc2=null></venda_block><venda_block invtdesc2=notnull><venda_encode><venda_invtdesc2></venda_encode></venda_block></description2>
+	<description3><venda_block invtdesc3=null></venda_block><venda_block invtdesc3=notnull><venda_encode><venda_invtdesc3></venda_encode></venda_block></description3>
+	<description4><venda_block invtdesc4=null></venda_block><venda_block invtdesc4=notnull><venda_encode><venda_invtdesc4></venda_encode></venda_block></description4>
+</descriptions>
+<deliveryweightinformation>
+	<weight><venda_invtweight></weight>
+	<weightunits><venda_invtwunits></weightunits>
+	<additionaldeliverycost><venda_invtshpcost></additionaldeliverycost>
+	<volume><venda_invtvolume></volume>
+</deliveryweightinformation>
+<reviewrating>
+	<bvrefine><venda_block pdxtbvrefine=notnull><venda_pdxtbvrefine></venda_block></bvrefine>
+	<starimage><venda_block pdxtstarimage=notnull><![CDATA[<venda_pdxtstarimage>]]></venda_block></starimage>
+</reviewrating>
+<addtobasketparams>
+	<bsref><venda_bsref></bsref>
+	<log>22</log>
+	<mode>add</mode>
+	<curpage></curpage>
+	<next></next>
+	<layout></layout>
+	<ex>co_disp-shopc</ex>
+	<buy><venda_invtref></buy>
+	<invt><venda_invtref></invt>
+	<htxt><venda_htxt mode=make,fcmtrack=<venda_invtref>|<venda_invtname>|1|<venda_invtsell>|<venda_invtcatref0>></htxt>
+	<qty>1</qty>
+</addtobasketparams>
+<buynowparams>
+	<bsref><venda_bsref></bsref>
+	<log>22</log>
+	<mode>add</mode>
+	<curpage></curpage>
+	<next></next>
+	<layout></layout>
+	<ex>co_wizr-shopcart</ex>
+	<ivref><venda_invtref></ivref>
+	<htxt><venda_htxt mode=make,fcmtrack=<venda_invtref>|<venda_invtname>|1|<venda_invtsell>|<venda_invtcatref0>></htxt>
+	<qty>1</qty>
+</buynowparams>

@@ -1,0 +1,18 @@
+<venda_block label=33603,mode=value,<venda_htxt mode=get,name=bvreviews>=notnull>
+<script type="text/javascript">
+var cj = new CookieJar({expires: 3600 * 24 * 1000, path: '/'});
+var thisbvdisplaycode = cj.get('bvdisplaycode');
+var thisbvproductid = cj.get('bvproductid');
+var thisbvcontenttype = cj.get('bvcontenttype');
+var thisbvauthenticateuser = cj.get('bvauthenticateuser');
+var thissessionparams  = cj.get('sessionparams');
+var thiscampaignid  = cj.get('campaignid');
+var thisreturn  = cj.get('return');
+var thisinnerreturn  = cj.get('innerreturn');
+var thisuser  = cj.get('bvuser');
+var thisbvpage  = cj.get('bvpage');
+thisbvpage +='&sessionparams=' + thissessionparams + '&campaignid=' + thiscampaignid + '&return=' + thisreturn + '&innerreturn=' + thisinnerreturn + '&user=' + thisuser;
+thisbvpage=encodeURIComponent(thisbvpage);
+window.location = '<venda_dispview page=bvreviews>?&bvdisplaycode=' + thisbvdisplaycode + '&bvproductid=' + thisbvproductid + '&bvcontenttype=' + thisbvcontenttype + '&bvauthenticateuser=' + thisbvauthenticateuser + '&bvpage=' + thisbvpage;
+</script>
+</venda_block label=33603>

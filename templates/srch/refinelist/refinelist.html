@@ -1,0 +1,94 @@
+<script type="text/javascript"> 
+function toggle(targetId) {
+	target = document.getElementById(targetId);
+	if (target.style.display == "none"){
+		target.style.display="";
+	} else {
+		target.style.display="none";
+	}
+}
+
+function swapText(swapId) {
+	linktarget = document.getElementById(swapId);
+	if (linktarget.innerHTML == "<venda_text id=site.search_results.refine.viewall>"){
+		linktarget.innerHTML="<venda_text id=site.search_results.refine.viewless>";
+	} else {
+		linktarget.innerHTML="<venda_text id=site.search_results.refine.viewall>";
+	}
+}
+//-->
+</script>
+ 
+<!-- refinement block -->
+<venda_detblock_collate>
+
+	<venda_detblock_collatedresult>
+
+		<venda_block label=108,mode=value,<venda_index>=<venda_viewlinkdivcount>,<venda_setting type=ebiz,name=showrefineviewall>=1,operator=and>
+			<script type="text/javascript">document.write('<div id="viewall<venda_collationfield>" style="display:none">')</script>
+		</venda_block label=108>
+		<div class="termtext"><a href="<venda_searchurl>&setpagenum=1&<venda_searchtermparams>"><venda_termtextname> (<venda_count>)</a></div>
+	</venda_detblock_collatedresult>
+		<h3>
+<venda_block label=33,fieldname=brand><venda_text id=site.search_results.refine.brand></venda_block label=33>
+<venda_block label=331,fieldname=atrxcolour><venda_text id=site.product.attribute.colour></venda_block label=331>
+<venda_block label=332,fieldname=atrxsize><venda_text id=site.product.attribute.size></venda_block label=332>		
+<venda_block label=34,fieldname!=brand,dispfield!=Price Filter,dispfield!=Preisfilter,fieldname!=atrxcolour,fieldname!=atrxsize><venda_dispfield></venda_block label=34>
+<venda_block label=341,dispfield=Price Filter><venda_text id=site.search_results.refine_search.price></venda_block label=341>
+<venda_block label=3411,dispfield=Preisfilter><venda_text id=site.search_results.refine_search.price></venda_block label=3411>
+</h3>
+		<p class="collatedresult"><venda_detail_collatedresult></p>
+
+		<venda_block label=155,mode=value,<venda_indextotal>&lt;<venda_viewlinkdivcount>,<venda_setting type=ebiz,name=showrefineviewall>=0,operator=or>
+			<div class="refinementdivider"></div>
+		</venda_block label=155>		
+	<venda_block label=109,mode=value,<venda_indextotal>&gt;<venda_viewlinkrescount>,<venda_setting type=ebiz,name=showrefineviewall>=1,operator=and>
+		<script type="text/javascript">document.write('</div>')</script>
+		<div class="viewall"><a href="#" onclick="toggle('viewall<venda_fieldname>'); swapText('viewlink<venda_fieldname>'); return false;"><span id="viewlink<venda_fieldname>"><venda_text id=site.search_results.refine.viewall></span></a></div>
+		<div class="refinementdivider"></div>
+	</venda_block label=109>
+			
+</venda_detblock_collate>
+
+
+<!-- remove refinement block -->
+<!-- remove refinement block -->
+<venda_tpcomment>
+<!--
+activekeyword - gets the current keyword value
+active< venda_field > - no matter the parameter gets the current value e.g. pdxtcolour, Brand
+activecategory - gets the pcatid value first, if 'cat' parameter is used later it then stores this instead 
+-->
+</venda_tpcomment>
+<venda_detblock_term>
+	<venda_block label=201,field!=type,field!=xancestorid>
+		<p id="<venda_code>">
+			<venda_block label=1673,field=pcatid>
+			<span class="refine-text"><venda_block label=169,type=keyword><venda_text id=site.search_results.refine.by_phrase></venda_block label=169><venda_block label=170,type!=keyword><venda_block label=35,dispfield=field_display_name_brand><venda_text id=site.search_results.refine.by_brand></venda_block label=35><venda_block label=36,dispfield!=field_display_name_brand><venda_dispfield></venda_block label=36></venda_block label=170></span><span class="refine-termtext"><venda_termtextname></span>
+			</venda_block label=1673>
+			<venda_block label=1674,field!=pcatid>
+			<a href="<venda_searchurl>&setpagenum=1&settype<venda_code>="><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/bt_removecollation.gif" alt="<venda_text id=site.button.remove_collation>" title="<venda_text id=site.button.remove_collation>" border="0"></a>
+			<span class="refine-text"><venda_block label=169,type=keyword><venda_text id=site.search_results.refine.by_phrase></venda_block label=169><venda_block label=170,type!=keyword><venda_block label=35,dispfield=field_display_name_brand><venda_text id=site.search_results.refine.by_brand></venda_block label=35><venda_block label=36,dispfield!=field_display_name_brand,field!=atrxcolour,field!=atrxsize,dispfield!=Price Filter><venda_dispfield></venda_block label=36><venda_block label=361,field=atrxcolour><venda_text id=site.product.attribute.colour></venda_block label=361><venda_block label=362,field=atrxsize><venda_text id=site.product.attribute.size></venda_block label=362><venda_block label=363,dispfield=Price Filter><venda_text id=site.search_results.refine_search.price></venda_block label=363>
+</venda_block label=170></span>
+			<a href="<venda_searchurl>&setpagenum=1&settype<venda_code>=" class="refine-link"><venda_termtextname></a>
+			<a href="<venda_searchurl>&setpagenum=1&settype<venda_code>=" class="refine-remove"><venda_text id=site.search_results.refine.remove></a>
+			</venda_block label=1674>
+		</p>
+		<venda_block label=1671,type=keyword><venda_tpxt mode=set,name=activekeyword,value=<venda_termtext>></venda_block label=1671>
+		<venda_block label=1672,field!=><venda_tpxt mode=set,name=active<venda_field>,value=<venda_termtext>></venda_block label=1672>
+		<venda_block label=1670,field=pcatid,field=cat,operator=or><venda_tpxt mode=set,name=activecategory,value=<venda_termtext>></venda_block label=1670>
+	<venda_block label=1500,mode=value,<venda_setting type=ebiz,name=setalwaysshowcompare>=1><venda_tpxt mode=set,name=comparecatref,value=allcategory></venda_block label=1500>
+	</venda_block label=201>
+</venda_detblock_term>
+
+<div id="term">
+<h2><span></span><venda_text id=site.search_results.refine.you_searched_by></h2>	
+<venda_detail_term>
+</div>
+
+<venda_block label=345,totalresults!=0>
+<div id="collate">
+<h2><span></span><venda_text id=site.search_results.refine.further_refine_by></h2>
+<venda_detail_collate>
+</div>
+</venda_block label=345>

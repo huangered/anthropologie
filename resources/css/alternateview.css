@@ -1,0 +1,15 @@
+/**This is alternate style - this style will be used when you click the switch link**/
+/*****************************/
+/* PRODUCT LISTS - GRID VIEW */
+/*****************************/
+#productlist ul.products li {width: 250px;float:left;min-height:150px;}
+*html #productlist ul.products li {width:247px;height:150px;}
+
+
+/******************************/
+/* SEARCH RESULTS - GRID VIEW */
+/******************************/
+#searchresults .prods ul li {width: 250px;float:left;min-height:150px;}
+*html #searchresults .prods ul li {width:247px;height:150px;float:left;}
+
+

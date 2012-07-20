@@ -1,0 +1,160 @@
+<venda_detblock1>
+<venda_block label=40,pkshipreq=1>
+<!-- start delivery details -->
+<table border="0" cellspacing="0" cellpadding="0" summary="Details for your <venda_ebizname> order" style="font-family:Arial, Helvetica, Verdana, sans-serif; font-size:11px; text-align:left; color:#666;" width="726">
+<thead>
+<tr>
+	<th colspan="2" style="font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; text-transform:lowercase; padding-left:12px; padding-bottom:15px; text-align:left;"><venda_text id=site.email.detblock.delivery_details></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.detblock.recipient></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;"><span class="addrName"><venda_block label=181,pktitle=notnull><venda_block label=101,mode=value,<venda_sessionlanguage>=en><venda_pktitle> </venda_block label=101><venda_block label=102,mode=value,<venda_sessionlanguage>=de><venda_block label=1021,pktitle=Mr><venda_text id=site.please.select.mr> </venda_block label=1021><venda_block label=1021,pktitle=Mrs,pktitle=Miss,pktitle=Ms,operator=or><venda_text id=site.please.select.mrs> </venda_block label=1021></venda_block label=102></venda_block label=181> <venda_pkfname> <venda_block label=75,pkmname=notnull><venda_pkmname> </venda_block label=75><venda_pklname></span></td>
+</tr>
+<tr>
+	<th width="120" valign="top" style="font-weight:bold; text-align:right; padding-bottom:6px; vertical-align:top;"><venda_text id=site.email.detblock.delivery_address></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;">
+	<venda_block label=77,pkcompany=notnull><venda_pkcompany><br></venda_block label=77>
+	<venda_pknum> <venda_pkaddr1><br>
+	<venda_block label=72,pkaddr2=notnull><venda_pkaddr2><br></venda_block label=72>
+	
+	<!-- if country is US or US entities display this formatting -->
+	<venda_block label=999,mode=value,<venda_pkcntry>=United States,<venda_pkcntry>=United States Non-48,<venda_pkcntry>=United States Armed Forces,operator=or>
+	<venda_block label=184,pkcity=notnull><venda_pkcity>, </venda_block label=184>
+	<venda_block label=185,pkstate=notnull><venda_pkstate> </venda_block label=185><venda_pkzipc><br>
+	</venda_block label=999>
+
+	<!-- if country is NOT US or US entities display this formatting -->
+	<venda_block label=9991,mode=value,<venda_pkcntry>!=United States,<venda_pkcntry>!=United States Non-48,<venda_pkcntry>!=United States Armed Forces,operator=and>
+	<venda_block label=184,pkcity=notnull><venda_pkcity><br></venda_block label=184>
+	<venda_block label=185,pkstate=notnull><venda_pkstate> </venda_block label=185><venda_pkzipc><venda_block label=1234,pkstate=notnull,pkzipc=notnull,operator=or><br></venda_block label=1234>
+	</venda_block label=9991>
+
+	
+	<venda_block label=1000,pkcntry=Austria><venda_text id=site.country.please.select.option.austria></venda_block label=1000>
+	<venda_block label=2000,pkcntry=Belgium><venda_text id=site.country.please.select.option.belgium></venda_block label=2000>
+	<venda_block label=3000,pkcntry=Bulgaria><venda_text id=site.country.please.select.option.bulgaria></venda_block label=3000>
+	<venda_block label=4000,pkcntry=Channel Islands><venda_text id=site.country.please.select.option.islands></venda_block label=4000>
+	<venda_block label=5000,pkcntry=Cyprus><venda_text id=site.country.please.select.option.cyprus></venda_block label=5000>
+	<venda_block label=6000,pkcntry=Czech Republic><venda_text id=site.country.please.select.option.czech></venda_block label=6000>
+	<venda_block label=7000,pkcntry=Denmark><venda_text id=site.country.please.select.option.denmark></venda_block label=7000>
+	<venda_block label=8000,pkcntry=Estonia><venda_text id=site.country.please.select.option.estonia></venda_block label=8000>
+	<venda_block label=9000,pkcntry=Finland><venda_text id=site.country.please.select.option.finland></venda_block label=9000>
+	<venda_block label=10000,pkcntry=France><venda_text id=site.country.please.select.option.france></venda_block label=10000>
+	<venda_block label=11000,pkcntry=Germany><venda_text id=site.country.please.select.option.germany></venda_block label=11000>
+	<venda_block label=12000,pkcntry=Greece><venda_text id=site.country.please.select.option.greece></venda_block label=12000>
+	<venda_block label=13000,pkcntry=Hungary><venda_text id=site.country.please.select.option.hungary></venda_block label=13000>
+	<venda_block label=14000,pkcntry=Ireland><venda_text id=site.country.please.select.option.ireland></venda_block label=14000>
+	<venda_block label=15000,pkcntry=Italy><venda_text id=site.country.please.select.option.italy></venda_block label=15000>
+	<venda_block label=16000,pkcntry=Latvia><venda_text id=site.country.please.select.option.latvia></venda_block label=16000>
+	<venda_block label=17000,pkcntry=Lithuania><venda_text id=site.country.please.select.option.lithuania></venda_block label=17000>
+	<venda_block label=18000,pkcntry=Luxembourg><venda_text id=site.country.please.select.option.luxembourg></venda_block label=18000>
+	<venda_block label=19000,pkcntry=Malta><venda_text id=site.country.please.select.option.malta></venda_block label=19000>
+	<venda_block label=20000,pkcntry=Netherlands><venda_text id=site.country.please.select.option.netherlands></venda_block label=20000>
+	<venda_block label=21000,pkcntry=Norway><venda_text id=site.country.please.select.option.norway></venda_block label=21000>
+	<venda_block label=22000,pkcntry=Poland><venda_text id=site.country.please.select.option.poland></venda_block label=22000>
+	<venda_block label=23000,pkcntry=Portugal><venda_text id=site.country.please.select.option.portugal></venda_block label=23000>
+	<venda_block label=24000,pkcntry=Romania><venda_text id=site.country.please.select.option.romania></venda_block label=24000>
+	<venda_block label=25000,pkcntry=Slovak Republic><venda_text id=site.country.please.select.option.slovak></venda_block label=25000>
+	<venda_block label=26000,pkcntry=Slovenia><venda_text id=site.country.please.select.option.slovenia></venda_block label=26000>
+	<venda_block label=27000,pkcntry=Spain><venda_text id=site.country.please.select.option.spain></venda_block label=27000>
+	<venda_block label=28000,pkcntry=Sweden><venda_text id=site.country.please.select.option.sweden></venda_block label=28000>
+	<venda_block label=29000,pkcntry=Switzerland><venda_text id=site.country.please.select.option.switzerland></venda_block label=29000>
+	<venda_block label=30000,pkcntry=United Kingdom><venda_text id=site.country.please.select.option.uk></venda_block label=30000>	
+	</td>
+	
+	<venda_block label=76,pkarea=notnull>
+		<tr><th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.body.phone_number></th>
+		<td width="596" style="padding-left:10px; padding-bottom:6px;"><span class="addrPhone"><venda_pkarea> <venda_pkphone></span></td></tr>		</venda_block label=76>
+
+	
+</tr>
+<venda_block label=41,pkshipmthd=notnull>
+<tr>
+	<th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.detblock.delivery_method></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;"><venda_pkshipmthd></td>
+</tr>
+</venda_block label=41>
+<venda_extflds exfldtype=order,ref=<venda_ohrfnbr>,template=htmlEmailOrxfieldsDisplay,type=includes,group=1,displayonly=1>
+<venda_extflds exfldtype=order,ref=<venda_ohrfnbr>,template=htmlEmailOrxfieldsDisplay,type=includes,group=2,displayonly=1>
+<venda_extflds exfldtype=order,ref=<venda_ohrfnbr>,template=htmlEmailOrxfieldsDisplay,type=includes,group=3,displayonly=1>
+<venda_extflds exfldtype=order,ref=<venda_ohrfnbr>,template=htmlEmailOrxfieldsDisplay,type=includes,group=4,displayonly=1>
+<venda_extflds exfldtype=order,ref=<venda_ohrfnbr>,template=htmlEmailOrxfieldsDisplay,type=includes,group=5,displayonly=1>
+<venda_extflds exfldtype=order,ref=<venda_ohrfnbr>,template=htmlEmailOrxfieldsDisplay,type=includes,group=6,displayonly=1>
+<venda_extflds exfldtype=order,ref=<venda_ohrfnbr>,template=htmlEmailOrxfieldsDisplay,type=includes,group=7,displayonly=1>
+<venda_extflds exfldtype=order,ref=<venda_ohrfnbr>,template=htmlEmailOrxfieldsDisplay,type=includes,group=8,displayonly=1>
+<tr>
+	<td colspan="2" align="left" valign="top" style="padding-top:20px; padding-bottom:24px;"><img src="<venda_ebizurl>/content/ebiz/<venda_bsref>/resources/images/email-linebr.jpg" alt="" border="0"></td>
+</tr>
+</tbody>
+<!-- end delivery details -->
+</table>
+</venda_block label=40>
+<table border="0" cellspacing="0" cellpadding="0" style="font-family:Arial, Helvetica, Verdana, sans-serif; font-size:11px; text-align:left; color:#666;" width="726">
+<!-- start items loop -->
+<thead>
+<tr>
+	<th scope="col" style="font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:10px; font-weight:bold; text-transform:uppercase; text-align:left; color:#fff; text-indent:-5000px;"><venda_text id=site.email.detblock.product_image></th>
+	<th scope="col" style="width:322px; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:10px; font-weight:bold; text-transform:uppercase; text-align:left;"><venda_text id=site.email.detblock.product_name></th>
+	<th scope="col" style="width:91px; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:10px; font-weight:bold; text-transform:uppercase; text-align:left; padding:0 0 0 2px;"><venda_text id=site.email.detblock.price_each></th>
+	<th scope="col" style="width:65px; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:10px; font-weight:bold; text-transform:uppercase; text-align:center;"><venda_text id=site.email.detblock.qty></th>
+	<th scope="col" style="width:76px; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:10px; font-weight:bold; text-transform:uppercase; text-align:left; padding:0 0 0 2px;"><venda_text id=site.email.detblock.total_price></th>
+	<th scope="col" style="font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:10px; font-weight:bold; text-transform:uppercase; text-align:center; padding-right:20px;"><venda_text id=site.email.detblock.status></th>
+</tr>
+</thead>
+<tbody>
+<venda_detail2>
+<tr>
+	<td colspan="6" align="left" style="padding-top:10px; padding-bottom:5px;"><img src="<venda_ebizurl>/content/ebiz/<venda_bsref>/resources/images/email-linebr.jpg" alt="" border="0"></td>
+</tr>
+</tbody>
+<!-- end items loop -->
+</table>
+</venda_detblock1>
+
+<venda_detblock2>
+<tr>
+	<td rowspan="3" align="left" valign="top" style="padding:4px 11px 14px 9px;">
+	<a href="<venda_dispview invt=<venda_invtparef>>"><venda_block label=5111,mode=value,invtatt1=notnull,<venda_extflds exfldtype=orderitem,group=5,template=oixtimage_display,type=includes,ref=<venda_invtref>,displayonly=1>=notnull><!-- if product has attributes --><img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_extflds exfldtype=orderitem,group=5,template=oixtimage_display,type=includes,ref=<venda_invtref>,displayonly=1>?$redesign-cart$&defaultImage=/Anthropologie/spacer" border="0"></venda_block label=5111><venda_block label=5112,mode=value,invtatt1=null,<venda_extflds exfldtype=orderitem,group=5,template=oixtimage_display,type=includes,ref=<venda_invtref>,displayonly=1>=null,operator=or><!-- if product has no attributes --><venda_inctemplate name=Scene7cart,type=includes/Scene7></venda_block label=5112></a>
+	</td>
+	<td colspan="5" valign="top" style="padding-top:2px;"><img src="<venda_ebizurl>/content/ebiz/<venda_bsref>/resources/images/email-itemline.gif" alt="" border="0"></td>
+</tr>
+<tr>
+	<td valign="top" style="font-family:Georgia, Arial, Helvetica, Verdana, sans-serif; font-size:12px; text-align:left; padding-top:2px; color:#333;"><venda_invtname><venda_block label=111,invtatt1=notnull> (<venda_invtatt1><venda_block label=112,invtatt2=notnull>, <venda_invtatt2></venda_block label=112>)</venda_block label=111><venda_extflds exfldtype=orderitem,group=1,template=htmlEmailOixfieldsDisplay,type=includes,ref=<venda_invtref>,displayonly=1><venda_extflds exfldtype=orderitem,group=2,template=htmlEmailOixfieldsDisplay,type=includes,ref=<venda_invtref>,displayonly=1><br><span style="font-family:Arial, Helvetica, Verdana, sans-serif; font-size:9px; color:#999;"><venda_text id=site.basket.product_sku><venda_invtref></span></td>
+	<td valign="top" style="font-weight:bold; text-align:left;"><venda_ohcursym><venda_oisub></td>
+	<td valign="top" style="font-weight:bold; text-align:center;"><venda_oiqty></td>
+	<td valign="top" style="font-weight:bold; text-align:left;"><venda_ohcursym><venda_oiextsub></td>
+	<td valign="top" style="font-weight:bold; text-align:center; padding-right:20px;">
+	<venda_block label=10,oistatus=2><venda_text id=site.order_status.in_progress></venda_block label=10>
+	<venda_block label=11,oistatus=3><venda_text id=site.order_status.released_for_delivery></venda_block label=11>
+	<venda_block label=12,oistatus=4><venda_text id=site.order_status.backordered></venda_block label=12>
+	<venda_block label=13,oistatus=5><venda_text id=site.order_status.delivered><br><span style="font-weight:normal;"><venda_stmp></span></venda_block label=13>
+	<venda_block label=14,oistatus=6><venda_text id=site.order_status.returned><br><span style="font-weight:normal;"><venda_stmp></span></venda_block label=14>
+	<venda_block label=15,oistatus=7><venda_text id=site.order_status.cancelled></venda_block label=15>
+	<venda_block label=16,oistatus=8><venda_text id=site.email.detblock.rma> <venda_num> <venda_text id=site.order_status.delivered><br><span style="font-weight:normal;"><venda_stmp></span></venda_block label=16>
+	</td>
+</tr>
+
+<tr>
+	<td align="left" valign="bottom" style="padding-bottom:14px;">
+		<venda_block label=221,oigwref=notnull><venda_text id=site.order_details.items_gift_wrapped><venda_block label=2274,oicmtmsg=notnull><br><venda_oicmtmsg></venda_block label=2274>
+		</venda_block label=221>
+		<venda_block label=222,oigwref=null>&nbsp;</venda_block label=222>
+	</td>
+	<td align="right" valign="bottom" style="padding-bottom:14px;" colspan="4">
+		<venda_block label=1310,mode=value,<venda_num>=notnull,<venda_oicarrier0>=null><venda_text id=site.order_status.label.trackingnumber><venda_num></venda_block label=1310>
+		<venda_block label=1311,mode=value,<venda_num>=notnull,<venda_oicarrier0>=RoyalMailTracked><venda_text id=site.order_status.label.trackingnumber><a href="http://www.royalmail.com/portal/rm/track?trackNumber=<venda_num>" style="color:#000;"><venda_num></a></venda_block label=1311>
+        <venda_block label=1314,mode=value,<venda_num>=notnull,<venda_oicarrier0>=Hermes><venda_text id=site.order_status.label.trackingnumber><a href="http://www.hermes-europe.co.uk/customerparceltrackingservice/trackingDetailsHermes.jsp?barcode=<venda_num>" style="color:#000;"><venda_num></a></venda_block label=1314>
+		<venda_block label=1312,mode=value,<venda_num>=notnull,<venda_oicarrier0>=DPD><venda_text id=site.order_status.label.trackingnumber><a href="http://www.dpd.co.uk/tracking/quicktrack.do?search.consignmentNumber=<venda_num>&search.searchType=16&search.javascriptValidated=0" style="color:#000;"><venda_num></a></venda_block label=1312>
+		<venda_block label=1313,mode=value,<venda_num>=null>&nbsp;</venda_block label=1313>
+	</td>
+</tr>
+</venda_detblock2>
+
+
+<venda_detblock3>
+<tr>
+	<td colspan="3" style="text-align:left; padding-left:18px; padding-bottom:8px;"><venda_ckname> <span style="font-weight:bold;">(-<venda_ohcursym>;<venda_cktotal>)</span></td>
+</tr>
+</venda_detblock3>

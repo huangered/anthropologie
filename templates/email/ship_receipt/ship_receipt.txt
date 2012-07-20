@@ -1,0 +1,19 @@
+<venda_inctemplate name=textEmailDetblocks,type=includes>
+
+==============================================================================<cr>
+<venda_block label=832,ohusgrrf!=ebayguest><venda_text id=site.email.ship_receipt.title1><cr><cr></venda_block label=832>
+<venda_block label=833,ohusgrrf=ebayguest><venda_text id=site.email.ship_receipt.ebay.title1> (<venda_ohordnum>)<cr><cr></venda_block label=833>
+==============================================================================<cr><cr>
+
+<venda_inctemplate name=textEmailHeader,type=includes>
+
+<venda_block label=834,ohusgrrf!=ebayguest><venda_text id=site.email.ship_receipt.msg1> <venda_ohordnum>. <venda_text id=site.email.ship_receipt.msg2>.<cr></venda_block label=834>
+<venda_block label=835,ohusgrrf=ebayguest><venda_text id=site.email.ship_receipt.msg3> <venda_ohordnum> <venda_text id=site.email.ship_receipt.msg4> <venda_ebizarea> <venda_ebizphone>.<cr></venda_block label=835>
+
+<venda_inctemplate name=textEmailBody,type=includes>
+
+<venda_text id=site.email.ship_receipt.msg5> <venda_serveradd> <venda_ebizname> <venda_text id=site.email.ship_receipt.msg8><cr><cr>
+<venda_text id=site.email.ship_receipt.msg6><cr><cr>
+<venda_text id=site.email.ship_receipt.msg7> <venda_ebizemail>.<cr><cr>
+
+<venda_inctemplate name=textEmailFooter,type=includes>

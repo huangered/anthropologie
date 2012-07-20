@@ -1,0 +1,49 @@
+<venda_detblock4>
+<li>
+<venda_form formid=<venda_ohrfnbr>>
+<table summary="<venda_text id=site.my_account.order_history.table_summary>" title="<venda_text id=site.my_account.order_history.table_title>" class="wizrtable">
+<tr>
+	<th scope="row" class="hdrOrderDate"><venda_text id=site.my_account.order_history.order_date></th>
+	<td class="orderDate"><venda_block label=88,mode=value,<venda_setting type=ebiz,name=mmdddates>!=1><venda_ohodateen></venda_block label=88><venda_block label=89,mode=value,<venda_setting type=ebiz,name=mmdddates>=1><venda_ohodatemonth>-<venda_ohodateday>-<venda_ohodateyear></venda_block label=89></td>
+</tr>
+<tr>
+	<th scope="row" class="hdrOrderNum"><venda_text id=site.my_account.order_history.order_number></th>
+	<td class="orderNum"><venda_ohordnum></td>
+</tr>
+<tr>
+	<th scope="row" class="hdrOrderStatus"><venda_text id=site.my_account.order_history.order_status></th>
+	<td class="orderStatus">
+	<venda_block label=10,ohstatus=2><venda_text id=site.order_status.in_progress></venda_block label=10>
+	<venda_block label=11,ohstatus=3><venda_text id=site.order_status.released_for_delivery></venda_block label=11>
+	<venda_block label=12,ohstatus=4><venda_text id=site.order_status.backordered></venda_block label=12>
+	<venda_block label=13,ohstatus=5><venda_text id=site.order_status.delivered></venda_block label=13>
+	<venda_block label=14,ohstatus=6><venda_text id=site.order_status.returned></venda_block label=14>
+	<venda_block label=15,ohstatus=7><venda_text id=site.order_status.cancelled></venda_block label=15>
+	</td>
+</tr>
+<tr>
+	<th scope="row" class="hdrItems"><venda_text id=site.my_account.order_history.items></th>
+	<td class="items">
+	<ul>
+		<venda_order ref=<venda_ohrfnbr>,shopcart=1,template=orderHistoryItemDisplay,formfields=true>
+	</ul>
+	</td>
+</tr>
+<tr class="buttons">
+	<td>&nbsp;</td>
+	<td><a href="#" onClick='<venda_wizbutton step=dispord,param1=<venda_ohrfnbr>,param2=user,callonly=yes,formid=<venda_ohrfnbr>> return false;' class="vieworder" title="<venda_text id=site.button.view_order> <venda_ohordnum>"><venda_text id=site.link.view_order></a><venda_block label=1500,mode=value,<venda_setting type=ebiz,name=disablereorderbutton>!=1><a href="#" onClick='document.wizform<venda_ohrfnbr>.curlayout.value="checkout";<venda_wizbutton step=--shopcart,param1=reorder,param2=<venda_ohrfnbr>,callonly=yes,formid=<venda_ohrfnbr>> return false;' class="reorder" title="<venda_text id=site.button.reorder> <venda_ohordnum>"><venda_text id=site.link.reorder></a></venda_block label=1500>
+	</td>
+</tr>
+</table>
+</form>
+</li>
+</venda_detblock4>
+
+<venda_block label=20,ohorders!=0>
+<div class="ordersListBox">
+<h2><venda_text id=site.my_account.order_history.recent_orders></h2>
+<ul id="orders_list">
+<venda_detail4>
+</ul>
+</div>
+</venda_block label=20>

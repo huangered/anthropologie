@@ -1,0 +1,49 @@
+<div id="buttons">
+<a href="<venda_dispview page=home>"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_continueshopping.gif" alt="<venda_text id=site.button.continue_shopping>" border="0" class="left btContinueShopping"></a>
+<input type="image" onclick='document.wizform.layout.value="checkout";<venda_block label=285,workflow!=recurring><venda_wizbutton step=shopcart,mode=process,param2=updated,callonly=yes,wizard=shopcart></venda_block label=285><venda_block label=286,workflow=recurring><venda_wizbutton step=shopcart,mode=process,param2=updated,callonly=yes,wizard=recurring></venda_block label=286> return false;' src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_updatebasket.gif" alt="<venda_text id=site.button.update_basket>" class="left btUpdateBasket">
+<venda_block label=23,workflow!=recurring>
+<venda_block label=46,mode=value,<venda_setting type=ebiz,name=expresscheckout>!=2>
+	<venda_block label=100,ustype=R><venda_block label=210,mode=value,<venda_setting type=ebiz,name=skipsecondlogin>=1><input type="image" onclick='<venda_wizbutton step=confirm,mode=process,param1=login,callonly=yes,wizard=shopcart> return false;' src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_checkout.gif" alt="<venda_text id=site.button.checkout>" class="right btCheckout"></venda_block label=210><venda_block label=211,mode=value,<venda_setting type=ebiz,name=skipsecondlogin>!=1><input type="image" onclick='<venda_wizbutton step=billtologin,mode=process,param1=login,callonly=yes,wizard=shopcart> return false;' src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_checkout.gif" alt="<venda_text id=site.button.checkout>" class="right btCheckout"></venda_block label=211></venda_block label=100>
+	<venda_block label=101,ustype!=R><input type="image" onclick='<venda_wizbutton step=billtologin,mode=process,param1=login,callonly=yes,wizard=shopcart> return false;' src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_checkout.gif" alt="<venda_text id=site.button.checkout>" class="right btCheckout"></venda_block label=101>
+</venda_block label=46>
+<venda_block label=47,mode=value,<venda_setting type=ebiz,name=expresscheckout>=2>
+<venda_tpcomment><!-- if site provides express checkout option only --></venda_tpcomment>
+	<venda_block label=129,mode=value,<venda_setting type=ebiz,name=bypasspclookup>!=1>
+	<venda_tpcomment><!-- with postcode lookup --></venda_tpcomment>
+	<input type="image" onclick='<venda_wizbutton step=zipcode,mode=process,param1=login,log=2,callonly=yes,wizard=shopcart> return false;' src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_checkout.gif" alt="<venda_text id=site.button.checkout>" class="right btCheckout">
+	</venda_block label=129>
+	<venda_block label=130,mode=value,<venda_setting type=ebiz,name=bypasspclookup>=1>
+	<venda_tpcomment><!-- without postcode lookup --></venda_tpcomment>
+	<input type="image" onclick='<venda_wizbutton step=billto,mode=process,param1=login,log=2,callonly=yes,wizard=shopcart> return false;' src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_checkout.gif" alt="<venda_text id=site.button.checkout>" class="right btCheckout">
+	</venda_block label=130>
+</venda_block label=47>
+</venda_block label=23>
+<venda_block label=24,workflow=recurring>
+<venda_tpcomment><!-- For RO we need logic from order to display correct button --></venda_tpcomment>
+<venda_order ref=<venda_ohrfnbr>,shopcart=0,template=recurringBasketButton>
+<script type="text/javascript">
+<venda_tpcomment>// js must remain here because of venda_wizbutton tags</venda_tpcomment>
+jQuery(".btCheckout").click(function (event) {
+	event.preventDefault();
+	if(jQuery('#recfrequency').val()===""){
+  	     alert("<venda_text id=site.ro.basket.validation>");
+  	     return false;
+  	}
+	if(this.id==="R_skipsecondlogin_inactive"){
+		<venda_wizbutton step=choosepayment,mode=process,param1=login,callonly=yes,wizard=recurring,workflowid=<venda_workflowid>>
+		return false;
+	}
+	if(this.id==="R_skipsecondlogin_active"){
+		<venda_wizbutton step=confirmrecurring,mode=process,param1=login,callonly=yes,wizard=recurring,workflowid=<venda_workflowid>>
+		return false;
+	}
+	if(this.id==="login"){
+		<venda_wizbutton step=billtologin,mode=process,param1=login,callonly=yes,wizard=recurring,workflowid=<venda_workflowid>>
+		return false;
+	}
+});
+</script>
+</venda_block label=24>
+</div>
+<venda_paymenttemplate template=paypal_express,templatetype=paytype/frontend,paymenttype=paypal>
+<p class="paymentInstructions"><venda_text id=site.basket.complete_payment_instructions></p>

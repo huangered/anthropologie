@@ -1,0 +1,7 @@
+<venda_text id=site.email.abandcart_notification.dear> <venda_text id=site.email.abandcart_notification.customer><cr><cr>
+
+<venda_text id=site.email.abandcart_notification.msg1><cr><cr>
+<venda_text id=site.email.abandcart_notification.msg2><cr><cr>
+<venda_text id=site.email.abandcart_notification.msg3><cr><cr>
+<venda_dispview page=signin> <venda_text id=site.email.abandcart_notification.msg4> >
+

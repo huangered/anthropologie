@@ -1,0 +1,55 @@
+<style>
+#loadingMain{
+	position:absolute;
+}
+</style>
+<script type="text/javascript">
+<!--
+<venda_tpcomment>
+// START - adds alternate view - requires alternateView.js 
+</venda_tpcomment>
+	
+	var productImages = {}, imageData = [];
+	
+	<venda_tpcomment>// Declare a protocol and a collection of slot (depended on product type) which also use on 'attribute_collection'</venda_tpcomment>
+	<venda_block label=10,mode=value,<venda_protocol>=http>productImages.protocol = "http://";</venda_block label=10>
+	<venda_block label=11,mode=value,<venda_protocol>=https>productImages.protocol = "https://";</venda_block label=11>
+	
+	<venda_block label=20,invtivtype!=apparel,invtivtype!=shoes,invtivtype!=accessories,invtivtype!=home,invtivtype!=family>productImages.slot = ["_a","_b","_c","_d","_f","_g","_h","_j","_m","_u","_v","_e","_p","_b1","_c1"];</venda_block label=20>
+	<venda_block label=21,invtivtype=apparel>productImages.slot = ["_b","_c","_d","_e","_b1","_c1"];</venda_block label=21>
+	<venda_block label=22,invtivtype=shoes>productImages.slot = ["_b","_c","_g","_h","_u","_e"];</venda_block label=22>
+	<venda_block label=23,invtivtype=accessories>productImages.slot = ["_b","_c","_m","_e"];</venda_block label=23>
+	<venda_block label=24,invtivtype=home,invtivtype=family,invtivtype=familyset,operator=or>productImages.slot = ["_b","_c","_d","_g","_h","_m","_f","_p","_e"];</venda_block label=24>
+
+	
+	
+	// used for keeping an image size for all attribute colour
+	for(var i = 0; i < productImages.slot.length; i++) {
+
+		//add the image data to an array for the alternate view js code
+		imageData.push({
+						  imageid: "<venda_invtref>_<venda_invtsuplsku>_<venda_pdxtdefaultimg>" + productImages.slot[i],
+						  alternateviewlinkid:"alternatelink|<venda_invtref>_<venda_invtsuplsku>_<venda_pdxtdefaultimg>" + productImages.slot[i],
+						  url: productImages.protocol+"images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>"+productImages.slot[i] 
+		});
+	
+	}
+	
+
+		//add the alternate image urls and other options
+		var avInstance = new alternateView({
+							popupLoadingImageSrc: "<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/loading_bar.gif",
+							mainImageLoadingSrc: "<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/loading.gif",
+							popupLoadingText:"<venda_text id=site.product_detail.enlarge_panel.loading_header_text>",
+							productName:"<venda_invtname>",
+							mainImageHolder:"productdetail-image",
+							imageData: imageData,
+							popupLinks:["#productdetail-viewlarge a"]
+			});
+	
+	
+	
+	
+
+// -->
+</script>

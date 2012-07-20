@@ -1,0 +1,21 @@
+
+<venda_block label=32,mode=value,<venda_addedmsg msg=<venda_text id=site.addedmsg>>=notnull><div class="results"><img class="prodaddimg" src="" /><img class="prodadded" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/quickbuy_addmsg.gif" alt="<venda_addedmsg msg=<venda_text id=site.addedmsg>" /></div></venda_block label=32>
+
+<div class="resultserr"><h2 class="error"><venda_block errors=notnull><venda_errors></venda_block></h2></div>
+
+
+<style type="text/css">
+.loadhere {min-height: 20px !important;}
+.loadhere .results {text-align: center; font-size: 12px; margin: 20px 60px; font-family: "Courier New", Courier, sans-serif; position: relative; height: 370px;}
+.loadhere .resultserr {text-align: center; font-size: 12px; margin: 20px 60px; font-family: "Courier New", Courier, sans-serif; position: relative;}
+.loadhere .resultserr h2 {font-size: 12px; font-weight: bold;}
+.loadhere .prodadded {position: absolute; top: 277px; left: 229px;}
+.loadhere .prodaddimg {position: absolute; top: 40px; left: 50px;}
+</style>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+var placeImg = jQuery('.currentprod').html();
+jQuery('.prodaddimg').attr('src', placeImg);
+});
+</script>

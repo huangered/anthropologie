@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#content-main {
+		width:732px;
+		height:733px;
+		position:relative;
+	}
+	
+	#glossary-main, {
+		width:732px;
+		height:733px;
+		position:absolute;
+		top:0px;
+		left:0px;
+	}
+	
+	#popups-main  {
+		position:absolute;
+		top:0px; 
+		left:0px;
+		z-index:1000;
+	}
+	
+	.popup, .popup-content{
+		position:absolute;
+		top:0px;
+		left:0px;
+	}
+	
+	#popupWrapper {
+		background: none repeat scroll 0 0 #EEEEEE;
+		cursor: default;
+		display: none;
+		left: 0;
+		opacity: 0.75;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+		filter: alpha(opacity = 0);
+	}

@@ -1,0 +1,49 @@
+<venda_detblock1>
+<p style="margin:0 0 15px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_text id=site.email.rma_receipt.msg1> <venda_com>.</p>
+<p style="margin:0 0 15px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_text id=site.email.rma_receipt.msg2> <venda_ohordnum>.</p>
+<p style="margin:0 0 15px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_text id=site.email.rma_receipt.msg3></p>
+<p style="margin:0 0 15px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_text id=site.email.rma_receipt.msg4></p>
+<p style="margin:0 0 15px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_text id=site.email.rma_receipt.msg5></p>
+<p style="margin:0 0 5px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><strong><venda_text id=site.email.rma_receipt.email></strong></p>
+<p style="margin:0 0 5px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_ebizname></p>
+<p style="margin:0 0 5px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_ebizaddr1></p>
+<venda_block label=74,ebizaddr2=notnull><p style="margin:0 0 5px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_ebizaddr2></p></venda_block label=74>
+<p style="margin:0 0 5px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_ebizcity></p>
+<p style="margin:0 0 5px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_ebizstate> <venda_ebizzipc></p>
+<p style="margin:0 0 5px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_ebizcntry></p>
+</venda_detblock1>
+
+<html>
+<head>
+<title><venda_ebizname> <venda_text id=site.email.rma_receipt.title> - <venda_ohordnum></title>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" width="726">
+<tr>
+	<td height="48" align="left" valign="top" style="padding-top:11px; padding-bottom:42px;"><venda_inctemplate name=htmlEmailLogo,type=includes></td>
+</tr>
+</table>
+<table cellpadding="0" cellspacing="0" style="font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;" width="726">
+<tr>
+<td height="20" valign="middle">
+<venda_block label=832,ohusgrrf!=ebayguest><p style="margin:0 0 15px 0; padding:0;"><venda_text id=site.email.rma_receipt.title> - <venda_ohordnum></p></venda_block label=832>
+<venda_block label=833,ohusgrrf=ebayguest><p style="margin:0 0 15px 0; padding:0;"><venda_text id=site.email.rma_receipt.ebay.title>- <venda_ohordnum></p></venda_block label=833>
+</td>
+</tr>
+<tr>
+	<td align="left" valign="top" style="padding-top:5px; padding-bottom:5px;"><img src="<venda_ebizurl>/content/ebiz/<venda_bsref>/resources/images/email-linebr.jpg" alt="" border="0"></td>
+</tr>
+<tr>
+	<td>
+		<venda_inctemplate name=htmlEmailHeader,type=includes>
+	</td>
+</tr>
+</table>
+
+<venda_detail1>
+<venda_inctemplate name=htmlEmailMessage,type=includes>
+<venda_inctemplate name=htmlEmailFooter,type=includes>
+
+
+</body>
+</html>

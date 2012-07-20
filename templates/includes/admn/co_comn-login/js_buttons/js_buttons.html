@@ -1,0 +1,159 @@
+
+<venda_block label=620,workflow!=shopcart>
+<style type="text/css">
+div.signin_2cols fieldset.f-loginiam .notregister {
+	height: 144px !important;
+	background: url("/content/ebiz/anthropologie/resources/images/bg_newcustomer.jpg") no-repeat scroll 0 0 transparent !important;
+}
+</style>
+</venda_block label=620>
+
+<script type="text/javascript">
+<!-- 
+function cleanUp(formName) {
+	if(document.loginform.email !=null){
+		if ((document.loginform.email.value.substring(0,1)=='<') || (document.loginform.email.value.substring(0,4)=='user')) {
+			document.loginform.email.value='';
+		}
+	}
+	if(formName.email!=null){
+		if ((formName.email.value.substring(0,1)=='<') || (formName.email.value.substring(0,4)=='user')) {
+			formName.email.value='';
+		}
+        if ((formName.email.value!='') && (document.loginform.registered[1])) {
+    		formName.registered[1].checked=true;
+        }
+	}
+	if (formName.password.value!='') {
+		formName.password.value='';
+
+	}
+}
+<venda_block label=111,mode=value,<venda_setting type=ebiz,name=setlogindisplaytype>=a,<venda_setting type=ebiz,name=setlogindisplaytype>=b,operator=or>
+cleanUp(document.loginform);
+<venda_tpcomment>/* pass form name to cleanUp function for login display type a and b */</venda_tpcomment>
+</venda_block label=111>
+
+<venda_block label=112,mode=value,<venda_setting type=ebiz,name=setlogindisplaytype>=c,<venda_setting type=ebiz,name=setlogindisplaytype>=d,<venda_setting type=ebiz,name=setlogindisplaytype>=e,operator=or>
+cleanUp(document.secondloginform);
+<venda_tpcomment>/* pass form name to cleanUp function for login display type c,d and e */</venda_tpcomment>
+</venda_block label=112>
+
+function checkUser() {
+	if(document.loginform.password){
+    		if ((document.loginform.password.value!='') && (document.loginform.registered[2])) {
+			document.loginform.registered[2].checked=true;
+			document.loginform.registered[2].focus();
+		}
+	}
+}
+
+function checkemail(str) {
+	var filter =/^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,7}|\d+)$/i;
+	return (filter.test(str));
+}
+
+function passEmail(formName) {
+    var loginType = '<venda_setting type=ebiz,name=setlogindisplaytype>';
+    var isRegisted = "";
+    if(!formName){
+        formName = document.loginform;
+    }
+    if(loginType == 'c'){//for type c, the email value is used for 2 form
+        document.secondloginform.email.value = document.loginform.email.value;
+    }
+    if(document.loginform.registered[0]){
+        //for type a and b, the radio button is available 
+        if(document.loginform.registered[0].checked==true){ // the radio button for new register is checked
+            isRegisted = 0;
+        }
+    <venda_block label=689,workflow!=shopcart>
+        else if(document.loginform.registered[1].checked==true){ // the radio button for returning customer is checked
+            isRegisted = 1;
+        }
+    </venda_block label=689>	
+    <venda_block label=670,workflow=shopcart>
+        else if(document.loginform.registered[2].checked==true){ // the radio button for returning customer is checked
+            isRegisted = 1;
+        }
+        else if(document.loginform.registered[1].checked==true){ // the radio button for guest customer is checked
+            isRegisted = 2;
+        }
+    </venda_block label=670>
+    }		
+    else {
+        //for type c, d and e, the radio type isn't available 
+        if(formName.registered.value=='0' ){ // for new register 
+            isRegisted = 0;
+        }
+        else if(formName.registered.value=='1'){// for returning customer 
+            isRegisted = 1;
+        }
+    }
+	if(formName.email!=null){
+        emailaddress = formName.email.value;
+		if (formName.email.value=='') {
+		alert('<venda_text id=site.sign_in.js_validation.email_address>');
+		return false;
+	}
+        if (!checkemail(emailaddress)) {
+            alert('<venda_text id=site.sign_in.js_validation.valid_email_address>');
+            return false;
+        } 
+    }
+
+    if ((isRegisted =='1') && (formName.password.value=='')) {
+		alert('<venda_text id=site.sign_in.js_validation.password>');
+		return false;
+	}
+	if (isRegisted =='0') {
+        if(loginType == 'd'){//for type d, don't pass email value for new register
+    		emailaddress = '';
+        }
+		<venda_block label=151,usgrref=instore>
+		<venda_tpcomment>// instore users must log out if they wish to register as a normal user</venda_tpcomment>
+		alert('<venda_text id=site.sign_in.instore.js_alert>');
+		return false;
+		</venda_block label=151>
+		<venda_block label=152,usgrref!=instore>
+			<venda_block label=68,workflow!=shopcart,workflow!=refer,workflow!=giftlist>
+			var signInIframe = document.getElementById('iframewrapper'); <venda_tpcomment>// variable to check if the login is loaded via the popup</venda_tpcomment>
+			<venda_block label=29,mode=value,<venda_sessionlocation>!=europe>
+			var locationURL = '<venda_codehttps>?ex=co_wizr-register&bsref=<venda_bsref>&step=zipcode&glxt=<venda_glxt mode=make,glxtusertype=><venda_block label=33559,mode=value,<venda_htxt mode=get,name=bvreviews>=notnull>&htxt=<venda_htxt mode=make,bvreviews=1></venda_block label=33559>&log=2&userEmail='+emailaddress;
+			</venda_block label=29>
+			<venda_block label=30,mode=value,<venda_sessionlocation>=europe>
+			var locationURL = '<venda_codehttps>?ex=co_wizr-register&bsref=<venda_bsref>&step=billto&param1=details&glxt=<venda_glxt mode=make,glxtusertype=><venda_block label=33559,mode=value,<venda_htxt mode=get,name=bvreviews>=notnull>&htxt=<venda_htxt mode=make,bvreviews=1></venda_block label=33559>&log=2&userEmail='+emailaddress;
+			</venda_block label=30>
+			if(!signInIframe){location.href=locationURL;}
+			else{parent.location.href=locationURL;}
+			</venda_block label=68>
+            
+			<venda_block label=69,workflow=shopcart>
+				<venda_block label=32,mode=value,<venda_sessionlocation>!=europe>location.href='<venda_codehttps>?ex=co_wizr-shopcart&bsref=<venda_bsref>&step=zipcode&param1=<venda_param1>&glxt=<venda_glxt mode=make,glxtusertype=>&log=2&userEmail='+emailaddress+'<venda_block label=33559,mode=value,<venda_htxt mode=get,name=bvreviews>=notnull>&htxt=<venda_htxt mode=make,bvreviews=1,step=1></venda_block label=33559><venda_block label=33560,mode=value,<venda_htxt mode=get,name=bvreviews>=null>&htxt=<venda_htxt mode=make,step=1></venda_block label=33560>';</venda_block label=32>
+				<venda_block label=33,mode=value,<venda_sessionlocation>=europe>location.href='<venda_codehttps>?ex=co_wizr-shopcart&bsref=<venda_bsref>&step=billto&param1=details&glxt=<venda_glxt mode=make,glxtusertype=>&log=2&userEmail='+emailaddress+'<venda_block label=33559,mode=value,<venda_htxt mode=get,name=bvreviews>=notnull>&htxt=<venda_htxt mode=make,bvreviews=1,step=1></venda_block label=33559><venda_block label=33560,mode=value,<venda_htxt mode=get,name=bvreviews>=null>&htxt=<venda_htxt mode=make,step=1></venda_block label=33560>';</venda_block label=33>
+			</venda_block label=69>
+            
+			<venda_block label=70,workflow=refer>
+				<venda_block label=34,mode=value,<venda_sessionlocation>!=europe>location.href='<venda_codehttps>?ex=co_wizr-refer&bsref=<venda_bsref>&step=zipcode&param1=<venda_param1>&glxt=<venda_glxt mode=make,glxtusertype=><venda_block label=33559,mode=value,<venda_htxt mode=get,name=bvreviews>=notnull>&htxt=<venda_htxt mode=make,bvreviews=1></venda_block label=33559>&log=2&userEmail='+emailaddress;</venda_block label=34>
+				<venda_block label=35,mode=value,<venda_sessionlocation>=europe>location.href='<venda_codehttps>?ex=co_wizr-refer&bsref=<venda_bsref>&step=billto&param1=details&glxt=<venda_glxt mode=make,glxtusertype=><venda_block label=33559,mode=value,<venda_htxt mode=get,name=bvreviews>=notnull>&htxt=<venda_htxt mode=make,bvreviews=1></venda_block label=33559>&log=2&userEmail='+emailaddress;</venda_block label=35>
+			</venda_block label=70>
+            
+            <venda_block label=71,workflow=giftlist>
+				<venda_block label=36,mode=value,<venda_sessionlocation>!=europe>location.href='<venda_codehttps>?ex=co_wizr-register&bsref=<venda_bsref>&step=zipcode&glxt=<venda_glxt mode=make,glxtusertype=><venda_block label=33559,mode=value,<venda_htxt mode=get,name=bvreviews>=notnull>&htxt=<venda_htxt mode=make,bvreviews=1></venda_block label=33559>&log=2&userEmail='+emailaddress;</venda_block label=36>
+				<venda_block label=37,mode=value,<venda_sessionlocation>=europe>location.href='<venda_codehttps>?ex=co_wizr-register&bsref=<venda_bsref>&step=billto&param1=details&glxt=<venda_glxt mode=make,glxtusertype=><venda_block label=33559,mode=value,<venda_htxt mode=get,name=bvreviews>=notnull>&htxt=<venda_htxt mode=make,bvreviews=1></venda_block label=33559>&log=2&userEmail='+emailaddress;</venda_block label=37>
+			</venda_block label=71>
+				
+			return false;
+		</venda_block label=152>
+	}
+		<venda_block label=619,workflow=shopcart>
+	if (isRegisted =='2') {
+				location.href='<venda_codehttps>?ex=co_wizr-shopcart&bsref=<venda_bsref>&step=billto&param1=details&log=2&glxt=<venda_glxt mode=make,glxtusertype=p>&userEmail='+emailaddress;
+				
+			return false;
+		
+	}
+	</venda_block label=619>
+}
+// -->
+</script>

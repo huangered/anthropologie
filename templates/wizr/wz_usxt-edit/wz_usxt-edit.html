@@ -1,0 +1,23 @@
+<!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. -->
+<div id="editreminder">
+<venda_inctemplate type=includes/wizr/wz_usxt-edit,name=heading_intro>
+
+<venda_form>
+<input type="hidden" name="usxtgroup" value="<venda_usxtgroup>">
+<input type="hidden" name="order1" value="remmonth">
+<input type="hidden" name="order2" value="remday">
+<input type="hidden" name="subgroup" value="4">
+<venda_inctemplate type=includes/wizr/wz_usxt-edit,name=edit_reminder_table>
+<venda_inctemplate type=includes/wizr/wz_usxt-edit,name=js_buttons>
+</form>
+</div>
+
+<!-- 
+page: wz_usxt-edit.html
+param1: <venda_param1>
+param2: <venda_param2>
+workflow: <venda_workflow>
+ -->
+<venda_tpxt mode=set,name=track,value=usxt-edit> 
+<venda_inctemplate name=cmCreateRegistrationTag,type=includes/tracking/coremetrics>
+<venda_inctemplate name=cm-wz_usxt-edit,type=includes/tracking/coremetrics>

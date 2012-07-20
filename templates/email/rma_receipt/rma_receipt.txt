@@ -1,0 +1,33 @@
+<venda_detblock1>
+<venda_text id=site.email.rma_receipt.msg1> <venda_com>.<cr>
+
+<venda_text id=site.email.rma_receipt.msg2> <venda_ohordnum>.<cr>
+
+<venda_text id=site.email.rma_receipt.msg3><cr>
+
+<venda_text id=site.email.rma_receipt.msg4> <cr>
+
+<venda_text id=site.email.rma_receipt.msg5><cr>
+
+<venda_text id=site.email.rma_receipt.email>
+
+<venda_ebizname><cr>
+<venda_ebizaddr1><cr>
+<venda_block label=74,ebizaddr2=notnull><venda_ebizaddr2><cr></venda_block label=74>
+<venda_ebizcity><cr>
+<venda_ebizstate> <venda_ebizzipc><cr>
+<venda_ebizcntry><cr><cr>
+</venda_detblock1>
+
+==============================================================================<cr>
+<venda_block label=832,ohusgrrf!=ebayguest><venda_text id=site.email.rma_receipt.title> - <venda_ohordnum></venda_block label=832>
+<venda_block label=833,ohusgrrf=ebayguest><venda_text id=site.email.rma_receipt.ebay.title> - <venda_ohordnum></venda_block label=833><cr>
+==============================================================================<cr><cr>
+
+<venda_inctemplate name=textEmailHeader,type=includes>
+
+<venda_detail1>
+
+<venda_inctemplate name=textEmailMessage,type=includes>
+
+<venda_inctemplate name=textEmailFooter,type=includes>

@@ -1,0 +1,63 @@
+<venda_tpcomment><!-- The script has moved into its own template so that it is compatible with use of ajax script --></venda_tpcomment>
+<script type="text/javascript" src="<venda_dispview invt=<venda_invtref>>&temp=writereview_script&layout=noheaders"></script>
+
+<form action="<venda_codehttp>" method="post" name="writereviewform" id="writereviewform">
+<input type="hidden" name="ex" value="co_disp-eproc">
+<input type="hidden" name="bsref" value="<venda_bsref>">
+<input type="hidden" name="subject" value="<venda_setting type=ebiz,name=name> Product Review from Customer">
+<input type="hidden" name="to" value="<venda_setting type=ebiz,name=email>">
+<input type="hidden" name="label1" value="Name:">
+<input type="hidden" name="label2" value="Phone Number:">
+<input type="hidden" name="label6" value="Rating out of 5:">
+<input type="hidden" name="label3" value="Review:">
+<input type="hidden" name="label4" value="Product Sku:">
+<input type="hidden" name="field4" value="<venda_invtref>">
+<input type="hidden" name="label5" value="Product Name:">
+<input type="hidden" name="field5" value="<venda_invtname>">
+<input type="hidden" name="temp" value="thankyou">
+<input type="hidden" name="invt" value="<venda_invtref>">
+<input type="hidden" name="layout" value="">
+<input type="hidden" name="htxt" value="<venda_htxt mode=make,foo=writereview>">
+
+<div id="writereview">
+
+	<h1><venda_text id=site.write_review.heading></h1>
+
+	<p><venda_text id=site.write_review.instructions></p>
+	<ol>
+		<li><venda_text id=site.write_review.step1></li>
+		<li><venda_text id=site.write_review.step2></li>
+		<li><venda_text id=site.write_review.step3></li>
+		<li><venda_text id=site.write_review.step4></li>
+	</ol>
+	
+	<fieldset>
+	<legend><venda_text id=site.write_review.legend></legend>
+	<div><label for="field1"><venda_text id=site.write_review.label.name><span class="re-waiHide"> <venda_text id=site.accessible.label.required></span> <span class="required">*</span></label> <input type="text" name="field1" id="field1" maxlength="150"></div>
+	<div><label for="from"><venda_text id=site.write_review.label.email_address><span class="re-waiHide"> <venda_text id=site.accessible.label.required></span> <span class="required">*</span></label> <input type="text" name="from" id="from" maxlength="150"></div>
+	<div><label for="field2"><venda_text id=site.write_review.label.phone_number><span class="re-waiHide"> <venda_text id=site.accessible.label.required></span> <span class="required">*</span></label> <input type="text" name="field2" id="field2" maxlength="30"></div>
+	<div><label for="field6"><venda_text id=site.write_review.label.rating><span class="re-waiHide"> <venda_text id=site.accessible.label.required></span> <span class="required">*</span></label>
+	<select name="field6" id="field6">
+		<option value=""><venda_text id=site.write_review.option.select></option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select>
+	</div>
+	<div><label for="field3"><venda_text id=site.write_review.label.review><span class="re-waiHide"> <venda_text id=site.accessible.label.required></span> <span class="required">*</span></label> <textarea cols="46" name="field3" id="field3" rows="6"></textarea></div>
+	</fieldset>
+	
+	<div id="buttons">
+	<a href="<venda_dispview invt=<venda_invtref>>" id="back_link" class="left"><venda_text id=site.link.back></a>
+	<input type="image" onclick="validate(); return false;" value="Submit" alt="<venda_text id=site.button.continue>" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_continue.gif" id="<venda_text id=site.button.continue>" class="right">
+	</div>
+	
+</div>
+
+</form>
+
+<!-- tpxt used for crumbtrail -->
+<venda_tpxt mode=set,name=invtname,value=<venda_invtname>>
+<venda_tpxt mode=set,name=track,value=writereview>

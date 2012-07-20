@@ -1,0 +1,6 @@
+<venda_detblock_attribute><venda_block label=10,atrsuplsku=notnull>
+<colour colour="<venda_encode><venda_atr1></venda_encode>">
+<scene7baseUrl><![CDATA[http://s7ondemand1.scene7.com/is/image/Anthropologie/<venda_invtsuplsku>_<venda_atrsuplsku>]]></scene7baseUrl>
+</colour>
+</venda_block label=10></venda_detblock_attribute>
+<venda_detail_attribute>

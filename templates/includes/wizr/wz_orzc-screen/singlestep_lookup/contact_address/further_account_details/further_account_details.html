@@ -1,0 +1,35 @@
+<fieldset class="f-faccdetail">
+	<legend class="orzccaddr-faccdetail"><venda_text id=site.contact_address.legend.further_account_details></legend>
+	<div><div><label for="phone" class="dontFloat"><venda_text id=site.contact_address.label.phone_number><span class="re-waiHide"> <venda_text id=site.accessible.label.required></span> <span class="required">*</span></label> <venda_block label=101,mode=value,<venda_setting type=ebiz,name=hidearea>!=1><label for="area" class="dontFloat invisible"><venda_text id=site.contact_address.label.phone_area_code></label></venda_block label=101></div> <venda_block label=100,mode=value,<venda_setting type=ebiz,name=hidearea>!=1><venda_area field=text,size=4,maxlength=6,required=yes> </venda_block label=100><venda_phone field=text,size=18,maxlength=20,required=yes></div>
+	
+	<venda_block label=123,mode=value,<venda_setting type=ebiz,name=showfax>=1>
+	<div><div><label for="fax" class="dontFloat"><venda_text id=site.contact_address.label.fax_number></label> <venda_block label=101,mode=value,<venda_setting type=ebiz,name=hidearea>!=1><label for="farea" class="dontFloat invisible"><venda_text id=site.contact_address.label.fax_area_code></label></venda_block label=101></div> <venda_block label=100,mode=value,<venda_setting type=ebiz,name=hidearea>!=1><venda_farea field=text,size=4,maxlength=6></venda_block label=100><venda_fax field=text,size=18,maxlength=20></div>
+	</venda_block label=123>
+	<venda_block label=50,instore!=1>
+	<div><label for="usemail"><venda_text id=site.contact_address.label.email_address><span class="re-waiHide"> <venda_text id=site.accessible.label.required></span> <span class="required">*</span></label> <venda_usemail field=text,size=25,required=yes></div>
+	<venda_block label=32,curstep=zipcode>
+	<script type="text/javascript">
+	<!-- 
+	urlArray = location.href.split('&');
+	for (loop=0; loop<urlArray.length; loop++) {
+		test=urlArray[loop];
+		testArray=test.split('=');
+		test=testArray[1];
+		if (checkemail(test)) {
+			document.wizform.usemail.value=test;
+		}
+	}
+	// -->
+	</script>
+	</venda_block label=32>
+</fieldset>
+
+<venda_inctemplate name=usxtfields,type=includes><!-- remains here for backwards compatibility -->	
+
+<fieldset class="newsandterm">
+	<input type="hidden" name="usmailform" value="3">
+	<div class="newsmail"><input type="checkbox" name="blkemail" id="blkemail" value="1" class="dontFloat" <venda_block label=124,blkemail=1> checked</venda_block label=124>> <label for="blkemail" class="dontFloat"><venda_text id=site.contact_address.label.email_updates></label></div>
+	<!-- <venda_ustandc required=yes> -->
+	<div class="termandcon"><input type="checkbox" name="ustandc" id="ustandc" value="1"<venda_block label=125,ustandc=1> checked</venda_block label=125>> <label for="ustandc" class="dontFloat"><venda_text id=site.contact_address.label.read_and_agreed> <a href="<venda_dispview page=termsofuse>?layout=empty" rel="popup console 550 450" target="_blank" title="<venda_text id=site.contact_address.label.terms_and_conditions.title>"><venda_text id=site.contact_address.label.terms_and_conditions></a></label></div>
+		</venda_block label=50>
+</fieldset>

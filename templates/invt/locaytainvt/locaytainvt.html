@@ -1,0 +1,124 @@
+<venda_block label=45,invtpublish=1>
+<venda_block label=119,invtref!=giftcert>
+<!-- product -->
+<li>
+	
+	<div id="comp-image<venda_invtref>" class="image">
+	<venda_inctemplate name=Scene7appcat,type=includes/Scene7>
+	</div>
+	
+	<div class="details">
+	<h2><a id="comp-name<venda_invtref>" href="<venda_dispview invt=<venda_invtref>>"><venda_invtname></a></h2>
+	
+	<venda_block label=10,invtatrtot&lt;1>
+	<!-- if product doesn't have attributes -->
+	<p class="pricetag">
+		<span class="price"><venda_currsym><venda_invtsell></span>
+		<venda_block label=11,invtsavingonwas=notnull,invtwas!=0.00>
+		<span class="was"><span class="waslabel">...<venda_text id=site.was></span><venda_currsym><venda_invtwas></span>
+		</venda_block label=11>
+	</p>
+	</venda_block label=10>
+
+	<venda_block label=130,invtavail&gt;0,invtatrtot&gt;0>
+		<venda_tpcomment><!-- if product does have attributes --></venda_tpcomment>
+		<script type="text/javascript">var attributeData = new Array(); //collection of attributes used for Scene7</script>
+		<div class="attrproducts">
+			<p class="pricetag">
+				<span class="price">
+				 <venda_block invtatrminsubsell&gt;0.00>
+               <venda_block label=1073,mode=value,<venda_invtivtype>=giftcard,<venda_invtivtype>=family,operator=or>
+               <venda_currsym><venda_invtatrminsubsell> - <venda_currsym><venda_invtatrmaxsubsell>
+               </venda_block label=1073>
+               <venda_block label=1075,mode=value,<venda_invtivtype>=familysale>
+               <venda_text id=site.from> <venda_currsym><venda_invtatrminsubsell>
+               </venda_block label=1075>
+               <venda_block label=1074,mode=value,<venda_invtivtype>!=giftcard,<venda_invtivtype>!=family,<venda_invtivtype>!=familysale,operator=and><venda_currsym><venda_invtatrminsubsell>
+                 </venda_block label=1074>
+                </venda_block>
+				<venda_block invtatrminsubsell=0.00><venda_currsym><venda_invtsell></venda_block>
+				</span>
+				<venda_block label=107,invtatrmaxsubwas&gt;invtatrminsubsell>
+				<span class="was"><span class="waslabel">...<venda_text id=site.was></span><venda_currsym><venda_invtatrmaxsubwas></span>
+				</venda_block label=107>
+			</p>
+		</div>
+		<div class="swatchContainer"><div id="swatch<venda_invtref>"><!-- Display a list of colour swatch --></div></div><br class="clear-all">
+		<venda_inventory ref=<venda_invtref>,temp=colourswatch>
+	</venda_block label=130>
+	
+	<venda_block label=51,mode=value,<venda_setting type=ebiz,name=powerreviews>=1,<venda_setting type=ebiz,name=powerreviewslocayta>=1>
+	<!-- power reviews snippets for product reviews -->
+	<div><script type="text/javascript">
+	var pr_page_id = '<venda_invtref>';
+	var pr_write_review='<venda_dispview invt=<venda_invtref>>&temp=submitpowerreview&pageId=<venda_invtref>&layout=defaultnocolthree';
+	var pr_read_review='<venda_dispview invt=<venda_invtref>>#readReview';
+	snippet(document);
+	</script></div>
+	</venda_block label=51>	
+	</div>
+</li>	
+</venda_block label=119>
+
+<venda_block label=229,invtref=giftcert>
+	<!-- giftcert -->
+	<li>
+	
+	<div class="image">
+	<a href="<venda_codehttp>?ex=co_wizr-giftcertificates&bsref=<venda_bsref>"><venda_inctemplate name=Scene7appcat,type=includes/Scene7></a>
+	</div>
+	
+	<div class="details">
+	<h2><a href="<venda_codehttp>?ex=co_wizr-giftcertificates&bsref=<venda_bsref>"><venda_invtname></a></h2>
+	<p class="price">
+	    <venda_block label=35,invtatrminsubsell&gt;0.00><venda_text id=site.from><venda_currsym><venda_invtatrminsubsell></venda_block label=35>
+	    <venda_block label=36,invtatrminsubsell=0.00><venda_invtsymsell></venda_block label=36>
+	</p>
+	</div>
+	
+	</li>	
+</venda_block label=229>
+</venda_block label=45>
+<venda_block label=46,invtpublish!=1>
+<!-- unpublished -->
+	<li>
+	
+	<venda_block label=43,invtref!=giftcert>
+	<div class="image"><venda_inctemplate name=Scene7appcat,type=includes/Scene7></div>
+	</venda_block label=43>
+	
+	<div class="details">
+	<h2><venda_invtname></h2>
+	<venda_block label=51,invtatrtot&lt;1>
+	<p class="pricetag">
+		<span class="price"><venda_currsym><venda_invtsell></span>
+		<venda_block label=52,invtsavingonwas=notnull,invtwas!=0.00>
+		<span class="was"><span class="waslabel">...<venda_text id=site.was></span><venda_currsym><venda_invtwas></span>
+		<span class="save"><venda_text id=site.save><venda_currsym><venda_invtsavingonwas></span>
+		</venda_block label=52>
+	</p>
+	</venda_block label=51>
+	<venda_block label=44,invtatrtot&gt;0>
+	<p class="pricetag">
+		<span class="price">
+		<venda_block label=48,invtatrminsubsell&gt;0.00>
+				
+			<venda_block label=1077,mode=value,<venda_invtivtype>=giftcard,<venda_invtivtype>=family,operator=or> 
+                <venda_text id=site.from> <venda_currsym><venda_invtatrminsubsell>
+            </venda_block label=1077> 
+    
+            <venda_block label=1078,mode=value,<venda_invtivtype>!=giftcard,<venda_invtivtype>!=family,operator=and> 
+                 <venda_currsym><venda_invtatrminsubsell> 
+            </venda_block label=1078>    
+			
+		</venda_block label=48>
+		
+		
+		<venda_block label=49,invtatrminsubsell=0.00><venda_invtsymsell></venda_block label=49>
+		</span>
+	</p>
+	</venda_block label=44>
+	<p class="unpublished"><venda_text id=site.unpublished></p>
+	</div>
+	</li>
+</venda_block label=46> 

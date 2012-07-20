@@ -1,0 +1,64 @@
+.Ltopnavcats ul li.topnavforhome {
+	text-align:left;
+	padding:8px 0 0 4px;
+}
+.Ltopnavcats .topnavforhome a,
+.Ltopnavcats .topnavforhome a:link, 
+.Ltopnavcats .topnavforhome a:visited,
+.Ltopnavcats .topnavforhome a:hover,
+.Ltopnavcats .topnavforhome a:active {
+	padding:0 0 0 13px;
+	} 
+	
+/* Family template styles */ 
+.add-all {background:url(../images/addallbg_de.jpg) no-repeat; width:280px;}
+.addprod {background:url(../images/addallbg_de.jpg) no-repeat; width:280px;}
+
+ /*ORCF*/
+ ul.Lcheckoutstepindicators li {
+ 	margin: 0;
+    padding: 0 0 0 6px;
+    width: auto;
+	}	
+ul.Lcheckoutstepindicators li.checkoutStep1,
+ul.Lcheckoutstepindicators li.checkoutStep1On {width:215px;}
+ul.Lcheckoutstepindicators li.checkoutStep1On {background:url(../images/bg_stepboxOn_de.gif) no-repeat 0 0;}
+ul.Lcheckoutstepindicators li.checkoutStep2,
+ul.Lcheckoutstepindicators li.checkoutStep2On {width:150px;}
+ul.Lcheckoutstepindicators li.checkoutStep2On {background:url(../images/bg_stepboxOn_de2.gif) no-repeat 0 0;}
+ul.Lcheckoutstepindicators li.checkoutStep3 {width:170px;}
+ul.Lcheckoutstepindicators li.checkoutStep4 {width:150px;}
+
+#orderconfirmation ul.Lcheckoutstepindicators li, 
+#orderreceipt ul.Lcheckoutstepindicators li {padding: 0 0 0 6px; margin: 0 0 0 5px;}
+#orderconfirmation ul.Lcheckoutstepindicators li.checkoutStep1,
+#orderreceipt ul.Lcheckoutstepindicators li.checkoutStep1 {width:230px;}
+#orderconfirmation ul.Lcheckoutstepindicators li.checkoutStep2,
+#orderreceipt ul.Lcheckoutstepindicators li.checkoutStep2 {width:192px;}
+#orderconfirmation ul.Lcheckoutstepindicators li.checkoutStep3,
+#orderconfirmation ul.Lcheckoutstepindicators li.checkoutStep3On,
+#orderreceipt ul.Lcheckoutstepindicators li.checkoutStep3,
+#orderreceipt ul.Lcheckoutstepindicators li.checkoutStep3On,
+#orderconfirmation ul.Lcheckoutstepindicators li.checkoutStep4,
+#orderconfirmation ul.Lcheckoutstepindicators li.checkoutStep4On,
+#orderreceipt ul.Lcheckoutstepindicators li.checkoutStep4,
+#orderreceipt ul.Lcheckoutstepindicators li.checkoutStep4On  {width:223px;}
+
+#orderconfirmation ul.Lcheckoutstepindicators li.checkoutStep4On,
+#orderconfirmation ul.Lcheckoutstepindicators li.checkoutStep3On,
+#orderreceipt ul.Lcheckoutstepindicators li.checkoutStep4On,
+#orderreceipt ul.Lcheckoutstepindicators li.checkoutStep3On {background:url(../images/bg_stepboxOn_de.gif) no-repeat 0 0;}
+
+
+#additionalservices .coupon a {	background:url(../images/de/bt_redeem.gif) no-repeat left top;}
+#paymentdetails #ohcccscshow a {letter-spacing:-1px;}
+#paymentdetails .needhelp {margin:0 0 0 7px;}
+
+.LshowRVISiteWide h2 {padding: 10px 15px 8px 31px;text-align: center;line-height: 0.9em;} 
+
+#productdetail #Lsocialbookmarking {padding-right:20px;}
+#productdetail .qtymessage label {text-transform:uppercase !important;}
+#productdetail .swatch1 .label-att1 {	text-transform:none !important;}
+#productdetail .swatch2 .label-att2 {	text-transform:none !important;}
+#productdetail #alertmessage .labelAttr {	text-transform:none !important;}
+#productdetail #alertmessage {text-transform:none !important;}

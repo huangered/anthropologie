@@ -1,0 +1,110 @@
+<venda_block label=2201,instore!=1>
+<style type="text/css">
+.popupbg {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background: #000;
+	z-index: 10;
+	display: none;
+}
+.popupreg, .puload {
+	position: fixed; 
+	width: 400px; 
+	top: 50%; 
+	left: 50%; 
+	margin-top: -125px; 
+	margin-left: -200px;
+	border: 1px solid #666666;
+	z-index: 11;
+	background: #FFF;
+	display: none;
+}
+.puload {
+	z-index: 20 !important;
+	border-bottom: 0 !important;
+}
+.popupreg h4 {
+	font-family: "Courier New", Courier, monospace;
+	color: #9E9241;
+	margin: 25px 25px 15px 25px;
+	font-size: 1.4em;
+	letter-spacing: 0.1em;
+	font-weight: normal;
+	text-align: center;
+}
+.popupreg h4 span {
+	margin: 8px 0;
+	display: block;
+}
+.popupreg p {
+    color: #666666;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 1.2em;
+    letter-spacing: 0.1em;
+    line-height: 1.6em;
+    margin: 0 25px;
+    text-align: center;
+}
+.popupreg a {
+	margin: 0 20px 30px 20px;
+	float: left;
+	display: block;
+	width: 110px;
+}
+#popupbuttons {
+	margin: 25px 48px;
+}
+.puload img {
+	width: 32px;
+	height: 32px;
+	margin: 109px 0 109px 184px;	
+} 
+</style>
+<!-- add a popup on reg to confirm email preferences -->
+<div class="popupbg"></div>
+<div class="puload">
+<img src="/content/ebiz/anthropologie/resources/images/signin_loader.gif" alt="" />
+</div>
+<div class="popupreg">
+<h4>
+<img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/accountsignup_popup_line.jpg" alt="" />
+<span><venda_text id=site.contact_address.popup.title></span>
+<img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/accountsignup_popup_line.jpg" alt="" />
+</h4>
+<p><venda_text id=site.contact_address.popup.paragraph></p>
+<div id="popupbuttons">
+<a id="popupsignmeup" href="http://www.anthropologie.eu/page/myaccount?cm_re=registration-_-popup-_-yesemail"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/accountsignup_popup_sign.jpg" alt="<venda_text id=site.contact_address.popup.yes>" /></a>
+<a id="popupnothanks" href="http://www.anthropologie.eu/page/myaccount?cm_re=registration-_-popup-_-noemail"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/accountsignup_popup_no.jpg" alt="<venda_text id=site.contact_address.popup.no>" /></a>
+</div>
+</div>
+<!-- remains here for backwards compatibility -->
+<input type="hidden" name="usmailform" value="3">
+<div class="newsmail"><input type="checkbox" name="blkemail" id="blkemail" value="1" class="dontFloat"><label for="blkemail" class="dontFloat"><venda_text id=site.contact_address.label.email_updates></label></div>
+<div class="newscatalogue"><input type="checkbox" name="blkpost" id="blkpost" value="1" checked="checked"><label for="blkpost" class="labeltext"><venda_text id=site.contact_address.label.catalogue></label></div>
+<div class="thirdparties"><input type="checkbox" name="blktrdcomm" id="blktrdcomm" value="1" checked="checked"><label for="blktrdcomm" class="labeltext"><venda_text id=site.contact_address.label.thirdparties></label></div>
+
+<!-- <venda_ustandc required=yes> -->
+<div class="termandcon"><input type="checkbox" name="ustandc" id="ustandc" value="1"<venda_block label=125,ustandc=1> checked</venda_block label=125>> <label for="ustandc" class="dontFloat"><venda_text id=site.contact_address.label.read_and_agreed> <a href="<venda_dispview page=terms>&layout=empty" rel="popup console 550 450" target="_blank" title="<venda_text id=site.contact_address.label.terms_and_conditions.title>"><venda_text id=site.contact_address.label.terms_and_conditions></a></label></div>
+</venda_block label=2201>
+
+<venda_block label=2199,<venda_setting type=ebiz,name=billingdeliveryonly>!=1,mode=value>
+<venda_block label=15,workflow=shopcart,workflow=instore,operator=or>
+<venda_block label=16,workflow!=instore>
+<div class="diffaddressbox"><input type="checkbox" name="differentaddress" id="differentaddress"> <label for="differentaddress"><venda_text id=site.contact_address.label.different_delivery_address></label> <venda_text id=site.contact_address.different_delivery_address></div>
+</venda_block label=16>
+<venda_block label=17,workflow=instore>
+<div><input type="checkbox" name="registercustomer" id="registercustomer"> <label for="registercustomer"><venda_text id=site.contact_address.label.registercustomer></label> <venda_text id=site.contact_address.registercustomer></div>
+<br/>
+<div class="diffaddressbox"><input type="checkbox" name="differentaddress" id="differentaddress" onclick='document.wizform.delivertostore.checked=false'> <label for="differentaddress"><venda_text id=site.contact_address.label.different_delivery_address></label> <venda_text id=site.contact_address.different_delivery_address></div>
+<input type="hidden" name="zipc2list" value="<venda_category rec=scat,ref=storelocator,temp=storepostcodes,cacheall=1>">
+<input type="hidden" name="itemsperpage" value="4">
+<div><input type="checkbox" name="delivertostore" id="delivertostore" onclick='document.wizform.differentaddress.checked=false'> <label for="delivertostore"><venda_text id=site.contact_address.label.delivertostore></label> <venda_text id=site.contact_address.delivertostore></div>
+</venda_block label=17>
+</venda_block label=15>
+</venda_block label=2199>
+<venda_block label=2200,<venda_setting type=ebiz,name=billingdeliveryonly>=1,mode=value>
+<input type="hidden" name="differentaddress" id="differentaddress">
+</venda_block label=2200>

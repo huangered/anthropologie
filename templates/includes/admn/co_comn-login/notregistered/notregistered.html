@@ -1,0 +1,15 @@
+<venda_tpcomment><!-- Use for Login Type C, D, E - This is cloned from co_comn-login/password template but need to seperate to two forms and fieldsets. If any changes committing to venda-support made to this template, please also change the original templates, password.html  --></venda_tpcomment>
+<fieldset class="dontFloat f-loginiam">
+<span class="notregister">
+	<h2><span class="newLeft"><venda_text id=site.sign_in.heading.newcustomer></span><span class="newRight"><venda_text id=site.sign_in.heading.createaccount></span></h2>
+	<div class="notregisterinput">
+		<p class="newcusttxt"><venda_text id=site.sign_in.newregister_text></p>
+		<venda_tpcomment><!-- Login Type E : display email address field in form one (new customer box) --></venda_tpcomment> 
+		<venda_block label=704,mode=value,<venda_setting type=ebiz,name=setlogindisplaytype>=e>
+		<venda_inctemplate type=includes/admn/co_comn-login,name=email_address>
+		</venda_block label=704>
+	</div>
+	<div class="notregistertxt"><venda_text id=site.sign_in.create_password_later></div>
+	<div class="notregisterbtn"><input type="image" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_register.gif" alt="<venda_text id=site.button.register>"></div>
+</span>
+</fieldset>

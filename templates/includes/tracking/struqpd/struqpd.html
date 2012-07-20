@@ -1,0 +1,43 @@
+<div id="struq_tagging">
+
+  <div class="struq_SL_DF_container" title="detail" style="display:none">
+    <div class="struq_SL_DF" title="pid"><venda_invtref></div>
+  </div>
+  
+</div>
+
+<script type="text/javascript">
+(function($) {
+/* Copyright (C) 2008-2011 by Struq */
+/* Struq SL v2.2 (jquery) */
+
+$(document).ready(function() {
+	var slc = [];
+	var rnd = parseInt(Math.random() * 10000000000000000);
+	var protocol = (document.location.protocol == "https:" ? "https:" : "http:");
+
+	$('.struq_SL_DF_container').each(function() {
+		var items = [];
+		var ckey = $(this).attr('title');
+
+		$(this).find('.struq_SL_DF').each(function() {
+			var pn = $(this).attr('title');
+			var pv = $(this).text();
+			items[items.length] = encodeURIComponent(pn) + '=' + encodeURIComponent(pv);
+		});
+
+		slc[slc.length] = ckey + "=" + (items.join('|'));
+	});
+
+	if (slc.length == 0)
+		return;
+
+	var surl = protocol + '//app.struq.com/s/s/VLwFVm4aEUywgxaUDp63MQ/'
+		+ '?v=2&qs=' + encodeURIComponent(slc.join('&'))
+		+ '&rnd=' + rnd;
+	$("body").append('<ifr'+'ame src="' + surl + '" style="width:0px; height:0px; border: 0px"></ifr'+'ame>');
+
+});
+
+})(jQuery);
+</script>

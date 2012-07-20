@@ -1,0 +1,47 @@
+<!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. -->
+
+<venda_zones type=countries,template=zoneJs>
+
+<venda_category rec=elementcat,ref=oradeditaddtopcontent>
+<div class="checkoutR checkoutRoradeditadd">
+<venda_category rec=elementcat,ref=editaddcolumn>
+</div>
+<div class="checkoutL">
+<div class="container containeroradeditadd">
+<venda_inctemplate type=includes/wizr/wz_orad-editadd,name=heading_intro>
+
+<venda_form>
+<input type="hidden" name="PrimaryForm">
+<input type="hidden" name="default" value="1">
+<input type="hidden" name="abrfnbr" value="<venda_abrfnbr>">
+<venda_block label=134,workflow=singleadbook><input type=hidden name="copybilltodel" value="1"></venda_block label=134>
+<venda_inctemplate type=includes/wizr/wz_orad-editadd,name=contact_details>
+<venda_block label=52,param2!=storeadd>
+<venda_inctemplate type=includes/wizr/wz_orad-editadd,name=complete_delivery_address>
+<venda_inctemplate type=includes/wizr/wz_orad-editadd,name=address_name>
+</venda_block label=52>
+<venda_block label=53,param2=storeadd>
+<venda_inctemplate type=includes/wizr/wz_orad-editadd,name=store_delivery_address>
+</venda_block label=53>
+<venda_inctemplate type=includes/wizr/wz_orad-editadd,name=js_buttons>
+</form>
+</div>
+</div>
+
+<venda_block label=20,workflow=instore>
+<venda_tpxt mode=set,name=instore,value=1>
+</venda_block label=20>
+
+<!-- 
+step: <venda_curstep>
+workflow: <venda_workflow>
+param1: <venda_param1>
+param2: <venda_param2>
+page: orad-editadd
+ -->
+<venda_tpxt mode=set,name=track,value=orad-editadd>
+<venda_inctemplate name=googleTrackingWorkflows,type=includes>
+<venda_inctemplate name=hbxlocalvars1,type=includes/tracking>
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>
+<venda_inctemplate name=cmCreateRegistrationTag,type=includes/tracking/coremetrics>
+<venda_inctemplate name=cm-wz_orad-editadd,type=includes/tracking/coremetrics>

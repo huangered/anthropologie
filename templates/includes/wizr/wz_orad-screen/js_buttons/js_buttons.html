@@ -1,0 +1,46 @@
+<div id="buttons">
+
+<venda_block label=417,workflow=manageaddresses>
+<a href="<venda_dispview page=myaccount>"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_backtomyaccount2.gif" alt="<venda_text id=site.button.back2_to_my_account>" border="0" class="left bt-gobackmyacc"></a>
+<input type="image" onClick='<venda_wizbutton step=--page-myaccount,mode=process,check=yes,secure=yes,callonly=yes> return false;' src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_done.gif" alt="<venda_text id=site.button.done>" class="left">
+
+<venda_block label=38,mode=value,<venda_sessionlocation>!=europe>
+<a href='#' onClick='<venda_wizbutton step=zipcodedelivery,param1=delivery,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addnewaddress.gif" alt="<venda_text id=site.button.add_new_address>" border="0" class="right bt-addnewaddr"></a>
+</venda_block label=38>
+<venda_block label=39,mode=value,<venda_sessionlocation>=europe>
+<a href='#' onClick='<venda_wizbutton step=newadd,mode=process,param1=delivery,param2=add,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addnewaddress.gif" alt="<venda_text id=site.button.add_new_address>" border="0" class="right bt-addnewaddr"></a>
+</venda_block label=39>
+
+</venda_block label=417>
+
+<venda_block label=2199,<venda_setting type=ebiz,name=billingdeliveryonly>!=1,mode=value>
+<venda_block label=551,workflow!=shopcart,workflow!=giftlist,workflow!=instore,workflow!=manageaddresses>
+	<venda_block label=29,mode=value,<venda_sessionlocation>!=europe><a href='#' onClick='<venda_wizbutton step=zipcodedelivery,param1=delivery,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addnewaddress.gif" alt="<venda_text id=site.button.add_new_address>" border="0" class="left"></a></venda_block label=29>
+	<venda_block label=30,mode=value,<venda_sessionlocation>=europe><a href='#' onClick='<venda_wizbutton step=newadd,mode=process,param1=delivery,param2=add,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addnewaddress.gif" alt="<venda_text id=site.button.add_new_address>" border="0" class="left"></a></venda_block label=30>
+</venda_block label=551>
+<venda_block label=552,workflow=shopcart,workflow=instore,operator=or>
+	<venda_block label=553,param2=multiple>
+		<venda_block label=32,mode=value,<venda_sessionlocation>!=europe><a href='#' onClick='<venda_wizbutton step=zipcodedelivery,param1=delivery,param2=multiple,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addnewaddress.gif" alt="<venda_text id=site.button.add_new_address>" border="0" class="left"></a></venda_block label=32>
+		<venda_block label=33,mode=value,<venda_sessionlocation>=europe><a href='#' onClick='<venda_wizbutton step=newadd,mode=process,param1=delivery,param2=add,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addnewaddress.gif" alt="<venda_text id=site.button.add_new_address>" border="0" class="left"></a></venda_block label=33>
+	</venda_block label=553>
+	<venda_block label=554,param2!=multiple>
+		<venda_block label=34,mode=value,<venda_sessionlocation>!=europe>
+		<venda_block label=40,mode=value,<venda_setting type=ebiz,name=singlesteppclookup>!=1><a href='#' onclick='<venda_wizbutton step=zipcodedelivery,param1=delivery,param2=adbook,callonly=yes>;return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addnewaddress.gif" alt="<venda_text id=site.button.add_new_address>" border="0" class="left"></a></venda_block label=40>
+		<venda_block label=41,mode=value,<venda_setting type=ebiz,name=singlesteppclookup>=1><input type="hidden" name="htxt" value=""><a href='#' onclick='document.wizform.htxt.value="<venda_htxt mode=make,prevbtn=adbook>";<venda_wizbutton step=zipcodedelivery,param1=delivery,param2=adbook,callonly=yes>;return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addnewaddress.gif" alt="<venda_text id=site.button.add_new_address>" border="0" class="left"></a></venda_block label=41>
+		</venda_block label=34>
+		<venda_block label=35,mode=value,<venda_sessionlocation>=europe><a href='#' onClick='<venda_wizbutton step=newadd,mode=process,param1=delivery,param2=add,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addnewaddress.gif" alt="<venda_text id=site.button.add_new_address>" border="0" class="left"></a></venda_block label=35>
+	</venda_block label=554>
+</venda_block label=552>
+<venda_block label=560,workflow=giftlist>
+		<venda_block label=36,mode=value,<venda_sessionlocation>!=europe><a href='#' onClick='<venda_wizbutton step=zipcodedelivery,param1=delivery,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addnewaddress.gif" alt="<venda_text id=site.button.add_new_address>" border="0" class="left"></a></venda_block label=36>
+		<venda_block label=37,mode=value,<venda_sessionlocation>=europe><a href='#' onClick='<venda_wizbutton step=newadd,mode=process,param1=delivery,param2=add,callonly=yes> return false;'><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addnewaddress.gif" alt="<venda_text id=site.button.add_new_address>" border="0" class="left"></a></venda_block label=37>
+</venda_block label=560>
+</venda_block label=2199>
+<venda_block label=416,workflow=shopcart,workflow=instore,operator=or>
+<input type="image" onClick='<venda_wizbutton step=confirm,mode=process,check=yes,secure=yes,callonly=yes> return false;' src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_done.gif" alt="<venda_text id=site.button.done>" class="right">
+</venda_block label=416>
+
+<venda_block label=418,workflow=giftlist>
+<a href="<venda_codehttp>?ex=co_wizr-giftlist&bsref=<venda_bsref>&step=glstlist"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_done.gif" alt="<venda_text id=site.button.done>" border="0" class="right"></a>
+</venda_block label=418>
+</div>

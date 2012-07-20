@@ -1,0 +1,11 @@
+<venda_block label=24,mode=value,<venda_tpxt mode=get,name=instore>!=1>
+<h2><a href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"><venda_tpxt mode=get,name=yourbasket></a></h2>
+<span class="items"><venda_tpxt mode=get,name=items1></span><span class="cartitemtotal"><venda_cartitemtotal></span><span class="items2"><venda_tpxt mode=get,name=items2><venda_block label=20,cartitemtotal!=1><venda_tpxt mode=get,name=items2plural></venda_block label=20></span>
+<span class="total"><venda_tpxt mode=get,name=total1></span><span class="totaltag"><venda_total></span><span class="total2"><venda_tpxt mode=get,name=total2></span>
+<venda_block label=11,carttotal!=0>
+<a class="checkout" href="<venda_codehttps>?ex=co_wizr-shopcart&bsref=<venda_bsref>&wizard=shopcart&step=billtologin&param1=login"><venda_tpxt mode=get,name=checkout></a>
+</venda_block label=11>
+<venda_block label=12,carttotal=0>
+<a class="checkout" href="<venda_codehttp>?ex=co_wizr-shopcart&bsref=<venda_bsref>&log=22"><venda_tpxt mode=get,name=checkout></a>
+</venda_block label=12>
+</venda_block label=24>

@@ -1,0 +1,23 @@
+<venda_inctemplate name=textEmailDetblocks,type=includes>
+<venda_inctemplate name=textEmailHeader,type=includes>
+
+<venda_block label=66,ohreplnbr=null>
+<venda_text id=site.email.order_receipt.msg1> <venda_ohordnum>. <venda_text id=site.email.order_receipt.msg2><cr>
+
+<venda_text id=site.email.order_receipt.msg3> <venda_dispview page=signin> <venda_text id=site.email.order_receipt.msg4> <venda_text id=site.email.order_receipt.msg5> <venda_serveradd> <venda_ebizname> <venda_text id=site.email.order_receipt.msg6><cr>
+</venda_block label=66>
+
+<venda_block label=67,ohreplnbr=notnull>
+<venda_text id=site.email.order_receipt.msg7> <venda_block label=68,ohpaytype=6><venda_text id=site.email.order_receipt.msg8> </venda_block label=68> <venda_block label=68,ohpaytype=6><venda_text id=site.email.order_receipt.msg9> <venda_ohordnum>.<cr>
+</venda_block label=67>
+
+<venda_inctemplate name=textEmailBody,type=includes>
+<venda_block label=68,ohreplnbr=null>
+<venda_inctemplate name=textEmailMessage,type=includes>
+</venda_block label=68>
+<venda_block label=69,ohreplnbr=notnull>
+<venda_text id=site.email.order_receipt.msg10>
+</venda_block label=69>
+<venda_text id=site.email.order_receipt.msg11><cr><cr>
+<venda_text id=site.email.order_receipt.msg12><venda_ebizemail><cr><cr>
+<venda_inctemplate name=textEmailFooter,type=includes>

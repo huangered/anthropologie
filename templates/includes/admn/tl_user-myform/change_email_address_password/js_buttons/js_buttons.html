@@ -1,0 +1,41 @@
+<script type="text/javascript">
+<!-- Hide
+function checkemail(str) {
+	var filter =/^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,7}|\d+)$/i;
+	return (filter.test(str))
+}
+function CheckFields(form1) {
+if (form1.usemail.value == '') {
+alert("<venda_text id=site.my_account.edit_user_details.change_email_address_password.js_validation.email_address>");
+form1.usemail.focus();
+return;
+}
+if ((form1.usemail.value!='')&&(form1.usemail.value.indexOf('@') > 0)&& (checkemail(form1.usemail.value)!=false) ) {}
+else {
+alert("<venda_text id=site.my_account.edit_user_details.change_email_address_password.js_validation.email_address>");
+form1.usemail.focus();
+return;
+}
+if (form1.uspswd.value != form1.uspswd2.value) {
+alert("<venda_text id=site.my_account.edit_user_details.change_email_address_password.js_validation.password>");
+form1.uspswd.value='';
+form1.uspswd2.value='';
+form1.uspswd.focus();
+return;
+}
+if ((form1.uspswd.value != '') && (form1.uspswd.value.length<5)) {
+	alert("<venda_text id=site.my_account.edit_user_details.change_email_address_password.js_validation.password_length>");
+	form1.uspswd.value='';
+	form1.uspswd2.value='';
+	return;
+}
+form1.submit();
+}
+//End Javascript-->
+</script>
+<div id="buttons">
+<a href="<venda_dispview page=myaccount>"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_backtomyaccount.jpg" alt="<venda_text id=site.button.back_to_my_account>" border="0" class="left"></a>
+<input type="image" onClick="CheckFields(document.form); return false;" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_submitchange.jpg" alt="<venda_text id=site.button.submit_change>" class="right">
+</div>
+
+

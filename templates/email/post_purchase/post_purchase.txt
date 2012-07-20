@@ -1,0 +1,13 @@
+==============================================================================<cr>
+<venda_text id=site.email.post_purchase.title1><cr>
+==============================================================================<cr><cr>
+
+<venda_text id=site.email.post_purchase.dear> <venda_userinfo><venda_sesfname></venda_userinfo><cr><cr>
+
+<venda_text id=site.email.post_purchase.msg1> <venda_ebizname> <venda_text id=site.email.post_purchase.msg2>
+<cr>
+<cr>
+<venda_text id=site.email.post_purchase.msg3><cr><cr>
+<venda_order ref=<venda_ohrfnbr>,template=txtpost_purchase-detail,templategrp=email,shopcart=1,formfields=false><cr><cr>
+<venda_text id=site.email.post_purchase.msg4><cr><cr>
+<venda_inctemplate name=textEmailFooter,type=includes><cr><cr>

@@ -1,0 +1,70 @@
+<venda_category rec=elementcat,ref=signintopcontent>
+<div class="checkoutR">
+<venda_category rec=elementcat,ref=signincolumn>
+</div>
+<div class="checkoutL">
+<div class="container signin<venda_block label=401,mode=value,<venda_setting type=ebiz,name=setlogindisplaytype>!=a>_2cols</venda_block label=401>">
+<venda_inctemplate type=includes/admn/co_comn-login,name=heading_intro>
+<venda_category rec=elementcat,ref=signinintro>
+<form name="loginform" id="loginform" method="post" action="<venda_codehttps>" onSubmit="return passEmail(this);">
+<venda_tpcomment><!-- include file for hidden fields used in form 1 & 2 --></venda_tpcomment> 
+<venda_inctemplate type=includes/admn/co_comn-login,name=hidden_fields>
+
+<venda_tpcomment><!-- Login Type A, B - single form is used (returning and register new user) --></venda_tpcomment> 
+<venda_block label=40,mode=value,<venda_setting type=ebiz,name=setlogindisplaytype>=a,<venda_setting type=ebiz,name=setlogindisplaytype>=b,operator=or>
+<venda_inctemplate type=includes/admn/co_comn-login,name=email_address>
+<venda_inctemplate type=includes/admn/co_comn-login,name=password>
+<venda_inctemplate type=includes/admn/co_comn-login,name=js_buttons>
+</venda_block label=40>
+
+<venda_tpcomment><!-- Login Type C - form one (new customer box) --></venda_tpcomment>
+<venda_block label=41,mode=value,<venda_setting type=ebiz,name=setlogindisplaytype>=c>
+
+<input type="hidden" name="registered" value="0"> 
+<venda_inctemplate type=includes/admn/co_comn-login,name=email_address>
+<venda_inctemplate type=includes/admn/co_comn-login,name=notregistered>
+</venda_block label=41>
+
+<venda_tpcomment><!-- Login Type D, E - form one (new customer box) --></venda_tpcomment>
+<venda_block label=42,mode=value,<venda_setting type=ebiz,name=setlogindisplaytype>=d,<venda_setting type=ebiz,name=setlogindisplaytype>=e,operator=or>
+
+<input type="hidden" name="registered" value="0">
+<venda_inctemplate type=includes/admn/co_comn-login,name=notregistered>
+</venda_block label=42>
+
+</form>
+<venda_tpcomment><!-- Login Type C, D, E - form two (returning customer box) --></venda_tpcomment> 
+<venda_block label=43,mode=value,<venda_setting type=ebiz,name=setlogindisplaytype>=c,<venda_setting type=ebiz,name=setlogindisplaytype>=d,<venda_setting type=ebiz,name=setlogindisplaytype>=e,operator=or>
+
+<form name="secondloginform" id="secondloginform" method="post" action="<venda_codehttps>" onSubmit="return passEmail(this);">
+<venda_tpcomment><!-- include file for hidden fields used in form 1 & 2 --></venda_tpcomment> 
+<venda_inctemplate type=includes/admn/co_comn-login,name=hidden_fields>
+<input type="hidden" name="registered" value="1">
+<venda_block label=44,mode=value,<venda_setting type=ebiz,name=setlogindisplaytype>=c>
+<input type="hidden" name="email" id="email" value="">
+</venda_block label=44>
+<venda_inctemplate type=includes/admn/co_comn-login,name=registered>
+</form>
+</venda_block label=43>
+
+<venda_tpcomment><!-- Login - Express Checkout -->
+	<venda_inctemplate type=includes/admn/co_comn-login,name=express_checkout>
+</venda_tpcomment> 
+
+</div>
+
+<venda_category rec=elementcat,ref=signincontent>
+
+</div>
+
+<venda_tpcomment><!-- 
+step:<venda_curstep>
+param1: <venda_param1>
+param2: <venda_param2>
+workflow: <venda_workflow>
+page: co_comn-login
+ --></venda_tpcomment>
+<venda_tpxt mode=set,name=co_comn-login,value=1>
+
+
+<venda_inctemplate name=coremetricsMain,type=includes/tracking/coremetrics>

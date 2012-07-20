@@ -1,0 +1,12 @@
+==============================================================================<cr>
+<venda_ebizname> <venda_text id=site.email.refer_product.title><cr>
+==============================================================================<cr><cr>
+
+<venda_text id=site.email.refer_product.dear> <venda_dest_name>,<cr>
+
+<venda_block label=1,message=notnull><venda_message></venda_block label=1>
+<venda_block label=2,message=null><venda_text id=site.email.refer_product.msg1><cr></venda_block label=2>
+
+<venda_dispview invt=<venda_invtref>> <venda_invtname><cr><cr><venda_text id=site.email.refer_product.from><cr>
+<venda_block label=44,fname=Empty><venda_text id=site.email.refer_product.fname></venda_block label=44>
+<venda_block label=45,fname!=Empty><venda_fname></venda_block label=45>

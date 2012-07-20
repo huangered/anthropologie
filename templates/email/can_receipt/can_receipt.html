@@ -1,0 +1,85 @@
+<venda_inctemplate name=htmlEmailDetblocks,type=includes>
+
+<html>
+<head>
+	<title><venda_ebizname> <venda_text id=site.email.can_receipt.title> - <venda_ohordnum></title>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" width="726">
+<tr>
+	<td height="48" align="left" valign="top" style="padding-top:11px; padding-bottom:42px;"><venda_inctemplate name=htmlEmailLogo,type=includes></td>
+</tr>
+</table>
+<table cellpadding="0" cellspacing="0" style="font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;" width="726">
+<tr>
+	<td>
+	<venda_inctemplate name=htmlEmailHeader,type=includes>
+	<venda_block label=834,ohusgrrf!=ebayguest><p style="margin:0 0 15px 0; padding:0;"><venda_text id=site.email.can_receipt.msg1> <span style="color:#000;"><venda_ohordnum></span> <venda_text id=site.email.can_receipt.msg2></p></venda_block label=834>
+	<venda_block label=835,ohusgrrf=ebayguest><p style="margin:0 0 15px 0; padding:0;"><venda_text id=site.email.can_receipt.msg3> <span style="color:#000;"><venda_ohordnum></span>. <venda_text id=site.email.can_receipt.msg4></p></venda_block label=835>
+	</td>
+</tr>
+<tr>
+	<td align="left" valign="top" style="padding-top:5px; padding-bottom:5px;"><img src="<venda_ebizurl>/content/ebiz/<venda_bsref>/resources/images/email-linebr.jpg" alt="" border="0"></td>
+</tr>
+</table>
+<!---->
+<table border="0" cellspacing="0"  cellpadding="0" style="font-family:Arial, Helvetica, Verdana, sans-serif; font-size:11px; text-align:left; color:#666;" width="726">
+<!-- start contact/billing details -->
+<thead>
+<tr>
+	<th colspan="2" style="font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; text-transform:lowercase; padding-left:12px; padding-bottom:15px; text-align:left;"><venda_text id=site.email.body.contact_details></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.body.cardholder></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;"><span class="addrName"><venda_ohtitle> <venda_ohfname> <venda_block label=76,ohmname=notnull><venda_ohmname> </venda_block label=76><venda_ohlname></span></td>
+</tr>
+<tr>
+	<th width="120" valign="top" style="font-weight:bold; text-align:right; padding-bottom:6px; vertical-align:top;"><venda_text id=site.email.body.address></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;">
+	<venda_block label=73,ohcompany=notnull><venda_ohcompany><br></venda_block label=73>
+	<venda_ohnum> <venda_ohaddr1><br>
+	<venda_block label=74,ohaddr2=notnull><venda_ohaddr2><br></venda_block label=74>
+
+	<!-- if country is US or US entities display this formatting -->
+	<venda_block label=999,mode=value,<venda_ohcntry>=United States,<venda_ohcntry>=United States Non-48,<venda_ohcntry>=United States Armed Forces,operator=or>
+	<venda_ohcity>, <venda_block label=75,ohstate=notnull><venda_ohstate></venda_block label=75> <venda_ohzipc><br>
+	</venda_block label=999>
+
+	<!-- if country is NOT US or US entities display this formatting -->
+	<venda_block label=9991,mode=value,<venda_ohcntry>!=United States,<venda_ohcntry>!=United States Non-48,<venda_ohcntry>!=United States Armed Forces,operator=and>
+	<venda_ohcity><br>
+	<venda_block label=751,ohstate=notnull><venda_ohstate></venda_block label=751> <venda_ohzipc><venda_block label=1234,ohstate=notnull,ohzipc=notnull,operator=or><br></venda_block label=1234>
+	</venda_block label=9991>
+
+	<venda_ohcntry>
+	</td>
+</tr>
+<tr>
+	<th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.body.phone_number></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;"><span class="addrPhone"><venda_oharea> <venda_ohphone></span></td>
+</tr>
+<venda_block label=155,ohfax=notnull>
+<tr>
+	<th width="120" style="font-weight:bold; text-align:right; padding-bottom:6px;"><venda_text id=site.email.body.fax_number></th>
+	<td width="596" style="padding-left:10px; padding-bottom:6px;"><span class="addrFax"><venda_ohfarea> <venda_ohfax></span></td>
+</tr>
+</venda_block label=155>
+<tr>
+	<td colspan="2" align="left" valign="top" style="padding-top:22px; padding-bottom:5px;"><img src="<venda_ebizurl>/content/ebiz/<venda_bsref>/resources/images/email-linebr.jpg" alt="" border="0"></td>
+</tr>
+</tbody>
+<!-- end contact/billing details -->
+</table>
+
+<!-- start delivery/items loop -->
+<venda_detail1>
+<!-- end delivery/items loop -->
+
+<p style="margin:0 0 15px 0; padding:5px 0 0 0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_text id=site.email.can_receipt.msg5></p>
+<p style="margin:0 0 15px 0; padding:0; font-family:'Courier New', Arial, Helvetica, Verdana, sans-serif; font-size:11px; font-weight:bold; color:#666;"><venda_text id=site.email.can_receipt.msg6> <a href="mailto:service@anthropologie.eu" style="color:#000; text-decoration:underline;">service@anthropologie.eu</a> <venda_text id=site.email.can_receipt.msg7></p>
+
+<venda_inctemplate name=htmlEmailFooter,type=includes>
+</body>
+</html>

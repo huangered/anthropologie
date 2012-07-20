@@ -1,0 +1,152 @@
+<div class="priceanddropdown">
+   <div class="att-price">
+	   <span id="PriceDiv_<venda_invtref>Label"> </span>
+	   <span id="PriceDiv_<venda_invtref>" class="price">
+	    <venda_block invtatrminsubsell&gt;0.00><venda_text id=site.from> <venda_currsym><venda_invtatrminsubsell></venda_block>
+	    <venda_block invtatrminsubsell=0.00><venda_currsym><venda_invtsell></venda_block>
+	   </span>
+	   <div class="attrwas"><span id="wasDiv_<venda_invtref>Label"><!-- WAS price Label --></span><span id="wasDiv_<venda_invtref>" class="was"><!-- WAS price value --></span></div>
+
+	   <div><span id="savingDiv_<venda_invtref>Label"><!-- SAVING price Label --></span><span id="savingDiv_<venda_invtref>"><!-- SAVING price value --></span></div>
+   </div>
+</div>
+<div class="attrproduct">
+<input type="hidden" name="itemlist" value="<venda_invtref>" id="itemlist_<venda_invtref>">
+<input type="hidden" name="att1list" value="" id="att1list_<venda_invtref>">
+<input type="hidden" name="att2list" value="" id="att2list_<venda_invtref>">
+<input type="hidden" name="att3list" value="" id="att3list_<venda_invtref>">
+<input type="hidden" name="att4list" value="" id="att4list_<venda_invtref>">
+<input type="hidden" name="set_oitemxoixtaddedproduct_<venda_invtref>" value="<venda_invtsuplsku>_<venda_invtatrsuplsku1>_">
+<input type="hidden" class="alreadyAdd" name="add_<venda_invtref>" value="notadd" id="add_<venda_invtref>">
+<div style="float:left; width:260px;">
+<venda_block label=1231,invtdesc1=notnull,invtdesc2=notnull,operator=or>
+   <venda_block label=12,invtdesc1=notnull><p><venda_invtdesc1></p></venda_block label=12>
+
+   <venda_block label=13,invtdesc2=notnull><!--p><venda_invtdesc2></p--></venda_block label=13>			
+</venda_block label=1231>
+</div>
+
+<div style="float:left; width:340px;">
+<div class="widthdropdown" style="margin-left: 80px;">
+   <fieldset id="attr_onoff<venda_invtref>">
+	   <legend class="pdattribute"><venda_text id=site.product_detail.attribute.legend></legend>
+	   <venda_block label=21,selatt1=notnull>
+	   <div class="att1"><label for="att1_<venda_invtref>"><venda_text id=site.product.attribute.colour></label>
+	   <select name="att1" id="att1_<venda_invtref>"><option value=""><venda_text id=site.product_detail.attribute.att1></option><venda_selatt1></select>
+
+	   <span id="color-error" style="display:block;"></span>
+	   </div>
+<!--venda_hashtags-->
+	   </venda_block label=21>
+	   <venda_block label=22,selatt2=notnull>
+	   <div class="att2"><label for="att2_<venda_invtref>"><venda_text id=site.product.attribute.size></label> <select name="att2" id="att2_<venda_invtref>"><option value=""><venda_text id=site.product_detail.attribute.att2></option><venda_selatt2></select>
+	   <span id="size-error" style="display:block;"></span>
+	   <span id="eta_error" style="display:block;"></span>
+
+		<span id="stock_error" style="display:block;"></span>	   
+	   </div>
+	   <span style="line-height:10px;"><a href="<venda_block label=1120,invtivtype=home><venda_dispview page=home_size_guide></venda_block label=1120><venda_block label=1121,invtivtype=apparel><venda_dispview page=apparel_size_guide></venda_block label=1121><venda_block label=1122,invtivtype=accessories><venda_dispview page=access_size_guide></venda_block label=1122><venda_block label=1123,invtivtype=shoes><venda_dispview page=shoe_size_guide></venda_block label=1123>" target="_blank" title="size guide" rel="popup console 550 750"><venda_text id=site.product.size.guide></a></span>
+	   </venda_block label=22>
+	   <venda_block label=23,selatt3=notnull>
+	   <div class="att3"><label for="att3_<venda_invtref>"><venda_text id=site.product_detail.attribute.label_colon></label> <select name="att3" id="att3_<venda_invtref>" onChange="getProduct('<venda_invtref>').changeAttributes(this);jQuery('#att1list_<venda_invtref>').value=this.value;"><option value=""><venda_text id=site.product_detail.attribute.att3></option><venda_selatt3></select></div>
+	   </venda_block label=23>
+	   <venda_block label=24,selatt4=notnull>
+
+	   <div class="att4"><label for="att4_<venda_invtref>"><venda_text id=site.product_detail.attribute.label_colon></label> <select name="att4" id="att4_<venda_invtref>" onChange="getProduct('<venda_invtref>').changeAttributes(this);jQuery('#att1list_<venda_invtref>').value=this.value;"><option value=""><venda_text id=site.product_detail.attribute.att4></option><venda_selatt4></select></div>
+	   </venda_block label=24>
+   </fieldset>
+</div>
+<div class="addprod" style="margin:10px 0 !important; float:right;">
+<input type="checkbox" name="onoff" class="onoff" id="onoff<venda_invtref>"> <label for="onoff<venda_invtref>" class="addremoveprod"><venda_text id=site.product.add.this></label>
+<input name="qtylist" class="qtylist" type="text" value="0" size="3" maxlength="3" onchange="" onkeypress="if(event.keyCode==13){ document.formproductset.ex.value='co_wizr-shopcart'; return getProduct('<venda_invtref>').checkAttributes(document.formproductset,'');  }"></div>
+
+</div>
+<br class="clear-all" />
+</div>
+
+<script type="text/javascript">
+jQuery('#att1_<venda_invtref>').change(function(){
+	
+	iVal1 = this.value;
+	jQuery('#att2_<venda_invtref>').val('');
+	iVal2 = jQuery('#att2_<venda_invtref>').val();
+	getProduct('<venda_invtref>').changeAttributes(this);
+	jQuery('#att1list_<venda_invtref>').val(iVal1); 
+	var slotfield = "<venda_block label=111,invtivtype=accessories,invtivtype=apparel,invtivtype=shoes,invtivtype=home,invtivtype=family,invtivtype=giftcard,operator=or>_b</venda_block label=111><venda_block label=112,invtivtype!=accessories,invtivtype!=apparel,invtivtype!=shoes,invtivtype!=home,invtivtype!=family,invtivtype!=giftcard>_a</venda_block label=112>";
+	var suplyfield = "<venda_invtsuplsku>_";
+	var oixtImageUrl;	
+	for (var each in attributeData<venda_invtref>) {
+		if (typeof(attributeData<venda_invtref>[each].attr) == "object"){
+			var atrsupplyfield = jQuery('#att1_<venda_invtref> option:selected').val();
+			if (attributeData<venda_invtref>[each].attr.att1 == atrsupplyfield){
+				oixtImageUrl = suplyfield+attributeData<venda_invtref>[each].detail.atrsuplsku+slotfield;
+				//document.form.set_oitemxoixtaddedproduct_<venda_invtref>.value = oixtImageUrl;
+				swapImage('<venda_invtref>swapimage','http://s7ondemand1.scene7.com/is/image/Anthropologie/'+oixtImageUrl+'?$uk_pdt_complete$&defaultImage=/Anthropologie/spacer');
+				jQuery(".sku_<venda_invtref> .set-image a").attr({
+					"onclick":"Venda.ProductDetail.doPopup('','http://s7ondemand1.scene7.com/is/image/Anthropologie/"+oixtImageUrl+"?$redesign-openLarger$',0); return false;",
+					"href":"http://s7ondemand1.scene7.com/is/image/Anthropologie/"+oixtImageUrl+"?$redesign-openLarger$"
+					});
+				jQuery('input[name=set_oitemxoixtaddedproduct_<venda_invtref>]').val(oixtImageUrl);
+			}
+		}
+	}
+	
+	changeCurrSym();
+	checkAllProductStatus('<venda_invtref>',iVal1,iVal2);
+});
+jQuery('#att2_<venda_invtref>').change(function(){
+	getProduct('<venda_invtref>').changeAttributes(this);
+	iVal1 = jQuery('#att1_<venda_invtref>').val();
+	iVal2 = this.value;
+	jQuery('#att2list_<venda_invtref>').val(iVal2);
+	
+	changeCurrSym();
+	checkAllProductStatus('<venda_invtref>',iVal1,iVal2);
+
+});
+
+jQuery('#addall').bind('click',function() {
+	if (jQuery(this).is(':checked')) {
+		jQuery('.sku_<venda_invtref> .qtylist').show().attr('value', this.checked + 0);
+		jQuery('.sku_<venda_invtref> .onoff').attr('checked', true);
+	}else{
+		jQuery('#att1_<venda_invtref>').val('');
+		jQuery('#att2_<venda_invtref>').val('');
+		jQuery('.sku_<venda_invtref> .qtylist').hide().attr('value', this.checked + 0);
+		jQuery('.sku_<venda_invtref> .onoff').attr('checked', false);
+	}
+	iVal1 = jQuery('#att1_<venda_invtref>').val();
+	iVal2 = jQuery('#att2_<venda_invtref>').val();
+	checkAllProductStatus('<venda_invtref>',iVal1,iVal2);
+	
+});
+
+jQuery('.sku_<venda_invtref> .onoff').click(function() {
+	//getProduct('<venda_invtref>').changeAttributes(this);
+	iVal1 = jQuery('#att1_<venda_invtref>').val();
+	iVal2 = jQuery('#att2_<venda_invtref>').val();
+	var slotfield = "<venda_block label=111,invtivtype=accessories,invtivtype=apparel,invtivtype=shoes,invtivtype=home,invtivtype=family,invtivtype=giftcard,operator=or>_b</venda_block label=111><venda_block label=112,invtivtype!=accessories,invtivtype!=apparel,invtivtype!=shoes,invtivtype!=home,invtivtype!=family,invtivtype!=giftcard>_a</venda_block label=112>";
+	var suplyfield = "<venda_invtsuplsku>_";
+	var oixtImageUrl;	
+	for (var each in attributeData<venda_invtref>) {
+		if (typeof(attributeData<venda_invtref>[each].attr) == "object"){
+			var atrsupplyfield = jQuery('#att1_<venda_invtref> option:selected').val();
+			if (attributeData<venda_invtref>[each].attr.att1 == atrsupplyfield){
+				oixtImageUrl = suplyfield+attributeData<venda_invtref>[each].detail.atrsuplsku+slotfield;
+				//document.form.set_oitemxoixtaddedproduct_<venda_invtref>.value = oixtImageUrl;
+				swapImage('<venda_invtref>swapimage','http://s7ondemand1.scene7.com/is/image/Anthropologie/'+oixtImageUrl+'?$uk_pdt_complete$&defaultImage=/Anthropologie/spacer');
+				jQuery('input[name=set_oitemxoixtaddedproduct_<venda_invtref>]').val(oixtImageUrl);
+			}
+		}
+	}
+	changeCurrSym();
+	checkAllProductStatus('<venda_invtref>',iVal1,iVal2);
+});
+
+jQuery('.sku_<venda_invtref> .qtylist').bind('change' , function(){
+	iVal1 = jQuery('#att1_<venda_invtref>').val();
+	iVal2 = jQuery('#att2_<venda_invtref>').val();
+	checkAllProductStatus('<venda_invtref>',iVal1,iVal2);
+});
+
+</script>

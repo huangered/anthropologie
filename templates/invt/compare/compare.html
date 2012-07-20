@@ -1,0 +1,37 @@
+<venda_block label=45,invtpublish=1>
+<h3><venda_invtname></h3>
+		<venda_block label=10,invtref=notnull>
+		<venda_block label=101,med-<venda_setting type=ebiz,name=setcompareimagekey>=notnull>
+			<a href="#" onclick="doMainWindow('<venda_dispview invt=<venda_invtref>>');"><venda_media rec=invt,type=pict,border=0,key=<venda_setting type=ebiz,name=setcompareimagekey>></a>
+		</venda_block label=101>
+		<venda_block label=102,med-<venda_setting type=ebiz,name=setcompareimagekey>=null>
+			<a href="#" onclick="doMainWindow('<venda_dispview invt=<venda_invtref>>');"><venda_text id=site.compare.view_product></a>
+		</venda_block label=102>
+
+<venda_block label=126,invtavail&gt;0>
+<p><a href="#" onclick="doMainWindow('<venda_serveradd>/bin/venda?ex=co_wizr-shopcart&mode=add&log=22&ivref=<venda_invtref>&bsref=<venda_bsref>');" title="<venda_text id=site.button.alt.buy_now.invt>"><venda_text id=site.compare.buy_product></a></p>
+</venda_block label=126>
+
+<!-- if out of stock -->
+<venda_block label=127,invtavail&lt;1>
+<p><venda_text id=site.out_of_stock></p>
+<a href="#" onclick="doMainWindow('<venda_serveradd>/invt/<venda_invtref>&temp=emailinstock');" title="<venda_text id=site.link.title.email_when_in_stock.invt>"><venda_text id=site.link.email_when_in_stock></a>
+</venda_block label=127>
+
+		</venda_block label=10>
+	<p class="price"><venda_currsym><venda_invtsell></p>
+</venda_block label=45>
+<venda_block label=46,invtpublish!=1>
+<!-- unpublished -->
+	<h3><venda_invtname></h3>
+	<venda_block label=101,invtref=notnull>
+		<venda_block label=1011,med-<venda_setting type=ebiz,name=setcompareimagekey>=notnull>
+			<venda_media rec=invt,type=pict,border=0,key=<venda_setting type=ebiz,name=setcompareimagekey>>
+		</venda_block label=1011>
+		<venda_block label=1021,med-<venda_setting type=ebiz,name=setcompareimagekey>=null>
+			<img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/no_image_<venda_setting type=ebiz,name=setcompareimagekey>.gif" alt="<venda_text id=site.link.alt.no_image>">
+		</venda_block label=1021>
+	</venda_block label=101>
+	<p><venda_currsym><venda_invtsell></p>
+	<p class="unpublished"><venda_text id=site.unpublished></p>
+</venda_block label=46>

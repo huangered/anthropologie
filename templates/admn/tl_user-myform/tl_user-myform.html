@@ -1,0 +1,79 @@
+<!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. -->
+
+<div id="tlusermyform"<venda_block label=1001,mode=value,<venda_htxt mode=get,name=pass>=change> class="changepass"</venda_block label=1001><venda_block label=1011,mode=value,<venda_htxt mode=get,name=addr>=change> class="changeaddr"</venda_block label=1011><venda_block label=1021,mode=value,<venda_htxt mode=get,name=comm>=change> class="changecomm"</venda_block label=1021><venda_block label=1031,param1=survey> class="changeprof"</venda_block label=1031>>
+
+<venda_zones type=countries,template=zoneJs>
+
+<venda_block label=10,param1!=survey>
+<venda_form>
+<input type="hidden" name="PrimaryForm">
+<input type="hidden" name="page" value="myaccount">
+
+<venda_block label=100,mode=value,<venda_htxt mode=get,name=pass>=change>
+<!-- Hit Ext fields need be passed again, if errors are not null -->
+<input type="hidden" name="htxt" value="<venda_htxt mode=make,pass=change>">
+<!-- pass communication values otherwise these will be reset when the password is changed -->
+<input type="hidden" name="blkpost" value="<venda_blkpost>">
+<input type="hidden" name="blkemail" value="<venda_blkemail>">
+<input type="hidden" name="blksms" value="<venda_blksms>">
+<input type="hidden" name="blktrdcomm" value="<venda_blktrdcomm>">
+<input type="hidden" name="usmailform" value="<venda_usmailform>">
+<venda_title field=hidden>
+<venda_fname field=hidden>
+<venda_mname field=hidden>
+<venda_lname field=hidden>
+<venda_zipc field=hidden>
+<venda_inctemplate type=includes/admn/tl_user-myform/change_email_address_password,name=heading_intro>
+<venda_inctemplate type=includes/admn/tl_user-myform/change_email_address_password,name=email_address_and_password>
+<venda_inctemplate type=includes/admn/tl_user-myform/change_email_address_password,name=js_buttons>
+</venda_block label=100>
+
+<venda_block label=101,mode=value,<venda_htxt mode=get,name=addr>=change>
+<!-- Hit Ext fields need be passed again, if errors are not null -->
+<input type="hidden" name="htxt" value="<venda_htxt mode=make,addr=change>">
+<!-- pass communication values otherwise these will be reset when the address details are updated -->
+<input type="hidden" name="blkpost" value="<venda_blkpost>">
+<input type="hidden" name="blkemail" value="<venda_blkemail>">
+<input type="hidden" name="blksms" value="<venda_blksms>">
+<input type="hidden" name="blktrdcomm" value="<venda_blktrdcomm>">
+<input type="hidden" name="usmailform" value="<venda_usmailform>">
+<venda_usemail field=hidden>
+<venda_uspswd field=hidden>
+<venda_uspswd2 field=hidden>
+<venda_inctemplate type=includes/admn/tl_user-myform/edit_user_details,name=heading_intro>
+<venda_inctemplate type=includes/admn/tl_user-myform/edit_user_details,name=edit_contact_details>
+<venda_inctemplate type=includes/admn/tl_user-myform/edit_user_details,name=js_buttons>
+</venda_block label=101>
+
+<venda_block label=102,mode=value,<venda_htxt mode=get,name=comm>=change>
+<!-- Hit Ext fields need be passed again, if errors are not null -->
+<input type="hidden" name="htxt" value="<venda_htxt mode=make,comm=change>">
+<venda_title field=hidden>
+<venda_fname field=hidden>
+<venda_mname field=hidden>
+<venda_lname field=hidden>
+<venda_usemail field=hidden>
+<venda_uspswd field=hidden>
+<venda_uspswd2 field=hidden>
+<venda_zipc field=hidden>
+<venda_inctemplate type=includes/admn/tl_user-myform/change_communication_options,name=heading_intro>
+<venda_inctemplate type=includes/admn/tl_user-myform/change_communication_options,name=your_communication_options>
+<venda_inctemplate type=includes/admn/tl_user-myform/change_communication_options,name=js_buttons>
+</venda_block label=102>
+
+</form>
+</venda_block label=10>
+
+<venda_block label=11,param1=survey>
+<venda_inctemplate name=usxtfields,type=includes>
+</venda_block label=11>
+
+</div>
+<!--
+page:tl_user-myform.html
+-->
+<venda_tpxt mode=set,name=track,value=user-myform>
+<venda_inctemplate name=hbxlocalvars10,type=includes/tracking>
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>
+<venda_inctemplate name=cmCreateRegistrationTag,type=includes/tracking/coremetrics>
+<venda_inctemplate name=cm-tl_user-myform,type=includes/tracking/coremetrics>

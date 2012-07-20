@@ -1,0 +1,63 @@
+<venda_block label=250,ohpaytype!=12>
+<p>
+<span class="addrName">
+<venda_block label=101,mode=value,<venda_sessionlanguage>=en><venda_ohtitle> </venda_block label=101>
+<venda_block label=102,mode=value,<venda_sessionlanguage>=de><venda_block label=1021,ohtitle=Mr><venda_text id=site.please.select.mr> </venda_block label=1021><venda_block label=1021,ohtitle=Mrs,ohtitle=Miss,ohtitle=Ms,operator=or><venda_text id=site.please.select.mrs> </venda_block label=1021>
+</venda_block label=102>
+<venda_ohfname><venda_block label=77,ohmname=notnull> <venda_ohmname></venda_block label=77> <venda_ohlname></span><br>
+<venda_block label=76,ohcompany=notnull><venda_ohcompany><br></venda_block label=76>
+<venda_block label=71,ohnum=notnull><venda_ohnum> </venda_block label=71><venda_ohaddr1><br>
+<venda_block label=74,ohaddr2=notnull><venda_ohaddr2><br></venda_block label=74>
+
+<!-- if country is US or US entities display this formatting -->
+<venda_block label=999,mode=value,<venda_ohcntry>=United States,<venda_ohcntry>=United States Non-48,<venda_ohcntry>=United States Armed Forces,operator=or>
+<venda_ohcity>, <venda_block label=75,ohstate=notnull><venda_ohstate></venda_block label=75> <venda_ohzipc><br>
+</venda_block label=999>
+
+<!-- if country is NOT US or US entities display this formatting -->
+<venda_block label=9991,mode=value,<venda_ohcntry>!=United States,<venda_ohcntry>!=United States Non-48,<venda_ohcntry>!=United States Armed Forces,operator=and>
+<venda_ohcity><br>
+<venda_block label=751,ohstate=notnull><venda_ohstate></venda_block label=751> <venda_ohzipc><venda_block label=1234,ohstate=notnull,ohzipc=notnull,operator=or><br></venda_block label=1234>
+</venda_block label=9991>
+
+	<venda_block label=1000,ohcntry=Austria><venda_text id=site.country.please.select.option.austria></venda_block label=1000>
+	<venda_block label=2000,ohcntry=Belgium><venda_text id=site.country.please.select.option.belgium></venda_block label=2000>
+	<venda_block label=3000,ohcntry=Bulgaria><venda_text id=site.country.please.select.option.bulgaria></venda_block label=3000>
+	<venda_block label=4000,ohcntry=Channel Islands><venda_text id=site.country.please.select.option.islands></venda_block label=4000>
+	<venda_block label=5000,ohcntry=Cyprus><venda_text id=site.country.please.select.option.cyprus></venda_block label=5000>
+	<venda_block label=6000,ohcntry=Czech Republic><venda_text id=site.country.please.select.option.czech></venda_block label=6000>
+	<venda_block label=7000,ohcntry=Denmark><venda_text id=site.country.please.select.option.denmark></venda_block label=7000>
+	<venda_block label=8000,ohcntry=Estonia><venda_text id=site.country.please.select.option.estonia></venda_block label=8000>
+	<venda_block label=9000,ohcntry=Finland><venda_text id=site.country.please.select.option.finland></venda_block label=9000>
+	<venda_block label=10000,ohcntry=France><venda_text id=site.country.please.select.option.france></venda_block label=10000>
+	<venda_block label=11000,ohcntry=Germany><venda_text id=site.country.please.select.option.germany></venda_block label=11000>
+	<venda_block label=12000,ohcntry=Greece><venda_text id=site.country.please.select.option.greece></venda_block label=12000>
+	<venda_block label=13000,ohcntry=Hungary><venda_text id=site.country.please.select.option.hungary></venda_block label=13000>
+	<venda_block label=14000,ohcntry=Ireland><venda_text id=site.country.please.select.option.ireland></venda_block label=14000>
+	<venda_block label=15000,ohcntry=Italy><venda_text id=site.country.please.select.option.italy></venda_block label=15000>
+	<venda_block label=16000,ohcntry=Latvia><venda_text id=site.country.please.select.option.latvia></venda_block label=16000>
+	<venda_block label=17000,ohcntry=Lithuania><venda_text id=site.country.please.select.option.lithuania></venda_block label=17000>
+	<venda_block label=18000,ohcntry=Luxembourg><venda_text id=site.country.please.select.option.luxembourg></venda_block label=18000>
+	<venda_block label=19000,ohcntry=Malta><venda_text id=site.country.please.select.option.malta></venda_block label=19000>
+	<venda_block label=20000,ohcntry=Netherlands><venda_text id=site.country.please.select.option.netherlands></venda_block label=20000>
+	<venda_block label=21000,ohcntry=Norway><venda_text id=site.country.please.select.option.norway></venda_block label=21000>
+	<venda_block label=22000,ohcntry=Poland><venda_text id=site.country.please.select.option.poland></venda_block label=22000>
+	<venda_block label=23000,ohcntry=Portugal><venda_text id=site.country.please.select.option.portugal></venda_block label=23000>
+	<venda_block label=24000,ohcntry=Romania><venda_text id=site.country.please.select.option.romania></venda_block label=24000>
+	<venda_block label=25000,ohcntry=Slovak Republic><venda_text id=site.country.please.select.option.slovak></venda_block label=25000>
+	<venda_block label=26000,ohcntry=Slovenia><venda_text id=site.country.please.select.option.slovenia></venda_block label=26000>
+	<venda_block label=27000,ohcntry=Spain><venda_text id=site.country.please.select.option.spain></venda_block label=27000>
+	<venda_block label=28000,ohcntry=Sweden><venda_text id=site.country.please.select.option.sweden></venda_block label=28000>
+	<venda_block label=29000,ohcntry=Switzerland><venda_text id=site.country.please.select.option.switzerland></venda_block label=29000>
+	<venda_block label=30000,ohcntry=United Kingdom><venda_text id=site.country.please.select.option.uk></venda_block label=30000>
+
+<br><span id="tag-contactDetails-usemail" class="hide"><venda_usemail></span>
+<venda_block label=48,workflow=ordlookup><span><venda_usemail></span><br></venda_block label=48>
+<venda_block label=46,workflow=instore,ustype!=P><span id="contactDetails-usemail"><noscript><venda_usemail></noscript></span><br></venda_block label=46>
+<venda_block label=47,workflow!=ordlookup,workflow!=instore><span id="contactDetails-usemail"><noscript><venda_usemail></noscript></span><br></venda_block label=47>
+<venda_block label=43,oharea=notnull,ohphone=notnull,operator=or><span class="addrPhone"><venda_text id=site.address_details.label.phone> <venda_block label=100,mode=value,<venda_setting type=ebiz,name=hidearea>!=1><venda_block label=11,oharea=notnull><venda_oharea>&nbsp;</venda_block label=11></venda_block label=100><venda_block label=12,ohphone=notnull><venda_ohphone></venda_block label=12></span></venda_block label=43>
+<venda_block label=44,ohfarea=notnull,ohfax=notnull,operator=or><br><span class="addrFax"><venda_text id=site.address_details.label.fax> <venda_block label=100,mode=value,<venda_setting type=ebiz,name=hidearea>!=1><venda_block label=11,ohfarea=notnull><venda_ohfarea>&nbsp;</venda_block label=11></venda_block label=100><venda_block label=12,ohfax=notnull><venda_ohfax></venda_block label=12></span></venda_block label=44>
+<venda_block label=49,workflow!=ordlookup><script type="text/javascript">Venda.Ebiz.splitString(document.getElementById('tag-contactDetails-usemail').innerHTML, 30, 'contactDetails-usemail');</script></venda_block label=49>
+</p>
+</venda_block label=250>
+<!-- tpxt cccntry --><venda_tpxt mode=set,name=cccntry,value=<venda_ohcntry>>

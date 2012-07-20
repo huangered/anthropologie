@@ -1,0 +1,225 @@
+<venda_block label=814,mode=value,<venda_setting type=ebiz,name=tracktagcoremetrics>=1>
+<!-- BEGIN COREMETRICS SUPPORT -->
+<script language="javascript1.1" type="text/javascript">
+<!-- 
+<venda_block label=10,invtref=null>
+<venda_block label=510,workflow!=shopcart,workflow!=register,workflow!=passwordreminder,workflow!=login>//non-workflow pages
+<venda_block label=5126,mode=value,<venda_tpxt mode=get,name=co_comn-login>!=1>
+	
+	//call the pageView tag for all non-invt pages, page view takes 4 params: page ID, Category ID, Search Term, Search Results
+	var cmPageID = "";
+	var cmCatID = "";
+	var cmSearchTerm = "";
+	var cmSearchResults	= "";
+	
+	<venda_block label=11,pageref=notnull>//pages
+	cmCatID="Customer Service";
+	<venda_block label=170,pageref=myaccount>//my account
+		cmCatID="MY ACCOUNT";
+		//must throw a registration tag after logging-in to My Account
+		<venda_userinfo>
+			valuesRegis=new Array("<venda_usemail>", "<venda_usemail>", "<venda_sescity>", "<venda_sesstate>", "<venda_seszipc>", "");
+		</venda_userinfo>											
+		cmCreateRegistrationTag(valuesRegis[0], valuesRegis[1], valuesRegis[2], valuesRegis[3], valuesRegis[4], valuesRegis[5]);	
+	</venda_block label=170>
+	
+	cmPageID="<venda_pageref>";
+	</venda_block label=11>
+	
+	<venda_block label=175,pageref=notnull,pageref=signupthankyou>//email news letter sign-up
+	cmCatID="Signup for Emails";
+	cmPageID ="signupforemailscompleted";
+	</venda_block label=175>
+	
+	<venda_block label=12,stryref=notnull>//stories
+	cmPageID = "<venda_stryref>"
+	cmCatID = "STORY"
+	</venda_block label=12>
+	
+	<venda_block label=13,icatref=notnull> //categories
+	<!-- /*edit by chars - to add pagination number on pageID*/ -->
+	var curpage = Venda.Platform.getUrlParam(window.location.href,'itemsperpage');
+	if (curpage < 100 && curpage!=null) {
+	    curpage =  Venda.Platform.getUrlParam(window.location.href,'curpage');
+		if (curpage==null || curpage==false ){
+			curpage= "1";
+		}
+	cmPageID="<venda_cattree index=-1,value=catname> Category page" + curpage;
+	}else{
+	cmPageID="<venda_cattree index=-1,value=catname> Category View All" ;
+	}
+	cmCatID="<venda_icatref>"
+	</venda_block label=13>
+	
+	<venda_block label=14,scatref=notnull>
+		cmPageID="<venda_scatref>";
+		cmCatID="STORY CATEGORY";
+	</venda_block label=14>
+	
+
+	//Search vars
+	<venda_block label=117,mode=value,<venda_tpxt mode=get,name=primarysearchtext>!=>
+		cmCatID="SEARCH";
+		cmSearchTotal="<venda_tpxt mode=get,name=totalresults>";
+		<venda_block label=118,mode=value,<venda_tpxt mode=get,name=currentpage>=1>
+			cmSearchTerm = "<venda_tpxt mode=get,name=primarysearchtext>";
+			cmSearchResults = cmSearchTotal;
+		</venda_block label=118>
+		<venda_block label=119,mode=value,<venda_tpxt mode=get,name=totalresults>=0>
+			cmSearchTerm = "<venda_tpxt mode=get,name=primarysearchtext>";
+			cmSearchResults = cmSearchTotal;
+		</venda_block label=119>
+		if ( cmSearchTotal > 0){cmPageID = "Search Successful";}
+		if ( cmSearchTotal == 0){cmPageID = "Search UnSuccessful";}
+	</venda_block label=117>
+
+	
+	
+</venda_block label=5126>
+</venda_block label=510>
+
+<venda_block label=5411,workflow=shopcart,workflow=register,workflow=passwordreminder,workflow=login,workflow=view,operator=or>// for shopcart/register workflow
+	//call the pageView tag for all non-invt pages, page view takes 4 params: page ID, Category ID, Search Term, Search Results
+	var cmPageID = "";
+	var cmCatID = "";
+	var cmSearchTerm = "";
+	var cmSearchResults	= "";
+
+<venda_block label=124,mode=value,<venda_tpxt mode=get,name=track>=,<venda_workflow>=shopcart,<venda_tpxt mode=get,name=co_comn-login>!=1>
+//basket step
+cmPageID = "view_basket";
+cmCatID = "Checkout";
+//call a shopAction5 for each item in the baset
+</venda_block label=124>
+
+<venda_block label=125,mode=value,<venda_tpxt mode=get,name=co_comn-login>=1><venda_block label=1125,errors=null>
+	//Log-in scree
+	cmPageID = "signin";</venda_block label=1125>
+	cmCatID = "Registration";
+</venda_block label=125>
+	
+<venda_block label=126,mode=value,<venda_tpxt mode=get,name=co_comn-login>=1><venda_block label=1126,errors=notnull>
+	
+	cmPageID = "sign_wrong_password";
+	cmCatID = "Registration";
+</venda_block label=1126></venda_block label=126>
+	
+<venda_block label=127,mode=value,<venda_tpxt mode=get,name=track>=pwrm-screen,<venda_tpxt mode=get,name=track>=pwrm-thankyou,operator=or>
+	//forgotten password
+	cmPageID = "signin_forgotten_password";
+	cmCatID = "Registration";
+</venda_block label=127>
+	
+<venda_block label=128,mode=value,<venda_tpxt mode=get,name=track>=orzc-screen><venda_block label=1128,param1!=delivery>
+	//Enter_postcode 
+	cmPageID = "enter_postal_code";
+		cmCatID = "Registration";
+</venda_block label=1128></venda_block label=128>
+	
+	<venda_block label=129,mode=value,<venda_tpxt mode=get,name=track>=orbt-screen><venda_block label=1129,param1=details,param1=show,operator=or>
+//Edit_or_add_contact_address 
+	cmPageID = "enter_contact_details";
+		cmCatID = "Registration";
+	</venda_block label=1129></venda_block label=129>
+	
+	<venda_block label=130,mode=value,<venda_tpxt mode=get,name=track>=orad-editadd,<venda_tpxt mode=get,name=track>=orad-screen,operator=or>// Enter_delivery_address
+	cmPageID = "enter_delivery_details";
+	cmCatID ="My Account"
+	</venda_block label=130>
+	
+	<venda_block label=131,mode=value,<venda_tpxt mode=get,name=track>=orzc-screen><venda_block label=1131,param1=delivery>// Enter_delivery_address 
+		cmPageID = "enter_delivery_details";
+		cmCatID ="My Account"
+	</venda_block label=1131></venda_block label=131>
+	
+	<venda_block label=132,mode=value,<venda_tpxt mode=get,name=track>=orcf-screen>// Order_summary 
+	cmPageID = "order_summary";
+	cmCatID ="Checkout"
+	</venda_block label=132>
+	
+	<venda_block label=133,mode=value,<venda_tpxt mode=get,name=track>=orcp-screen>// Enter_promo_voucher 
+	cmPageID = "enter_promo_voucher";
+	cmCatID ="Checkout"
+	</venda_block label=133>
+	
+	<venda_block label=134,mode=value,<venda_tpxt mode=get,name=track>=gift-screen>// Enter_gift_certificate 
+	cmPageID = "enter_gift_certificate";
+	cmCatID ="Checkout"
+	</venda_block label=134>
+	
+	<venda_block label=136,mode=value,<venda_tpxt mode=get,name=track>=orderreceipt>// Order_receipt 
+	cmPageID = "order_receipt";
+	cmCatID ="Checkout"
+	</venda_block label=136>
+</venda_block label=5411>
+
+<venda_block label=229,mode=value,<venda_tpxt mode=get,name=track>=orpo-screen>//order history
+	<venda_block label=2129,workflow=ordlookup> 
+	cmPageID = "order_history";
+	cmCatID = "My Account";
+	</venda_block label=2129>
+</venda_block label=229>
+
+<venda_block label=329,mode=value,<venda_tpxt mode=get,name=track>=user-myform>//my account links
+	
+	<venda_block label=3129,mode=value,<venda_tpxt mode=get,name=myacctrack>=editdetails>
+	cmPageID = "edit_contact_details";
+	</venda_block label=3129>
+
+	<venda_block label=4129,mode=value,<venda_htxt mode=get,name=pass>=change>
+	cmPageID = "edit_email_password";
+	</venda_block label=4129>
+
+	<venda_block label=5129,mode=value,<venda_htxt mode=get,name=comm>=change>
+	cmPageID = "edit_communication_options";
+	</venda_block label=5129>
+
+	<venda_block label=6129,param1=survey>
+	cmPageID = "edit_profile";
+	</venda_block label=6129>
+	
+cmCatID = "My Account";
+</venda_block label=329>	
+
+<venda_block label=429,mode=value,<venda_tpxt mode=get,name=track>=remd-add>//add reminder
+	cmPageID = "add_reminder";
+	cmCatID = "My Account";
+</venda_block label=429>
+
+<venda_block label=529,mode=value,<venda_tpxt mode=get,name=track>=remd-list>//view reminders
+	cmPageID = "view_reminders";
+	cmCatID = "My Account";
+</venda_block label=529>
+
+<venda_block label=629,workflow=locayta><venda_block label=6117,mode=value,<venda_tpxt mode=get,name=primarysearchtext>=>
+	cmPageID="<venda_category rec=icat,ref=<venda_tpxt mode=get,name=activecategory>,temp=activecatname> Category page - refining "
+	cmCatID="<venda_tpxt mode=get,name=activecategory>"
+	</venda_block label=6117>
+</venda_block label=629>
+
+<venda_block label=solr,mode=value,<venda_tpxt mode=get,name=activekeyword>=notnull><venda_block label=solr2,mode=value,<venda_tpxt mode=get,name=primarysearchtext>=>
+        cmPageID="<venda_category rec=icat,ref=<venda_tpxt mode=get,name=activecategory>,temp=activecatname> Category page - refining "
+        cmCatID="<venda_tpxt mode=get,name=activecategory>"
+        </venda_block label=solr2>
+</venda_block label=solr>
+
+<venda_block label=243,pageref=home>
+	cmCatID="Home"
+</venda_block label=243>
+
+cmCreatePageviewTag("<venda_sessionlanguage> - "+cmPageID, cmCatID, cmSearchTerm, cmSearchResults);
+</venda_block label=10>
+
+<venda_block label=910,invtref=notnull>
+		var cmProdID="<venda_invtref>";
+		var cmProdName="<venda_invtname>";
+		var cmProdCat="<venda_cattree index=-1,value=catref>";
+		var cmCurrentLanguage= '<venda_sessionlanguage> - ';
+		cmCreatePageviewTag(cmCurrentLanguage +"PRODUCT: "+cmProdName+" ("+cmProdID+")", cmProdCat);
+		cmCreateProductviewTag(cmProdID, cmProdName, cmProdCat);
+
+</venda_block label=910>
+//-->
+</script>
+<!-- END COREMETRICS -->
+</venda_block label=814>

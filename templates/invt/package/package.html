@@ -1,0 +1,212 @@
+<venda_block label=50,mode=value,<venda_setting type=ebiz,name=powerreviews>=1,<venda_setting type=ebiz,name=powerreviewsproddetail>=1>
+<script type="text/javascript">
+<venda_inctemplate type=includes,name=powerreviewscripts>
+var pr_page_id = '<venda_invtref>'; 
+var pr_write_review='<venda_dispview invt=<venda_invtref>>&temp=submitpowerreview&pageId=<venda_invtref>&layout=defaultnocolthree';
+var pr_read_review='#readReview';
+</script>
+</venda_block label=50>
+<venda_tpcomment><!-- tag values used for lightbox and product cycling --></venda_tpcomment>
+<div id="tag-redirect" style="display:none;"><venda_dispview page=installflash></div>
+<div id="tag-ebizref" style="display:none;"><venda_setting type=ebiz,name=ref></div>
+<div id="tag-invtref" style="display:none;"><venda_invtref></div>
+<div id="tag-invtname" style="display:none;"><venda_invtname></div>
+<div id="tag-lightboxloadmessage" style="display:none;"><venda_text id=site.lightboxloadmessage></div>
+<div id="tempLightbox" style="display:none;"><venda_tpcomment><!-- NEEDED for temporary storage of lightbox content --></venda_tpcomment></div>
+<venda_tpcomment><!-- tag values used for tell a friend, emwbis, write and read a review popups --></venda_tpcomment>
+<div id="tag-loadmessage" style="display:none;"><venda_text id=site.loadmessage></div>
+
+<script type="text/javascript">
+<venda_tpcomment>// START - javascript for lightbox. Please remove if not needed </venda_tpcomment>
+<venda_tpcomment>// see /venda-support/js/Venda/Widget/LightBox.js for usage details</venda_tpcomment>
+if (typeof Venda.Widget.Lightbox != "undefined" || Venda.Widget.Lightbox) {
+	<venda_tpcomment>//set param to 'undefined' to disable hooks</venda_tpcomment>
+	Venda.Widget.Lightbox.create(['zoom_link', 'zoom_img'], ['enlarge_link', 'enlarge_img'], 
+		{
+			drag: true, modal: true, fixedCenter: true, fade: 0.24,
+		//flash settings
+flSource:'http://imageware.venda.com/imageware/fsi4/fsi.swf?FPXBase=http://imageware.venda.com/imageware%2Fimageware%3Fsrc%3D&FPXSrc=<venda_setting type=ebiz,name=ref>/invt/<venda_invtref>.tif&ViewerWidth=100%&ViewerHeight=100%&NoNav=0&mousemodes_mode2=0&mousemodes_mode3=0'
+, flId:'lightboxflash', flContainer: 'imageware', flWidth: '400px', flHeight: '450px', flVer: '6.0.0' , flBgColour: '#ffffff'
+	  	}, 
+	  	{
+		  	invtname: 	document.getElementById('tag-invtname').innerHTML,
+		  	redirect: 	document.getElementById('tag-redirect').innerHTML,
+		  	loadmessage: 	document.getElementById('tag-lightboxloadmessage').innerHTML
+	});
+}
+<venda_tpcomment>// END - javascript for lightbox</venda_tpcomment>
+<venda_tpcomment>// START - javascript for tell a friend, emwbis, write and read a review. Please remove if not needed </venda_tpcomment>
+<venda_tpcomment>//  see /venda-support/js/Venda/Widget/InvtPopup.js for usage details</venda_tpcomment>
+if (typeof Venda.Widget.InvtPopups != "undefined" || Venda.Widget.InvtPopups) {
+	Venda.Widget.InvtPopups.create(['tellafriend_link', 'writereview_link', 'writeownreview_link', 'readreview_link', 'emwbis_link'],  
+		{
+			drag: true, modal: false, fixedCenter: false, fade: 0.24
+	  	}, 
+	  	{
+		  	loadmessage: 	document.getElementById('tag-loadmessage').innerHTML
+		});
+}
+<venda_tpcomment>// END - javascript for tell a friend, emwbis, write and read a review</venda_tpcomment>
+</script>
+
+<venda_tpcomment><!-- div id 'invt_popup' is used to show the Tell A Friend, Write A Review, Read A Review and Email Me When Back In Stock features in a popup div --></venda_tpcomment>
+<div id="invt_popup"></div>
+
+<div id="package">
+<h1><venda_invtname></h1>
+<venda_block errors=notnull><h2 class="error"><venda_errors></h2></venda_block>
+<div id="addedmsg"><venda_block label=32,mode=value,<venda_addedmsg msg=<venda_text id=site.addedmsg>>=notnull><p><venda_addedmsg msg=<venda_text id=site.addedmsg>></p><venda_inctemplate name=trackingProdAdd,type=includes></venda_block label=32></div>
+<venda_block label=320,mode=value,<venda_addedmsg msg=<venda_text id=site.addedmsg>>=null><venda_inctemplate name=trackingProdView,type=includes></venda_block label=320>
+
+<div class="invtmedia">
+<venda_block label=10,med-medium=notnull>
+<venda_block label=40,med-large=notnull,pdxtimageware!=1><a href="<venda_dispview invt=<venda_invtref>>?temp=enlarged&layout=empty" id="enlarge_img" target="_blank" title="<venda_text id=site.package.view_large_image.title>"></venda_block label=40>
+<venda_block label=140,med-large=notnull,pdxtimageware=1><a href="<venda_dispview invt=<venda_invtref>>?temp=imageware&layout=flashpopup" id="zoom_img" target="_blank" title="<venda_text id=site.product_detail.zoomable_image.title>"></venda_block label=140>
+<venda_media rec=invt,type=movie-swf-pict,key=multi,dyn=yes,default=medium><!-- show "medium" key by default -->
+<venda_block label=41,med-large=notnull></a></venda_block label=41>
+</venda_block label=10>
+<venda_block label=11,med-medium=null>
+<img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/no_image_m.gif" alt="<venda_text id=site.link.alt.no_image.invt>">
+</venda_block label=11>
+<venda_block label=35,pdxtimageware=1>
+<!-- Imageware popup -->
+<a href="<venda_dispview invt=<venda_invtref>>?temp=imageware&layout=flashpopup" id="zoom_link" target="_blank"title="<venda_text id=site.product_detail.zoomable_image.title>"><venda_text id=site.product_detail.zoomable_image></a> 
+<!-- end Imageware popup -->
+</venda_block label=35>
+<venda_block label=42,med-large=notnull,pdxtimageware!=1><div class="enlarge"><a href="<venda_dispview invt=<venda_invtref>>?temp=enlarged&layout=empty"  id="enlarge_link" target="_blank" title="<venda_text id=site.package.view_large_image.title>"><venda_text id=site.package.view_large_image></a></div></venda_block label=42>
+</div>
+
+<div class="desc">
+<venda_block label=12,invtdesc1=notnull><p class="invtdesc1"><venda_invtdesc1></p></venda_block label=12>
+<venda_block label=13,invtdesc2=notnull><p class="invtdesc2"><venda_invtdesc2></p></venda_block label=13>
+<venda_block label=14,invtdesc3=notnull><p class="invtdesc3"><venda_invtdesc3></p></venda_block label=14>
+<venda_block label=15,invtdesc4=notnull><p class="invtdesc4"><venda_invtdesc4></p></venda_block label=15>
+</div>
+
+<form name="form" action="<venda_codehttp>" method="get" name="addproductform" id="addproductform">
+<input type="hidden" name="bsref" value="<venda_bsref>">
+<input type="hidden" name="log" value="22">
+<input type="hidden" name="mode" value="add">
+<input type="hidden" name="curpage" value="">
+<input type="hidden" name="next" value="">
+<input type="hidden" name="ex" value="co_wizr-shopcart">
+<input type="hidden" name="buy" value="<venda_invtref>">
+<input type="hidden" name="invt" value="<venda_invtref>">
+<input type="hidden" name="ivref" value="<venda_invtref>">
+
+<p class="price"><venda_text id=site.package.price><venda_currsym><venda_invtsell></p>
+<p class="pricemsrp"><venda_text id=site.msrp><venda_currsym><venda_invtmsrp1></p>
+<venda_block label=17,invtwas=notnull><p class="was"><venda_text id=site.was><span><venda_currsym><venda_invtwas></span></p></venda_block label=17>
+<venda_block label=18,invtsavingonwas=notnull><p class="save"><venda_text id=site.save><span><venda_currsym><venda_invtsavingonwas></span></p></venda_block label=18>
+
+<venda_block label=81,invtavail&gt;0>
+<!-- if in stock -->
+<input type="image" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_addtobasket.gif" id="addproduct" class="add" alt="<venda_text id=site.button.alt.add_to_basket.invt>" onClick="document.form.ex.value='co_disp-shopc';">
+<input type="image" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_buynow.gif" class="buy" alt="<venda_text id=site.button.alt.buy_now.invt>">
+</venda_block label=81>
+
+<venda_block label=30,invtpreorder=notnull>
+<!-- if future release date -->
+<p class="release"><venda_text id=site.package.not_yet_released></p>
+<p class="release"><venda_text id=site.package.release_date></p>
+</venda_block label=30>
+
+<venda_block label=26,invtavail&lt;1>
+<!-- if out of stock -->
+<p class="nostock"><venda_text id=site.out_of_stock></p>
+<p class="nostock"><a href="<venda_dispview invt=<venda_invtref>>&temp=emailinstock" title="<venda_text id=site.link.title.email_when_in_stock.invt>" id="emwbis_link"><venda_text id=site.link.email_when_in_stock></a></p>
+</venda_block label=26>
+<venda_block label=52,mode=value,<venda_setting type=ebiz,name=powerreviews>=1,<venda_setting type=ebiz,name=powerreviewsproddetail>=1>
+<!-- power reviews snippet for product reviews -->
+<script type="text/javascript">snippet(document);</script>
+</venda_block label=52>
+</form>
+
+<div id="packageproducts">
+<p class="total"><venda_text id=site.package.total_products><venda_invtqtytot></p>
+<!-- display details of sub-skus -->
+<venda_invtsku template=subsku>
+</div>
+<venda_block mode=value,<venda_setting type=ebiz,name=powerreviews>!=1>
+<div class="reviews">
+<p class="writereview"><a href="<venda_dispview invt=<venda_invtref>>&temp=writereview" id="writereview_link"><venda_text id=site.package.write_review></a></p>
+<venda_category temp=reviewlink,ref=<venda_invtref>,rec=scat>
+</div>
+</venda_block>
+<venda_block label=54,mode=value,<venda_setting type=ebiz,name=powerreviews>=1,<venda_setting type=ebiz,name=powerreviewsproddetail>=1>
+<!-- power review engine function call to read reviews -->
+<script type="text/javascript">engine(document);</script>
+<div id="#readReview"></div>
+</venda_block label=54>
+
+<!-- <p class="tellafriend"><a href="<venda_dispview invt=<venda_invtref>>&temp=tellafriend" id="tellafriend_link"><venda_text id=site.package.tell_friend></a></p> -->
+
+<p class="print"><a href="#" onClick="window.print();"><venda_text id=site.link.print></a></p>
+
+<venda_tpcomment><!-- product cycling --></venda_tpcomment>
+<div id="tag-invtref" style="display:none;"><venda_invtref></div>
+<venda_category temp=product_cycling,rec=icat,ref=<venda_curcatref>,itemsperpage=1000>
+<script type="text/javascript">
+<venda_tpcomment>// START - javascript for product cycling. Please remove if not needed </venda_tpcomment>
+<venda_tpcomment>// see /venda-support/js/Venda/Widget/ProductCycling.js for usage details</venda_tpcomment>
+if (typeof Venda.Widget.ProductCycling != "undefined" || Venda.Widget.ProductCycling) {
+	Venda.Widget.ProductCycling.create( 
+		{
+		  	curinvtref: 	document.getElementById('tag-invtref').innerHTML,
+			allrefs:		document.getElementById('tag-allrefs').innerHTML
+	});
+}
+<venda_tpcomment>// END - javascript for product cycling</venda_tpcomment>
+</script>
+<venda_tpcomment><!-- buttons to cycle through items in same category --></venda_tpcomment>
+<div id="buttons"><a href="<venda_dispview icat=<venda_curcatref>>" id="previousInvt" class="left"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/bt_viewpreviousproduct.gif" alt="<venda_text id=site.product_detail.product_cycling.previous>"></a><a href="<venda_dispview icat=<venda_curcatref>>" id="nextInvt" class="right"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/bt_viewnextproduct.gif" alt="<venda_text id=site.product_detail.product_cycling.next>"></a></div>
+
+</div>
+
+<venda_tpxt mode=set,name=parent,value=<venda_invtcatref0>>
+
+<!-- tpxt used for crumbtrail -->
+<venda_tpxt mode=set,name=invtname,value=<venda_invtname>>
+
+<script type="text/javascript">
+<venda_tpcomment>//align the height of containers containing product info</venda_tpcomment>
+if (typeof Venda.Platform.EqualHeight != "undefined" || Venda.Platform.EqualHeight) {
+Venda.Platform.EqualHeight.packageContents = new Array ('#subsku li .details', '#subsku li .invtdesc2', '#subsku li .moreinfo', '#subsku li .image');
+Venda.Platform.EqualHeight.init(Venda.Platform.EqualHeight.packageContents);
+}
+</script>
+
+<!-- tpxt used for recently viewed items -->
+<venda_tpxt mode=set,name=invtref,value=<venda_invtref>>
+
+<venda_extflds template=extflds,group=1,ref=<venda_invtref>,ivtype=<venda_invtivtype>>
+<script type="text/javascript">
+<venda_tpcomment>// START - javascript for RVISlider. Please remove if not needed </venda_tpcomment>
+if (typeof Venda.Widget.Slider != "undefined" || Venda.Widget.Slider) {
+	var rviSlider = new Venda.Widget.Slider({
+	  sliderID: 'rvilist',
+	  maxNum: 30,
+	  displayCount: 4,
+	  slideAmtNum: 1,
+	  slideLeft: 'slideLeft',
+	  slideRight: 'slideRight',
+	  duration: 0.2
+	});
+	YAHOO.util.Event.onAvailable('showRVI', function() {
+	    rviSlider.init();
+	});
+};
+<venda_tpcomment>// END - javascript for RVISlider</venda_tpcomment>
+</script>
+
+<div id="showRVI" class="LshowRVI">
+<h2><span></span><venda_text id=site.product_detail.recent_items></h2>
+<div>
+   <img id="slideLeft" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/bt_previousrvi.gif" alt="<venda_text id=site.product_detail.recent_items.previous>" border="0" class="slide" style="visibility:hidden;">
+   <div class="rviwrapper">
+   		<venda_tpcomment><!--venda_rvi shows up to (limit=)6 last viewed product. Note that the limit must be greated than the rviSlider displayCount above.--></venda_tpcomment>
+	   <ul id="rvilist"><venda_rvi temp=rviproductdetail_detblock,limit=6></ul>
+   </div>
+   <img id="slideRight" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/bt_nextrvi.gif" alt="<venda_text id=site.product_detail.recent_items.next>" border="0" class="slide">
+  </div>
+</div>

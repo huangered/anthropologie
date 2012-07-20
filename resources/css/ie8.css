@@ -1,0 +1,10 @@
+/* REQUIRED FOR COLOUR SWATCH IMAGES - if functionality is enabled pls. do not remove as it is used for adjust a postion of notify message*/
+#productlist .notavailable {padding:3px; position:absolute; z-index:5; top:30%; left:10%; text-align:center; width:120px; border:solid 1px #ccc; background:#006bb0; color:#fff; font-size:0.9em;}
+/* REQUIRED FOR COLOUR SWATCH IMAGES (END) */ 
+
+.Lcat_headerright h3 {
+	margin: 0
+}
+#searchresults .sort label {padding:4px 0 0 0;}
+#searchresults .pagntop {margin-top:-20px;}
+

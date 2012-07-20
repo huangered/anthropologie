@@ -1,0 +1,30 @@
+#wlprCalc select{font-size:9pt;font-weight:400;padding:0px;width:65px;}
+.typeText{font-family:"Courier New","Courier",monospace;}
+.wlprCalcButton{float:right;background-image:url('images/btn_submit.png');background-repeat:no-repeat;border:none;width:89px;height:22px;margin:8px 13px 0px 0px;text-transform:uppercase;font-size:10pt;font-weight:400;line-height:21px;text-align:center;padding-bottom:1px;cursor:pointer;}
+.wlprCalcButton:hover{color:#d20018;}
+#wlprCalcLink,#rqSwchLink{margin-bottom:10px;}
+#wlprCalcLink a,#rqSwchLink a{color:#d20018;font-family:"Courier New",Courier,monospace!important;vertical-align:baseline!important;font-size:11px!important;}
+#wlprCalcLink a:hover,#rqSwchLink a:hover{text-decoration:underline;}
+#wlprCalc{width:364px;height:470px;padding:14px 18px;background-color:#fff;margin:13px;font-weight:400;}
+#wlprCalcWrapper{width:428px;height:525px;background-color:#e0e3e1;border:1px solid #e5e0d6;/*position:absolute;z-index:1;*/}
+#wlprCalcCurtain{display:none;width:100%;height:100%;position:absolute;background:#EEEEEE;top:0px;left:0px;opacity:0.75;filter:alpha(opacity=75);z-index:0;}
+.wlprLinkText{font-size:11px;color:#777;font-family:Arial,Helvetica,Tahoma,sans-serif;font-weight:400;line-height:15px;letter-spacing:1px;}
+#wlprCalcClose{position:absolute;top:4px;left:408px;color:#C73A26;font-family:"Courier New",Courier,monospace;font-size:13.5pt;font-weight:700;cursor:pointer;}
+#wlprCalcIntro{font-family:"Trebuchet MS","Trebuchet",monospace;font-size:8pt;padding:0px 7px;margin-bottom:14px;}
+#wlprCalcIntro .introText + .introText{font-style:italic;color:#7d7d7d;}
+#wlprCalcRoom{width:357px;margin-bottom:12px;padding-top:7px;background-image:url("images/bg_wlprCalcRoom.png");background-repeat:no-repeat;}
+.roomSize{overflow:hidden;clear:both;padding:5px 0px 0px 20px;}
+#wlprCalcWalls{width:352px;height:155px;margin-bottom:20px;margin-left:4px;}
+#wallSizeCTNR{background-color:#faf7f1;position:relative;height:105px;overflow:auto;padding:5px;}
+.wallSize{overflow:hidden;margin:5px 0px 5px 12px;}
+.wallSizeSF{overflow:hidden;margin-left:12px;}
+.roomSizeLabel,.wallSizeLabel{float:left;width:130px;font-family:Arial,sans-serif;font-size:8pt;text-transform:uppercase;position:relative;top:7px;}
+.roomSizeSelect,.wallSizeSelect{float:left;margin-left:10px;}
+#wallsButton{background-image:url('images/bg_wallsButton.png');background-repeat:no-repeat;width:352px;height:40px;}
+#wallsButton,#wlprCalcAddButton{overflow:hidden;}
+#wlprCalcSummary{background-image:url("images/bg_wlprCalcSummarySingle.png");background-repeat:no-repeat;border-top:1px dashed #979797;width:334px;height:74px;margin-left:9px;}
+#summaryPaperName{position:relative;left:10px;top:7px;font-family:Georgia,"Times New Roman",serif;color:#424242;font-size:10pt;font-weight:700;width:320px;margin-bottom:19px;}
+.summaryGroup{overflow:hidden;margin-top:5px;position:relative;top:3px;}
+.summaryLabel{float:left;font-family:"Trebuchet MS","Trebuchet",monospace;text-transform:uppercase;text-align:left;font-size:8pt;padding-left:10px;width:240px;}
+.summaryValue{float:left;font-family:Arial,sans-serif;color:#c73a26;text-align:center;font-weight:700;font-size:9pt;width:84px;}
+#summaryPriceLabel,#summaryPriceValue{display:none;}

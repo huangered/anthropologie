@@ -1,0 +1,29 @@
+<form action="<venda_codehttp>" method="get" id="emailmebackform" name="emailmebackform">
+<input type="hidden" name="ex" value="tl_emlinstock-emailme">
+<input type="hidden" name="bsref" value="<venda_bsref>">
+<input type="hidden" name="invtref" value="<venda_invtref>">
+<input type="hidden" name="invt" value="<venda_invtref>">
+<input type="hidden" name="layout" value="">
+<input type="hidden" name="temp" value="thankyou">
+<input type="hidden" name="htxt" value="<venda_htxt mode=make,foo=emailinstock>">
+
+<div id="emailmeback">
+	<h1><venda_text id=site.email_when_in_stock.heading></h1>
+	
+	<div><label for="bisemail"><venda_text id=site.email_when_in_stock.label.email_address></label> <input name="bisemail" value="<venda_userinfo><venda_sesusemail></venda_userinfo>" id="bisemail" maxlength="150"></div>
+	
+	<div id="buttons">
+	<a href="<venda_dispview invt=<venda_invtref>>" id="back_link" class="left"><venda_text id=site.link.back></a>
+	<input type="image" onclick="validateEMWBIS(); return false;" alt="<venda_text id=site.button.continue>" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_continue.gif" id="<venda_text id=site.button.continue>" class="right">
+	</div>
+	
+</div>
+
+</form>
+
+<venda_tpcomment><!-- The script has moved into its own template so that it is compatible with use of ajax script --></venda_tpcomment>
+<script type="text/javascript" src="<venda_dispview invt=<venda_invtref>>&temp=emailinstock_script&layout=noheaders"></script>
+
+<!-- tpxt used for crumbtrail -->
+<venda_tpxt mode=set,name=invtname,value=<venda_invtname>>
+<venda_tpxt mode=set,name=track,value=emailinstock>

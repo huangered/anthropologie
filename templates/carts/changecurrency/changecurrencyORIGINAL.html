@@ -1,0 +1,39 @@
+<div id="selectCur">
+<venda_block label=1,ustype!=R>
+<venda_block label=111,mode=value,<venda_sessionlocation>=uk,<venda_sessionlocation>=restofworld,operator=or>
+<div class="currency">
+<venda_block label=2,workflow=null>	
+	<span class="label"><venda_text id=site.currencyconvertor.label></span>
+	<span class="uk">&#163;</span>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<venda_dispview page=home>&setlocn=europe&log=4" id="europe" class="europeon"><span class="europe">&#8364;</span></a>
+</venda_block label=2>
+<venda_block label=3,workflow=notnull>
+<venda_block label=753,workflow!=register,workflow!=shopcart,operator=and>
+	<span class="label"><venda_text id=site.currencyconvertor.label></span>
+	<span class="uk">&#163;</span>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<venda_dispview page=home>&setlocn=europe&log=4" id="europe" class="europeon"><span class="europe">&#8364;</span></a>
+</venda_block label=753>
+</venda_block label=3>
+</div>
+<script language="javascript" type="text/javascript">
+	Venda.Ebiz.currencySwitch("europe","<venda_sessionlocation>","<venda_ebizurl>",<venda_block cartitemtotal=0>""</venda_block><venda_block cartitemtotal&gt;0>"Changing currency will empty your basket. Do you wish to proceed?"</venda_block>);
+</script>
+</venda_block label=111>
+<venda_block label=112,mode=value,<venda_sessionlocation>=europe>
+<div class="currency">
+<venda_block label=2,workflow=null>	
+	<span><venda_text id=site.currencyconvertor.label></span>
+	<a href="<venda_dispview page=home>&setlocn=uk&log=4" id="uk"><span class="uk">&#163;</span></a>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="europe">&#8364;</span>
+</venda_block label=2>
+<venda_block label=3,workflow=notnull>
+<venda_block label=753,workflow!=register,workflow!=shopcart,operator=and>
+	<span><venda_text id=site.currencyconvertor.label></span>
+	<a href="<venda_dispview page=home>&setlocn=uk&log=4" id="uk"><span class="uk">&#163;</a>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="europe">&#8364;</span>
+</venda_block label=753>
+</venda_block label=3>
+</div>
+<script language="javascript" type="text/javascript">
+	Venda.Ebiz.currencySwitch("uk","<venda_sessionlocation>","<venda_ebizurl>",<venda_block cartitemtotal=0>""</venda_block><venda_block cartitemtotal&gt;0>"Changing currency will empty your basket. Do you wish to proceed?"</venda_block>);
+</script>
+</venda_block label=112>
+</venda_block label=1>
+	<div class="flag"><venda_block label=113,mode=value,<venda_sessionlocation>=uk><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/flag_uk.gif" alt="UK"></venda_block label=113><venda_block label=114,mode=value,<venda_sessionlocation>!=uk><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/flag_euro.gif" alt="Europe"></venda_block label=114></div>
+</div>

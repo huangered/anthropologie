@@ -1,0 +1,45 @@
+<venda_block label=100,rtype=icat>
+	<title><venda_block label=1001,icxtmetatitle!=null,icxtmetatitle!=><venda_icxtmetatitle></venda_block label=1001><venda_block label=1002,icxtmetatitle=null><venda_icatname> | <venda_icatref> | <venda_ebizref></venda_block label=1002></title>
+	<meta name="description" content="<venda_block label=1003,icxtmetadescription!=null,icxtmetadescription!=><venda_icxtmetadescription></venda_block label=1003><venda_block label=1004,icxtmetadescription=null,icxtmetadescription=>Shop all <venda_icatname> at Anthropologie.com. Anthropologie offers a wide variety of <venda_icatname>. View all of the <venda_icatname> - New Arrivals, Outfits, Christmas Memories, Sleep Outfits, Marvels & Wonders, The Lodge Look, Holiday Travel, Frozen Assets, Leifsdottir, Denim Decoder, Sweaters, Dresses, Knits & Tees, Blouses, Trousers & Shorts, Denim, Skirts, Outerwear, Jackets, Loungewear, Sleepwear, Intimates, Legwear, Swim, Petites, Kids, etc.</venda_block label=1004>">
+	<meta name="keywords" content="<venda_block label=1005,icxtmetadescription!=null,icxtmetadescription!=><venda_icxtmetakeywords></venda_block label=1005><venda_block label=1006,icxtmetadescription=null,icxtmetadescription=>women's clothing,  women's dresses, women's sweaters, women's shoes, women's accessories, quilts, duvets, aprons, bedding, tabletop, dinnerware, glassware, serveware , decorations, rugs, curtains, candles, lighting, chairs, bath.</venda_block label=1006>">
+	<meta name="revisit-after" content="3 days" />
+   <meta name="robots" content="index,follow" />
+   <meta name="rating" content="general" />
+</venda_block label=100>
+<venda_block label=101,rtype=invt>
+	<title><venda_invtname> | Anthropologie.eu</title>
+	<meta name="Keywords" content="<venda_invtname>, <venda_invtname> UK, <venda_invtivtypename>, Anthropologie <venda_invtivtypename>, buy <venda_cattree index=-1,value=catname>, <venda_cattree index=-1,value=catname>, designer <venda_cattree index=-1,value=catname>, <venda_cattree index=-2,value=catname>, Anthropologie, Anthropologie.eu, Anthropologie clothing”>
+	<meta name="Description" content="Shop all <venda_cattree index=-1,value=catname> at Anthropologie.eu. Anthropologie offers a wide variety of <venda_cattree index=-1,value=catname>. View all of the <venda_cattree index=-1,value=catname> for you, for your friend, for your cousin, for your sister, for your mum, for you too!, etc… ">
+	<meta name="revisit-after" content="3 days" />
+   <meta name="robots" content="index,follow" />
+   <meta name="rating" content="general" />
+</venda_block label=101>
+<venda_block label=777,rtype!=icat,rtype!=invt,operator=and>
+<title>
+<venda_block label=3,pagename=notnull>
+<venda_block label=101,pageref=home>Anthropologie | Home | Women’s clothes, accessories and homeware</venda_block label=101>
+<venda_block label=102,pageref!=home><venda_pagename> | <venda_setting type=ebiz,name=name></venda_block label=102>
+</venda_block label=3>
+<venda_block label=4,pcatname=notnull><venda_pcatname> | <venda_setting type=ebiz,name=name></venda_block label=4>
+<venda_block label=5,stryname=notnull><venda_stryname> | <venda_setting type=ebiz,name=name></venda_block label=5>
+<venda_block label=6,scatname=notnull><venda_block label=36,mode=value,<venda_tpxt mode=get,name=track>=><venda_scatname> | </venda_block label=36><venda_block label=35,mode=value,<venda_tpxt mode=get,name=track>=productreviews><venda_text id=site.title.read_review> <venda_text id=site.title.at></venda_block label=35> <venda_setting type=ebiz,name=name></venda_block label=6>
+<venda_block label=11,mode=value,<venda_tpxt mode=get,name=co_comn-login>=1><venda_block label=111,workflow=shopcart><venda_text id=site.title.sign_in_checkout></venda_block label=111><venda_block label=112,workflow=register,workflow=login,workflow=view,workflow=refer,operator=or><venda_text id=site.title.sign_in_myaccount></venda_block label=112> <venda_text id=site.title.at> </venda_block label=11>
+<venda_block label=12,workflow=locayta><venda_setting type=ebiz,name=name> <venda_tpxt mode=get,name=srchrefinedby></venda_block label=12>
+<venda_block label=13,workflow=postcodedistance,param1=,param2=><venda_text id=site.title.store_locator> <venda_text id=site.title.at> </venda_block label=13>
+<venda_block label=14,mode=value,<venda_tpxt mode=get,name=track>=orgc-screen><venda_text id=site.title.gift_certificates> <venda_text id=site.title.at></venda_block label=14>
+<venda_block label=15,mode=value,<venda_tpxt mode=get,name=track>=refr-names><venda_text id=site.title.refer_friend> <venda_text id=site.title.at></venda_block label=15>
+<venda_block label=16,mode=value,<venda_tpxt mode=get,name=track>=orbt-screen,<venda_tpxt mode=get,name=co_comn-login>!=1><venda_text id=site.title.contact_details> <venda_text id=site.title.at> </venda_block label=16>
+<venda_block label=171,workflow=manageaddresses,param1=delivery><venda_text id=site.title.add_deliveryaddress> <venda_text id=site.title.at> </venda_block label=171>
+<venda_block label=172,workflow=register,param1=><venda_text id=site.title.add_billingaddress> <venda_text id=site.title.at> </venda_block label=172>
+<venda_block label=173,workflow=register,param1=nopswdlookup,param2=><venda_text id=site.title.add_billingaddress> <venda_text id=site.title.at> </venda_block label=173>
+<venda_block label=18,mode=value,<venda_tpxt mode=get,name=track>=orad-editadd><venda_block label=19,param1!=><venda_text id=site.title.delivery_details> </venda_block label=19>
+<venda_block label=20,param1=,param2=><venda_text id=site.title.multiple_delivery_addresses> </venda_block label=20><venda_text id=site.title.at> </venda_block label=18>
+<venda_block label=21,workflow=postcodedistance,param2=delivertostore><venda_text id=site.title.delivery_details> <venda_text id=site.title.at> </venda_block label=21><venda_block label=29,mode=value,<venda_tpxt mode=get,name=track>=orad-screen><venda_text id=site.title.address_book> <venda_text id=site.title.at> </venda_block label=29>
+<venda_block label=22,workflow=shopcart,workflow=giftcertificates,workflow=instore,operator=or><venda_block label=122,mode=value,<venda_tpxt mode=get,name=co_comn-login>!=1><venda_block label=23,mode=value,<venda_tpxt mode=get,name=track>=,<venda_tpxt mode=get,name=co_comn-login>!=1><venda_text id=site.title.basket> <venda_text id=site.title.at> </venda_block label=23><venda_block label=24,mode=value,<venda_tpxt mode=get,name=track>=orgw-screen><venda_text id=site.title.gift_wrapping> <venda_text id=site.title.at> </venda_block label=24><venda_block label=25,mode=value,<venda_tpxt mode=get,name=track>=gift-screen><venda_text id=site.title.redeem_gift_certificate> <venda_text id=site.title.at> </venda_block label=25><venda_block label=26,mode=value,<venda_tpxt mode=get,name=track>=orcp-screen><venda_text id=site.title.redeem_promotion_code> <venda_text id=site.title.at> </venda_block label=26><venda_block label=27,mode=value,<venda_tpxt mode=get,name=track>=orcf-screen><venda_text id=site.title.order_confirmation> <venda_text id=site.title.at> </venda_block label=27><venda_block label=28,mode=value,<venda_tpxt mode=get,name=track>=orderreceipt><venda_text id=site.title.order_receipt> <venda_text id=site.title.at> </venda_block label=28></venda_block label=122></venda_block label=22>
+<venda_block label=7,workflow=notnull,workflow!=locayta><venda_setting type=ebiz,name=name></venda_block label=7>
+<venda_block label=44,mode=value,<venda_tpxt mode=get,name=track>=user-myform><venda_setting type=ebiz,name=name></venda_block label=44>
+<venda_block label=8,errors=notnull> <venda_text id=site.title.errors></venda_block label=8>
+<venda_block label=919,mode=value,<venda_tpxt mode=get,name=totalpagesTitle>=notnull,<venda_tpxt mode=get,name=totalpagesTitle>!=1,operator=and><venda_block label=9191,workflow!=locayta><venda_text id=site.title.page_numbers></venda_block label=9191></venda_block label=919>
+</title>
+</venda_block label=777>
+<venda_block label=9,pageref=home><venda_tpxt mode=set,name=home,value=1></venda_block label=9><venda_block label=10,icatref=notnull><venda_tpxt mode=set,name=icatref,value=<venda_icatref>></venda_block label=10>

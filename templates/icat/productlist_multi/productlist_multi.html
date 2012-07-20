@@ -1,0 +1,171 @@
+<venda_detblock>
+<venda_block label=78,invtref1!=giftcert>
+<li>
+
+	<div class="mediaimage">
+	<venda_block label=1000,med-small1=notnull>
+		<a href="<venda_dispview invt=<venda_invtref1>>"><venda_media rec=invt1,type=movie-swf-pict,key=small,border=0></a>
+	</venda_block label=1000>
+	<venda_block label=100,med-small1=null>
+		<a href="<venda_dispview invt=<venda_invtref1>>"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/no_image_small.gif" alt="<venda_text id=site.link.alt.no_image.invt>"></a>
+	</venda_block label=100>
+	</div>
+
+	<div class="details">
+		<h2><a href="<venda_dispview invt=<venda_invtref1>>" id="comp-name<venda_invtref1>"><venda_invtname1></a></h2>
+		
+		<venda_block label=10,invtatrtot1&lt;1>
+			<input type="hidden" name="itemlist" value="<venda_invtref1>" id="<venda_invtref1>">
+			<input type="hidden" name="att1list" value="">
+			<input type="hidden" name="att2list" value="">
+			<input type="hidden" name="att3list" value="">
+			<input type="hidden" name="att4list" value="">
+			<div class="att-price">
+				<!-- if product doesn't have attributes -->
+				<p class="price"><venda_currsym><venda_invtsell1></p>
+				<venda_block label=11,invtsavingonwas1=notnull,invtwas1!=0.00>
+					<p class="was"><span class="waslabel"><venda_text id=site.was></span> <venda_currsym><venda_invtwas1></p>
+					<p class="save"><span class="savelabel"><venda_text id=site.save></span> <venda_currsym><venda_invtsavingonwas1></p>
+				</venda_block label=11>
+			</div>
+			
+			<div class="ddget"><input type="checkbox" name="onoff" class="onoff"> <span class="addremoveprod">Add this product</span></div>
+			
+			<div class="att-button">
+				<select name="qtylist" id="qtylist">
+					<option value="">Qty</option>
+					<option value="1" selected>1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select><br>
+			</div>		
+		</venda_block label=10>
+		
+		<venda_block label=50,invtatrtot1&lt;1,invtpreorder1=1><p class="release"><venda_text id=site.release_date></p></venda_block label=50>
+		<venda_block label=130,invtavail1&gt;0,invtatrtot1&gt;0>
+		<venda_inventory ref=<venda_invtref1>,temp=attributes_multi>
+		</venda_block label=130>
+		
+		<venda_block label=40,invtavail1&lt;1>
+		<!-- if out of stock -->
+		<div class="nostock"><venda_text id=site.out_of_stock></div>
+		</venda_block label=40>
+		
+		<venda_block label=104,invtsell21=notnull>
+		<div class="multibuy"><venda_text id=site.multibuy></div>
+		</venda_block label=104>
+		
+		
+	</div>
+
+</li>
+</venda_block label=78>
+</venda_detblock>
+
+<form name="productform" id="buyproducts" action="<venda_codehttp>" method="get">
+<input type="hidden" name="bsref" value="<venda_bsref>">
+<input type="hidden" name="log" value="22">
+<input type="hidden" name="mode" value="addmul">
+<input type="hidden" name="layout" value="checkout">
+<input type="hidden" name="next" value="">
+<input type="hidden" name="param1" value="bulk">
+<input type="hidden" name="param2" value="">
+<input type="hidden" name="ex" value="co_wizr-shopcart">
+<input type="hidden" name="imgbasepath" id="imgbasepath" value="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/">
+
+<div id="productlist_multi">
+<div class="prodLeft">
+<venda_block errors=notnull><h2 class="error"><venda_errors></h2></venda_block>
+<div id="addedmsg"><venda_block label=13,mode=value,<venda_addedmsg msg=<venda_text id=site.addedmsg>>=notnull><p><venda_addedmsg msg=<venda_text id=site.addedmsg>></p></venda_block label=13></div>
+
+
+<venda_tpcomment><!--<div class="mutiaddimage"><venda_media rec=icat,type=movie-swf-pict,key=prodmultibanner></div>--></venda_tpcomment>
+
+<div class="invtmedia" id="image_<venda_invtuuid>">
+<div id="productdetail-image">
+<venda_block label=10,med-medium=notnull>
+<venda_media rec=icat,type=movie-swf-pict,key=medium,border=0><!-- show "medium" key by default -->
+</venda_block label=10>
+<venda_block label=11,med-medium=null>
+<img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/no_image_medium.gif" alt="<venda_text id=site.link.alt.no_image.invt>">
+</venda_block label=11>
+
+</div>
+
+</div>
+
+<br class="clear-all">
+			
+		
+</div> <!-- End ProdLeft -->
+
+
+<div class="prodRight">
+<div class="mutiaddcontentarea">
+
+	<venda_block label=52,rectot=><p><venda_text id=site.productlist.product_empty></p></venda_block label=52>
+	<venda_block label=53,rectot!=>
+		<ul class="products-multi">
+			<venda_detail>
+		</ul>
+	</venda_block label=53>
+	
+	<venda_block label=535,rectot!=>
+	<div class="select-add">
+		<span><input type="checkbox" name="addall" id="addall"></span> <span id="addremoveall">Add all products</span>
+		<!-- span><input type="submit" name="submit" value="Buy Now" id="multiaddbuynow"></span -->
+		<span id="multiaddbuynow"></span>
+	</div>
+	</venda_block label=535>
+</div>
+</div>  <!-- End ProdRight -->
+
+</div>
+
+<venda_tpxt mode=set,name=track,value=productlist>
+
+</form>
+<script type="text/javascript">Venda.Ebiz.BKList.init("<venda_cattree ref=<venda_icatref>,bklist=<venda_icatref>,type=icat>");</script>
+<script>
+/*****************************************************/
+jQuery(document).ready(function(){
+	var currentnav = jQuery(".Lcatnav ul li.nav<venda_cattree index=1,value=catref>");
+	if(currentnav.find("ul").length>0){
+		currentnav.addClass("activenav");
+	}
+});
+
+
+// Remove the "Select a Color" option from "Colour" selectbox if only one colour available
+jQuery('fieldset div.att1 select').each(function() {
+	
+	if (this.length == 2) { 
+		this.remove(0) ;
+		getProduct(this.id.slice(5)).changeAttributes(this);document.getElementById('att1list_' + this.id.slice(5)).value=this.value;
+		
+	};
+});
+
+
+</script>
+
+<style type="text/css">
+.Ltopnavcats ul li.nav<venda_cattree index=1,value=catref> {display:block;}
+.Ltopnavcats .topnav<venda_cattree index=1,value=catref> a {color:#A3715E;}
+.Ltopnavcats .topnav<venda_cattree index=1,value=catref> a:hover {color:#A3715E;}
+
+.Lcatnav ul li.nav<venda_cattree index=1,value=catref> a span,
+.Lcatnav ul li ul li.nav<venda_icatref> a, 
+.Lcatnav ul li.nav<venda_cattree index=2,value=catref> a
+{color: #FFF;}
+.Lcatnav ul li.nav<venda_cattree index=2,value=catref> ul li a{color: #CDA99A;}
+.Lcatnav ul li.nav<venda_cattree index=2,value=catref> ul li a:hover{color: #FFF;}
+.Lcatnav ul li ul li ul li.nav<venda_icatref> a{color: #FFF;}
+</style>

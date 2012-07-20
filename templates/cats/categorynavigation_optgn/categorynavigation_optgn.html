@@ -1,0 +1,49 @@
+<venda_detblock>
+<venda_block label=1,icatref1!=home>
+	<li class="nav<venda_icatref1>">
+	<venda_block label=34,navtype1=category_browsing><a href="<venda_dispview icat=<venda_icatref1>>"><venda_block label=10,med-navtitle1=notnull><venda_media rec=icat1,type=movie-swf-pict,key=navtitle,border=0></venda_block label=10><venda_block label=11,med-navtitle1=null><span><venda_icatname1></span></venda_block label=11></a></venda_block label=34>
+	<venda_block label=35,navtype1=guided_nav><a href="<venda_codehttp>?ex=co_wizr-locayta&template=wz_locayta&pageno=1&itemsperpage=5&collate=brand%3Aivtype&fieldinvt=type&termtextinvt=invt&typeinvt=exact&fieldpcatid=pcatid&termtextpcatid=<venda_icatref1>&typepcatid=exact" onclick='document.guidedleft.termtextpcatid.value ="<venda_icatref1>"; document.guidedleft.submit(); return false;'><venda_block label=20,med-navtitle1=notnull><venda_media rec=icat1,type=movie-swf-pict,key=navtitle,border=0></venda_block label=20><venda_block label=21,med-navtitle1=null><span><venda_icatname1></span></venda_block label=21></a></venda_block label=35>
+	<venda_block label=37,navtype1=no_link><venda_block label=30,med-navtitle1=notnull><venda_media rec=icat1,type=movie-swf-pict,key=navtitle,border=0></venda_block label=30><venda_block label=31,med-navtitle1=null><span><venda_icatname1></span></venda_block label=31></venda_block label=37>
+	<venda_block label=38,navtype1=dynamic><a href="<venda_dispview icat=<venda_icatref1>>" id="control<venda_icatref1>" onclick="ajaxFunction(this+'&layout=noheaders&temp=subcategories','tab<venda_icatref1>'); if (turnonToggle == 1){toggle(this)}; return false;"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/bulletoff.gif" alt="" class="bullet"><venda_block label=40,med-navtitle1=notnull><venda_media rec=icat1,type=movie-swf-pict,key=navtitle,border=0></venda_block label=40><venda_block label=41,med-navtitle1=null><span><venda_icatname1></span></venda_block label=41></a></venda_block label=38>
+</venda_block label=1>
+
+<venda_block label=22,mode=value,<venda_tpxt mode=get,name=activecat>=>
+	<venda_category rec=icat,ref=<venda_icatref1>,temp=catnavsubcategories,incattree=1,itemsperpage=100>
+</venda_block label=22>
+<venda_block label=33,mode=value,<venda_tpxt mode=get,name=activecat>!=>
+	<venda_category rec=icat,ref=<venda_tpxt mode=get,name=activecat>,temp=categoryname>
+</venda_block label=33>
+
+<venda_block label=2,icatref1=home>
+	<li class="navhome"><a href="<venda_dispview page=home>"><venda_block label=12,med-navtitle1=notnull><venda_media rec=icat1,type=movie-swf-pict,key=navtitle,border=0></venda_block label=12><venda_block label=13,med-navtitle1=null><span><venda_icatname1></span></venda_block label=13></a>
+</venda_block label=2>
+
+	<div class="cannotsee<venda_icatref1>" id="tab<venda_icatref1>"><venda_category rec=icat,ref=<venda_icatref1>,temp=subcategories,incattree=1,itemsperpage=100></div></li>
+</venda_detblock>
+
+<venda_block label=199,icxtnavstyle=notnull,icxtnavastyle=notnull,operator=or>
+<style type="text/css">
+<venda_block label=99,icxtnavstyle=notnull>
+.Lcatnav ul li.nav<venda_tpxt mode=get,name=activepcatid><venda_cattree index=1,value=catref> {
+	<venda_icxtnavstyle>
+}
+</venda_block label=99>
+<venda_block label=98,icxtnavastyle=notnull>
+.Lcatnav ul li.nav<venda_tpxt mode=get,name=activepcatid><venda_cattree index=1,value=catref> a {
+	<venda_icxtnavastyle>
+}
+</venda_block label=98>
+</style>
+</venda_block label=199>
+
+<h2><span></span><venda_icatname></h2>
+<venda_block label=53,cattot!=>
+<ul>
+<venda_detail>
+</ul>
+</venda_block label=53>
+
+<script type="text/javascript">
+<venda_tpcomment>// This variable communicates with the activateNav include template to turn on the left nav. It needs to be declared when using the Category Navigation (Navigation Settings) element, because we are not using the incattree parameter</venda_tpcomment>
+var activateNav = 1;
+</script>

@@ -1,0 +1,126 @@
+<table summary="<venda_text id=site.order_details_summary.table_summary>" title="<venda_text id=site.order_details_summary.table_title>" class="wizrtable orderdetails">
+	<tr>
+		<th scope="row" class="hdrSubTotal"><div><venda_text id=site.order_details.subtotal></div></th>
+		<td><div class="subtotal"><venda_ohcursym><venda_ohsub></div></td>
+	</tr>
+	<venda_block label=64,showdiscount=1>
+	<!-- start discount -->
+	<tr>
+		<th scope="row" class="hdrDiscount"><div><venda_text id=site.order_details.discount></div></th>
+
+		<td><div class="discount">-<venda_ohcursym><venda_ohdisc></div></td>
+	</tr>
+	<!-- end discount -->
+	</venda_block label=64>
+	<tr>
+		<th scope="row" class="hdrDelivery"><div><venda_text id=site.order_details.delivery></div></th>
+		<td><div class="delivery"><venda_ohcursym><venda_ohship></div></td>
+	</tr>
+
+	
+	<venda_block label=91,ohtax!=0.00,ohtax=notnull>
+	<tr>
+		<th scope="row" class="hdrEstimatedTax"><div><venda_text id=site.order_details.estimated_tax></div></th>
+		<td><div class="estimatedtax"><venda_ohcursym><venda_ohtax></div></td>
+	</tr>
+	</venda_block label=91>
+	<venda_block label=68,ohgwtot&gt;0>
+		<tr>
+			<th scope="row" class="hdrGiftWrapping"><div><venda_text id=site.order_details.gift_wrapping></div></th>
+
+			<td><div class="giftwrapping"><venda_ohcursym><venda_ohgwtot></div></td>
+		</tr>
+	</venda_block label=68>
+	<tr>
+		<th scope="row" class="hdrOrderTotal"><div><venda_text id=site.order_details.order_total> <venda_block label=191,ohtaxinc!=0.00,ohtaxinc=notnull><span colspan="2" class="includingVat"><venda_text id=site.order_details.including_vat></span></venda_block label=191></div></th>
+		<td class="veryImportant ordertotal"><div><venda_ohcursym><venda_ohtot></div></td>
+	</tr>
+	<venda_block label=65,showaccount=1,storecreditused&gt;0.00,creditused&gt;0.00,operator=or>
+		<venda_block label=82,enablestorecredit=1,creditused&gt;0.00,operator=or>
+			<venda_block label=80,showpayments=null>
+				<input type="hidden" name="ohpaytype" value="4">
+			</venda_block label=80>
+
+			<input type="hidden" name="usestorecredit" value="1">
+			<venda_block label=601,workflow=shopcart,curstep=confirm>
+			<venda_block label=180,storecredit=notnull,storecredit&gt;0.00>
+			<venda_block label=280,balance=0.00>
+				<tr>
+					<th scope="row" class="hdrStoreCredit"><div><venda_text id=site.order_details.credit_available></div></th>
+					<td class="veryImportant storeCredit"><div><venda_ohcursym><venda_storecredit></div></td>
+				</tr>
+			</venda_block label=280>
+
+				<tr>
+					<th scope="row" class="hdrAccCreditUsed"><div><venda_text id=site.order_details.account_credit_used></div></th>
+					<td class="veryImportant accCreditUsed"><div><venda_ohcursym><venda_account></div></td>
+				</tr>
+			</venda_block label=180>
+			<venda_block label=181,balance&gt;0.00>
+				<tr>
+					<th scope="row" class="hdrBalanceToPay"><div><venda_text id=site.order_details.balance_to_pay></div></th>
+					<td class="veryImportant balanceToPay"><div><venda_ohcursym><venda_balance></div></td>
+
+				</tr>
+			</venda_block label=181>
+			<venda_block label=821,storecreditremain&gt;0.00>
+				<tr>
+					<th scope="row" class="hdrStoreCreditRemain"><div><venda_text id=site.order_details.credit_remaining></div></th>
+					<td class="veryImportant storeCreditRemain"><div><venda_ohcursym><venda_storecreditremain></div></td>
+				</tr>
+			</venda_block label=821>
+			</venda_block label=601>
+
+			
+			<venda_block label=602,workflow=shopcart,curstep=finish>
+			<venda_block label=70,creditused&gt;0.00>
+				<tr>
+					<th scope="row" class="hdrCreditUsed"><div><venda_text id=site.order_details.account_credit_used></div></th>
+					<td class="veryImportant creditUsed"><div><venda_ohcursym><venda_creditused></div></td>
+				</tr>
+			</venda_block label=70>
+			<venda_block label=40,ohbal&gt;0.00>
+			<tr>
+
+				<th scope="row" class="hdrBalancePaid"><div><venda_text id=site.order_details.balance_paid></div></th>
+				<td class="balancePaid"><div><venda_ohcursym><venda_ohbal></div></td>
+			</tr>
+			</venda_block label=40>
+			<venda_block label=41,storecredit&gt;0.00>
+				<tr>
+					<th scope="row" class="hdrStoreCredit"><div><venda_text id=site.order_details.credit_remaining></div></th>
+					<td class="veryImportant storeCredit"><div><venda_ohcursym><venda_storecredit></div></td>
+				</tr>
+
+			</venda_block label=41>
+			</venda_block label=602>
+			
+			<venda_block label=603,workflow=ordlookup>
+			<venda_block label=170,creditused&gt;0.00>
+				<tr>
+					<th scope="row" class="hdrCreditUsed"><div><venda_text id=site.order_details.account_credit_used></div></th>
+					<td class="veryImportant creditUsed"><div><venda_ohcursym><venda_creditused></div></td>
+				</tr>
+			</venda_block label=170>
+
+			<venda_block label=140,ohbal&gt;0.00>
+			<tr>
+				<th scope="row" class="hdrBalancePaid"><div><venda_text id=site.order_details.balance_paid></div></th>
+				<td class="balancePaid"><div><venda_ohcursym><venda_ohbal></div></td>
+			</tr>
+			</venda_block label=140>
+			</venda_block label=603>
+
+		</venda_block label=82>
+
+	</venda_block label=65>
+	<venda_block label=66,enablefreeorder=1>
+			<venda_block label=661,ohbal=0.00>
+			<input type=hidden name=ohpaytype value=8>
+				<tr>
+					<th scope="row" class="hdrStoreCredit"><div><venda_text id=site.order_details.free_order></div></th>
+				</tr>
+			</venda_block label=661>
+	</venda_block label=66>
+
+</table>

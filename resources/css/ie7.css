@@ -1,0 +1,45 @@
+.Lcat_headerright h3 {
+	margin: 0
+} 
+
+div.signin_2cols .forgottenpassword a {
+	color:#999999;
+	margin-left:109px;
+	width:90px;
+	display:block;
+}
+
+
+/**/
+
+/* Order Summary */
+#paymentdetails #dontsaveccWrapper #dontsavecc {
+	margin-left:-3px;
+}
+#paymentdetails #dontsaveccWrapper label {
+	margin-top:5px;
+}
+#orderconfirmation .checkboxterms label.termsLabel {
+	margin-top:5px;
+}
+
+/* fix jqzoom white bg */
+a.jqzoom img{border-width: 0px;width: 290px;}
+.jqzoom{display:block;width: 290px;position: relative;}
+.jqZoomPup img{border: 0px;}
+
+/*jqzoom evo*/
+.productsetparent a.jqzoom img,
+.outfitsetparent a.jqzoom img{width: auto;}
+
+/*fix the layout for the child products in a set*/
+.productset-productitems-list .productset-productdetail-col2 ul, 
+.productset-productitems-list .productset-productdetail-col2 p {
+	width:210px;
+}
+
+
+#searchresults .sort label {padding:3px 0 0 0;}
+#searchresults .pagntop {margin-top:-21px;}
+
+

@@ -1,0 +1,116 @@
+		<link rel="stylesheet" type="text/css" href="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/css/wlprCalcStyle.css"/>
+		<script type="text/javascript" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/js/wlprCalcLib.js"></script>
+		<script type="text/javascript" src="<venda_dispview invt=<venda_invtref>>&temp=wallpapercalculator_script&layout=noheaders"></script>
+		<script type="text/javascript">
+			var wlprARR = new Array();
+			wlprARR.push(new Array('<venda_invtref>',"<venda_invtname>",'<venda_invtsell>','<venda_pdxtlength>','<venda_pdxtwidth>',0.72,0.72));
+		</script>
+		
+		<script type="text/javascript">
+			var getSupplyid = function(){
+				var slotfield = "_b";
+				var suplyfield = "<venda_invtsuplsku>_";
+				var att1 = "<venda_invtpdxtdefaultimg>"
+				var oixtImageUrl;
+								
+				oixtImageUrl = suplyfield+att1+slotfield;
+				document.form.set_oitemxoixtaddedproduct_<venda_invtref>.value = oixtImageUrl;
+			}
+			
+			var addToBag = function() {
+			var qtyValue;
+			qtyValue = document.form.qty.value;
+				if (qtyValue == "") {
+					alert("Please press calculate for amount required");
+				}
+				else {
+					document.location.href = "<venda_codehttp>?ex=co_disp-shopc&bsref=<venda_bsref>&log=22&mode=add&curpage=&next=&layout=empty&buy=<venda_invtref>&qty="+ qtyValue+"&att1=<venda_invtatr11>&att2=<venda_invtatr21>&invt=<venda_invtref>&temp=wallpapercalculator&set_oitemxoixtaddedproduct_<venda_invtref>=<venda_invtsuplsku>_<venda_invtpdxtdefaultimg>_b";
+				}
+			}
+		</script>
+		<!--div class="roomSize">
+			<div class="roomSizeLabel">pattern . . . . . . . . .</div>
+			<div class="roomSizeSelect">
+			<p><venda_invtname></p>
+			</div>
+		</div-->
+		<div class="roomSize" style="display:none;">
+			<div class="roomSizeLabel">paper price</div>
+			<div class="roomSizeSelect"><input id="paperPrice" type="text" value="<venda_invtsell>" disabled/></div>
+		</div>
+		<div class="roomSize" style="display:none;">
+			<div class="roomSizeLabel">paper length</div>
+			<div class="roomSizeSelect"><input id="paperLength" type="text" value="<venda_pdxtlength>" disabled/></div>
+		</div>
+		<div class="roomSize" style="display:none;">
+			<div class="roomSizeLabel">paper width</div>
+			<div class="roomSizeSelect"><input id="paperWidth" type="text" value="<venda_pdxtwidth>" disabled/></div>
+		</div>
+		<div class="roomSize" style="display:none;">
+			<div class="roomSizeLabel">pattern repeat</div>
+			<div class="roomSizeSelect"><input id="patternRepeat" type="text" value="<venda_pdxtwidth>" disabled/></div>
+		</div>
+		<br>
+		<div id="wlprCalcWrapper">
+			<div id="wlprCalc">
+				<!--div id="wlprCalcClose" onClick="closeWlprCalc();">X</div-->
+				<div id="wlprCalcIntro">
+					<div class="introText">Stymied by square footage? You needn't be. Enter your room's information into our calculator to find out how many rolls it requires.</div>
+					<div class="introText">Please note, the calculation will be approximate.</div>
+				</div>
+				<div id="wlprCalcRoom">
+					<form name="form" action="<venda_codehttp>" method="get" name="addproductform" id="addproductform">
+					<input type="hidden" name="bsref" value="<venda_bsref>">
+					<input type="hidden" name="log" value="22">
+					<input type="hidden" name="mode" value="add">
+					<input type="hidden" name="curpage" value="">
+					<input type="hidden" name="next" value="">
+					<input type="hidden" name="layout" value="empty">
+					<input type="hidden" name="ex" value="co_wizr-shopcart">
+					<input type="hidden" name="buy" value="<venda_invtref>">
+					<input type="hidden" name="invt" value="<venda_invtref>&temp=wallpapercalculator">
+					<input type="hidden" name="ivref" value="<venda_invtref>">
+					<input type="hidden" name="htxt" value="<venda_htxt mode=make,fcmtrack=<venda_invtref>|<venda_invtname>|1|<venda_invtsell>|<venda_invtcatref0>>">
+					<input type="hidden" name="att1" value="<venda_invtatr11>">
+					<input type="hidden" name="att2" value="<venda_invtatr21>">
+						<div class="roomSize">
+							<div class="roomSizeLabel">room height . . . . . . . . .</div>
+							<div class="roomSizeSelect"><select id="wlprCalcRmFeet" class="typeText"><script type="text/javascript">buildFeetSelect("inline");</script></select></div>
+							<div class="roomSizeSelect"><select id="wlprCalcRmInches" class="typeText"><script type="text/javascript">buildInchesSelect("inline");</script></select></div>
+						</div>
+						<div class="roomSize">
+							<div class="roomSizeLabel">number of walls . . . .</div>
+							<div class="roomSizeSelect"><select id="wlprCalcWlsNmbr" class="typeText" onChange="buildWallOptions()"><script type="text/javascript">buildWallsSelect("inline");</script></select></div>
+						</div>
+
+				</div>
+				<div id="wlprCalcWalls">
+					<div id="wallSizeCTNR"></div>
+					<div id="wallsButton">
+						<div class="wlprCalcButton typeText" onClick="getTotalRolls()" title="calculate the current dimensions">calculate</div>
+						<div class="wlprCalcButton typeText" onClick="resetCalc()" title="reset the calculator">reset</div>
+					</div>
+				</div>
+				<div id="wlprCalcSummary">
+					<div id="summaryPaperName"></div>
+					<div class="summaryGroup">
+						<div id="summaryQuantityLabel"class="summaryLabel">recommended quantity of rolls</div>
+						<!--input type="hidden" name="set_oitemxoixtaddedproduct_<venda_invtref>"-->
+						<input type="hidden" vlaue="" id="qty" name="qty">
+						<div id="summaryQuantityValue"class="summaryValue"></div>
+					</div>
+					<div id="addedmsg" class="error" style="padding:5px 0 0 10px;"><p><venda_addedmsg msg=addedqty Rolls added to your bag.></p></div>
+					<div class="summaryGroup">
+						<div id="summaryPriceLabel"class="summaryLabel">total price</div>
+						<div id="summaryPriceValue"class="summaryValue"></div>
+					</div>
+				</div>
+				<div id="wlprCalcAddButton"><div id="wlprCalcAddButtonActor" style="float:right;">
+				<!--input type="image" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/bt_addtobasket.gif" id="addproduct" class="add" alt="<venda_text id=site.button.alt.add_to_basket.invt>" onClick="getSupplyid();document.form.ex.value='co_disp-shopc';"-->
+				<a href="#" onclick="addToBag(); return;"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/bt_addtobasket.gif" border="0" alt="Add items to bag"></a>
+				</div></div>
+			</div>
+		</div>
+		<div id="wlprCalcCurtain" onClick="closeWlprCalc();"></div>
+</form>
+<script type="text/javascript">initCalc();</script>

@@ -1,0 +1,27 @@
+<venda_tpcomment><!-- YOU ARE ONLY PERMITTED TO CHANGE THE ORDER OF THE INCTEMPLATE TAGS WITHIN THIS TEMPLATE. YOU MAY NOT ADD OR CHANGE ANY OTHER CODE. --></venda_tpcomment>
+<div class="checkoutR checkoutRpwrm">
+<venda_category rec=elementcat,ref=pwrmcolumn>
+</div>
+
+<div class="checkoutL">
+<div class="container containerpwrm">
+<venda_inctemplate type=includes/wizr/wz_pwrm-screen,name=heading_intro>
+
+<venda_form>
+<input name="layout" value="" type="hidden">
+<input name="curlayout" value="" type="hidden">
+<venda_inctemplate type=includes/wizr/wz_pwrm-screen,name=email_address>
+<venda_inctemplate type=includes/wizr/wz_pwrm-screen,name=js_buttons>
+</form>
+</div>
+</div>
+<venda_tpcomment><!-- 
+workflow: <venda_workflow>
+param1: <venda_param1>
+param2: <venda_param2>
+page: wz_pwrm-screen.html
+ --></venda_tpcomment>
+<venda_tpxt mode=set,name=track,value=pwrm-screen>  
+<venda_inctemplate name=googleTrackingWorkflows,type=includes>
+<venda_inctemplate name=hbxlocalvars1,type=includes/tracking>
+<venda_inctemplate name=hitboxOthers,type=includes/tracking>
