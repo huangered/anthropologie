@@ -1,0 +1,125 @@
+<venda_detblock>
+<venda_block label=78,invtref1!=giftcert>
+<li>
+	<div class="image" id="comp-image<venda_invtref1>">
+		<venda_inctemplate name=Scene7appcat_detblock,type=includes/Scene7>
+	</div>
+	<div class="details">
+		<h2><a href="<venda_dispview invt=<venda_invtref1>>" id="comp-name<venda_invtref1>"><venda_invtname1></a></h2>
+		<venda_block label=10,invtatrtot1&lt;1>
+		<!-- if product doesn't have attributes -->
+		<p class="pricetag">
+			<span class="price"><venda_currsym><venda_invtsell1></span>			
+			
+			<venda_block label=11,invtsavingonwas1=notnull,invtwas1!=0.00>
+			<span class="was"><span class="waslabel">...<venda_text id=site.was></span><venda_currsym><venda_invtwas1></span>
+			</venda_block label=11>
+		</p>
+		</venda_block label=10>
+		<venda_block label=130,invtavail1&gt;0,invtatrtot1&gt;0>
+		<venda_tpcomment><!-- if product does have attributes --></venda_tpcomment>
+		<script type="text/javascript">var attributeData = new Array(); //collection of attributes used for Scene7</script>
+		<div class="attrproducts">
+			<p class="pricetag">
+			<span class="price">
+			  <venda_block invtatrminsubsell1&gt;0.00>			 
+				<venda_block label=1073,mode=value,<venda_invtivtype1>=giftcard,<venda_invtivtype1>=family,operator=or>
+					<venda_currsym><venda_invtatrminsubsell1> - <venda_currsym><venda_invtatrmaxsubsell1></span>
+					<!-- family product -->
+				</venda_block label=1073>
+				<venda_block label=1075,mode=value,<venda_invtivtype1>=familysale>
+					<venda_text id=site.from> <venda_currsym><venda_invtatrminsubsell1>
+				</venda_block label=1075>
+				<venda_block label=1074,mode=value,<venda_invtivtype1>!=giftcard,<venda_invtivtype1>!=family,<venda_invtivtype1>!=familysale,operator=and><venda_block label=1094,mode=value,<venda_invtatrminsubsell1>!=<venda_invtatrmaxsubsell1>><venda_text id=site.from> </venda_block label=1094><venda_currsym><venda_invtatrminsubsell1>
+				</venda_block label=1074>
+									
+			</venda_block>
+			 <venda_block invtatrminsubsell1=0.00><venda_currsym><venda_invtsell1></venda_block>
+			</span>
+			<venda_block label=107,invtatrmaxsubwas1&gt;invtatrminsubsell1>
+			<venda_block label=1076,mode=value,<venda_invtivtype1>=familysale>
+				<span class="was"><span class="waslabel">...<venda_text id=site.was> </span><venda_currsym><venda_invtatrminsubwas1></span>
+			</venda_block label=1076>
+			<venda_block label=1077,mode=value,<venda_invtivtype1>!=familysale>
+				<span class="was"><span class="waslabel">...<venda_text id=site.was></span><venda_currsym><venda_invtatrmaxsubwas1></span>
+			</venda_block label=1077>
+			
+			</venda_block label=107>
+			</p>
+		</div>
+		<div class="swatchContainer"><div id="swatch<venda_invtref1>"><!-- Display a list of colour swatch --></div></div><br class="clear-all">
+		<venda_inventory ref=<venda_invtref1>,temp=colourswatch>
+		</venda_block label=130>
+	</div>
+</li>
+</venda_block label=78>
+
+</venda_detblock>
+
+<div id="productlist">
+<script type="text/javascript">
+	var myBklist = "<venda_cattree ref=<venda_icatref>,bklist=<venda_icatref>,type=icat>";
+</script>
+<venda_category rec=elementcat,ref=productlist>
+<div class="productlistnameanddescs">
+	<h1><venda_icatname></h1>
+    <!-- banner content -->
+<venda_block label=450,mode=value,<venda_tpxt mode=get,name=currentpageicat>=1>
+   <venda_block label=510,mode=value,<venda_cattree index=4,value=catref>=>
+      <div id="catbanner"><venda_page page=<venda_cattree index=3,value=catref>banner></div>
+   </venda_block label=510>
+	 <venda_block label=511,mode=value,<venda_cattree index=5,value=catref>=>
+      <div id="catbanner"><venda_page page=<venda_cattree index=4,value=catref>banner></div>
+   </venda_block label=511>
+</venda_block label=450>
+	<venda_tpcomment>
+	<!-- pagination - venda_pagination replaces venda_pagesel and venda_searchpsel. The old tags can be removed once all live sites are using the new one. So we could remove the conditions below. -->
+	</venda_tpcomment>
+	<venda_block label=176,mode=value,<venda_setting type=ebiz,name=setpaginationstyleicat>!=psel_icat_style><div class="pagn pagntop"><venda_pagination template=<venda_setting type=ebiz,name=setpaginationstyleicat>></div></venda_block label=176>
+	<venda_block label=177,mode=value,<venda_setting type=ebiz,name=setpaginationstyleicat>=psel_icat_style><div class="plpsel pseltop"><venda_pagesel template=pageselect></div></venda_block label=177>
+</div>
+
+
+<div class="landingpage_productlist"><venda_ldesc></div>
+<venda_block errors=notnull><h2 class="error"><venda_errors></h2></venda_block>
+<div id="addedmsg"><venda_block label=13,mode=value,<venda_addedmsg msg=<venda_text id=site.addedmsg>>=notnull><p><venda_addedmsg msg=<venda_text id=site.addedmsg>></p></venda_block label=13></div>
+<venda_category rec=icat,ref=<venda_icatref>fp,temp=featprods,cacheall=1>
+
+<venda_block label=52,rectot=><p><venda_text id=site.productlist.product_empty></p></venda_block label=52>
+<venda_block label=53,rectot!=>
+<venda_tpcomment><!--define a valiable for colour swatch functionality --></venda_tpcomment>
+<script type="text/javascript">var allItems = new Array();</script>
+<ul class="products">
+<venda_detail>
+</ul>
+</venda_block label=53>
+
+<!-- pagination --> 
+<venda_block label=178,mode=value,<venda_setting type=ebiz,name=setpaginationstyleicat>!=psel_icat_style><div class="pagn pagnbtm"><venda_pagination template=<venda_setting type=ebiz,name=setpaginationstyleicat>></div></venda_block label=178>
+<venda_block label=179,mode=value,<venda_setting type=ebiz,name=setpaginationstyleicat>=psel_icat_style><div class="plpsel pselbtm"><venda_pagesel template=pageselect></div></venda_block label=179>
+</div>
+
+<script type="text/javascript">Venda.Ebiz.BKList.init("<venda_cattree ref=<venda_icatref>,bklist=<venda_icatref>,type=icat>");</script>
+
+<style type="text/css">
+.Lcat_headerbtm a.mm_icat<venda_cattree index=1,value=catref> , .Lcat_headerbtm a.mm_icat<venda_cattree index=1,value=catref>:hover {color: #c33!important; background: url(<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/star.gif) no-repeat left 11px;}
+.Lcatnav ul li.nav<venda_cattree index=1,value=catref>, .Lcatnav ul li.nav<venda_cattree index=1,value=catref> li {display:block !important;}
+.Lcatnav ul li.nav<venda_cattree index=1,value=catref> li ul li ul {display:none;}
+.Lcatnav ul li.nav<venda_cattree index=3,value=catref> a {font-weight:bold; font-style:italic; color:#000;}
+.Lcatnav ul li.nav<venda_cattree index=3,value=catref> ul {display:block !important;}
+.Lcatnav ul li.nav<venda_cattree index=3,value=catref> ul a {font-weight:normal; font-style:normal; color:#333;}
+.Lcatnav ul li.nav<venda_cattree index=3,value=catref> ul li.nav<venda_cattree index=4,value=catref> a {font-style:italic; color:#c33; background: url(<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/star_leftnav.gif) no-repeat left 3px;}
+.Lcatnav ul li.first li.nav<venda_cattree index=3,value=catref> ul li.nav<venda_cattree index=4,value=catref> a {background: url(<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/star_leftnav_exp.gif) no-repeat left 3px;}
+.productlistnameanddescs h1 {display:none;}
+</style>
+
+<venda_block label=41,mode=value,<venda_setting type=ebiz,name=showcompareproductlist>=1>
+	<!-- tpxt used for compare product -->
+	<venda_block label=501,mode=value,<venda_setting type=ebiz,name=setalwaysshowcompare>!=1><venda_tpxt mode=set,name=comparecatref,value=<venda_icatref>></venda_block label=501>
+	<venda_block label=502,mode=value,<venda_setting type=ebiz,name=setalwaysshowcompare>=1><venda_tpxt mode=set,name=comparecatref,value=allcategory></venda_block label=502>
+</venda_block label=41>
+
+<venda_tpxt mode=set,name=track,value=productlist>
+
+<!-- tpxt used for showing the bestseller products based on current category -->
+<venda_tpxt mode=set,name=activepcatid,value=<venda_icatref>>
