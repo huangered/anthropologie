@@ -13,15 +13,7 @@
 Venda.namespace("Widget.ViewStyle");
 var viewStyleCookieName = "setView";
 var cookieNamePerPage = "setViewPerPage";
-/**
-* Set itemperpage for locayta search
-// for solr there is no perpage parameter in the form!
-*/
-/*jQuery(function() {
-	if((Venda.Ebiz.CookieJar.get(cookieNamePerPage)) && (document.formlocaytasearch)){
-		document.formlocaytasearch.perpage.value = Venda.Ebiz.CookieJar.get(cookieNamePerPage);
-	}
-});*/
+
 Venda.Widget.ViewStyle.getUrlParam = function(url,urlParam) {
 	var re = new RegExp('[?&]'+urlParam+'=([^&]+)');
 	var match = url.match(re);

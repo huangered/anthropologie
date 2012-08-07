@@ -9,18 +9,320 @@
 //Declare namespace for ebiz
 Venda.namespace("Ebiz");
 
- /**
- * The following global variables (directly below) are NEEDED to support legacy javascript functions - DO NOT REMOVE! see RT#113376 for more details.
- * 1. shown
- * 2. hidden
- */
+// FROM ./templates/scat/productreviews/productreviews.html
+ jQuery(function(){
+	Venda.Ebiz.initialDialog({createDialogList:'#writeownreview_link', closeDialogList:'#back_link', settings: ''});
+	jQuery("#writeownreview_link").click(function(){ jQuery("#dialogContent").remove();	return false; });
+});
 
-var shown = new Image();
-shown.src = "/venda-support/images/bulleton.gif";
-var hidden = new Image();
-hidden.src = "/venda-support/images/bulletoff.gif";
+// FROM ./templates/element/guidednavsearchbox/guidednavsearchbox.html
+function checkFormGN() {
+	var searchForm = document.formlocaytasearch;
+	var hasValue = 0;
+	for (i = 0; i < (searchForm.elements.length); i++) {
+		if ((searchForm.elements[i].type == "select-one") && (searchForm.elements[i].options[searchForm.elements[i].selectedIndex].value != "")) {
+			hasValue = 1;
+		} else if ((searchForm.elements[i].type == "text") && (searchForm.elements[i].value != "")) {
+			hasValue = 1;
+		}
+	}
+	if (hasValue != 1) {
+		alert(document.getElementById("site-search-validation-alert").innerHTML);
+		searchForm.termtextkeywordsearch.focus();
+	} else {
+		searchForm.submit();
+	}
+}
+function checkFieldGN(formName, field, defaultStr) {
+	if (eval('document.' + formName + '.' + field + '.value=="' + defaultStr + '"')) {
+		eval('document.' + formName + '.' + field + '.value=""');
+	}
+}
 
- /**
+jQuery(function () {
+	jQuery("#formlocaytasearch").on("submit", function(e) {
+		e.preventDefault();
+		checkFieldGN('formlocaytasearch', 'termtextkeywordsearch', document.getElementById("site-search-value").innerHTML);
+		checkFormGN();
+		return false;
+	})
+});
+/**/
+
+// FROM ./templates/widgets/styleSwitch/styleSwitch.html
+jQuery(function () {
+	if (typeof Venda.Widget.ViewStyle != "undefined") {
+		Venda.Widget.ViewStyle.setCookieForViewStyle();
+		Venda.Widget.ViewStyle.showProductPreview();
+	}
+});
+
+
+// FROM ./templates/invt/productdetail/productdetail.html
+jQuery(function () {
+	Venda.Ebiz.initialDialog({
+		createDialogList : '.emwbisLink, #tellafriend_link, #writereview_link, #readreview_link',
+		closeDialogList : '#back_link',
+		settings : {
+			'width' : '500',
+			'modal' : true
+		}
+	});
+	
+	var infotab = new Venda.Widget.createTab("#infotab");
+	infotab.init();
+	
+	// FROM ./templates/includes/myaccRecommendations/myaccRecommendations.html
+	// FROM ./templates/invt/vbmDetblock/vbmDetblock.html
+	var bottomtab = new Venda.Widget.createTab("#bottomtab");
+	bottomtab.init();
+});
+
+
+Venda.Ebiz.ExecuteDialogOpen = function() {
+
+	// FROM ./templates/invt/emailinstock/emailinstock.html
+	if(document.getElementById('JS-email-in-stock')) {
+		jQuery("#emailmebackform").on("submit", function(e) { e.preventDefault(); return doValidate(); return false; });
+		jQuery("#bisemail").keypress(function(event) {
+			if (event.keyCode == "13") {
+				return doValidate();
+			}
+		});
+		
+		var isPopup = document.getElementById('dialogContent');
+		var attributeSku =  Venda.Ebiz.initialDialog.clickedElement.getAttribute('data-invtref') || Venda.Attributes.Get('atrsku') || document.getElementById("email-when-in-stock-invtref").innerHTML;
+		var productName = document.getElementById("email-when-in-stock-invtname").innerHTML;
+
+		if(typeof document.emailmebackform.bisemail != 'undefined'){
+			if ((document.emailmebackform.bisemail.value.substring(0,1)=='<') || (document.emailmebackform.bisemail.value.substring(0,4)=='user')) {
+				document.emailmebackform.bisemail.value='';
+			}
+		} 
+
+		var doValidate = function(){
+			if (document.emailmebackform.bisemail.value == '') {
+				alert(document.getElementById("email-when-in-stock-validation").innerHTML);
+				document.emailmebackform.bisemail.focus();
+				return false;
+			}
+			var checkEmail = document.emailmebackform.bisemail.value;
+			if (!Venda.Ebiz.checkemail(checkEmail)) {
+				alert(document.getElementById("email-when-in-stock-validation").innerHTML);
+				document.emailmebackform.bisemail.focus();
+				return false;
+			}
+
+			if(attributeSku != ""){
+				document.emailmebackform.invtref.value = attributeSku;
+			}
+			if(isPopup){ 
+				document.emailmebackform.layout.value = 'noheaders';
+				jQuery("#emailmebackform").submitForm("#back_link");
+			} else {
+				document.emailmebackform.submit();
+			}
+			return;
+		};
+	}
+	// EO FROM ./templates/invt/emailinstock/emailinstock.html
+	
+	// FROM ./templates/invt/tellafriend/tellafriend.html 
+	if(document.getElementById('JS-tell-a-friend')) {
+		jQuery("#field1").textboxCount(".textMsgCount",{
+			maxChar: 200,
+			countStyle: 'down',
+			alert: ""
+		});
+		jQuery(".submitTellafriend").click(function(){
+				if (document.tellafriendform.fname.value == '') {
+					alert(document.getElementById('tell-a-friend-validation-fname').innerHTML);
+					document.tellafriendform.fname.focus();
+					return false;
+				}
+				if (document.tellafriendform.name.value == '') {
+					alert(document.getElementById('tell-a-friend-validation-name').innerHTML);
+					document.tellafriendform.name.focus();
+					return false;
+				}
+				if (document.tellafriendform.email.value == '') {
+					alert(document.getElementById('tell-a-friend-validation-email-address').innerHTML);
+					document.tellafriendform.email.focus();
+					return false;
+				}
+				var checkEmail = document.tellafriendform.email.value;
+					if (!Venda.Ebiz.checkemail(checkEmail)) {
+					alert(document.getElementById('tell-a-friend-validation-valid-email-address').innerHTML);
+					document.tellafriendform.email.focus();
+					return false;
+				}
+				if (document.tellafriendform.field1.value == '') {
+					alert(document.getElementById('tell-a-friend-validation-message').innerHTML);
+					document.tellafriendform.field1.focus();
+					return false;
+				}
+				
+				if(isPopup){
+					document.tellafriendform.layout.value = "noheaders";
+					jQuery("#tellafriendform").submitForm("#back_link");
+				}
+				else { 
+					document.tellafriendform.submit();
+				}
+		});
+	}
+	// EO FROM ./templates/invt/tellafriend/tellafriend.html 
+	
+	// FROM ./templates/invt/writereview/writereview.html
+	if(document.getElementById('JS-write-a-review')) {
+		jQuery(".submitWritereview").click(function(){
+			if (document.writereviewform.field1.value == '') {
+				alert(document.getElementById('write-a-review-validation-name').innerHTML);
+				document.writereviewform.field1.focus();
+				return false;
+				}	
+			
+			if (document.writereviewform.from.value == '') {
+				alert(document.getElementById('write-a-review-validation-email').innerHTML);
+				document.writereviewform.from.focus();
+				return false;
+				}
+				
+			var checkEmail = document.writereviewform.from.value;
+			if (!Venda.Ebiz.checkemail(checkEmail)) {
+				alert(document.getElementById('write-a-review-validation-email').innerHTML);
+				document.writereviewform.from.focus();
+				return false;
+			}
+
+			document.writereviewform.field2.value=document.writereviewform.field2.value.replace(/-/g,"");
+			document.writereviewform.field2.value=document.writereviewform.field2.value.replace(/ /g,"");
+
+			var filterNumber = /[^\d]/;
+			if (filterNumber.test(document.writereviewform.field2.value)==true) {
+				alert(document.getElementById('write-a-review-validation-phone-no-letters').innerHTML);
+				document.writereviewform.field2.focus();
+				return false;
+			}
+
+			var filter=/^0/;
+			if (filter.test(document.writereviewform.field2.value)==false) {
+				alert(document.getElementById('write-a-review-validation-beggining').innerHTML);
+				document.writereviewform.field2.focus();
+				return false;
+			}
+
+			if (document.writereviewform.field2.value.length!=10) {
+				if (document.writereviewform.field2.value.length!=11) {
+					alert(document.getElementById('write-a-review-validation-digits').innerHTML);
+					document.writereviewform.field2.focus();
+					return false;
+				}
+			}
+			if (document.writereviewform.field2.value.length!=11) {
+				if (document.writereviewform.field2.value.length!=10) {
+					alert(document.getElementById('write-a-review-validation-digits').innerHTML);
+					document.writereviewform.field2.focus();
+					return false;
+				}
+			}
+			if (document.writereviewform.field2.value==''){
+				alert(document.getElementById('write-a-review-validation-phone').innerHTML)
+				document.writereviewform.field2.focus();
+				return false;
+				}
+				
+			if (document.writereviewform.field6.value==''){
+				alert(document.getElementById('write-a-review-validation-rating').innerHTML)
+				document.writereviewform.field6.focus();
+				return false;
+				}
+				
+			if (document.writereviewform.field3.value==''){
+				alert(document.getElementById('write-a-review-validation-review').innerHTML)
+				document.writereviewform.field3.focus();
+				return false;
+				}
+
+			if(isPopup){
+				document.writereviewform.layout.value = "noheaders";
+				jQuery("#writereviewform").submitForm("#back_link");
+			}
+			else {
+				document.writereviewform.submit();
+			}				
+		});
+	}
+	// EO FROM ./templates/invt/writereview/writereview.html
+
+}
+
+// FROM ./templates/widgets/compareItems/compareItems.html
+jQuery(function () {
+	if(document.getElementById("JS-compare")) {
+		Venda.Widget.Compare.toCompare = function(){
+			var compareList = Venda.Widget.Compare.toCompareItems();
+			var itemList = '';
+			var item ='';
+			var k = 0; // counting how many checkboxes are checked
+
+			if(compareList) {
+				// Setup the compare items list.
+				for(var i = 0; i < compareList.length; i++) {
+				   item = '&compare=' + compareList[i];
+				   itemList += item;
+				   k++;
+				}
+
+				if (k >= 2) { // only open the compare window if more then 2 checkboxes are checked
+					var strUrl = document.getElementById("JS-compare-codehttp").innerHTML + '?ex=co_disp-comp&bsref=' + document.getElementById("JS-compare-codehttp").innerHTML + '&layout=noheaders' + itemList;
+					Venda.Widget.Compare.popupCompare(strUrl);
+				}else{
+					alert(document.getElementById("JS-compare-product-list-compare-validation").innerHTML);
+				}
+			}
+		}
+
+		AddtoCompare = function(productType,sku,name,image){
+			var invtName = document.getElementById(name).innerHTML;
+			var image =	document.getElementById(image).getElementsByTagName("img");
+			var invtImage = image[0].src;
+
+			Venda.Widget.Compare.addToCompareAndProductString(productType,sku,invtName,invtImage);
+		}
+		var xPosition = (document.documentElement.clientWidth - 1000) / 2; 
+		Venda.Widget.Compare.setConfig({
+			ebizUrl : document.getElementById("JS-compare-ebizurl").innerHTML,
+			currCategory :document.getElementById("JS-compare-currCategory").innerHTML,
+			alwaysdisplay:"", /* ALWAYS DISPLAY COMPARE ITEMS BOX */
+			elxtCompareNumber:"6", /* MAXIMUM IS 20 */
+			productExistsMessage:document.getElementById("JS-compare-product-is-already").innerHTML,
+			differenceProductTypeMessage:document.getElementById("JS-compare-cannot-compare-different-type").innerHTML,
+			removeItemBeforeMessage:document.getElementById("JS-compare-remove-item-before").innerHTML,
+			compareTitle:document.getElementById("JS-compare-compareproduct").innerHTML,
+			comparePopupSetting:{visible:false,draggable: true,modal:true,fixedcenter:false,zindex:4,x:xPosition,y:100,fade: 0.24}
+		});
+
+		//load compage items
+		//addEvent(window, 'load', function() {Venda.Widget.Compare.loadCompareItems()}, false);
+
+		
+	}
+});
+// EO FROM ./templates/widgets/compareItems/compareItems.html
+
+
+
+
+
+
+
+
+
+
+// CHECKOUT.JS
+// Links to: /templates/includes/contactDetails/contactDetails.html
+/**
  * Split a string so it can be displayed on multiple lines so it does not break display layout - used on order confirmation and order receipt page
  * @param {string} strToSplit string that needs to be split 
  * @param {Integer} rowLen length of row which will hold the string
@@ -44,834 +346,703 @@ Venda.Ebiz.splitString = function(strToSplit, rowLen, dispElem) {
  */
 Venda.Ebiz.validateUserExtendedFields = function(frmObj) {
 	if(frmObj) {
-		/*
 		if ( (frmObj.usxtexample1.checked==false) && (frmObj.usxtexample2.checked==false) && (frmObj.usxtexample3.checked==false))  {	
 			alert("Please tick at least one checkbox");
 			return false;
-		}
-		*/
+		}			
 		return true;		
 	} 
 	return false;
 };
 
-/* Description: Returns the value of a specified URL parameter 
-* Parameters:
-* 1. currURL = this is the URL which you wish to get the URL parameter value from
-* 2. urlParam = this is the name of the URL parameter you want to get the value for
-* Returns: value for parameter specified urlParam.  */
-var grabURL=function (currURL,urlParam) {
-	/* find out a value where is passed from current url */
-	var url = unescape(currURL);
-	var spliter = '&';
-	var sField = spliter+urlParam+'=';
-	
-	if (url.search(sField) == -1) {               
-		sField = '?'+urlParam+'=';         
-	}
-	
-	var urlArray = url.split(sField);
-	if (urlArray[1]) {
-		/* get url param value */
-		var paramArray = urlArray[1].split(spliter);
-		return(paramArray[0]);
+//Declare namespace for bklist
+Venda.namespace("Ebiz.BKList");
+Venda.Ebiz.BKList.jq = jQuery; 
+Venda.Ebiz.BKList.configBKList = {
+		bklist: "",
+		divArray: ['#sortby','.sort_results', '.searchpsel', '.pagn', '.refinelist'],
+		removeDivArray:['.categorytree'],
+		enableBklist: true
+};
+/**
+* Sets the config values to each config type
+* @param {string} configType this is an configuration type name
+* @param {array} settings this is the value of each configuration type
+*/
+
+Venda.Ebiz.BKList.init = function(settings) {
+	for (var eachProp in settings) {
+		this.configBKList[eachProp] = settings[eachProp];
 	}
 };
 
-
- /**
- * Switch currency on current page
- * @param {string} target currency
- * @param {string} current currency
- * @param {string} base URL http://domainname.dot
- * @param {string} alert message
- */
-Venda.Ebiz.currencySwitch=function(target,current,baseURL,message){
-	jQuery("#"+target).attr("href",function(){
-		var URL=unescape(location.href);
-		var Path=URL.replace(baseURL,"");	
-		Path=Path.replace("&setlocn="+target+"&log=4","");
-		URL=URL.replace(baseURL+"/"+current,baseURL+"/"+target);
-		if(Path.search(/(page|pcat|scat|stry|invt|icat)/ig)==1){
-			/* not used dispview: invt,icat, stry,scat,pcat,page */
-			URL=baseURL+"/"+target+Path;
-			return URL+"&log=4";
-		}
-		if(URL.indexOf(baseURL+"/"+current)==0){ 
-			/* used dispview: invt,icat, stry,scat,pcat,page */
-			URL=URL.replace(baseURL+"/"+current,baseURL+"/"+target);
-			return URL+"&log=4";
-		}else if(URL.indexOf("ex=co_wizr-locayta")>0){
-			/* search -- ex=co_wizr-locayta*/
-			if(URL.indexOf("&setlocn="+current)>0){
-				URL=URL.replace("&setlocn="+current,"&setlocn="+target);
-			}else{
-				URL+="&setlocn="+target;
-			}
-			if(URL.indexOf("&log=4")==-1){URL+="&log=4";}
-			return URL;
-		}else if(URL.indexOf("ex=co_disp-shopc") > 0 & URL.indexOf("mode=add") > 0){
-			/* after add to basket */
-			if(URL.indexOf("searchparameters=")>0){
-				/* add to basket on search result */
-				var searchparameters=Venda.Platform.getUrlParam(location.href,"searchparameters");
-				var bklist=Venda.Platform.getUrlParam(location.href,"bklist");
-				if(bklist){searchparameters+="&bklist="+bklist}
-				URL=baseURL+"/bin/venda?ex=co_wizr-locayta&"+searchparameters;
-				if(URL.indexOf("&setlocn="+current)>0){
-					URL=URL.replace("&setlocn="+current,"&setlocn="+target);
-				}else{
-					URL+="&setlocn="+target;
-				}
-				if(URL.indexOf("&log=4")==-1){URL+="&log=4";}
-			}else if(document.referrer&&document.referrer!=""){
-				/* add to basket on other page --- invt,icat ... etc. */
-				URL=unescape(document.referrer);
-				URL=URL.replace(baseURL+"/"+current,baseURL+"/"+target);
-			}else{
-				/* unable to handle back to home */
-				URL=baseURL+"/"+target+"/page/home";
-			}
-			if(URL.indexOf("&log=4")==-1){URL+="&log=4";}
-			return URL;			
-		}else{
-			if(URL.indexOf(baseURL+"/"+target)>=0){
-				if(URL.indexOf("&log=4")==-1){URL+="&log=4";}
-				return URL;
-			}else{
-				return baseURL+"/"+target+"/page/home"+"&log=4";
-			}
-		}		
-	});
-	if(message!=""){
-		jQuery("#"+target).click(function(){
-			return confirm(message);
-		});
+Venda.Ebiz.BKList.getUrl = function(){
+	var curUrl = document.location.href; 
+	if(curUrl.indexOf("&amp;") != -1){
+		 curUrl = curUrl.replace(/&amp;/gi,'&');		
 	}
-};
-
-/* ----- Attribute Swatch Function : support up to 2 attributes (ie. colour and size) -----*/
-Venda.namespace("Ebiz.AttributeSwatch");
-Venda.Ebiz.AttributeSwatch.ListAttributes = new Array();
-Venda.Ebiz.AttributeSwatch.filters = new Array();
-Venda.Ebiz.AttributeSwatch.existingAttributes = new Array();
-Venda.Ebiz.AttributeSwatch.availAttributes = new Array();
-Venda.Ebiz.AttributeSwatch.defaultprice = "";
-Venda.Ebiz.AttributeSwatch.defaultwasprice = "";
-
-Venda.Ebiz.AttributeSwatch.initListAttributes = function(attrColumn, attrName) {
-	for (var eachKey in product.attributeValues) {
-		if (typeof product.attributeValues[eachKey] != "function") {
-			this.addToListAttributes(attrColumn,product.attributeValues[eachKey].values[attrColumn]);		
-		}
-	}
-	Venda.Ebiz.AttributeSwatch.displayListAttributes(attrColumn, attrName);
-	if(this.attrNum==1){Venda.Ebiz.AttributeSwatch.checkAvailOneAttributes(attrColumn, attrName);}
-};
-
-Venda.Ebiz.AttributeSwatch.addToListAttributes = function(attrColumn, attrValue) {
-	if (!this.isExistInListAttributes(attrColumn,attrValue)) {
-		if (!this.ListAttributes[attrColumn]) {
-			this.ListAttributes[attrColumn] = new Array();
-		}
-		this.ListAttributes[attrColumn].push(attrValue);
-
-	}
-};
-
-Venda.Ebiz.AttributeSwatch.isExistInListAttributes = function(attrColumn, attrValue) {
-	var found = false;
-	if (this.ListAttributes[attrColumn]) {
-		for (var eachValue in this.ListAttributes[attrColumn]) {
-			if (this.ListAttributes[attrColumn][eachValue] == attrValue) { 			
-				found = true; 
-				break; 
-			}
-		}
-	}
-	return found;
-};
-
-Venda.Ebiz.AttributeSwatch.createListAttributes=function(attrColumn,attrName,ddObj){
-	this.ListAttributes[attrColumn] = new Array();
-	for(i=0; i < ddObj.options.length ; i++){
-		this.ListAttributes[attrColumn].push(ddObj.options[i].value);
-	}
-	Venda.Ebiz.AttributeSwatch.displayListAttributes(attrColumn, attrName);
-	if(this.attrNum==1){Venda.Ebiz.AttributeSwatch.checkAvailOneAttributes(attrColumn, attrName);}
+	return Venda.Platform.getUrlParam(curUrl, "bklist");
 }
 
-Venda.Ebiz.AttributeSwatch.displayListAttributes = function (attrColumn, attrName){
-	var str = "<ul class=attribute_"+attrColumn+">";
-	var chkString = "";
-	
-	for(var i=0; i < this.ListAttributes[attrColumn].length; i++){
-		// if att=color use image for swatch
-		if (attrName == this.attrDisplayName[0] || attrName.toLowerCase() == "currency") {
-			if (!Venda.ProductDetail.allImages[this.ListAttributes[attrColumn][i]] ||  Venda.ProductDetail.allImages[this.ListAttributes[attrColumn][i]].setswatch == "") {
+Venda.Ebiz.BKList.ChangeLink = function(){
+var divArray = Venda.Ebiz.BKList.configBKList.divArray;  
+var removeDivArray = Venda.Ebiz.BKList.configBKList.removeDivArray;  
+var bklist = Venda.Ebiz.BKList.configBKList.bklist || Venda.Ebiz.BKList.getUrl() || "";
+var strBklist = "&bklist";
+	if (bklist != "") {
+		var addBklist =  strBklist + "=" + bklist;
+		for (var i = 0; i < divArray.length; i++) {
 
-			str += "<li class=\"swatch\"><a class=available id='swatch"+this.ListAttributes[attrColumn][i]+"' title=\""+this.ListAttributes[attrColumn][i]+"\" onmouseover=\"Venda.Ebiz.AttributeSwatch.showTooltipMessage('swatch"+this.ListAttributes[attrColumn][i]+"');\" onmouseout=\"Venda.Ebiz.AttributeSwatch.hideTooltipMessage();\" onmouseup=\"Venda.Ebiz.AttributeSwatch.hideTooltipMessage();\" onclick=\"Venda.Ebiz.AttributeSwatch.actionSet('"+attrColumn+"','"+this.ListAttributes[attrColumn][i]+"'); Venda.Ebiz.AttributeSwatch.changePrice('attr-sellprice','attr-wasprice'); Venda.ProductDetail.changeSet('"+this.ListAttributes[attrColumn][i]+"'); return false;\"><span class=\"swatchattribute\">"+this.ListAttributes[attrColumn][i]+"</span></a></li>";					
-			} else {
-				// has swatch image
-				str += "<li class=\"swatch\"><a class=available id='swatch"+this.ListAttributes[attrColumn][i]+"' title=\""+this.ListAttributes[attrColumn][i]+"\" onmouseover=\"Venda.Ebiz.AttributeSwatch.showTooltipMessage('swatch"+this.ListAttributes[attrColumn][i]+"');\" onmouseout=\"Venda.Ebiz.AttributeSwatch.hideTooltipMessage();\" onmouseup=\"Venda.Ebiz.AttributeSwatch.hideTooltipMessage();\" onclick=\"Venda.Ebiz.AttributeSwatch.actionSet('"+attrColumn+"','"+this.ListAttributes[attrColumn][i]+"'); Venda.Ebiz.AttributeSwatch.changePrice('attr-sellprice','attr-wasprice'); Venda.ProductDetail.changeSet('"+this.ListAttributes[attrColumn][i]+"'); return false;\"><img class=\"swatchimage\" src=\""+Venda.ProductDetail.allImages[this.ListAttributes[attrColumn][i]].setswatch+"\" alt=\""+this.ListAttributes[attrColumn][i]+"\"></a></li>";
+			if(Venda.Ebiz.BKList.jq(divArray[i]+ " a").attr("href")){
+				Venda.Ebiz.BKList.jq(divArray[i]+ " a").attr("href", function() {		
+					return Venda.Ebiz.BKList.jq(this).attr("href") + addBklist; 			
+				});	
 			}
-
-		} else {
-			str += "<li><a class=available id='swatch"+this.ListAttributes[attrColumn][i]+"' title=\""+this.ListAttributes[attrColumn][i]+"\" onmouseover=\"Venda.Ebiz.AttributeSwatch.showTooltipMessage('swatch"+this.ListAttributes[attrColumn][i]+"');\" onmouseout=\"Venda.Ebiz.AttributeSwatch.hideTooltipMessage();\" onmouseup=\"Venda.Ebiz.AttributeSwatch.hideTooltipMessage();\" onclick=\"Venda.Ebiz.AttributeSwatch.actionSet('"+attrColumn+"','"+this.ListAttributes[attrColumn][i]+"'); Venda.Ebiz.AttributeSwatch.changePrice('attr-sellprice','attr-wasprice'); return false;\">"+this.ListAttributes[attrColumn][i]+"</a></li>";		
-		}
-	}
-	str = str + "</ul>";
-	document.getElementById("productdetail-"+attrColumn).innerHTML = str;
-};
-
-
-Venda.Ebiz.AttributeSwatch.addFilter = function(attrColumn,attrValue) {
-	var filterString="";
-	this.filters[attrColumn] = attrValue;
-	// clear background alert message
-	document.getElementById("alertmessage").className = "normal";
-	// update alert message
-	Venda.Ebiz.AttributeSwatch.updateMessage();
-};
-
-Venda.Ebiz.AttributeSwatch.updateMessage = function(){
-	if(this.attrNum==1){
-		if(this.filters["att1"]!=""){
-			document.getElementById("alertmessage").innerHTML = "<span class=labelAttr>" + this.attrDisplayName[0] + ":</span> <span class=colorselected>" + this.filters["att1"]+"</span>";
-		}
-	}else{
-		if(this.filters["att1"]=="" || this.filters["att1"]==undefined){
-			document.getElementById("alertmessage").innerHTML = "<span class=notselectedmsg>"+this.defaultTextSelectAtt + this.attrDisplayName[0] + "</span> <span class=labelAttr>" + this.attrDisplayName[1] + ":</span> <span class=sizeselected>"+ this.filters['att2'] + "</span>";
-		}else if(this.filters["att2"]=="" || this.filters["att2"]==undefined){
-			document.getElementById("alertmessage").innerHTML = "<span class=labelAttr>" + this.attrDisplayName[0] + ":</span> <span class=colorselected>" + this.filters['att1'] + "</span> <span class=notselectedmsg>"+this.defaultTextSelectAtt + this.attrDisplayName[1] + "</span>";
-		}
-		if((this.filters["att1"]!="") && (this.filters["att2"]!="") && (this.filters["att1"]!=undefined) && (this.filters["att2"]!=undefined)){
-			document.getElementById("alertmessage").innerHTML = "<span class=labelAttr>" + this.attrDisplayName[0] + ":</span> <span class=colorselected>" + this.filters["att1"]+"</span> <span class=labelAttr>" + this.attrDisplayName[1] +":</span> <span class=sizeselected>" + this.filters["att2"] + "</span>";
-		}
-	}
-};
-
-Venda.Ebiz.AttributeSwatch.validateAttributes = function(){
-	var isSelected = true;
-	if(this.attrNum==1){
-		if(this.filters["att1"]==undefined || this.filters["att1"]==""){
-			document.getElementById("alertmessage").className = "warning";
-			isSelected = false;
-		}
-	}else{
-		if(this.filters["att1"]==undefined || this.filters["att2"]==undefined || this.filters["att1"]=="" || this.filters["att2"]==""){
-			document.getElementById("alertmessage").className = "warning";
-			isSelected = false;
-		}
-	}
-	return isSelected;
-};
-
-// Check if attribute exist and has onhand
-Venda.Ebiz.AttributeSwatch.checkAvailAttributes = function(attrColumn,attrValue) {
-	this.existingAttributes = new Array();
-	this.availAttributes = new Array();
-	var attrColumnSelect="";
-	switch(attrColumn){
-		case "att1": attrColumn="att2";attrColumnSelect="att1";break;
-		case "att2": attrColumn="att1";attrColumnSelect="att2";break;
-	}
-	a=0;	
-	var str="<ul class=attribute_"+attrColumn+">";
-	for (var eachAttrSet in product.attributeValues) {
-		if(product.attributeValues[eachAttrSet].values[attrColumnSelect]==attrValue && (product.attributeValues[eachAttrSet].data["atronhand"]>0)){
-			this.existingAttributes[a]=product.attributeValues[eachAttrSet].values[attrColumn]; 
-			a++;
-		}
-	}
-	this.updateListAttributes(attrColumn,attrColumnSelect);	
-};
-
-Venda.Ebiz.AttributeSwatch.checkAvailOneAttributes = function(attrColumn, attrName) {
-	this.existingAttributes = new Array();
-	this.availAttributes = new Array();
-	a=0;	
-	var str="<ul class=attribute_"+attrColumn+">";
-	for (var eachAttrSet in product.attributeValues) {
-		if(product.attributeValues[eachAttrSet].data["atronhand"]>0){
-			this.existingAttributes[a]=product.attributeValues[eachAttrSet].values[attrColumn]; 
-			a++;
-		}
-	}
-	this.updateListAttributes(attrColumn);
-};
-
-Venda.Ebiz.AttributeSwatch.updateListAttributes = function(attrColumn,attrColumnSelect) {
-	//compare existingAttributes with the full range
-	for(i=0; i < this.ListAttributes[attrColumn].length; i++){
-		// if there is no any existingAttributes (ie. all out of stock)
-		if(this.existingAttributes.length==0){this.availAttributes[i] = false;}
-		for(j=0; j < this.existingAttributes.length; j++){
-			if(this.ListAttributes[attrColumn][i]==this.existingAttributes[j]){
-				this.availAttributes[i] = this.existingAttributes[j];
-				break;
-			}else{
-				this.availAttributes[i] = false;
-			}
-		}		
-		if(this.availAttributes[i] != false){
-			if(this.ListAttributes[attrColumn][i]==this.filters[attrColumn]){
-				document.getElementById("swatch"+this.ListAttributes[attrColumn][i]).className="selected";
-			}else{
-				document.getElementById("swatch"+this.ListAttributes[attrColumn][i]).className="available";
-			}
-			/* case: has 1 value of attribute one or two - select this one */
-			if(attrColumnSelect && this.ListAttributes[attrColumn].length==1){
-				document.getElementById("swatch"+this.ListAttributes[attrColumn][0]).className="selected";
-				Venda.Ebiz.AttributeSwatch.addFilter(attrColumn,this.ListAttributes[attrColumn][0]);
-				document.form.elements[attrColumn].value = this.ListAttributes[attrColumn][0];
-			}
-		}else{
-			document.getElementById("swatch"+this.ListAttributes[attrColumn][i]).className="notavail";
-			if(this.attrNum==1){
-				// if has only one attr - unclickable out of stock attribute
-				document.getElementById("swatch"+this.ListAttributes[attrColumn][i]).attributes["onclick"].value="";
-				document.getElementById("swatch"+this.ListAttributes[attrColumn][i]).style.cursor="default";
-			}
-			if(this.ListAttributes[attrColumn][i]==this.filters[attrColumn]){
-				// clear if no combination
-				this.filters[attrColumn]="";
-				Venda.Ebiz.AttributeSwatch.addFilter(attrColumn,"");
-				document.form.elements[attrColumn].value = "";
-				if(attrColumnSelect){
-					/*case: if attrColumn was reset - add available to another attribute and if it was selected also add class selected  */
-					for(ii=0; ii < this.ListAttributes[attrColumnSelect].length; ii++){
-						if(this.ListAttributes[attrColumnSelect][ii]==this.filters[attrColumnSelect]){
-							document.getElementById("swatch"+this.ListAttributes[attrColumnSelect][ii]).className="selected";
-						}else{
-							document.getElementById("swatch"+this.ListAttributes[attrColumnSelect][ii]).className="available";
-						}
-					}
-				}
-			}
-		}
-	}
-};
-
-// Highlight selected option
-Venda.Ebiz.AttributeSwatch.highlightSelection = function(attrColumn,id){
-	for(i=0; i < this.ListAttributes[attrColumn].length; i++){
-		if(this.ListAttributes[attrColumn][i] == id){
-			document.getElementById("swatch"+this.ListAttributes[attrColumn][i]).className = "selected";
-
-		}else{
-			if(document.getElementById("swatch"+this.ListAttributes[attrColumn][i]).className != "notavail"){
-				document.getElementById("swatch"+this.ListAttributes[attrColumn][i]).className = "available";
-			}
-		}
-	}
-};
-
-Venda.Ebiz.AttributeSwatch.changePrice = function(id, wasid){
-	var price = "";
-	var wasprice = "";
-
-	if (this.attrNum == 1) {
-		for (var eachAttrSet in product.attributeValues) {
-			if(product.attributeValues[eachAttrSet].values["att1"]==this.filters["att1"]){
-				if (product.attributeValues[eachAttrSet].data["atrsell"]!="" && product.attributeValues[eachAttrSet].data["atrsell"]!=undefined) {
-					price = parseFloat(product.attributeValues[eachAttrSet].data["atrsell"]).toFixed(2);
-				}
-				if (product.attributeValues[eachAttrSet].data["atrwas"]!="" && product.attributeValues[eachAttrSet].data["atrwas"]!=undefined){
-					wasprice = parseFloat(product.attributeValues[eachAttrSet].data["atrwas"]).toFixed(2);
-				}
+			
+			if(Venda.Ebiz.BKList.jq(divArray[i] + " option").attr("value")){
+				Venda.Ebiz.BKList.jq(divArray[i] + " option").attr("value", function() {	
+					return Venda.Ebiz.BKList.jq(this).attr("value") + addBklist; 
+				});				
 			}
 		}	
-	} else if (this.attrNum == 2) {
-		for (var eachAttrSet in product.attributeValues) {
-			if(product.attributeValues[eachAttrSet].values["att1"]==this.filters["att1"] && product.attributeValues[eachAttrSet].values["att2"]==this.filters["att2"]){
-				if (product.attributeValues[eachAttrSet].data["atrsell"]!="" && product.attributeValues[eachAttrSet].data["atrsell"]!=undefined) {
-					price = parseFloat(product.attributeValues[eachAttrSet].data["atrsell"]).toFixed(2);
-				}
-				if (product.attributeValues[eachAttrSet].data["atrwas"]!="" && product.attributeValues[eachAttrSet].data["atrwas"]!=undefined){
-					wasprice = parseFloat(product.attributeValues[eachAttrSet].data["atrwas"]).toFixed(2);
-				}
-			}
-		}		
-	}
-	
-	if (price == "") { price = this.defaultprice;}
-	if (wasprice == "") { wasprice = this.defaultwasprice; }
-	if (price != "") {
-		document.getElementById(id).innerHTML = product.labels['currsym'] + price;
-	}
-	if (wasprice!="" && (parseFloat(wasprice)>parseFloat(price))) {
-		//support case normal product type and product type Family with valid Size and Colour
-		document.getElementById(wasid).innerHTML = this.waslabel + product.labels['currsym'] + wasprice;	
-	}else{
-		if(wasprice==this.defaultwasprice && this.defaultwasprice>price && this.producttype=="family") {
-			//support case product type Family with invalid Size and Colour
-			document.getElementById(wasid).innerHTML = this.waslabel + product.labels['currsym'] + wasprice;	
-		} else {
-			document.getElementById(wasid).innerHTML = "";
-		}
-	}
-};
-
-Venda.Ebiz.AttributeSwatch.actionSet = function(attrColumn,attrValue){
-	document.form.elements[attrColumn].value = attrValue;
-	this.addFilter(attrColumn,attrValue);
-	this.highlightSelection(attrColumn,attrValue);
-	// do checkAvailAttributes only if has more than one attributes
-	if(this.attrNum>1){this.checkAvailAttributes(attrColumn,attrValue)}
-	Venda.Ebiz.AttributeSwatch.etaDate();
-};
-
-Venda.Ebiz.AttributeSwatch.mediapath="";
-Venda.Ebiz.AttributeSwatch.addtobasketbt="bt_addtobasket.gif";
-Venda.Ebiz.AttributeSwatch.backorderbt="bt_comingsoon.gif";
-Venda.Ebiz.AttributeSwatch.today="";
-Venda.Ebiz.AttributeSwatch.etaDate=function(){
-	/* if not has add to basket button exit fn */
-	if(jQuery("#addproduct").length<1) return ;
-	/* set media path */
-	jQuery(".link_btm p.eta").remove();
-	if(Venda.Ebiz.AttributeSwatch.mediapath==""){
-		Venda.Ebiz.AttributeSwatch.mediapath=jQuery("#addproduct").attr("src");
-		Venda.Ebiz.AttributeSwatch.mediapath=Venda.Ebiz.AttributeSwatch.mediapath.substr(0,Venda.Ebiz.AttributeSwatch.mediapath.lastIndexOf('/')+1);
-		Venda.Ebiz.AttributeSwatch.backorderbt=Venda.Ebiz.AttributeSwatch.mediapath+Venda.Ebiz.AttributeSwatch.backorderbt;
-		Venda.Ebiz.AttributeSwatch.addtobasketbt=Venda.Ebiz.AttributeSwatch.mediapath+Venda.Ebiz.AttributeSwatch.addtobasketbt;
-		Venda.Ebiz.AttributeSwatch.today=new Date(jQuery("#today").text());
-	}
-	if (this.attrNum == 1) {
-		for (var eachAttrSet in product.attributeValues) {
-			if(product.attributeValues[eachAttrSet].values["att1"]==this.filters["att1"]){
-				if (product.attributeValues[eachAttrSet].data["atretady"]!="" && product.attributeValues[eachAttrSet].data["atretady"]!=undefined && 
-					product.attributeValues[eachAttrSet].data["atretamn"]!="" && product.attributeValues[eachAttrSet].data["atretamn"]!=undefined &&
-					product.attributeValues[eachAttrSet].data["atretayr"]!="" && product.attributeValues[eachAttrSet].data["atretayr"]!=undefined) {
-					
-					var etaday=new Date();
-					etaday.setFullYear(product.attributeValues[eachAttrSet].data["atretayr"],product.attributeValues[eachAttrSet].data["atretamn"]-1,product.attributeValues[eachAttrSet].data["atretady"]);
-					if(Venda.Ebiz.AttributeSwatch.today<etaday){
-						ETA = product.attributeValues[eachAttrSet].data["atretady"]+"/"+product.attributeValues[eachAttrSet].data["atretamn"]+"/"+product.attributeValues[eachAttrSet].data["atretayr"];
-						jQuery("#addproduct, .qtymessage").hide();
-						jQuery(".preorder").show();
-						jQuery(".link_btm").append('<p class="eta">'+this.availableText+ETA+'</p>');						
-						return ;
-					}
-				}
-			}
-		}
-	} else if (this.attrNum == 2) {
-		for (var eachAttrSet in product.attributeValues) {
-			if(product.attributeValues[eachAttrSet].values["att1"]==this.filters["att1"] && product.attributeValues[eachAttrSet].values["att2"]==this.filters["att2"]){
-				if (product.attributeValues[eachAttrSet].data["atretady"]!="" && product.attributeValues[eachAttrSet].data["atretady"]!=undefined && 
-					product.attributeValues[eachAttrSet].data["atretamn"]!="" && product.attributeValues[eachAttrSet].data["atretamn"]!=undefined &&
-					product.attributeValues[eachAttrSet].data["atretayr"]!="" && product.attributeValues[eachAttrSet].data["atretayr"]!=undefined) {
-					var today=new Date();
-					var etaday=new Date();
-					etaday.setFullYear(product.attributeValues[eachAttrSet].data["atretayr"],product.attributeValues[eachAttrSet].data["atretamn"]-1,product.attributeValues[eachAttrSet].data["atretady"]);
-					if(Venda.Ebiz.AttributeSwatch.today<etaday){
-						ETA = product.attributeValues[eachAttrSet].data["atretady"]+"/"+product.attributeValues[eachAttrSet].data["atretamn"]+"/"+product.attributeValues[eachAttrSet].data["atretayr"];
-						jQuery("#addproduct, .qtymessage").hide();
-						jQuery(".preorder").show();
-						jQuery(".link_btm").append('<p class="eta">'+this.availableText+ETA+'</p>');						
-						return ;
-					}
-				}
-			}
-		}
-	}
-	jQuery("#addproduct").attr("src",Venda.Ebiz.AttributeSwatch.addtobasketbt);
-	jQuery(".preorder").hide();
-	jQuery("#addproduct, .qtymessage").show();
-};
-
-/* Show tooltip for unavailable options */
-Venda.Ebiz.AttributeSwatch.showTooltipMessage = function (id){
-	if(document.getElementById(id).className=="notavail"){
-		document.getElementById("swatchUnavailTooltip").className = "show";
-		var posLeft = document.getElementById(id).offsetLeft-(document.getElementById("swatchUnavailTooltip").offsetWidth/2)+(document.getElementById(id).offsetWidth/2);
-		var posTop = document.getElementById(id).offsetTop-document.getElementById("swatchUnavailTooltip").offsetHeight-document.getElementById("swatchUnavailTooltipArrow").offsetHeight;
-		document.getElementById("swatchUnavailTooltip").style.left = posLeft+"px";
-		document.getElementById("swatchUnavailTooltip").style.top = posTop+"px";
-	}
-};
-
-Venda.Ebiz.AttributeSwatch.hideTooltipMessage = function (){
-	document.getElementById("swatchUnavailTooltip").className = "hide";
-};
-
-Venda.namespace('Ebiz.BKList');
-Venda.Ebiz.BKList = function(){};
-Venda.Ebiz.BKList.jq = jQuery;
-
-Venda.Ebiz.BKList.init = function(bklist) {
-	this.bklist = bklist;
-};
-
-Venda.Ebiz.BKList.jq(document).ready(function() {
-	var bklist = Venda.Ebiz.BKList.bklist || Venda.Platform.getUrlParam(document.location.href, "bklist") || "";
-	if (bklist != "") {
-		// change link in product list section
-		Venda.Ebiz.BKList.jq("#productlist a").attr("href", function() {
-			return Venda.Ebiz.BKList.jq(this).attr("href") + "&bklist=" + bklist; 
-		});
 		
-		// change next/previous link in product detail section
-		if (document.getElementById("productdetail")){
-		Venda.Ebiz.BKList.jq("#buttons a").attr("href", function() {
-			return Venda.Ebiz.BKList.jq(this).attr("href") + "&bklist=" + bklist; 
-		});
+		for (var i = 0; i < removeDivArray.length; i++) {
+			Venda.Ebiz.BKList.jq(removeDivArray[i]+" a").attr("href", function() {
+				var currentLink = Venda.Ebiz.BKList.jq(this).attr("href");
+				var newLink = currentLink;
+				if (newLink.length > 2) {
+					if (currentLink.indexOf("&bklist=") != -1) {
+						newLink = currentLink.substring(0, currentLink.indexOf("&bklist="));
+					}
+					if (newLink.indexOf("&view=") != -1) {
+						newLink = newLink.substring(0, newLink.indexOf("&view="));
+					}
+				}
+				return newLink;
+			});
 		}
-		Venda.Ebiz.BKList.jq("#searchresults .pagn a").attr("href", function() {
-			return Venda.Ebiz.BKList.jq(this).attr("href") + "&bklist=" + bklist; 
-		});	
-		if(Venda.Ebiz.BKList.jq(".sort option").attr("value")){
-               Venda.Ebiz.BKList.jq(".sort option").attr("value", function() {        
-               return Venda.Ebiz.BKList.jq(this).attr("value") + "&bklist=" + bklist;
-			});                             
-
+		if(Venda.Ebiz.BKList.jq("#tag-pageSearchurlFull")){
+			var newUrl = Venda.Ebiz.BKList.jq("#tag-pageSearchurlFull").text()+ addBklist ;
+			Venda.Ebiz.BKList.jq("#tag-pageSearchurlFull").text(newUrl);
+		}
+		if(Venda.Ebiz.BKList.jq("#tag-pageSearchurl")){
+			var newUrl = Venda.Ebiz.BKList.jq("#tag-pageSearchurl").text()+ addBklist ;
+			Venda.Ebiz.BKList.jq("#tag-pageSearchurl").text(newUrl);
 		}		
-		/* Breadcrumb not available on this site.
-		// remove bklist out of the breadcrumb
-		Venda.Ebiz.BKList.jq(".categorytree a").attr("href", function() {
-			var currentLink = Venda.Ebiz.BKList.jq(this).attr("href");
-			var newLink = currentLink;
-			if (newLink.length > 2) {
-				if (currentLink.indexOf("&bklist=") != -1) {
-					newLink = currentLink.substring(0, currentLink.indexOf("&bklist="));
-				}
-				if (newLink.indexOf("&view=") != -1) {
-					newLink = newLink.substring(0, newLink.indexOf("&view="));
-				}
-			}
-			return newLink;
-		});
-		*/
+		if(Venda.Ebiz.BKList.jq("#tag-pageIcaturl")){
+			var newUrl = Venda.Ebiz.BKList.jq("#tag-pageIcaturl").text()+ addBklist ;
+			Venda.Ebiz.BKList.jq("#tag-pageIcaturl").text(newUrl);
+		}			
 	}
-});
+}
 
- /**
- * The function is to originally created to visually remove one of the item from crumtrail to make it like that one is skipped.
- * It is also created in to be selected which item of crumtail would be removed by providing index of crumtrail.
- * Please note that this function requires jQuery in order to make it work.
- */
-Venda.namespace("Ebiz.RecreateCrumtrail");
-Venda.Ebiz.RecreateCrumtrail = {};
 
-Venda.Ebiz.RecreateCrumtrail.jq = jQuery;	// Reference to jQuery.
-Venda.Ebiz.RecreateCrumtrail.crumtrail = {};	// Crumtrail object in a form of array to be manipulated.
-Venda.Ebiz.RecreateCrumtrail.crumtrailSelectorString = "";	// jQuery selector string.
-Venda.Ebiz.RecreateCrumtrail.splitString = "";	// String contains crumtrail seperator.
-Venda.Ebiz.RecreateCrumtrail.joinString = "";	// String contains crumtrail seperator that will be used to put back crumtrail items together.
-
- /**
- * Function that initial all required properties
- * @param {string} crumtrail	Set jQuery crumtrail selector string
- * @param {string} splitString	Set crumtrail seperator
- */
-Venda.Ebiz.RecreateCrumtrail.init = function(crumtrail,splitString){
-	Venda.Ebiz.RecreateCrumtrail.crumtrailSelectorString = crumtrail;
-	Venda.Ebiz.RecreateCrumtrail.splitString = splitString;
-	Venda.Ebiz.RecreateCrumtrail.joinString = splitString
-};
-
- /**
- * Function that retrieve crumtrail into Venda.Ebiz.RecreateCrumtrail.crumtrail in a form of array
- */
-Venda.Ebiz.RecreateCrumtrail.getCrumtrail = function(){
-	this.crumtrail = this.jq(this.crumtrailSelectorString).html().split(this.splitString);
-};
-
- /**
- * Function that get crumtrail object and remove an item of crumtrail
- * @param {integer} index	An index item number of crumtrail to be removed.
- */
-Venda.Ebiz.RecreateCrumtrail.removeIndex = function(index){
-	this.getCrumtrail();
-	this.crumtrail.splice(index,1);
-};
-
- /**
- * Function that put back crumtrail
- */
-Venda.Ebiz.RecreateCrumtrail.rewrite = function(){
-	this.jq(this.crumtrailSelectorString).html(this.crumtrail.join(this.joinString));
-};
- 
-Venda.Ebiz.serialize = function(formSelector){
-	var serializeStr = '';
-	jQuery(formSelector).find("input, select, textarea").each(function(){
-		if(this.name!=""){serializeStr+="&"+this.name+"="+escape(this.value);}
-	});
-	return serializeStr;
- };
- 
- 
 /**
-* ajaxFunction using jQuery
-* @param {string} target url
-* @param {string} output id
-* @param {string} formID if not null > set type=post and require form param
-* @param {string} callback function
-*/
-Venda.Ebiz.ajaxFunction = function(ajaxurl,whichDiv,formID,fnAfterLoading) {	
-	var ajaxtype = (formID!="")?"POST":"GET";
-	var ajaxdata=(formID!="")?Venda.Ebiz.serialize("#"+formID):"";
-	jQuery.ajax({type: ajaxtype,
-		url: ajaxurl,
-		data: ajaxdata,
-		success: function(data){
-			jQuery("#"+whichDiv).html(data);
-			fnAfterLoading();
-		},
-		dataType: "html"});
-};
-
-/* Add class "first" to order detail table in order to create background line in the middle only */
-jQuery(document).ready(function(){
-	jQuery(".orderitems .wizrtable tbody tr:first").addClass("first");
-});
-// Item Backorder show Stock ETA date  (RT146433) Display dd/mm/yyyy //
-Venda.namespace("Ebiz.DisplayPreordersMsg");
-Venda.Ebiz.DisplayPreordersMsg=function(){};
-Venda.Ebiz.DisplayPreordersMsg.monthName=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-Venda.Ebiz.DisplayPreordersMsg.today=new Date();
-Venda.Ebiz.DisplayPreordersMsg.show=function(eta,msg){
-	if(eta.atretady!="" && eta.atretamn!="" && eta.atretayr!=""){
-		var etaDate=new Date();
-		var yearstr=etaDate.getFullYear()+"";
-		//eta.atretamn=eta.atretamn-1;
-		etaDate.setFullYear(eta.atretayr,eta.atretamn,eta.atretady);
-		etaDate.setHours(0,0,0);
-		Venda.Ebiz.DisplayPreordersMsg.today.setHours(0,0,0);
-		var etaDateFloor=Math.floor(etaDate.getTime()/86400000);
-		var todayFloor=Math.floor(Venda.Ebiz.DisplayPreordersMsg.today.getTime()/86400000);
-		if(etaDateFloor>todayFloor){
-			//yearstr=yearstr.substr(2,2)
-			//msg[0]=msg[0].replace("[date]",etaDate.getDate()+"-"+Venda.Ebiz.DisplayPreordersMsg.monthName[eta.atretamn]+"-"+yearstr);
-			msg[0]=msg[0].replace("[date]",eta.atretady+"/"+eta.atretamn+"/"+eta.atretayr);
-			document.write(msg[0]);
-		}else {
-			document.write(msg[1]);
-		}
+ * A pagination style 4, that is press "Enter" on key borad to redirect to search page
+ */
+Venda.Ebiz.changePage =function(page,curpage,ptotal,pitem){
+	var pageurl = "";
+	var param1 = "";
+	var pageAlert = document.getElementById("tag-pageAlert").innerHTML;
+	var pageurlSearch = document.getElementById("tag-pageSearchurl").innerHTML;
+	if(pageurlSearch != ""){
+		pageurl = document.getElementById("tag-pageSearchurlFull").innerHTML;
+		param1 = "&setpagenum=";
+	}else {
+		pageurl = document.getElementById("tag-pageIcaturl").innerHTML;
+		param1 = "&curpage=";
 	}
+	var validnum=/(^-?[1-9](\d{1,2}(\,\d{3})*|\d*)|^0{1})$/;
+	pagenum = parseInt(page.value);
+	ptotalnum = parseInt(ptotal);
+	if(validnum.test(page.value) && page.value > 0){
+		if(page.value == curpage){
+			page.value = curpage;
+		}else if((pagenum <= ptotalnum) && (page.value != curpage)){
+			pageurl = pageurl + param1 + page.value + '&' + pitem;
+			window.location = pageurl;			
+		}else{
+			alert(pageAlert);
+			page.value = curpage;
+		}
+	}else{
+		alert(pageAlert);
+		page.value = curpage;
+	    return false;		
+	}
+
 };
 
-Venda.Ebiz.CookieJar = new CookieJar({expires: 3600 * 24 * 7, path: '/'});
+Venda.Ebiz.CookieJar = new CookieJar({expires: 3600 * 24 * 7, path: '/'});	
+
 jQuery.fn.popupIframe = function(){
-	if ( jQuery.browser.msie && /6.0/.test(navigator.userAgent) ) {
-	var src   = 'javascript:false;';
-	  html = '<iframe class="popupIframe" src="'+src+'" style="-moz-opacity: .10;filter: alpha(opacity=1);height:expression(this.parentNode.offsetHeight+\'px\');width:expression(this.parentNode.offsetWidth+\'px\');'+'"></iframe>';
-		if (jQuery('.popupIframe').length == 0 ){
+	if(jQuery.browser.msie && jQuery.browser.version < "7.0") {
+		var src   = 'javascript:false;';
+		html = '<iframe class="popupIframe" src="'+src+'" style="-moz-opacity: .10;filter: alpha(opacity=1);height:expression(this.parentNode.offsetHeight+\'px\');width:expression(this.parentNode.offsetWidth+\'px\');'+'"></iframe>';
+		if (jQuery(this).find('.popupIframe').length == 0 ){
 			this.prepend(html);
 		}
 	 }
 };
 
-/* ELV payment option */
-jQuery(function() {
-	var cccntry = jQuery('#cccntry').html();
-	if (cccntry==="de"){
-		if ($("#contactdetails").length > 0){
-			//if pay by paypal radio is selected hide other payment options
-			if(jQuery("input:radio[name=ohpaytype]:checked").val()==="12"){
-				jQuery("#cctoggle,#elvtoggle").css("display", "none");
+var jq = jQuery.noConflict();
+/**
+* Media Code
+* Validate and submit media code using ajax if not on basket for in-page display
+* Update minicart figures with ajax too if not on basket
+*/
+Venda.Ebiz.checkVoucherForm = function(defaulttext, workflow) {
+	var str = jq("#vcode").val();
+	str = jQuery.trim(str);
+	if(jq("#vcode_submit_shopcart").length > 0){ //if on workflow
+		if(str === '' || str === defaulttext) {
+			alert(jq("#tag-alert").html());
+		} else {
+			jq("#vcode").val(str);
+			jq(".waitMsg").dialog({
+				modal: true,
+				autoOpen: false
+			});
+			jq(".waitMsg").dialog("open");
+			jq(".ui-dialog-titlebar").hide();
+
+			// instead of submit, submit in background to check for errors
+			if (document.createElement) {
+				var oScript = document.createElement("script");
+				oScript.type = "text/javascript";
+				
+				if(workflow == 'orcf-screen'){
+					oScript.src = jq("#tag-protocol").html()+"?ex=co_wizr-vouchercodeorderconfirm&curstep=vouchercode&step=next&mode=process&curlayout=errorsorderconfirm&layout=errorsorderconfirm&vcode="+jq("#vcode").val()+"&action=add";
+				} else {
+					oScript.src = jq('#tag-protocol').html()+'?ex=co_wizr-vouchercode&curstep=vouchercode&step=next&mode=process&curlayout=errors&layout=errors&vcode='+jq("#vcode").val()+'&action=add';
+				}
+				document.getElementById("ajax-error").appendChild(oScript);
 			}
-			//check if any ohpaytype radios are checked
-			var paytypeChecked = true;
-			jQuery("input:radio[name=ohpaytype]").each(function(){
-			   paytypeChecked = paytypeChecked && jQuery(this).is(':checked');
-			});
-			//if cardtype anything but elv, user has credit card payment details stored or none so disable and blank fields from elv section, enable fields in cc section, select credit card radio and make sure ohpaytype 0 is checked
-			if ((jQuery("#cardtype").val()!=="directdebitsde" && jQuery("input:radio[name=ohpaytype]:checked").val()==="0")||(jQuery("#cardtype").val()!=="directdebitsde" && !paytypeChecked)){
-				jQuery("#elv #ohccnum,#elv #ohccname").val("").attr('disabled', true);
-				jQuery("#cc #ohccnum,#cc #ohccname").removeAttr('disabled');
-				jQuery("#elvtoggle,#pptoggle").css("display", "none"); 		
-				jQuery("#dummycreditcard").attr("checked", "checked");
-				jQuery("#creditcard").attr("checked", "checked");
-				jQuery("#cardtype").val(jQuery("#dummycardtype").val());
-			}
-			//if cardtype elv, disable and blank fields from credit card section, enable fields in elv section, select elv radio, set cardtype to elv and make sure ohpaytype 0 is checked
-			if (jQuery("#cardtype").val()==="directdebitsde" && jQuery("input:radio[name=ohpaytype]:checked").val()==="0"){
-				jQuery("#cc #ohccnum,#cc #ohccname").val("").attr('disabled', true);
-				jQuery("#elv #ohccnum,#elv #ohccname").removeAttr('disabled');
-				jQuery("#cctoggle,#pptoggle").css("display", "none"); 
-				jQuery("#dummyelv").attr("checked", "checked");
-				jQuery("#cardtype").val("directdebitsde");
-				jQuery("#creditcard").attr("checked", "checked");
-			}
-			//if click pay by elv set cardtype to elv and make sure ohpaytype 0 is checked
-			jQuery("#dummyelv").click(function() {
-				jQuery("#cctoggle,#pptoggle").slideUp("fast", function () {
-					jQuery("#cc #ohccnum,#cc #ohccname").attr('disabled', true);
-					jQuery("#elv #ohccnum,#elv #ohccname, #sortcode").removeAttr('disabled');
-					jQuery("#elvtoggle").slideDown("fast");
-				});
-				jQuery("#cardtype").val("directdebitsde");
-				jQuery("#creditcard").attr("checked", "checked");
-			});
-			//if click pay by card set cardtype to match dummy carttype option
-			jQuery("#dummycreditcard").click(function() {
-				jQuery("#elvtoggle,#pptoggle").slideUp("fast", function () {
-					jQuery("#elv #ohccnum,#elv #ohccname, #sortcode").attr('disabled', true);
-					jQuery("#cc #ohccnum,#cc #ohccname").removeAttr('disabled');
-					jQuery("#cctoggle").slideDown("fast");
-				});
-				jQuery("#cardtype").val(jQuery("#dummycardtype").val());
-			});
-			//if click pay by paypal
-			jQuery("#formpaypal").click(function() {
-				jQuery("input:radio[name=dummypaytype]").removeAttr("checked");//uncheck other radios
-				jQuery("#cctoggle,#elvtoggle").slideUp("fast", function () {
-					jQuery("#pptoggle").slideDown("fast");
-				});
-			});
-			//if click elv fields set cardtype to elv and make sure ohpaytype 0 is checked
-			jQuery("#elv input").click(function() {
-				jQuery("#cardtype").val("directdebitsde");
-				jQuery("#creditcard").attr("checked", "checked");
-				jQuery("#dummyelv").attr("checked", "checked");
-			});
-			//if click credit cart fields set cardtype to match dummy carttype option and make sure ohpaytype 0 is checked
-			jQuery(jQuery("#cc input,#cc select").not("#dontsavecc")).click(function() {
-				jQuery("#creditcard").attr("checked", "checked");
-				jQuery("#dummycreditcard").attr("checked", "checked");
-				jQuery("#cardtype").val(jQuery("#dummycardtype").val());
-			});
-		}else{
-			//if pay by paypal radio is selected hide other payment options
-			if(jQuery("input:radio[name=ohpaytype]:checked").val()==="12"){
-				jQuery("#elvtoggle").css("display", "none");
-			}
-			//check if any ohpaytype radios are checked
-			var paytypeChecked = true;
-			jQuery("input:radio[name=ohpaytype]").each(function(){
-			   paytypeChecked = paytypeChecked && jQuery(this).is(':checked');
-			});
-			//if cardtype anything but elv, user has credit card payment details stored or none so disable and blank fields from elv section, enable fields in cc section, select credit card radio and make sure ohpaytype 0 is checked
-			if ((jQuery("#cardtype").val()!=="directdebitsde" && jQuery("input:radio[name=ohpaytype]:checked").val()==="0")||(jQuery("#cardtype").val()!=="directdebitsde" && !paytypeChecked)){
-				jQuery("#elv #ohccnum,#elv #ohccname").val("").attr('disabled', true);
-				jQuery("#cc #ohccnum,#cc #ohccname").removeAttr('disabled');
-				jQuery("#elvtoggle,#pptoggle").css("display", "none"); 		
-				jQuery("#dummycreditcard").attr("checked", "checked");
-				jQuery("#creditcard").attr("checked", "checked");
-				jQuery("#cardtype").val(jQuery("#dummycardtype").val());
-			}
-			//if cardtype elv, disable and blank fields from credit card section, enable fields in elv section, select elv radio, set cardtype to elv and make sure ohpaytype 0 is checked
-			if (jQuery("#cardtype").val()==="directdebitsde" && jQuery("input:radio[name=ohpaytype]:checked").val()==="0"){
-				jQuery("#cc #ohccnum,#cc #ohccname").val("").attr('disabled', true);
-				jQuery("#elv #ohccnum,#elv #ohccname").removeAttr('disabled');
-				jQuery("#cctoggle,#pptoggle").css("display", "none"); 
-				jQuery("#dummyelv").attr("checked", "checked");
-				jQuery("#cardtype").val("directdebitsde");
-				jQuery("#creditcard").attr("checked", "checked");
-			}
-			//if click pay by elv set cardtype to elv and make sure ohpaytype 0 is checked
-			jQuery("#dummyelv").click(function() {
-				jQuery("#cctoggle,#pptoggle").slideUp("fast", function () {
-					jQuery("#cc #ohccnum,#cc #ohccname").attr('disabled', true);
-					jQuery("#elv #ohccnum,#elv #ohccname, #sortcode").removeAttr('disabled');
-					jQuery("#elvtoggle").slideDown("fast");
-				});
-				jQuery("#cardtype").val("directdebitsde");
-				jQuery("#creditcard").attr("checked", "checked");
-			});
-			//if click pay by card set cardtype to match dummy carttype option
-			jQuery("#dummycreditcard").click(function() {
-				jQuery("#elvtoggle,#pptoggle").slideUp("fast", function () {
-					jQuery("#elv #ohccnum,#elv #ohccname, #sortcode").attr('disabled', true);
-					jQuery("#cc #ohccnum,#cc #ohccname").removeAttr('disabled');
-					jQuery("#cctoggle").slideDown("fast");
-				});
-				jQuery("#cardtype").val(jQuery("#dummycardtype").val());
-			});
-			//if click pay by paypal
-			jQuery("#formpaypal").click(function() {
-				jQuery("input:radio[name=dummypaytype]").removeAttr("checked");//uncheck other radios
-				jQuery("#cctoggle,#elvtoggle").slideUp("fast", function () {
-					jQuery("#pptoggle").slideDown("fast");
-				});
-			});
-			//if click elv fields set cardtype to elv and make sure ohpaytype 0 is checked
-			jQuery("#elv input").click(function() {
-				jQuery("#cardtype").val("directdebitsde");
-				jQuery("#creditcard").attr("checked", "checked");
-				jQuery("#dummyelv").attr("checked", "checked");
-			});
-			//if click credit cart fields set cardtype to match dummy carttype option and make sure ohpaytype 0 is checked
-			jQuery(jQuery("#cc input,#cc select").not("#dontsavecc")).click(function() {
-				jQuery("#creditcard").attr("checked", "checked");
-				jQuery("#dummycreditcard").attr("checked", "checked");
-				jQuery("#cardtype").val(jQuery("#dummycardtype").val());
-			});
 		}
-	}else{
-		//check if any ohpaytype radios are checked
-		var paytypeChecked = true;
-		jQuery("input:radio[name=ohpaytype]").each(function(){
-		   paytypeChecked = paytypeChecked && jQuery(this).is(':checked');
-		});
-		//if cardtype anything but elv, user has credit card payment details stored or none so disable and blank fields from elv section, enable fields in cc section, select credit card radio and make sure ohpaytype 0 is checked
-		if ((jQuery("#cardtype").val()!=="directdebitsde" && jQuery("input:radio[name=ohpaytype]:checked").val()==="0")||(jQuery("#cardtype").val()!=="directdebitsde" && !paytypeChecked)){
-			jQuery("#cc #ohccnum,#cc #ohccname").removeAttr('disabled');
-			jQuery("#dummycreditcard").attr("checked", "checked");
-			jQuery("#creditcard").attr("checked", "checked");
-		}
-		//animate
-		jQuery("#formpaypal").click(function() {
-			jQuery("input:radio[name=dummypaytype]").removeAttr("checked");//uncheck other radios
-			jQuery("#cctoggle").slideUp("fast");
-		});
-		//if click pay by card set cardtype to match dummy carttype option
-		jQuery("#dummycreditcard").click(function() {
-			jQuery("#cc #ohccnum,#cc #ohccname").removeAttr('disabled');
-			jQuery("#cctoggle").slideDown("fast");
-		});
-		//if click credit cart fields set cardtype to match dummy cardtype option and make sure ohpaytype 0 is checked
-		jQuery(jQuery("#cc input,#cc select").not("#dontsavecc")).click(function() {
-			jQuery("#creditcard").attr("checked", "checked");
-			jQuery("#dummycreditcard").attr("checked", "checked");
-		});
 	}
+};
+
+Venda.Ebiz.attributesValue ="";
+Venda.Ebiz.attributeEMWBIS = function(uid){
+ var product = getProduct(uid)
+ var attributesValue= product.chosenAttributeString();
+ Venda.Ebiz.attributesValue = product.attributeValues[attributesValue].data["atrsku"]; 
+};
+
+/**
+* simple popup
+*/
+Venda.Ebiz.doProtocal = function(url){
+	var protocal= document.location.protocol;
+	if(url.indexOf("http:")==0 && protocal=="https:") {
+		url=url.replace("http:","https:");
+	}
+	return url;
+};
+
+Venda.Ebiz.initialDialog = function(dialogList){
+	var param = {
+			createDialogList:'',
+			closeDialogList:'',
+			settings:''
+		}
+	var options = jQuery.extend(param, dialogList);
+	var popupWidth = '500';
+	var popupHeight = 'auto';
+	var popupClass = '';
+	var anchorName = '';
+	jQuery(options.createDialogList).click(function(){
+		Venda.Ebiz.initialDialog.clickedElement = this;
+		if(jQuery(this).attr("rel")){
+			var attrRel = jQuery(this).attr("rel").split(",");
+			 popupWidth = attrRel[0]|| '500';
+			 popupHeight = attrRel[1] || 'auto';
+			 popupClass = attrRel[2];
+			 anchorName = attrRel[3];
+		}
+		jQuery(this).createDialog('dialogContent',{ 'width': popupWidth, 'height': popupHeight}, options.closeDialogList, popupClass, anchorName);
+		return false;
+	});
+};
+
+Venda.Ebiz.dialogObject = '';
+jQuery.fn.createDialog = function(selector, settings, closePopupId, dialogClassName , anchorName){
+	dialogClassName = dialogClassName+"Dialog";
+	var dialogOpts = {autoOpen: false, closeOnEscape:true,resizable: false, width: 'auto', modal: true,dialogClass:dialogClassName, close: function() {dialogObj.dialog( "destroy" ); dialogObj.remove(); }}
+	var H=jQuery(window).height();	
+	divObj = jQuery("<div>").attr("id",selector).appendTo("body");
+	dialogObj = jQuery(divObj);/* popup object */
+	dialogObj.dialog(dialogOpts);
+	dialogObj.addClass("loadingImg");
+	jQuery(".ui-dialog-titlebar").hide();
+	for( var iSetting in settings){
+            dialogObj.dialog("option", iSetting, settings[iSetting]);
+    };
+	jQuery(".ui-dialog").popupIframe();
+	dialogObj.dialog("open");
+	
+	if (dialogObj.dialog("isOpen")===true) {
+		// FROM ./templates/pcat/helpNavigation/helpNavigation.html
+		jQuery("#helpNavigation a").live('click', function() {
+			Venda.Ebiz.doPopUpContent(this); 
+			return false;
+		});
+	};
+	
+	var url = Venda.Ebiz.doProtocal(jQuery(this).attr("href"));
+	dialogObj.load( url+"&layout=noheaders",function(){
+		var setHeight = H - dialogObj.height();
+		dialogObj.dialog("option","position", setHeight);		
+		Venda.Ebiz.closeDialog(closePopupId);
+		dialogObj.removeClass("loadingImg");
+		jQuery(".ui-dialog-titlebar").show();
+		if(anchorName){
+			jQuery(".toggleContent > h3."+anchorName).trigger('click');
+		}
+	});
+	Venda.Ebiz.dialogObject = dialogObj;
+	jQuery('.ui-widget-overlay').live('click',function() {
+		dialogObj.dialog("close");
+	});	
+	return false;
+};
+
+Venda.Ebiz.doPopUpContent = function(Obj){
+	var url = jQuery(Obj).attr("href");
+	url = Venda.Ebiz.doProtocal(url);
+	Venda.Ebiz.dialogObject.load(url);
+};
+
+Venda.Ebiz.closeDialog = function(closePopupId) {
+	jQuery(closePopupId).click(function(){
+		dialogObj.dialog("close");
+		return false;
+	});
+};
+
+jQuery.fn.submitForm = function(closePopupId){
+	var obj = jQuery(this); 
+	obj.submit(function() {
+		var URL = obj.attr('action'); /* get target*/
+		var params = obj.find("input, select, textarea").serialize(); /* get the value from all input type*/
+		jQuery.ajax({
+			type: "POST", 
+			url: URL, 
+			dataType: "html", 
+            data: params,
+			cache: false, /* do not cache*/
+			error: function() {
+				dialogObj.html('Error!');
+			},
+			success: function(data) { 
+				dialogObj.html(data);				
+				Venda.Ebiz.closeDialog(closePopupId);
+			}
+		});
+		return false; 
+	});
+};
+/**
+* Expand contents
+*/
+Venda.Ebiz.expandContent = function() {
+	var txtShow = (jQuery("#txtShow").length!=0) ? jQuery("#txtShow").html() : "";
+	var txtHide = (jQuery("#txtHide").length!=0) ? jQuery("#txtHide").html() : "";
+	
+	jQuery(".toggleContent > div").hide();
+	jQuery(".toggleContent > h3").each(function(){ jQuery(this).attr("title",txtShow) });
+	jQuery(".toggleContent > h3").click(function() {
+		jQuery(this).toggleClass("selected");
+		if(jQuery(this).is(".selected")) {
+			jQuery(this).attr("title",txtHide);
+		} else {
+			jQuery(this).attr("title",txtShow);
+		}
+		jQuery(this).next().slideToggle("fast");
+	});
+};
+
+Venda.Ebiz.findPopUps = function() {
+var popups = document.getElementsByTagName("a");
+for (i=0;i<popups.length;i++) {
+	if (popups[i].rel.indexOf("popup")!=-1) {
+		// attach popup behaviour
+		popups[i].onclick = Venda.Ebiz.doPopUp;
+		}
+	}
+};
+Venda.Ebiz.doPopUp = function(e) {
+	//set defaults - if nothing in rel attrib, these will be used
+	var type = "standard";
+	var strWidth = "780";
+	var strHeight = "580";
+	//look for parameters
+	attribs = this.rel.split(" ");
+	if (attribs[1]!=null) {type = attribs[1];}
+	if (attribs[2]!=null) {strWidth = attribs[2];}
+	if (attribs[3]!=null) {strHeight = attribs[3];}
+	e.stopPropagation();
+	e.preventDefault();
+	type = type.toLowerCase();
+	if (type == "fullscreen"){
+		strWidth = screen.availWidth;
+		strHeight = screen.availHeight;
+	}
+	var tools="";
+	if (type == "standard") { 
+		tools = "resizable,toolbar=yes,location=yes,scrollbars=yes,menubar=yes,width="+strWidth+",height="+strHeight+",top=0,left=0";
+	}
+	if (type == "console" || type == "fullscreen") {
+		tools = "resizable,toolbar=no,location=no,scrollbars=yes,width="+strWidth+",height="+strHeight+",left=0,top=0";
+	}
+	newWindow = window.open(this.href, 'newWin', tools);
+	newWindow.focus();
+};
+
+/**
+* Remove any special characterSet
+* @param {string} str - string with any special characters
+* @return {string} str - string WITHOUT any special characters
+*/
+Venda.Ebiz.clearText = function(str){
+	var iChars = /\$|,|@|#|~|`|\%|\*|\^|\&|\(|\)|\+|\=|\/|\[|\-|\_|\]|\[|\}|\{|\;|\:|\'|\"|\<|\>|\?|\||\\|\!|\$|\./g;
+	return str.replace(iChars, "");
+};
+
+/**
+* To validate Qty - the accept value is only number
+*
+* @return {boolean} - true if only number entered
+*/
+Venda.Ebiz.validateQty = function(){ 
+	var filterNumber = /(^-?[1-9](\d{1,2}(\,\d{3})*|\d*)|^0{1})$/;
+	var hasQty = true;
+
+	jQuery("#qty, .qty").each(function (index) {
+		if((parseInt(jQuery(this).val()) < 0) || (filterNumber.test(jQuery(this).val())==false)){
+			hasQty = false;
+			return false;
+		}
+	});
+	if(!hasQty){ alert(jQuery("#tag-qtymsg").text()); return false;	}
+	
+	return true;
+};
+
+Venda.Ebiz.validateGiftcode = function(formName, msg) {
+	if (document.forms[formName].giftcode.value == ""){
+		alert(msg);
+		document.forms[formName].giftcode.focus();
+		return false;
+	}
+	 Step2(document.forms[formName],"confirm","process","show","giftcert","_self","","","","");
+};
+/**
+*  limit text input - used in gift wrap screen
+*/
+Venda.Ebiz.maxLength = function(fieldObj,countFieldName,maxChars,event){
+        var key = event.which;
+        //all keys including return.
+        if(key >= 33 || key == 13) {
+            var length = fieldObj.value.length;
+			countFieldName.value = maxChars - length;    
+			if(length >= maxChars) {
+                 event.preventDefault();
+				alert('Please limit the text ' + maxChars+ ' characters.');	
+            }
+        }
+};
+/**
+*  store locator validation
+*/
+Venda.Ebiz.checkPostcode = function(formObj,fieldObj,textMsg) {
+	var formObj = "document." + formObj;
+	var formObjField = formObj + "." + fieldObj + ".value";
+	formObjField = eval(formObjField);
+	if ((formObjField == textMsg) || (formObjField == "")) {
+		alert("Please enter the full postcode.");
+		return false;
+	}
+	else {
+		formObj = eval(formObj)
+		formObj.submit();
+	}
+};
+/**
+*  Element - Email newsletter signup / EMWBIS
+*/
+Venda.Ebiz.checkemail = function(str) {
+	var filter =/^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,7}|\d+)$/i;
+	return (filter.test(str))
+};
+
+Venda.Ebiz.validateEmail = function(mail,msg) {
+	if (Venda.Ebiz.checkemail(mail.email.value)) {
+		mail.submit();
+	} else {
+		alert(msg);
+		mail.email.focus();
+	}
+};
+	
+/**
+*  This function keeps the nav open when using the Category Navigation (Navigation Settings) element.
+*  This function is moved from 'sitewide.js', so avoid the error 
+*/
+function openNav(openicat,openicat2){
+	if (typeof activateNav != 'undefined'){
+		// default toggle if turnonToggle does not exist
+		if (typeof turnonToggle === 'undefined') { var turnonToggle = 1; }
+		// show first level subcategories
+		if (openicat != "") {
+			if (turnonToggle == 1) {
+				showOrHide(1,openicat);
+			}
+			// show second level subcategories
+			if (openicat2 != "") {
+				if (turnonToggle == 1) {
+					showOrHide(1,openicat2);
+				}
+			}
+		}
+	}
+};
+/**
+*  addEvent script from http://www.accessify.com/features/tutorials/the-perfect-popup/
+*  This function is moved from 'sitewide.js', so avoid the error. 
+*/
+function addEvent(elm, evType, fn, useCapture){if(elm.addEventListener){elm.addEventListener(evType, fn, useCapture);return true;}else if (elm.attachEvent){var r = elm.attachEvent('on' + evType, fn);return r;}else{elm['on' + evType] = fn;}};
+
+jQuery(function() {
+
+	// find the link that has 'doDialog' class to do the popup
+	Venda.Ebiz.initialDialog({createDialogList:'.doDialog', closeDialogList:'#back_link', settings: ''});
+	Venda.Ebiz.findPopUps();
+	
+	// Gift certificate - input on order summary
+	jQuery("#giftcode").keypress(function(event) {
+		if (event.which == "13") {
+			jQuery("#applyCode").trigger("click");
+			return false;
+		}
+	});
+	//Bklist
+	if(Venda.Ebiz.BKList.configBKList.enableBklist){
+		Venda.Ebiz.BKList.ChangeLink();
+	}
+	
+	/**
+	* Media Code
+	* Hide noscript comment
+	* Add listeners to media code form elements
+	*/	
+	jq(".nonjs").css("display","none");
+	
+	/**
+	* Display Social book marks box when mouse hover
+	*/
+	jQuery("#socialBookMarks").hover(
+	function() {
+		jQuery("#SBcontent").css({"left":"-1px"});
+		},
+		function() {
+		jQuery("#SBcontent").css({"left":"-9999px"});
+		}
+	);
+	
+	/**
+	* Popup Download Link Page
+	*/	
+	jQuery(".downloadLink").click(function(){
+		jQuery(this).createDialog('download', {'dialogClass':'download','width':'540px'}, '');
+		return false;
+	});	
+	
+	
+	jQuery.fn.textboxCount = function(obj, options) {
+	var t_settings = {
+			maxChar: 80,
+			countStyle: 'down', /* up, down*/
+			countNegative:  false,
+			alert: ""
+		}	
+	var settings = jQuery.extend(t_settings, options);
+	var t_obj = jQuery(this);
+
+	function addClassCharNumber(){	
+	jQuery(obj).removeClass("c_green c_red");
+		if(t_objLength <= options.maxChar ) {
+			jQuery(obj).addClass("c_green");
+		}else{
+			jQuery(obj).addClass("c_red");
+		}	
+	}	
+	
+	function showCharNumber(){	
+		t_objLength = t_obj.val().length;	
+		if(options.countStyle == 'up'){
+			jQuery(obj).html(t_objLength+"/"+ options.maxChar );
+		}
+		else if(options.countStyle == 'down'){
+			jQuery(obj).html(options.maxChar - t_objLength );					
+		}
+		addClassCharNumber(t_objLength);
+	}
+	
+	function doAlertMsg(event){
+		var key = event.which;		
+		if(key >= 33 ) {
+			if(t_obj.val().length >= options.maxChar ) {
+				event.preventDefault();						
+				alert(options.alert);	
+			}
+		}
+	}	
+	
+	charLength =0;
+	function doCount(event){
+	t_objLength = t_obj.val().length;	
+		
+		if((t_objLength <= options.maxChar ) || (options.countNegative)) {
+				if(options.countStyle == 'up'){
+					charLength = t_objLength;
+					jQuery(obj).html(charLength+"/"+ options.maxChar  );
+				}
+				else if(options.countStyle == 'down'){
+					charLength = options.maxChar - t_objLength ; 		
+					jQuery(obj).html(charLength);					
+				}
+		}
+		else{
+			var scrollPos = t_obj.scrollTop();
+			t_obj.val( t_obj.val().substring(0, options.maxChar));
+			t_obj.scrollTop(scrollPos);
+			
+		}
+		addClassCharNumber(t_objLength);
+		
+		if(options.alert != ""){
+			doAlertMsg(event);
+		}
+	}
+
+	showCharNumber();
+	jQuery(this).bind('keydown keyup keypress mousedown', doCount);
+	
+    jQuery(this).bind('paste',function(e) {
+	// check if right button is clicked
+		setTimeout(function() {
+		   doCount();
+		   showCharNumber();
+		}, 5);
+	});	
+	}
+	
+	//view itemperpage/ sort by  dropdown changed a duplicate id
+	if (jQuery("div.pagnBtm")){
+		if (jQuery("div.pagnBtm .pagnPerpage label")){
+			//view itemperpage
+			jQuery("div.pagnBtm .pagnPerpage label").attr('for','perpagedpdBT');
+			jQuery("div.pagnBtm .pagnPerpage select").attr({
+				id: 'perpagedpdBT',
+				name: 'perpagedpdBT'
+			});
+			//sort by
+			jQuery("div.pagnBtm .sort label").attr('for','sortbyBT');
+			jQuery("div.pagnBtm .sort select").attr({
+				id: 'sortbyBT',
+				name: 'sortbyBT'
+			});
+		}
+	}
+	
+	/* Start: loading social button */
+	Venda.Ebiz.loadFBLikeButton = function() {
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId: jQuery('#tag-fbAppId').html(),
+				status: true,
+				cookie: true,
+				xfbml: true
+			});
+		};
+		
+		var oScript = document.createElement('script');
+		oScript.type = 'text/javascript';
+		oScript.async = true;
+		oScript.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+		document.getElementById('fb-root').appendChild(oScript);
+	};
+	
+	Venda.Ebiz.loadTweetButton = function() {
+		var oScript = document.createElement('script');
+		oScript.type = 'text/javascript';
+		oScript.async = true;
+		oScript.src = document.location.protocol + '//platform.twitter.com/widgets.js';
+		document.getElementById('socialButtons').appendChild(oScript);
+	};
+	
+	Venda.Ebiz.loadGooglePlusButton = function() {
+		var oScript = document.createElement('script');
+		oScript.type = 'text/javascript';
+		oScript.async = true;
+		oScript.src = 'https://apis.google.com/js/plusone.js';
+		document.getElementById('socialButtons').appendChild(oScript);
+	};
+	
+	if (jQuery('#socialButtons').length === 1) {
+		jQuery(".mainHeader").next().addClass("socialHack");
+		Venda.Ebiz.loadTweetButton();
+		Venda.Ebiz.loadFBLikeButton();
+		Venda.Ebiz.loadGooglePlusButton();
+	}
+	/* End: loading social button */
 });
 
 /**
-* validate attribute color from url parameter in attributeData
-**/
-Venda.Ebiz.validateColour = function(colour){
-	var validColor = false;
-	for (var obj in attributeData) {
-		if (typeof attributeData[obj] != "function") {
-			if(attributeData[obj].attr.att1 === colour){
-				validColor = true;
-				break;
-			}
-		}
-	}
-	return validColor;
+* simple color swatch on productlist/searchresult
+* @requires jQuery v1.7.1 or greater
+* @param {object} - configutation
+*   - contentID: search content ID
+*   - selectFirstColor: set to true to enable preselect first color swatch
+*/
+Venda.namespace("Ebiz.colorSwatch");
+Venda.Ebiz.colorSwatch = function(conf){
+    var defaults = {
+        contentID: '#content-search',
+        selectFirstColor: true
+    };
+    this.conf=jQuery.extend(defaults, conf);
 };
-/**
-* validate postal codes against regex
-**/
-Venda.Ebiz.europePostalCheck = function (country) {
-			var	postalCode = jQuery('#zipc').val()
-			if (countries[country] != null) {
-				var	countryCache = (countries[country]), 
-						validate = new RegExp(countryCache.regex.validate, "i"),
-						format = new RegExp(countryCache.regex.format, "i"),
-						deliminate = countryCache.deliminate || "",
-						prefix = countryCache.prefix || ""
-				if (postalCode.search(validate) != 0) {
-					alert('Please enter a valid postcode for your selected country e.g. ' + countryCache.example);
-					return false;
-				} else if (postalCode.search(validate) == 0) {
-					if (countryCache.regex.format != null) {
-						jQuery('#zipc').val(postalCode.replace(format, "$1" + deliminate + "$2").toUpperCase());
-					} else if (prefix != "") {
-						jQuery('#zipc').val(postalCode.replace(validate, prefix + "$2"));
-					} else {
-						jQuery('#zipc').val(postalCode.replace(validate, "$1"));
-					}
-					return true;
-				}
-				return true;
-			}
-			return true;
-	} 
+
+Venda.Ebiz.colorSwatch.prototype = {
+    init: function(){
+            jQuery(this.conf.contentID).on("click", ".swatchContainer a", function(){
+
+        	var $this = jQuery(this);
+
+        	var mainImg 	 = $this.data("setimage"),
+				mainImgObj 	 = jQuery("#"+ $this.data("prodid") ),
+            	prodLink 	 = mainImgObj.find("a:first").data("prodLink");
+
+            if(mainImg == ""){
+                mainImg = mainImgObj.find("a:first").data("defaultImage");
+            }
+
+            mainImgObj.find('img:first')
+            	.attr("src", mainImg)
+            	.end()
+            	.find("a:first")
+            	.attr("href", this.href || "");
+
+            $this.parent("").find("a").removeClass("sw_selected");
+            $this.addClass("sw_selected");
+
+            return false;
+
+        });
+        if(this.conf.selectFirstColor){
+            jQuery('.swatchContainer div').find(" > a:first").click();
+        }
+    }
+};
