@@ -1,0 +1,42 @@
+<venda_detblock_referee>
+<tr>
+<td><venda_email></td><td><venda_sent></td><td><venda_block label=250,ohstatus=5><venda_datereedemedre></venda_block label=250></td>
+</tr>
+</venda_detblock_referee>
+<venda_detblock_referrer>
+<tr>
+<td><venda_ordnum></td><td><venda_vouchercode></td><td><venda_datereedeemedrr></td>
+</tr>
+</venda_detblock_referrer>
+
+<div class="referfriendlist box basketAlt">
+	<h1 class="header"><venda_text id=site.refer_friend.heading></h1>
+	<div class="referredFriend">
+	<venda_block label=241,refereefound=1>
+	<p><strong><venda_text id=promotion.2.referafriend.friendsvouchers></strong></p>
+	<table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#ffffff">
+		<tr>
+			<th class="friendemail"><venda_text id=promotion.2.referafriend.friendemail></th> 
+			<th><venda_text id=promotion.2.referafriend.datesent></th> 
+			<th><venda_text id=promotion.2.referafriend.datereedemed></th>
+		</tr>
+		<tr><venda_detail_referee></tr>
+	</table>
+	<p><strong><venda_text id=promotion.2.referafriend.yourvouchers></strong></p>
+	<table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#ffffff">		
+		<tr>
+			<th class="ordnum"><venda_text id=promotion.2.referafriend.ordnum></th>
+			<th><venda_text id=promotion.2.referafriend.vouchercode></th> 
+			<th><venda_text id=promotion.2.referafriend.datereedemed></th> 
+		</tr>
+		<venda_detail_referrer>
+	</table>
+	</venda_block label=241>
+
+	<venda_block label=242,refereefound=0><venda_text id=site.refer_friend.not_referred_friends></venda_block label=242>
+	</div>
+	<ul class="friendList">
+	</ul>
+<div id="buttons"><a href="<venda_dispview page=myaccount>" class="button"><venda_text id=site.button.back_to_my_account></a></div>
+</div>
+<venda_inctemplate name=cmCreateRegistrationTag,type=includes/coremetrics>
