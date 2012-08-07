@@ -657,7 +657,6 @@ body {
 .wrapper {
     margin: 0 auto;
     padding: 10px 5px;
-    width: 960px;
     background: #fff;
     position: relative;
 }
@@ -1203,10 +1202,11 @@ ol.prods li {
     padding: 5px 7px;
     width: 100 %;
     background-color: #f7f0f2;
-    border: 1px solid #B40F14;
+    border-bottom: 1px solid #B40F14;
     color: #B40F14;
     line-height: 18px;
     overflow: hidden;
+    text-align: center;
 }
 
 .demo strong {
