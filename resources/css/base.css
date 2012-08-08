@@ -4044,9 +4044,12 @@ ul#rvisitewidelist li a:hover div {
 /* Anthro specific for new markup */
 
 /* Utilities */
-full-width {
+.full-width {
   width: 100%;
 }
 
 /* Header */
-
+.sub-header {
+  line-height: 22px;
+  border-bottom: 1px dotted #999999;
+}
