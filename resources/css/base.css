@@ -577,12 +577,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-    color: #4a4a4a;
+    color: #666;
     text-decoration: none;
 }
 
 a:hover, a:focus, a:active, .underline {
-    text-decoration: underline;
+    text-decoration: none;
+    color: #d25952;
 }
 
 a img {
