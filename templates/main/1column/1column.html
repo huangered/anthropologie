@@ -17,9 +17,13 @@
 <venda_inctemplate name=demo,type=mainIncludes>
 <div class="wrapper">
 	<a href="#content" class="skipToContent"><venda_text id=site.skip_to_content></a>
-	<div class="mainHeader container_24">
+	<div class="sub-header full-width">
+    <venda_inctemplate name=operationalNav,type=mainIncludes>
+	</div>
+	<div class="header full-width">
 		<venda_inctemplate name=header,type=mainIncludes><venda_inctemplate name=topNavigation,type=mainIncludes>
-	</div><!-- end mainHeader -->
+	</div>
+	<!-- end mainHeader -->
 	<div class="container_24 clearfix">
 		<div class="content grid_24"><a name="content" id="content"></a><venda_content></div>
 		<venda_block mode=value,<venda_setting type=ebiz,name=powerreviews>=1><div id="productindex"><a href="<venda_serveradd>/partners/pwr/product-reviews/c/index.html"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/spacer.gif" width="1" height="1" alt="product index"></a></div></venda_block>

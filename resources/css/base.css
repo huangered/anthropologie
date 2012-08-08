@@ -656,7 +656,6 @@ body {
 
 .wrapper {
     margin: 0 auto;
-    padding: 10px 5px;
     background: #fff;
     position: relative;
 }
@@ -1178,9 +1177,10 @@ ol.prods li {
     background-color: #fff;
     border: 1px solid #e66c09;
     color: #e66c09;
-    line-height: 18px;
+    line-height: 12px;
     overflow: hidden;
     text-align: center;
+    font-size: 10px;
 }
 
 .admin a {
@@ -1196,9 +1196,10 @@ ol.prods li {
     background-color: #f7f0f2;
     border-bottom: 1px solid #B40F14;
     color: #B40F14;
-    line-height: 18px;
+    line-height: 12px;
     overflow: hidden;
     text-align: center;
+    font-size: 10px;
 }
 
 .demo a {
@@ -4040,4 +4041,12 @@ ul#rvisitewidelist li a:hover div {
 }
 
 
-/*
+/* Anthro specific for new markup */
+
+/* Utilities */
+full-width {
+  width: 100%;
+}
+
+/* Header */
+
