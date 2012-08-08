@@ -1,12 +1,28 @@
+<venda_block errors=notnull><h2 class="error"><venda_errors></h2></venda_block>
+<venda_tpcomment><!-- tag values used for minicart update without reload --></venda_tpcomment>
+<div id="tag-addedmsgref" style="display:none;"><venda_addedmsg msg=addedref></div>
+<div id="tag-bsref" style="display:none;"><venda_bsref></div>
+<venda_block label=21,mode=value,<venda_setting type=ebiz,name=tracktagvbm>=1>
+<div id="tag-vbmref" style="display:none;"><venda_addedmsg msg=addedref></div>
+<div id="tag-vbmhtxt" style="display:none;"><venda_htxt mode=get,name=vbm></div>
+<div id="tag-vbmsrchhtxt" style="display:none;"><venda_htxt mode=get,name=searchadd></div>
+</venda_block label=21>
+
+<div id="tag-addedmsg" style="display:none;"><venda_block label=32,mode=value,<venda_addedmsg msg=addedref>=notnull><venda_addedmsg msg=addedref></venda_block label=32></div>
+<div id="tag-codehttp" style="display:none;"><venda_codehttp></div>
+<div id="tag-addtobaskettext" style="display:none;"><venda_text id=site.productdetail.adding_item_to_basket></div>
+<div id="tag-headertext" style="display:none;"><span><venda_text id=site.minicart.header.text></span></div>
+
+
 <div class="container_24">
-  <div class="grid_20">
+  <div class="grid_22">
     <ul>
       <li>Search</li>
       <li>Sign in</li>
       <li>Basket</li>
     </ul>      
   </div>
-  <div class="grid_4">
+  <div class="grid_2">
     <p>Country selection</p>
   </div>
 </div>

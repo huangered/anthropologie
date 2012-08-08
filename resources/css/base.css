@@ -4050,10 +4050,26 @@ ul#rvisitewidelist li a:hover div {
 
 /* Header */
 .sub-header {
-  line-height: 22px;
-  border-bottom: 1px dotted #999999;
+  line-height: 26px;
+  background: url("../images/navbar-background.jpg") repeat-x;
+  font-family: "Georgia";
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.sub-header ul {
+  margin-left: 320px;
+} 
+.sub-header li {
+  float: left;
+}  
+.divider-vertical {
+  height: 18px;
+  width: 1px;
+  margin: 4px 14px;
+  overflow: hidden;
+  background-color: #cccccc;
 }
 
-#home {
+#logo {
   margin: 15px 0;
 }
