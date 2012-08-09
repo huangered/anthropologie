@@ -1899,66 +1899,36 @@ div.quickshop div.remove { width: 10%; }
 }
 
 .flagContent {
+    font-family: Arial, Helvetica, sans-serif;
     background: #FFFFFF;
     border: 1px solid #CCCCCC;
+    border-top: 0;
     position: absolute;
     z-index: 9001;
     display: none;
-    width: 180px;
-    font-size: .9em;
-    top: 22px;
-    right: 0;
+    width: 216px;
+    top: 26px;
     overflow: hidden;
-}
-
-.flagContent p {
-    margin: 0;
-}
-
-.flagContent .region {
-    margin: 13px;
-    width: 145px;
+    line-height: 12px;
+    font-size: 10px;
+    margin-left: -148px;
 }
 
 .flagContent .region li, .flagContent .lang li {
-    margin: 5px 0;
+    margin: 5px;
     float: left;
 }
 
-.flagContent .region a {
-    width: 145px;
-}
-
-.flagContent .region a, .flagContent .lang a {
-    color: #ffffff;
-    background-color: #acacac;
-    border: 2px solid #acacac;
-    color: #333333;
-    display: block;
-    padding: 3px;
-}
-
-.flagContent .region a:hover, .flagContent .lang a:hover {
-    border: 2px solid #333333;
-}
-
-.flagContent .sepLine {
-    border-top: 1px solid #CCCCCC;
+.flagContent .region {
+  padding: 6px 9px 0;
 }
 
 .flagContent .lang {
-    margin: 13px;
-    width: 95px;
+  padding: 0px 9px 9px;
 }
 
-.flagContent .lang a {
-    background-image: url(../images/sprite_icon.gif);
-    background-repeat: no-repeat;
-}
-
-.flagContent .lang a {
-    padding: 3px 28px;
-    width: 95px;
+.flagContent .divider-vertical {
+  height: 14px;
 }
 
 .regionLangSwitchContent {
