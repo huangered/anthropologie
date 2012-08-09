@@ -27,7 +27,7 @@ jQuery(function(){
 		return false;
 	});
 	jQuery("#flagContent").mouseleave(function() {
-		jQuery("#flagContent").hide(); 
+		jQuery("#flagContent").slideUp("fast"); 
 		return false;
 	});	
 	if(RLSwitchEnable == "1"){ // Open the region selection landing lightbox for first time
