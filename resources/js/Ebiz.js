@@ -1046,3 +1046,51 @@ Venda.Ebiz.colorSwatch.prototype = {
         }
     }
 };
+
+
+/* ANTHROPOLOGIE UNIQUE FUNCTIONALITY */
+jQuery(document).ready(function($) {
+
+	var hiddenDetails = $('.anthrocord').hide(),
+			openMe = ''
+	$('.toggle-content').click(function() {
+		openMe = $(this).attr('href');
+		displayEffect = $(openMe).siblings('.activate').length ? 'show' : 'slide';
+		$(openMe).siblings('.activate').hide().removeClass('activate');
+		if($(openMe).hasClass('activate')){
+		  $(openMe).slideUp().removeClass('activate');
+		} else {
+			switch(displayEffect) {
+				case 'show' : $(openMe).show().addClass('activate');
+				case 'slide' : $(openMe).slideDown().addClass('activate');
+			}		
+		}
+		return false;
+	});
+	var scrollLock = false
+	$('.scroll-down, .scroll-up').click(function() {
+		var scrollHere = $(this).parents('.control-group').find('.slide-boxes'),
+		    scrollLimit = 0
+		if ($(this).hasClass('scroll-up')) {
+  		if(scrollHere.css('top') != '0px' && !scrollLock) {
+  		  scrollLock = true;
+  		  scrollHere.animate({
+          top: '+=144'
+          }, 500, function() {
+            scrollLock = false;
+        });
+      }
+		} else {
+		  scrollLimit = Math.ceil((scrollHere.find('input').length / 6) - 1) * -144 + 'px'
+  		  if (scrollHere.css('top') != scrollLimit && !scrollLock) {
+  		  scrollLock = true;
+  		  scrollHere.animate({
+          top: '-=144'
+          }, 500, function() {
+            scrollLock = false;
+        });
+      }	
+		}
+	});
+	
+});
