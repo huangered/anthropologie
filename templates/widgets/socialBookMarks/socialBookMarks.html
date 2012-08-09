@@ -1,0 +1,42 @@
+<venda_tpcomment><!-- 
+PLEASE NOTE:
+* the stuff under tpcomment are used for 'addthis' functionality, if you need it enable (instead of a current version) just removing a tpcomment
+
+<script type="text/javascript">
+	jQuery(document).ready(function(){jQuery.getScript("http://s7.addthis.com/js/250/addthis_widget.js"); });
+	var addthis_config = { ui_language: '<venda_sessionlanguage>' };
+</script>--></venda_tpcomment>
+
+<venda_tpcomment><!-- Tags to pass to JS --></venda_tpcomment>
+<div id="tag-fbAppId" class="hide"><venda_setting type=ebiz,name=ebxtfbappid></div>
+
+<div class="grid_12 omega alpha" id="socialButtons">
+	<div class="socialButtons">
+		<div class="fbLikeButton">
+			<div id="fb-root"></div>
+			<div class="fb-like" data-href="<venda_dispview invt=<venda_invtref>>" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+		</div>
+		<div class="tweetButton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none"></a></div>
+		<div class="googlePlusButton"><div class="g-plusone" data-size="medium"></div></div>
+	</div>
+	<ul class="productDetailSocialEmailPrint">
+		<venda_tpcomment><!--
+		<li class="productDetailSocial" id="socialBookMarks">
+		<span class="share"><venda_text id=site.share_bookmarks></span> <span class="fb">Facebook</span> <span class="tw">Twitter</span>
+			<div id="SBcontent" class="productDetailSocialPopup">
+				<ul>
+					<li><a class="addthis_button_favorites"><venda_text id=site.add.favourites></a></li>
+					<li><a class="addthis_button_facebook">Facebook</a></li>
+					<li><a class="addthis_button_twitter">Twitter</a></li>
+					<li><a class="addthis_button_myspace">Myspace</a></li>
+					<li><a class="addthis_button_yahoomail">Yahoo!</a></li>
+					<li><a class="addthis_button_stumbleupon">StumbleUpon</a></li>
+				</ul>
+			</div>
+		</li>--></venda_tpcomment>
+		<li class="productDetailEmail"><a href="<venda_dispview invt=<venda_invtref>>&temp=tellafriend" id="tellafriend_link" data-track="open-tellafriend"><venda_text id=site.product_detail.tell_friend></a></li>
+		<li class="productDetailPrint"><a href="#" onClick="window.print();return false;"><venda_text id=site.link.print></a></li>
+	</ul>
+
+	<venda_tpcomment><!--<a class="likeFacebook addthis_button_facebook_like" style="cursor:pointer"></a>--></venda_tpcomment>
+</div>

@@ -1,0 +1,38 @@
+<venda_tpcomment><!-- window and animation settings to send to SignInPopup.js --></venda_tpcomment>
+<div id="tag-signinheader" style="display:none;">1</div>
+<div id="tag-signinfooter" style="display:none;">showfooter</div>
+<venda_tpcomment><!-- tag values used for tell a friend, emwbis, write and read a review popups --></venda_tpcomment>
+<div id="tag-signinsigninheading" style="display:none;"><venda_text id=site.signinpopup.headertext></div>
+<div id="tag-signinpwrmheading" style="display:none;"><venda_text id=site.signinpopup.pwrmheading></div>
+<div id="tag-signinbsref" style="display:none;"><venda_bsref></div>
+<div id="tag-signinloggedinlinks" style="display:none;"><venda_block label=50,usgrref!=instore><li class="myaccount"><a href="<venda_dispview page=myaccount>"><venda_text id=site.header.myaccount_link></a></li></venda_block label=50><li class="logout"><a href="<venda_dispview page=home>&log=4" id="Lustype_logoutlink"><venda_text id=site.header.logout_link></a></li></div>
+<div id="tag-forgottenpassword" style="display:none;"><p class="elxtforgottenpassword"><a href="<venda_passcode>" onclick="Venda.Widget.SignInPopup.interceptpwrmLink();return false;" id="passcode"><venda_text id=site.sign_in.forgotten_password></a></p></div>
+<div id="tag-activecontent" style="display:none;"><p class="elxtactivecontent"><a href="<venda_dispview page=showactivecontent>"><venda_text id=site.signinpopup.activecontent></a></p></div>
+<div id="tag-defaultsignin" style="display:none;"><p class="elxtdefaultsignin"><a href="<venda_codehttps>?ex=co_wizr-register&bsref=<venda_bsref>"><venda_text id=site.signinpopup.defaultsignin></a></p></div>
+
+<script type="text/javascript">
+<venda_tpcomment>// START - javascript for signin popup</venda_tpcomment>
+<venda_tpcomment>// see /venda-support/js/Venda/Widget/SignInPopup.js for usage details</venda_tpcomment>
+if (typeof Venda.Widget.SignInPopup != "undefined" || Venda.Widget.SignInPopup) {
+	Venda.Widget.SignInPopup.create(['Lustype_loginlink', 'Lustype_myacclink'],
+		{
+			header:			document.getElementById('tag-signinheader').innerHTML, 
+			drag:			true,
+			modal:			false,
+			fixedCentre:	true,
+			fade:			0.24,
+			width:			530,
+			footer:			document.getElementById('tag-signinfooter').innerHTML
+	  	}, 
+	  	{
+		  	signinheading: 		document.getElementById('tag-signinsigninheading').innerHTML,
+			pwrmheading: 		document.getElementById('tag-signinpwrmheading').innerHTML,
+			bsref: 				document.getElementById('tag-signinbsref').innerHTML,
+			updateloginlinks:	document.getElementById('tag-signinloggedinlinks').innerHTML,
+			forgottenpassword:	document.getElementById('tag-forgottenpassword').innerHTML,
+			activecontent:		document.getElementById('tag-activecontent').innerHTML,
+			defaultsignin:		document.getElementById('tag-defaultsignin').innerHTML
+		});
+}
+<venda_tpcomment>// END - javascript for signin popup</venda_tpcomment>
+</script>
