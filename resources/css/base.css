@@ -1239,19 +1239,6 @@ ol.prods li {
     height: 4.5em;
 }
 
-.minicartHeader {
-    text-transform: capitalize;
-    font-size: 1.3em;
-    font-weight: normal;
-    background: #fff url(../images/sprite-1.png) no-repeat 0 -468px;
-    color: #ee8623;
-    margin: 0;
-    padding: 4px 0 4px 30px;
-    position: relative;
-    cursor: pointer;
- /* to delete */
-}
-
 .minicartContent {
     margin: 0;
     padding: .5em 0;
@@ -1319,6 +1306,12 @@ ol.prods li {
 
 .minicartDetailTotals .items {
     border-right: 1px solid #444;
+}
+
+.items {
+    color: #d25952;
+    font-family: Georgia;
+    font-size: 14px;
 }
 
 .minicartDetailTotals .discount {
@@ -4023,7 +4016,7 @@ ul#rvisitewidelist li a:hover div {
 
 /* Header */
 .sub-header {
-  line-height: 26px;
+  line-height: 24px;
   background: url("../images/navbar-background.jpg") repeat-x;
   font-family: "Georgia";
   font-size: 10px;
