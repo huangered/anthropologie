@@ -1,30 +1,25 @@
-<div class="grid_6 regionLangSwitch">
-<div><a href="#" id="flag" class="flag"><span class="selectedlang <venda_sessionlanguage>"></span> <venda_currsym> <venda_currencycode> 
-(<venda_block label=011,mode=value,<venda_sessionlocation>=us><venda_text id=site.regionlanguage.switch.us></venda_block label=011><venda_block label=012,mode=value,<venda_sessionlocation>=canada><venda_text id=site.regionlanguage.switch.ca></venda_block label=012><venda_block label=013,mode=value,<venda_sessionlocation>=france><venda_text id=site.regionlanguage.switch.france></venda_block label=013><venda_block label=014,mode=value,<venda_sessionlocation>=germany><venda_text id=site.regionlanguage.switch.germany></venda_block label=014><venda_block label=015,mode=value,<venda_sessionlocation>=uk><venda_text id=site.regionlanguage.switch.uk></venda_block label=015><venda_block label=016,mode=value,<venda_sessionlocation>=netherlands><venda_text id=site.regionlanguage.switch.netherlands></venda_block label=016>)
-  <span class="arrow"></span></a></div>
+<a href="#" id="flag" class="flag"><span class="selectedlang <venda_sessionlanguage>"></span> <venda_currsym> <venda_currencycode> <span class="arrow"></span></a>
+  
 <div id="flagContent" class="flagContent" style="display:none">
-	<div class="region">
-	<p>Change Region:</p><ul>
-	<li><a href="#" id="us" class="us"><venda_text id=site.regionlanguage.switch.us> - $ USD</a></li>
-	<li><a href="#" id="canada" class="canada"><venda_text id=site.regionlanguage.switch.ca> - $ CAD </a></li>
-	<li><a href="#" id="france" class="france"><venda_text id=site.regionlanguage.switch.france> - &euro; EUR</a></li>
-	<li><a href="#" id="germany" class="germany"><venda_text id=site.regionlanguage.switch.germany> - &euro; EUR</a></li>
-	<li><a href="#" id="uk" class="uk"><venda_text id=site.regionlanguage.switch.uk> - &pound; GBP</a></li>
-	<li><a href="#" id="netherlands" class="netherlands"><venda_text id=site.regionlanguage.switch.netherlands> - &euro; EUR</a></li></ul>
-	</div>
-	<div class="sepLine"></div>
 
-	<div class="lang">
-	<p>Change Language:</p><ul>
-	<li><a href="#" id="ae" class="ae"><venda_text id=site.regionlanguage.switch.ae></a></li>
-	<li><a href="#" id="fr" class="fr"><venda_text id=site.regionlanguage.switch.fr></a></li>
-	<li><a href="#" id="de" class="de"><venda_text id=site.regionlanguage.switch.de></a></li>
-	<li><a href="#" id="en" class="en"><venda_text id=site.regionlanguage.switch.en></a></li>
-	<li><a href="#" id="nl" class="nl"><venda_text id=site.regionlanguage.switch.nl></a></li></ul>
+	<div class="region">
+    <ul>
+      <li>Currency:</li>
+    	<li><a href="#" id="uk" class="uk">&pound;</a></li>
+    	<li><a href="#" id="europe" class="europe">&euro;</a></li>
+    </ul>
 	</div>
+	
+	<div class="lang">
+    <ul>
+      <li>Language:</li>
+      <li><a href="#" id="en" class="en"><venda_text id=site.regionlanguage.switch.en></a></li>
+      <li><a href="#" id="de" class="de"><venda_text id=site.regionlanguage.switch.de></a></li>
+    </ul>
+	</div>
+	
 </div>
 <!--a href="/page/landingswitcher" class="chRegion" data-track="open-languageswitcher"><venda_text id=site.regionlanguage.switch.header></a-->
-</div>
 
 <script type="text/javascript">
 Venda.Widget.RegionLangSwitch.workflow = "<venda_workflow>";
