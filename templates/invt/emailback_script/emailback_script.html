@@ -9,15 +9,22 @@ function validateFields() {
       return;
    }
 
-   if (document.emailbackform.field2.value == '') {
-      alert('Please enter your name');
-      document.emailbackform.email.focus();
-      return;
-   }
+   var ebOptions = ["emwbis", "<venda_time time=now,format=dd/mm/yyyy>", document.emailbackform.field1.value, "<venda_invtref>", "<venda_invtname>"],
+       ebSubject = "" 
    
-   
+   for (var i = 0; i < ebOptions.length; i++) {
+      if(i != 0) {
+        ebSubject += ("|" + ebOptions[i])
+      } else {
+        ebSubject += ebOptions[i]
+      }
+    }
+    
+    document.emailbackform.subject.value = ebSubject;
+
 if(isPopup){ <venda_tpcomment>// there is an id called popupcontent so we can proceed with the ajax function</venda_tpcomment>
 	document.emailbackform.layout.value = "noheaders";
+	
         ajaxFunction('<venda_codehttp>','popupcontent','emailbackform');
 		}
 	else { <venda_tpcomment>// there is no id called popupcontent so we must be viewing the emwbis area in its own screen</venda_tpcomment>

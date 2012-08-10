@@ -34,15 +34,15 @@ Venda.Widget.MinicartDetail.Create = function () {
 		
 		enable : true, 
 		
-		topPad : 138, 
-		leftPad : 173, 
+		topPad : 26, 
+		leftPad : 0, 
 		
-		fade : true, 
+		fade : false, 
 		scroll : true, 
-		openDuration : 0.4, 
+		openDuration : 0.5, 
 		
 		showPopupAfterAdd : true, 
-		visibleTime : 5,
+		visibleTime : 0,
 		
 		highlight : true, 
 		highlightColor : "#ff0000", 
@@ -50,7 +50,7 @@ Venda.Widget.MinicartDetail.Create = function () {
 		highlightOpacity : 0.2, 
 		highlightDuration : 2, 
 		
-		header : true, 
+		header : false, 
 		closeButton : true, 
 		draggable : false, 
 		
@@ -422,7 +422,8 @@ Venda.Widget.MinicartDetail.PopupMinicart = function () {
 		autoOpen : false, 
 		resizable : false, 
 		modal : false, 
-		closeOnEscape : false, 
+		closeOnEscape : false,
+		width: "100%",
 		draggable : Venda.Widget.MinicartDetail.settings.draggable, 
 		dialogClass : "minicartDetailDialog"
 	};
@@ -688,48 +689,8 @@ Venda.Widget.MinicartDetail.OpenAnim = function () {
 		};
 		
 		var topPos = Venda.Widget.MinicartDetail.settings.topPad;
-		var leftPos = jQuery(window).width() / 2 + Venda.Widget.MinicartDetail.settings.leftPad;
+		var leftPos = 0;
 		var topPosAndMargin = topPos - 10;
-		
-		window.onscroll = function () {
-			if (Venda.Widget.MinicartDetail.popupMinicartObj.dialog("isOpen") === true) {
-				if (jQuery(window).scrollTop() > topPosAndMargin) {
-					topPos = 10;
-					jQuery('.minicartDetailDialog').css({
-							"position" : "fixed", 
-							"top" : topPos + "px"
-						});
-				} else {
-					topPos = Venda.Widget.MinicartDetail.settings.topPad - jQuery(window).scrollTop();
-					jQuery('.minicartDetailDialog').css({
-							"position" : "absolute", 
-							"top" : topPos + "px"
-						});
-				}
-				
-				Venda.Widget.MinicartDetail.popupMinicartObj.dialog("option", "position", [leftPos, topPos]);
-			}
-		};
-		
-		window.onresize = function () {
-			if (Venda.Widget.MinicartDetail.popupMinicartObj.dialog("isOpen") === true) {
-				if (jQuery(window).scrollTop() > topPosAndMargin) {
-					topPos = 10;
-					jQuery('.minicartDetailDialog').css({
-							"position" : "fixed", 
-							"top" : topPos + "px"
-						});
-				} else {
-					topPos = Venda.Widget.MinicartDetail.settings.topPad - jQuery(window).scrollTop();
-					jQuery('.minicartDetailDialog').css({
-							"position" : "absolute", 
-							"top" : topPos + "px"
-						});
-				}
-
-				Venda.Widget.MinicartDetail.popupMinicartObj.dialog("option", "position", [leftPos, topPos]);
-			}
-		};
 		
 		if (jQuery(window).scrollTop() > topPosAndMargin) {
 			topPos = 10;

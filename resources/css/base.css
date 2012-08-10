@@ -579,11 +579,13 @@ h1, h2, h3, h4, h5, h6 {
 a {
     color: #666;
     text-decoration: none;
+    outline: none;
 }
 
 a:hover, a:focus, a:active, .underline {
     text-decoration: none;
     color: #d25952;
+    outline: none;
 }
 
 a img {
@@ -712,16 +714,18 @@ body {
 /* Elements */
 
 .button {
-    height: 15px;
-    padding: 3px 8px 4px;
-    background: #7f0538 url(../images/gradients.png) repeat-x 0 -480px;
+    background: none repeat scroll 0 0 #BBD0D3;
+    border-color: #eee;
+    border-style: double;
+    border-width: 3px;
     color: #fff;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #e4b4c4 #69052b #69052b #e4b4c4;
-    text-decoration: none;
-    overflow: visible;
     display: inline-block;
+    height: 15px;
+    overflow: visible;
+    padding: 3px 8px 4px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 11px;
 }
 
 input.button {
@@ -736,8 +740,8 @@ input.button:hover {
 }
 
 .buttonAlt {
-    background: #e06807 url(../images/gradients.png) repeat-x 0 -560px;
-    border-color: #ffd8ba #a34706 #a34706 #ffd8ba;
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #666666;
 }
 
 .buttonArrow {
@@ -1284,24 +1288,32 @@ ol.prods li {
 }
 
 #minicartDetailWrapper {
+    background: url("../images/basket-background.gif") repeat-x bottom transparent;
     padding: 0;
     display: none;
+    font-family: "Georgia";
+    font-size: 10px;
+}
+
+#minicartDetailWrapper .button {
+    min-width: 110px;
+    margin: 2px 0;
 }
 
 .minicartDetailTotals {
-    padding: 10px 10px 0 10px;
     overflow: hidden;
+    float: left;
+    margin: 20px 0;
+    letter-spacing: 2px;
 }
 
 .minicartDetailTotals li {
     display: block;
-    float: left;
-    padding-left: .5em;
-    padding-right: .5em;
+    font-size: 10px;
 }
 
-.minicartDetailTotals .items {
-    border-right: 1px solid #444;
+.minicartDetailTotals .total {
+  margin-bottom: 8px;
 }
 
 .items {
@@ -1315,16 +1327,23 @@ ol.prods li {
 }
 
 .prodsMinicartCheckout {
-    padding: 0 10px;
-}
-
-.prodsMinicartCheckout li {
-    padding: 10px 0 0;
-    border-top: 1px solid #ccc;
+    float: right;
+    margin: 20px 0;
 }
 
 .prodsMinicartCheckout .details {
-    text-align: left;
+    text-align: center;
+    color: #333;
+    line-height: 12px;
+}
+
+.prodsMinicartCheckout .details a {
+  color: #333;
+}
+
+.prodsMinicartCheckout .details span {
+    display: block;
+    margin: 5px 0;
 }
 
 .checkoutMinicart .prodsMinicartCheckout {
@@ -1338,25 +1357,13 @@ ol.prods li {
     border-top: 0;
 }
 
-.minicartDetailBottom {
-    padding: 10px;
-    background-color: #ebebeb;
-    text-align: left;
-    overflow: hidden;
-}
-
-.minicartDetailBottom .buttonAlt {
-    float: left;
-} /* IE7 needs this */
-.minicartDetailBottom .buttonArrow {
-    float: right;
-}
-
 /* Minicart highlight */
 ul#minicart_products li {
     position: relative;
     overflow: hidden;
-    height: 57px;
+    width: 100px;
+    float: left;
+    margin: 0 10px;
 }
 
 div.minicartContainerHighlight {
@@ -1379,6 +1386,18 @@ div.minicartDetailHighlight {
 
 div.minicartDetailContent {
     position: relative;
+}
+.minicartDetailContent .image {
+    float: none;
+    margin: 0 0 10px;
+}
+
+.minicartDetailContent .image img {
+    height: 90px;
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #DDDDDD; 
+    margin: 0 14px; 
 }
 /* eo Minicart highlight */
 
@@ -1431,7 +1450,7 @@ fieldset {
    .swatchlist a span { font-size: .9em; text-align: center; line-height: 25px; width: 25px; display: block; }
 
 .ui-widget-overlay { background:#000; position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: .3; filter:Alpha(Opacity=30); }
-.ui-dialog { position:absolute; width:auto; overflow:hidden; text-align:left; border: 1px solid #484848; background-color: #fff; font-size: .75em;}
+.ui-dialog { position:absolute; width:auto; overflow:hidden; text-align:left; background-color: #fff; font-size: .75em;}
 .ui-dialog-titlebar { padding: 5px; background-color: #ebebeb; }
 .ui-dialog-titlebar-close { background: url(../images/sprite-1.png) no-repeat 5px -672px; overflow: hidden; height: 19px; width: 19px; text-indent: -9999px; display: block; position: absolute; top: 3px; right: 3px; }
 .ui-dialog-content { overflow:auto; padding: 10px; zoom: 1 }
@@ -3564,10 +3583,6 @@ h4.ui-state-active {
 
 .pricecollateresult .ui-widget-content {
     border: 1px solid #777;
-}
-
-.ui-corner-all {
-    border-radius: 4px;
 }
 
 .ui-slider-horizontal {
