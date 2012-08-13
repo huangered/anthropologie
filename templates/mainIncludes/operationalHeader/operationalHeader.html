@@ -21,12 +21,13 @@
         <li class="divider-vertical"></li>
       	<venda_block label=20,ustype=R>
       	<venda_block label=245,usgrref!=instore>
-      	<li><venda_block label=300,mode=value,<venda_setting type=ebiz,name=skipsecondlogin>=1><a href="<venda_dispview page=myaccount>"></venda_block label=300><venda_block label=301,mode=value,<venda_setting type=ebiz,name=skipsecondlogin>!=1><a href="<venda_codehttps>?ex=co_wizr-login&bsref=<venda_bsref>"></venda_block label=301><venda_text id=site.header.myaccount_link></a></li>
+      	<li><venda_block label=300,mode=value,<venda_setting type=ebiz,name=skipsecondlogin>=1><a href="<venda_dispview page=myaccount>"></venda_block label=300><venda_block label=301,mode=value,<venda_setting type=ebiz,name=skipsecondlogin>!=1><a href="<venda_codehttps>?ex=co_wizr-login&bsref=<venda_bsref>"></venda_block label=301><venda_userinfo><venda_sesfname></venda_userinfo>'S ACCOUNT</a></li>
       	</venda_block label=245>
-      	<li><a href="<venda_dispview page=home>&log=4"><venda_text id=site.header.logout_link></a></li>
+      	<li class="divider-vertical"></li>
+      	<li><a href="<venda_dispview page=home>&log=4">SIGN OUT</a></li>
       	</venda_block label=20>
       	<venda_block label=21,ustype!=R>
-      	<li><a href="#signin-detail"><venda_text id=site.header.login_link></a></li>
+      	<li><a href="#signin-detail">SIGN IN</a></li>
       	</venda_block label=21>
         <li class="divider-vertical"></li>
         <li><venda_minicart template=itemsTotal><div id="minicartDetailWrapper"></div></li>
