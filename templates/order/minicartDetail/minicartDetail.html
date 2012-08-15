@@ -1,55 +1,16 @@
 <venda_detblock_item>
+
 <li class="li_<venda_invtref>" id="li_<venda_invtref>">
 
 <div class="minicartDetailHighlight" id="minicartDetailHighlight_<venda_invtref>"></div>
 
 <div class="minicartDetailContent">
+
 <venda_block label=45,invtpublish=1>
-<venda_block label=119,invtref!=giftcert>
-<venda_tpcomment><!-- product --></venda_tpcomment>
+<venda_tpcomment><!-- published --></venda_tpcomment>
 	<div class="image">
-	<venda_block label=20,invtatt1=notnull>
-		<venda_tpcomment><!--product has attributes--></venda_tpcomment>
-		<venda_block label=21,med-set<venda_setting type=ebiz,name=setminicartpopupimagekey>=notnull>
-			<venda_block label=22,mode=value,<venda_media rec=invt,type=movie-swf-pict,key=set<venda_setting type=ebiz,name=setminicartpopupimagekey>,img=no,medatr=yes>=notnull>
-				<venda_tpcomment><!-- if 'set' prefix with att association value--></venda_tpcomment>
-				<a href="<venda_dispview invt=<venda_invtparef>>"><img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$uk_category_thumb$&defaultImage=/Anthropologie/spacer" alt="<venda_invtname>" name="img<venda_invtref>"></a>
-			</venda_block label=22>
-			<venda_block label=23,mode=value,<venda_media rec=invt,type=movie-swf-pict,key=set<venda_setting type=ebiz,name=setminicartpopupimagekey>,img=no,medatr=yes>=null>
-				<venda_tpcomment><!--if 'set' prefix without att association value--></venda_tpcomment>
-				<venda_block label=231,med-<venda_setting type=ebiz,name=setminicartpopupimagekey>=notnull>
-					<venda_tpcomment><!--use key=xsmall--></venda_tpcomment>
-					<a href="<venda_dispview invt=<venda_invtparef>>"><img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$uk_category_thumb$&defaultImage=/Anthropologie/spacer" alt="<venda_invtname>" name="img<venda_invtref>"></a>
-				</venda_block label=231>
-				<venda_block label=232,med-<venda_setting type=ebiz,name=setminicartpopupimagekey>=null>
-					<venda_tpcomment><!--use noimage graphic if 'xsmall' is null--></venda_tpcomment>
-					<a href="<venda_dispview invt=<venda_invtparef>>"><img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$uk_category_thumb$&defaultImage=/Anthropologie/spacer" alt="<venda_invtname>" name="img<venda_invtref>"></a>
-				</venda_block label=232>
-			</venda_block label=23>
-		</venda_block label=21>
-		<venda_block label=24,med-set<venda_setting type=ebiz,name=setminicartpopupimagekey>=null>
-			<venda_tpcomment><!--if not 'set' prefix - no alt. images functionality--></venda_tpcomment>
-			<venda_block label=25,med-<venda_setting type=ebiz,name=setminicartpopupimagekey>=notnull>
-				<venda_tpcomment><!--use key=xsmall--></venda_tpcomment>
-				<a href="<venda_dispview invt=<venda_invtparef>>"><img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$uk_category_thumb$&defaultImage=/Anthropologie/spacer" alt="<venda_invtname>" name="img<venda_invtref>"></a>
-			</venda_block label=25>
-			<venda_block label=26,med-<venda_setting type=ebiz,name=setminicartpopupimagekey>=null>
-				<venda_tpcomment><!--use noimage graphic if 'xsmall' is null--></venda_tpcomment>
-				<a href="<venda_dispview invt=<venda_invtparef>>"><img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$uk_category_thumb$&defaultImage=/Anthropologie/spacer" alt="<venda_invtname>" name="img<venda_invtref>"></a>
-			</venda_block label=26>
-		</venda_block label=24>
-	</venda_block label=20>
-	<venda_block label=30,invtatt1=null>
-		<venda_tpcomment><!--product doesn't has attributes--></venda_tpcomment>
-		<venda_block label=31,med-<venda_setting type=ebiz,name=setminicartpopupimagekey>=notnull>
-		<venda_tpcomment><!--if not 'set' prefix - no alt. images functionality --></venda_tpcomment>
-		<a href="<venda_dispview invt=<venda_invtref>>"><img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$uk_category_thumb$&defaultImage=/Anthropologie/spacer" alt="<venda_invtname>" name="img<venda_invtref>"></a>
-		</venda_block label=31>
-		<venda_block label=32,med-<venda_setting type=ebiz,name=setminicartpopupimagekey>=null>
-		<venda_tpcomment><!--without key=xsmall--></venda_tpcomment>
-		<a href="<venda_dispview invt=<venda_invtref>>"><img src="<img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$uk_category_thumb$&defaultImage=/Anthropologie/spacer" alt="<venda_invtname>" name="img<venda_invtref>"></a>
-		</venda_block label=32>
-	</venda_block label=30>
+				<venda_tpcomment><!-- everything is an attribute and all images, sizes and availability handled by scene7--></venda_tpcomment>
+				<a href="<venda_dispview invt=<venda_invtparef>>"><img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_extflds exfldtype=orderitem,group=5,template=oixtimage_display,type=includes,ref=<venda_invtref>,displayonly=1>?$uk_category_thumb$&defaultImage=/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b" alt="<venda_invtname>" name="img<venda_invtref>"></a>
 	</div>
 	<div class="details">
 		<venda_block label=80,invtatrtot&lt;1><span class="item"><a href="<venda_dispview invt=<venda_invtref>>"><venda_invtname></a></span></venda_block label=80>
@@ -57,38 +18,13 @@
 		<span class="quantity"><venda_text id=site.quantity>&nbsp;<venda_oiqty></span>
 		<span class="price"><venda_currsym><venda_invtsell><venda_block label=10,oiqty&gt;1>&nbsp;<venda_text id=site.minicart_detail.each></venda_block label=10></span>
 	</div>
-</venda_block label=119>
-
-<venda_block label=229,invtref=giftcert>
-	<venda_tpcomment><!-- giftcert --></venda_tpcomment>
-	<div class="image">
-		<venda_block label=412,med-<venda_setting type=ebiz,name=setminicartpopupimagekey>=notnull>
-		<a href="<venda_codehttp>?ex=co_wizr-giftcertificates&bsref=<venda_bsref>"><img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$uk_category_thumb$&defaultImage=/Anthropologie/spacer" alt="<venda_invtname>" name="img<venda_invtref>"></a>
-		</venda_block label=412>
-		<venda_block label=422,med-<venda_setting type=ebiz,name=setminicartpopupimagekey>=null>
-		<a href="<venda_codehttp>?ex=co_wizr-giftcertificates&bsref=<venda_bsref>"><img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$uk_category_thumb$&defaultImage=/Anthropologie/spacer" alt="<venda_invtname>" name="img<venda_invtref>"></a>
-		</venda_block label=422>
-	</div>
-	<div class="details">
-		<span class="item"><a href="<venda_codehttp>?ex=co_wizr-giftcertificates&bsref=<venda_bsref>"><venda_invtname></a></span>
-		<span class="quantity"><venda_text id=site.quantity>&nbsp;<venda_oiqty></span>
-		<span class="price"><venda_currsym><venda_oiextprice></span>
-	</div>
-</venda_block label=229>
 </venda_block label=45>
+
 <venda_block label=46,invtpublish!=1>
 <venda_tpcomment><!-- unpublished --></venda_tpcomment>
-	
-	<venda_block label=43,invtref!=giftcert>
 	<div class="image">
-		<venda_block label=41,med-<venda_setting type=ebiz,name=setminicartpopupimagekey>=notnull>
-		<img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$uk_category_thumb$&defaultImage=/Anthropologie/spacer" alt="<venda_invtname>" name="img<venda_invtref>">
-		</venda_block label=41>
-		<venda_block label=42,med-<venda_setting type=ebiz,name=setminicartpopupimagekey>=null>
-		<img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$uk_category_thumb$&defaultImage=/Anthropologie/spacer" alt="<venda_invtname>" name="img<venda_invtref>">
-		</venda_block label=42>
+		<img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_extflds exfldtype=orderitem,group=5,template=oixtimage_display,type=includes,ref=<venda_invtref>,displayonly=1>?$uk_category_thumb$&defaultImage=/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b" alt="<venda_invtname>" name="img<venda_invtref>">
 	</div>
-	</venda_block label=43>
 	<div class="details">
 		<span class="item"><venda_invtname></span>
 		<p class="unpublished"><venda_text id=site.unpublished></p>

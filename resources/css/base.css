@@ -608,10 +608,11 @@ input {
 }
 
 .footerText {
-  text-align: center;
-  font-size: .8em;
-  line-height: 1.3em;
   color: #737373;
+  font-size: 9px;
+  letter-spacing: 1px;
+  line-height: 12px;
+  text-align: center;
 }
 
 .error {
