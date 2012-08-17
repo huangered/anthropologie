@@ -733,7 +733,8 @@ input.button {
 }
 
 input.button:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  background: 
 }
 
 .buttonAlt {
@@ -742,8 +743,6 @@ input.button:hover {
 }
 
 .buttonArrow {
-  padding-right: 22px !important;
-  background: transparent url(../images/gradients.png) no-repeat right 50%;
 }
 
 .buttonAlt2 {
@@ -1031,6 +1030,8 @@ ol.prods li {
   letter-spacing: 0.5px;
   line-height: 30px;
   margin: 0;
+  color: #666666;
+  text-transform: capitalize;
 }
 
 .crumbtrailAnchor {
@@ -1571,6 +1572,7 @@ fieldset {
   left: 0;
   background: #f4f4f0;
   border-bottom: 1px solid #e8e8e3;
+  z-index: 102;
 }
 
 .mm_sub {
@@ -1680,21 +1682,12 @@ fieldset {
   font-weight: 700;
 }
 
-/* Mega Menu Highlight */
-.mm_active_1 {
-  font-weight: 700;
-}
-
-.mm_active_2 {
-  font-weight: 700;
-}
-
 .mm_ul li .mm_active_1 {
-  background: transparent url(../images/gradients.png) repeat-x scroll 0 -560px;
+  color: #b7ddd2;
 }
 
 .mm_sub li .mm_active_2 {
-  background: transparent url(../images/gradients.png) repeat-x scroll 0 -130px;
+  color: #b7ddd2;
 }
 
 /* Category Nav Highlight */
@@ -5339,4 +5332,25 @@ ul#rvisitewidelist li a:hover div {
   border-top: 1px solid #ccc;
   text-align: center;
   line-height: 36px;
+}
+
+/* Product detail */
+.product-name {
+  font-family: Georgia;
+  font-size: 24px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  line-height: 24px;
+  margin-top: 45px;
+}
+.sku {
+  color: #BBBBBB;
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin: 6px 0 10px;
+  text-transform: uppercase;
+}
+.featprods li {
+  float: left;
 }
