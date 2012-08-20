@@ -42,7 +42,7 @@ Venda.Widget.MinicartDetail.Create = function () {
 		openDuration : 0.5, 
 		
 		showPopupAfterAdd : true, 
-		visibleTime : 0,
+		visibleTime : 4,
 		
 		highlight : true, 
 		highlightColor : "#ff0000", 
@@ -417,6 +417,7 @@ Venda.Widget.MinicartDetail.LoadingPanel = function () {
  * Creates div containers which will display the minicart contents
  */
 Venda.Widget.MinicartDetail.PopupMinicart = function () {
+
 	Venda.Widget.MinicartDetail.popupMinicartObj = new jQuery("#minicartDetailWrapper");
 	var dialogOpts = {
 		autoOpen : false, 
@@ -440,7 +441,7 @@ Venda.Widget.MinicartDetail.PopupMinicart = function () {
 	
 	if (Venda.Widget.MinicartDetail.settings.visibleTime !== 0) {
 		jQuery(".minicartDetailDialog").mouseenter(function () {clearTimeout(Venda.Widget.MinicartDetail.popupTimerId);});
-		jQuery(".minicartDetailDialog").mouseleave(function () {Venda.Widget.MinicartDetail.PopupTimer();});
+		jQuery(".minicartDetailDialog").mouseleave(function () {Venda.Widget.MinicartDetail.CloseAnim();});
 	};
 	
 	if (Venda.Widget.MinicartDetail.settings.closeOnOusideClick === true) {

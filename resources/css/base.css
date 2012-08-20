@@ -1235,10 +1235,6 @@ ol.prods li {
   text-align: right;
 }
 
-.minicart {
-  margin-top: -1px;
-}
-
 .minicartStatic {
   padding-left: 5px;
 }
@@ -1325,6 +1321,7 @@ ol.prods li {
   font-family: Georgia;
   font-size: 14px;
   font-weight: bold;
+  vertical-align: middle;
 }
 
 .minicartDetailTotals .discount {
@@ -1539,7 +1536,7 @@ fieldset {
 
 /* Mega Menu */
 .mm_ul {
-  width: 660px;
+  width: 670px;
   margin: 0 auto;
   height: 30px;
   line-height: 30px;
