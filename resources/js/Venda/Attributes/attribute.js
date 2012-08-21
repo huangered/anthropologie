@@ -82,7 +82,7 @@ Venda.Attributes.Declare = function() {
 		priceRangeFormat:			"range",  // "range" = from - to; "from" = from only; "to" = to only;
 		preOrderParent:				false,
 		gridSwap:					false,
-		useSelectedArrow:			true,
+		useSelectedArrow:			false,
 		useToolTip:					true
 	};
 	
@@ -1125,13 +1125,14 @@ Venda.Attributes.ImageMediaAssignment = function() {
   for (var i = 0; i < Venda.Attributes.attsArray.length; i++) {
       var currAtt1 = Venda.Attributes.attsArray[i].att1
       if(jQuery.inArray(currAtt1,uniqueAtt1) == -1) { 
-        var currImages = Venda.Attributes.imageAssigner(currAtt1)
+        var currImages = Venda.Attributes.imageAssigner(currAtt1),
+            currSuplSku = Venda.Attributes.attsArray[i].atrsuplsku
         uniqueAtt1.push(currAtt1);
         Venda.Attributes.StoreImageSwaps({
           "param": currAtt1,
           "images": currImages     
           });
-        Venda.Attributes.SwatchURL[currAtt1] =  "/content/ebiz/" + jQuery('#tag-ebizref').text() + "/invt/" + jQuery('#tag-invtref').text() + "/" + jQuery('#tag-invtref').text() + "_" + currAtt1.toLowerCase() + "_sw.jpg";  
+        Venda.Attributes.SwatchURL[currAtt1] =  "/content/ebiz/" + jQuery('#tag-ebizref').text() + "/invt/" + jQuery('#tag-invtref').text() + "/" + currSuplSku + ".png";  
       }
   }
 

@@ -616,12 +616,11 @@ input {
 }
 
 .error {
-  background-color: #F7F0F2;
-  border-bottom: 1px solid #B40F14;
   color: #B40F14;
-  font-size: 1em;
+  font-size: 11px;
   font-weight: 400;
-  margin: 5px 0;
+  margin-top: 10px;
+  text-align: center;
 }
 
 .right {
@@ -3834,31 +3833,19 @@ div.quickshop div.remove {
 }
 
 .attributeInputs ul li {
-  border: 1px solid #FFF;
-  display: inline-block;
-  margin: 5px;
-  padding: 5px;
-  position: relative;
-  text-align: center;
-  min-width: 50px;
-  height: 16px;
+  background-position: 1px 1px;
+  background-size: 100% 100%;
+  border: 1px solid #DDDDDD;
   cursor: pointer;
-  -webkit-box-shadow: 0 0 0 1px #ccc;
-/* Saf3.0+, Chrome */
-  -moz-box-shadow: 0 0 0 1px #ccc;
-/* FF3.5 - 3.6 */
-  box-shadow: 0 0 0 1px #ccc;
-/* Opera 10.5, IE9, FF4+, Chrome 10+ */
-  -webkit-border-radius: 5px;
-/* Saf3-4, iOS 1-3.2, Android <1.6 */
-  -moz-border-radius: 5px;
-/* FF1-3.6 */
-  border-radius: 5px;
-/* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
-/* useful if you don't want a bg color from leaking outside the border: */
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
+  display: inline-block;
+  font-size: 11px;
+  height: 18px;
+  line-height: 20px;
+  margin: 2px;
+  min-width: 40px;
+  padding-left: 6px;
+  position: relative;
+  text-align: left;
 }
 
 .attributeInputs > div {
@@ -3883,22 +3870,8 @@ div.quickshop div.remove {
 }
 
 .attributeInputs .selected {
-  -webkit-box-shadow: 0 0 0 2px #0092d2;
-/* Saf3.0+, Chrome */
-  -moz-box-shadow: 0 0 0 2px #0092d2;
-/* FF3.5 - 3.6 */
-  box-shadow: 0 0 0 2px #0092d2;
-/* Opera 10.5, IE9, FF4+, Chrome 10+ */
-  -webkit-border-radius: 3px;
-/* Saf3-4, iOS 1-3.2, Android <1.6 */
-  -moz-border-radius: 3px;
-/* FF1-3.6 */
-  border-radius: 3px;
-/* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
-/* useful if you don't want a bg color from leaking outside the border: */
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
+  background: none repeat scroll 0 0 #E4ECEE;
+  border: 1px solid #BCD1D6;
 }
 
 .attributeInputs .Out_of_stock {
