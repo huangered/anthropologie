@@ -1863,7 +1863,10 @@ fieldset {
 }
 
 .oneProduct .priceField #price {
-  font-weight: 700;
+  color: #F25D23;
+  font-family: "Palatino Linotype","Book Antiqua",Palatino,seriftime;
+  font-weight: normal;
+  letter-spacing: 2px;
 }
 
 .oneProduct .priceField #atrwas {
@@ -3829,23 +3832,22 @@ div.quickshop div.remove {
 
 .attributeInputs ul {
   float: left;
-  width: 366px;
+  width: 260px;
 }
 
 .attributeInputs ul li {
-  background-position: 1px 1px;
-  background-size: 100% 100%;
   border: 1px solid #DDDDDD;
   cursor: pointer;
   display: inline-block;
   font-size: 11px;
-  height: 18px;
-  line-height: 20px;
+  height: 16px;
+  line-height: 18px;
   margin: 2px;
-  min-width: 40px;
+  min-width: 32px;
   padding-left: 6px;
   position: relative;
   text-align: left;
+  float: left;
 }
 
 .attributeInputs > div {
@@ -3855,9 +3857,12 @@ div.quickshop div.remove {
 }
 
 .attributeInputs label {
+  color: #CCCCCC;
   float: left;
-  width: 100px;
-  margin-top: 7px;
+  font-size: 10px;
+  margin-top: 5px;
+  text-transform: uppercase;
+  width: 50px;
 }
 
 .attributeInputs select {
@@ -3965,6 +3970,7 @@ div.quickshop div.remove {
   font-size: 1.15em;
   margin: 4px 0;
   background: #FED;
+  display: none;
 }
 
 .In_stock_box {
@@ -3976,7 +3982,9 @@ div.quickshop div.remove {
 }
 
 .productselectedwrapper {
-  height: 20px;
+  color: #BBBBBB;
+  font-size: 10px;
+  text-transform: uppercase;
 }
 
 #swatchList_att1 .swatchText {
@@ -5323,4 +5331,15 @@ ul#rvisitewidelist li a:hover div {
 }
 .featprods li {
   float: left;
+}
+.product-description {
+  border-bottom: 1px solid #CCCCCC;
+  border-top: 1px solid #CCCCCC;
+  font-size: 10px;
+  margin: 0 20px 20px 0;
+}
+.product-description ul {
+  line-height: 14px;
+  list-style-type: disc;
+  margin-left: 12px;
 }

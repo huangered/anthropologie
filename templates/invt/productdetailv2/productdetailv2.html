@@ -9,11 +9,12 @@
 <div id="tag-invtref" style="display:none;"><venda_invtref></div>
 <div id="tag-invtname" style="display:none;"><venda_invtname></div>
 <div id="tag-currsym" style="display:none;"><venda_currsym></div>
+<div id="tag-invtsuplsku" style="display:none;"><venda_invtsuplsku></div>
 
 <venda_tpcomment><!-- Dictionary translations required for attributes JS --></venda_tpcomment>
 <div id="attributes-stockNA" style="display:none;"><venda_text id=site.attributes.product_detail.selection_not_available></div>
 <div id="attributes-stockOut" style="display:none;"><venda_text id=site.attributes.product_detail.selection_out_of_stock></div>
-<div id="attributes-productselected" style="display:none;"><venda_text id=site.attributes.product_detail.you_have_selected></div>
+<div id="attributes-productselected" style="display:none;">You have selected </div>
 <div id="attributes-productstatus" style="display:none;"><venda_text id=site.attributes.product_detail.please_select_colon></div>
 <div id="attributes-only" style="display:none;"><venda_text id=site.attributes.product_detail.only></div>
 <div id="attributes-left" style="display:none;"><venda_text id=site.attributes.product_detail.left></div>
@@ -116,6 +117,11 @@ jQuery(function(){
 				<venda_inctemplate type=includes,name=priceFormat>
 			</div>
 			<venda_tpcomment><!-- end: price - if product does have attributes --></venda_tpcomment>
+			
+		  <div class="product-description">
+				<venda_block label=12,invtdesc1=notnull><p class="invtdesc1" itemprop="description"><venda_invtdesc1></p></venda_block label=12>
+				<venda_block label=14,invtdesc3=notnull><p class="invtdesc3"><venda_invtdesc3></p></venda_block label=14>
+		  </div>
 			
 			<div class="attrFeedback productselectedwrapper">
 				<span id="productselected"></span>
@@ -302,47 +308,6 @@ jQuery(function(){
 			</div>
 		  </venda_block label=340>
 		<venda_tpcomment><!-- end: multibuy --></venda_tpcomment>
-	
-	
-
-	
-	<venda_tpcomment><!-- start: product detail tabs --></venda_tpcomment>
-	<div id="infotab" class="tabs productDetailTabs">
-		<div class="tabheader">
-			<ul class="nav">
-			<li><a href="#contentTab1" title="Description">Description</a></li>
-			<li><a href="#contentTab2" title="Specification">Specification</a></li>
-			<li><a href="#contentTab3" title="Delivery">Delivery</a></li>
-			<li class="last"><a href="#contentTab4" title="Returns">Returns</a></li>
-			</ul>
-		</div>
-		<div class="tabcontent">
-			<!-- description -->
-			<div class="tab">
-				<venda_block label=12,invtdesc1=notnull><p class="invtdesc1" itemprop="description"><venda_invtdesc1></p></venda_block label=12>
-				<venda_block label=13,invtdesc2=notnull><p class="invtdesc2"><venda_invtdesc2></p></venda_block label=13>
-				<venda_block label=14,invtdesc3=notnull><p class="invtdesc3"><venda_invtdesc3></p></venda_block label=14>
-			</div>
-			<div class="tab">
-			<table summary="<venda_text id=site.product_detail.product_specifications_information_summary>" title="<venda_text id=site.product_detail.product_specifications_information_title>" cellspacing="0" cellpadding="0">
-				<tbody>	
-				<venda_extflds hideempty=0,realseq=0,template=pdxtDisplay,group=1,ref=<venda_invtref>,ivtype=<venda_invtivtype>>
-				<venda_extflds hideempty=0,realseq=0,template=pdxtDisplay,group=2,ref=<venda_invtref>,ivtype=<venda_invtivtype>>
-				<venda_extflds hideempty=0,realseq=0,template=pdxtDisplay,group=3,ref=<venda_invtref>,ivtype=<venda_invtivtype>>
-				<venda_extflds hideempty=0,realseq=0,template=pdxtDisplay,group=4,ref=<venda_invtref>,ivtype=<venda_invtivtype>>
-				<venda_extflds hideempty=0,realseq=0,template=pdxtDisplay,group=5,ref=<venda_invtref>,ivtype=<venda_invtivtype>>
-				</tbody>
-			</table>
-			</div>
-			<div class="tab"><venda_page page=deliveryproduct></div>
-			<div class="tab"><venda_page page=returnsproduct></div>
-		</div>
-	</div>
-	<script type="text/javascript">
-	var infotab = new Venda.Widget.createTab("#infotab");
-	infotab.init();
-	</script>
-	<venda_tpcomment><!-- end: product details tab --></venda_tpcomment>
 
 	<venda_inctemplate name=socialBookMarks,type=widgets>
 	
@@ -362,26 +327,12 @@ jQuery(function(){
 	
 		<div class="invtmedia grid_10 push_2 alpha" id="image_<venda_invtuuid>">
 			<div id="productdetail-image">
-				<venda_block label=10,med-medium=notnull>
-					
-					<venda_block label=40,med-large=notnull,pdxtimageware!=1>
+			
 						<a itemprop="image" href="<venda_media rec=invt,type=movie-swf-pict,key=large,img=no>" class = 'cloud-zoom' id='zoom1' rel="adjustX: 53, adjustY:-4, zoomWidth: 462" title="<venda_text id=site.product_detail.view_large_image.title>" data-track="open-largeimage">
-					</venda_block label=40>
 					
-					<venda_block label=140,med-large=notnull,pdxtimageware=1>
-						<a href="<venda_dispview invt=<venda_invtref>>?temp=imageware&layout=flashpopup" id="zoom_img" target="_blank" title="<venda_text id=site.product_detail.zoomable_image.title>">
-					</venda_block label=140>
-					
-					<venda_media rec=invt,type=movie-swf-pict,key=multi,dyn=yes,default=medium><!-- show "medium" key by default -->
-						
-					<venda_block label=81,med-large=notnull>
+						  <img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$uk_pdt_medium$" alt="<venda_invtname>" />
+
 						</a>
-					</venda_block label=81>
-				
-				</venda_block label=10>
-				<venda_block label=11,med-medium=null>
-				<img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/no_image_medium.gif" alt="<venda_text id=site.link.alt.no_image.invt>">
-				</venda_block label=11>
 			</div>
 			<div id="productdetail-swap" style="display:none;"></div>
 			<div id="productdetail-viewlarge" class="enlarge"></div>

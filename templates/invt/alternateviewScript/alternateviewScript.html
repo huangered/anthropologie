@@ -1,11 +1,34 @@
 <script type="text/javascript">
-
+  defImgSlots = ["_b", "_c", "_d", "_e", "_f"],
+  defImgAtt = "<venda_pdxtdefaultimg>",
+  defImgSku = jQuery('#tag-invtsuplsku').text()
 	Venda.Attributes.StoreImageSwaps({ 
 		"param": "",
 		"images": {
-			imgS: ["<venda_media rec=invt,type=pict,key=xsmall,img=no>","<venda_media rec=invt,type=pict,key=xsalt1,img=no>","<venda_media rec=invt,type=pict,key=xsalt2,img=no>","<venda_media rec=invt,type=pict,key=xsalt3,img=no>","<venda_media rec=invt,type=pict,key=xsalt4,img=no>","<venda_media rec=invt,type=pict,key=xsalt5,img=no>"],
-			imgM: ["<venda_media rec=invt,type=pict,key=medium,img=no>","<venda_media rec=invt,type=pict,key=malt1,img=no>","<venda_media rec=invt,type=pict,key=malt2,img=no>","<venda_media rec=invt,type=pict,key=malt3,img=no>","<venda_media rec=invt,type=pict,key=malt4,img=no>","<venda_media rec=invt,type=pict,key=malt5,img=no>"],
-			imgL: ["<venda_media rec=invt,type=pict,key=large,img=no>","<venda_media rec=invt,type=pict,key=lalt1,img=no>","<venda_media rec=invt,type=pict,key=lalt2,img=no>","<venda_media rec=invt,type=pict,key=lalt3,img=no>","<venda_media rec=invt,type=pict,key=lalt4,img=no>","<venda_media rec=invt,type=pict,key=lalt5,img=no>"]
+			imgS: [
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[0] + "?$uk_pdt_thumb$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[1] + "?$uk_pdt_thumb$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[2] + "?$uk_pdt_thumb$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[3] + "?$uk_pdt_thumb$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[4] + "?$uk_pdt_thumb$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[5] + "?$uk_pdt_thumb$",
+			],
+			imgM: [
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[0] + "?$uk_pdt_medium$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[1] + "?$uk_pdt_medium$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[2] + "?$uk_pdt_medium$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[3] + "?$uk_pdt_medium$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[4] + "?$uk_pdt_medium$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[5] + "?$uk_pdt_medium$",
+			],
+			imgL: [
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[0] + "?$uk-zoom-5x$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[1] + "?$uk-zoom-5x$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[2] + "?$uk-zoom-5x$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[3] + "?$uk-zoom-5x$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[4] + "?$uk-zoom-5x$",
+			"http://images.anthropologie.eu/is/image/Anthropologie/" + defImgSku + "_" + defImgAtt + defImgSlots[5] + "?$uk-zoom-5x$",
+			]
 		}
 	});
 	

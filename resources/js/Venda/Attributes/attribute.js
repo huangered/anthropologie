@@ -767,7 +767,7 @@ Venda.Attributes.swatchImage = function(attnumber, uID){
 			imageRef = Venda.Attributes.getValueRef(swatchname,swatchdata);
 
 		if (Venda.Attributes.SwatchURL[imageRef]){
-			jQuery(this).css("background-image", "url(" + Venda.Attributes.SwatchURL[imageRef] + ")");
+			jQuery(this).css("background", "url(" + Venda.Attributes.SwatchURL[imageRef] + ") no-repeat 1px 1px");
 		}
 		else {
 			jQuery('.swatchText',this).css({'text-indent':'0', 'display':'block'});
@@ -1102,17 +1102,18 @@ Venda.Attributes.ImageSwap = function(att) {
 
 Venda.Attributes.imageAssigner = function(imgAtt) {
   var imageURLs = {},
-      imgNumber = 6,
-      imgPath = "/content/ebiz/" + jQuery('#tag-ebizref').text() + "/invt/" + jQuery('#tag-invtref').text() + "/" + jQuery('#tag-invtref').text() + "_",
+      imgSuplSku = jQuery('#tag-invtsuplsku').text(),
+      imgPath = "http://images.anthropologie.eu/is/image/Anthropologie/",
       imgChoice = {
-        "imgS" : "_t",
-        "imgM" : "_m",
-        "imgL" : "_l"
-      }
+        "imgS" : "?$uk_pdt_thumb$",
+        "imgM" : "?$uk_pdt_medium$",
+        "imgL" : "?$uk-zoom-5x$"
+      },
+      imgSlots = ["_b", "_c", "_d", "_e", "_f"]
   for(var size in imgChoice) {
     var images = []
-    for(var j = 1; j < imgNumber; j++) {
-        images.push(imgPath + imgAtt + imgChoice[size] + j + ".jpg") 
+    for(var j = 1; j < imgSlots.length; j++) {
+        images.push(imgPath + imgSuplSku + "_" + imgAtt + imgSlots[j] + imgChoice[size]) 
     }  
     imageURLs[size] = images           
   }
@@ -1125,8 +1126,8 @@ Venda.Attributes.ImageMediaAssignment = function() {
   for (var i = 0; i < Venda.Attributes.attsArray.length; i++) {
       var currAtt1 = Venda.Attributes.attsArray[i].att1
       if(jQuery.inArray(currAtt1,uniqueAtt1) == -1) { 
-        var currImages = Venda.Attributes.imageAssigner(currAtt1),
-            currSuplSku = Venda.Attributes.attsArray[i].atrsuplsku
+        var currSuplSku = Venda.Attributes.attsArray[i].atrsuplsku,
+            currImages = Venda.Attributes.imageAssigner(currSuplSku)
         uniqueAtt1.push(currAtt1);
         Venda.Attributes.StoreImageSwaps({
           "param": currAtt1,
