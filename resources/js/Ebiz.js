@@ -1050,7 +1050,8 @@ Venda.Ebiz.colorSwatch.prototype = {
 
 /* ANTHROPOLOGIE UNIQUE FUNCTIONALITY */
 jQuery(document).ready(function($) {
-
+  $('.footer-toggle').hide();
+  
 	var hiddenDetails = $('.anthrocord').hide(),
 			openMe = ''
 	$('.toggle-content').click(function() {
@@ -1091,6 +1092,12 @@ jQuery(document).ready(function($) {
         });
       }	
 		}
+	});
+	$('.footer h3').click(function() {
+  	$('.footer-toggle').slideToggle(500);
+  	$('.footer').mouseleave(function() {
+  	 $('.footer-toggle').slideUp(500);
+  	});
 	});
 	
 });
