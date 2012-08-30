@@ -9,9 +9,9 @@ function validateFields() {
       return;
    }
 
-   var ebOptions = ["emwbis", "<venda_time time=now,format=dd/mm/yyyy>", document.emailbackform.field1.value, "<venda_invtref>", "<venda_invtname>"],
+   var ebOptions = ["emwbis", "<venda_invtref>", "<venda_invtname>", "<venda_time time=now,format=dd/mm/yyyy>", document.emailbackform.field1.value],
        ebSubject = "" 
-   
+
    for (var i = 0; i < ebOptions.length; i++) {
       if(i != 0) {
         ebSubject += ("|" + ebOptions[i])

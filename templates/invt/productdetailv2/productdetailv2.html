@@ -324,6 +324,62 @@ jQuery(function(){
 	
 	<venda_tpcomment><!-- start: left hand side (picture) --></venda_tpcomment>
 	<div class="grid_12">
+
+	<div id="main" role="main">
+      <section class="slider">
+        <div class="flexslider">
+          <ul class="slides">
+            <li data-thumb="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_a.jpg">
+            	<a href="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/flexslider/book_a_l.jpg" class="cloud-zoom" rel="position: 'inside'">
+  	    	    	<img src="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_a.jpg" />
+            	</a>
+  	    		</li>
+  	    		<li data-thumb="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_b.jpg">
+  	    			<a href="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_b_l.jpg" class="cloud-zoom" rel="position: 'inside'">
+  	    	    	<img src="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_b.jpg" />
+  	    			</a>
+  	    		</li>
+  	    		<li data-thumb="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_c.jpg">
+  	    			<a href="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_c_l.jpg" class="cloud-zoom" rel="position: 'inside'">
+  	    	    	<img src="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_c.jpg" />
+  	    			</a>
+  	    		</li>
+  	    		<li data-thumb="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_d.jpg">
+  	    			<a href="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_d_l.jpg" class="cloud-zoom" rel="position: 'inside'">
+  	    	    	<img src="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_d.jpg" />
+  	    			</a>
+  	    		</li>
+  	    		<li data-thumb="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_e.jpg">
+  	    			<a href="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_e_l.jpg" class="cloud-zoom" rel="position: 'inside'">
+  	    	    	<img src="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_e.jpg" />
+  	    			</a>
+  	    		</li>
+          </ul>
+          <p class="slide-view">
+   		     	VIEW
+        	</p>
+        </div>
+      </section>
+  </div>
+
+
+  <!-- FlexSlider -->
+  <script type="text/javascript">
+    jQuery(window).load(function(){
+      jQuery('.flexslider').flexslider({
+        animation: "fade",
+        animationSpeed: 200,
+        controlNav: "thumbnails",
+        slideshowSpeed: 10000,
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+      jQuery('.flexslider ol.flex-control-nav li a').hover(function(){
+	    	jQuery(this).next('.thumb-border').stop(true, true).fadeToggle(100);
+      });
+    });
+  </script>	
 	
 		<div class="invtmedia grid_10 push_2 alpha" id="image_<venda_invtuuid>">
 			<div id="productdetail-image">
@@ -343,6 +399,7 @@ jQuery(function(){
         <venda_category temp=productCycling,rec=icat,ref=<venda_curcatref>,center_on=<venda_invtref>,itemsperpage=3>
         <venda_tpcomment><!-- end: productCycling --></venda_tpcomment>
 	</div>
+	
 	<div class="grid_4 omega">
 	 <p>Put some of those circles in this column</p>
 	</div>

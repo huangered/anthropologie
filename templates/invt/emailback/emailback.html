@@ -1,5 +1,5 @@
 <script type="text/javascript" src="<venda_dispview invt=<venda_invtref>>&temp=emailback_script&layout=noheaders"></script>
-<h3 style="padding: 10px;">Please notify me when this item becomes available</h3>
+<h3 style="padding: 10px;"><venda_text id=site.productdetail.emailme.header></h3>
 <div id="emailmeback" style="padding: 10px 0 0 10px;">
         <form method="post" action="<venda_codehttp>" name="emailbackform" id="emailbackform">  
    <input type="hidden" name="ex" value="co_disp-eproc">
@@ -15,9 +15,9 @@
    <input type="hidden" name="layout" value="">
    <input type="hidden" name="page" value="emailbackthanks">
         <fieldset class="text-fields">  
-        <div style="margin-bottom: 10px;"><label for="email">Your Email Address: <span class="required">*</span></label> <input type="text" name="field1" id="email" size="45">
+        <div style="margin-bottom: 10px;"><label for="email"><venda_text id=site.productdetail.emailme.email><span class="required">*</span></label> <input type="text" name="field1" id="email" size="45">
         </div>  
-        </fieldset>    
+        </fieldset>  
 <div id="buttons" style="padding: 0;">
 <a href="<venda_dispview invt=<venda_invtref>>" id="back_link"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_previous.gif" alt="<venda_text id=site.button.previous>" border="0" class="left" style="margin-right: 47px;"></a>
 <input type="image" onclick="validateFields(); return false;" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/<venda_sessionlanguage>/bt_continue.gif" alt="<venda_text id=site.tell_friend.button.continue>" class="left">
