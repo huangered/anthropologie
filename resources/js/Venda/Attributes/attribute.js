@@ -1052,10 +1052,9 @@ Venda.Attributes.StoreImageSwaps = function(obj) {
 			if(obj.images.imgS[i]) Venda.Attributes.howManyZoomImgs+=1;
 		}
 		for(var i = 0; i < Venda.Attributes.howManyZoomImgs; i++) {
-			CloudHTML += "<a href=\"" + obj.images.imgL[i] + "\" class=\"cloud-zoom-gallery\" id=\"CloudThumb_id_" + i + "\" rel=\"useZoom: 'zoom1', smallImage: '" + obj.images.imgM[i] +"'\"><img src=\"" + obj.images.imgS[i] + "\"></a>";
+  		CloudHTML += "<li id=\"slide-id-" + i + "\" data-thumb=\"" + obj.images.imgM[i] + "\"><a href=\"" + obj.images.imgL[i] + "\" class=\"cloud-zoom\" rel=\"position: 'inside'\"><img src=\"" + obj.images.imgM[i] + "\" /></a></li>" 
 		}
-		jQuery("#productdetail-altview").html(CloudHTML);
-		jQuery("#productdetail-viewlarge").html("<a href='javascript: Venda.Attributes.ViewLargeImg(" + Venda.Attributes.imgParam + ", " + Venda.Attributes.imgNo + ");'>View Large Image</a>");
+		jQuery(".slider .slides").html(CloudHTML);
 		Venda.Attributes.initImgObj = obj;
 		
 	} else {
@@ -1063,6 +1062,7 @@ Venda.Attributes.StoreImageSwaps = function(obj) {
 	}
 	
 };
+
 
 Venda.Attributes.ImageSwap = function(att) {
 	
@@ -1079,9 +1079,9 @@ Venda.Attributes.ImageSwap = function(att) {
 
 	for(var i = 0; i < Venda.Attributes.howManyZoomImgs; i++) {
 		if(obj.images.imgS[i] != "") {
-			jQuery("#productdetail-altview #CloudThumb_id_" + i + " img").attr({"src": obj.images.imgS[i]});
-			jQuery("#productdetail-altview #CloudThumb_id_" + i).attr({"href": obj.images.imgL[i] });
-			jQuery("#productdetail-altview #CloudThumb_id_" + i).attr({"rel": "useZoom: 'zoom1', smallImage: '" + obj.images.imgM[i] +"'"});
+			jQuery(".slider .slides #slide-id-" + i).attr({"data-thumb": obj.images.imgM[i] });
+			jQuery(".slider .slides #slide-id-" + i + " a").attr({"href": obj.images.imgL[i] });
+			jQuery(".slider .slides #slide-id-" + i + " a img").attr({"src": obj.images.imgM[i] });
 		}
 	}
 	
@@ -1109,10 +1109,10 @@ Venda.Attributes.imageAssigner = function(imgAtt) {
         "imgM" : "?$uk_pdt_medium$",
         "imgL" : "?$uk-zoom-5x$"
       },
-      imgSlots = ["_b", "_c", "_d", "_e", "_f"]
+      imgSlots = ["_b", "_c", "_d", "_e", "_f", "_a"]
   for(var size in imgChoice) {
     var images = []
-    for(var j = 1; j < imgSlots.length; j++) {
+    for(var j = 0; j < imgSlots.length; j++) {
         images.push(imgPath + imgSuplSku + "_" + imgAtt + imgSlots[j] + imgChoice[size]) 
     }  
     imageURLs[size] = images           

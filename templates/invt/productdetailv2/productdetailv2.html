@@ -329,31 +329,7 @@ jQuery(function(){
       <section class="slider">
         <div class="flexslider">
           <ul class="slides">
-            <li data-thumb="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_a.jpg">
-            	<a href="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/flexslider/book_a_l.jpg" class="cloud-zoom" rel="position: 'inside'">
-  	    	    	<img src="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_a.jpg" />
-            	</a>
-  	    		</li>
-  	    		<li data-thumb="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_b.jpg">
-  	    			<a href="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_b_l.jpg" class="cloud-zoom" rel="position: 'inside'">
-  	    	    	<img src="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_b.jpg" />
-  	    			</a>
-  	    		</li>
-  	    		<li data-thumb="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_c.jpg">
-  	    			<a href="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_c_l.jpg" class="cloud-zoom" rel="position: 'inside'">
-  	    	    	<img src="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_c.jpg" />
-  	    			</a>
-  	    		</li>
-  	    		<li data-thumb="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_d.jpg">
-  	    			<a href="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_d_l.jpg" class="cloud-zoom" rel="position: 'inside'">
-  	    	    	<img src="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_d.jpg" />
-  	    			</a>
-  	    		</li>
-  	    		<li data-thumb="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_e.jpg">
-  	    			<a href="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_e_l.jpg" class="cloud-zoom" rel="position: 'inside'">
-  	    	    	<img src="http://anthropologie.uat.venda.com/content/ebiz/anthropologie/resources/images/flexslider/book_e.jpg" />
-  	    			</a>
-  	    		</li>
+            <p>Loading</p>
           </ul>
           <p class="slide-view">
    		     	VIEW
@@ -372,7 +348,7 @@ jQuery(function(){
         controlNav: "thumbnails",
         slideshowSpeed: 10000,
         start: function(slider){
-          $('body').removeClass('loading');
+          jQuery('body').removeClass('loading');
         }
       });
       jQuery('.flexslider ol.flex-control-nav li a').hover(function(){
@@ -381,19 +357,6 @@ jQuery(function(){
     });
   </script>	
 	
-		<div class="invtmedia grid_10 push_2 alpha" id="image_<venda_invtuuid>">
-			<div id="productdetail-image">
-			
-						<a itemprop="image" href="<venda_media rec=invt,type=movie-swf-pict,key=large,img=no>" class = 'cloud-zoom' id='zoom1' rel="adjustX: 53, adjustY:-4, zoomWidth: 462" title="<venda_text id=site.product_detail.view_large_image.title>" data-track="open-largeimage">
-					
-						  <img src="http://images.anthropologie.eu/is/image/Anthropologie/<venda_invtsuplsku>_<venda_pdxtdefaultimg>_b?$uk_pdt_medium$" alt="<venda_invtname>" />
-
-						</a>
-			</div>
-			<div id="productdetail-swap" style="display:none;"></div>
-			<div id="productdetail-viewlarge" class="enlarge"></div>
-		</div>
-		<div id="productdetail-altview" class="grid_2 pull_10 omega altImageList"></div>
 		<venda_inctemplate name=alternateviewScript,type=invt>
 		<venda_tpcomment><!-- start: productCycling V2 --></venda_tpcomment>
         <venda_category temp=productCycling,rec=icat,ref=<venda_curcatref>,center_on=<venda_invtref>,itemsperpage=3>
