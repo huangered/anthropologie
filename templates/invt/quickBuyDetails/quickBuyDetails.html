@@ -1,4 +1,20 @@
+<div id="tag-loadmessage" style="display:none;"><venda_text id=site.loadmessage></div>
+
 <script type="text/javascript" src="/content/ebiz/anthropologie/resources/js/jquery.jqzoom1.0.1.js"></script>
+
+<script type="text/javascript">
+Venda.ProductDetail.panelWidth = "511";
+var xPos = (document.documentElement.clientWidth - 392) / 2;
+if (typeof Venda.Widget.InvtPopups != "undefined" || Venda.Widget.InvtPopups) {
+	Venda.Widget.InvtPopups.create(['emback_link','tellafriend_link', 'emwbis_link'],  
+		{
+			drag: false, modal: true, fixedCenter: true, fade: 0.24, x:xPos
+	  	}, 
+	  	{
+		  	loadmessage: 	document.getElementById('tag-loadmessage').innerHTML
+		});
+}
+</script>
 
 <div id="productdetail">
 	<!-- start product detail col1 -->

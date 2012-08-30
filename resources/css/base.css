@@ -1436,13 +1436,36 @@ fieldset {
   z-index: 100;
 }
 
-.qtybox,.addproductbox,.buynowbox,.stockBox,.nostock,.eta,.emwbisbox {
+.buynowbox,.stockBox,.nostock,.eta,.emwbisbox {
   display: inline;
 }
 
 /* Only so script won't break design */
 .prodMulti .qtybox {
   float: left;
+}
+.buyControls .qtybox label {
+  width: 60px;
+}
+
+.buyControls {
+  margin-top: 4px;
+}
+
+.qtybox {
+  border-bottom: 1px solid #CCCCCC;
+  margin-right: 20px;
+  padding-bottom: 15px;
+}
+
+.qtybox input {
+  border: 1px solid #DDDDDD;
+  color: #333333;
+  height: 14px;
+  margin: 0 2px;
+  padding: 2px 0 0;
+  text-align: center;
+  width: 22px;
 }
 
 .emwbis {
@@ -1818,17 +1841,23 @@ fieldset {
   padding: 3px 3px 8px 5px;
 }
 
-.buyControls,.buyControlsMulti {
-  text-align: right;
-}
-
 .buyControls .button,.buyControlsMulti .button {
-  margin-left: 6px;
+  background: none repeat scroll 0 0 #FBFBFB;
+  border-color: #BDD0D4;
+  font-family: Georgia;
+  font-size: 16px;
+  height: 40px;
+  margin: 30px 0;
+  width: 160px;
 }
 
 .sku {
   display: block;
   margin: 5px 0 10px;
+}
+
+.attsel3, .attsel4 {
+  display: none;  
 }
 
 .invtmedia {
@@ -3862,7 +3891,7 @@ div.quickshop div.remove {
   margin: 5px 0;
 }
 
-.attributeInputs label {
+.attributeInputs label, .qtybox label {
   color: #CCCCCC;
   float: left;
   font-size: 10px;

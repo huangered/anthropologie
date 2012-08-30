@@ -168,7 +168,7 @@
           if (slider.pagingCount > 1) {
             for (var i = 0; i < slider.pagingCount; i++) {
               item = (vars.controlNav === "thumbnails") ? '<a>' + j + '</a><div class="thumb-border"><img src="' + slider.slides.eq(i).attr("data-thumb") + '"/><div class="thumb-arrow"></div></div>' : '<a>' + j + '</a>';
-              slider.controlNavScaffold.append('<li>' + item + '</li>');
+              slider.controlNavScaffold.append('<li id="slider-thumb-' + i + '">' + item + '</li>');
               j++;
             }
           }

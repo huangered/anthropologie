@@ -68,6 +68,18 @@ Venda.Attributes.Initialize = function() {
 		
 	jQuery('.oneProduct').css({"background":"none"});
 	jQuery('.oneProductContent').fadeIn('slow');
+  jQuery('.flexslider').flexslider({
+      animation: "fade",
+      animationSpeed: 200,
+      controlNav: "thumbnails",
+      slideshowSpeed: 10000,
+      start: function(slider){
+        jQuery('body').removeClass('loading');
+      }
+  });
+  jQuery('.flexslider ol.flex-control-nav li a').hover(function(){
+      jQuery(this).next('.thumb-border').stop(true, true).fadeToggle(100);
+  });
 }
 
 /**
@@ -1082,6 +1094,7 @@ Venda.Attributes.ImageSwap = function(att) {
 			jQuery(".slider .slides #slide-id-" + i).attr({"data-thumb": obj.images.imgM[i] });
 			jQuery(".slider .slides #slide-id-" + i + " a").attr({"href": obj.images.imgL[i] });
 			jQuery(".slider .slides #slide-id-" + i + " a img").attr({"src": obj.images.imgM[i] });
+			jQuery(".slider .flex-control-thumbs #slider-thumb-" + i + " img").attr({"src": obj.images.imgM[i] });
 		}
 	}
 	
