@@ -72,6 +72,7 @@ Venda.Attributes.Initialize = function() {
       animation: "fade",
       animationSpeed: 200,
       controlNav: "thumbnails",
+      slideshow: false,
       slideshowSpeed: 10000,
       start: function(slider){
         jQuery('body').removeClass('loading');
@@ -1118,8 +1119,8 @@ Venda.Attributes.imageAssigner = function(imgAtt) {
       imgSuplSku = jQuery('#tag-invtsuplsku').text(),
       imgPath = "http://images.anthropologie.eu/is/image/Anthropologie/",
       imgChoice = {
-        "imgS" : "?$uk_pdt_thumb$",
-        "imgM" : "?$uk_pdt_medium$",
+        "imgS" : "?$uk_pdt_thumb$&defaultImage=/Anthropologie/spacer",
+        "imgM" : "?$uk_pdt_medium$&defaultImage=/Anthropologie/spacer",
         "imgL" : "?$uk-zoom-5x$"
       },
       imgSlots = ["_b", "_c", "_d", "_e", "_f", "_a"]
