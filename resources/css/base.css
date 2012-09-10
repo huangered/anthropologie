@@ -5179,7 +5179,32 @@ ul#rvisitewidelist li a:hover div {
   list-style-type: disc;
   margin-left: 12px;
 }
-
+.product-services {
+  list-style-type: none;
+}
+.product-services li {
+  background: url("../images/bg-service-circle.png") repeat-x scroll 0 0 transparent;
+  font-size: 10px;
+  height: 130px;
+  margin: 15px 0;
+  float: left;
+  text-transform: uppercase;
+  width: 130px;
+}
+.product-services p {
+  float: left;
+  margin-top: 62px;
+  text-align: center;
+  width: 100%;
+}
+.ps-delivery p {
+  margin-top: 56px;
+}
+.product-services p span {
+  font-family: Georgia;
+  font-style: italic;
+  text-transform: lowercase;
+}
 .content {
   padding-bottom: 70px;
 }
@@ -5334,7 +5359,7 @@ html[xmlns] .slides { display: block }
 }
 .flex-direction-nav > li {
     position: absolute;
-    top: 50%;
+    top: 43%;
     left: 0;
     width: 100%;
 }

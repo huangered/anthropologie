@@ -315,7 +315,17 @@ jQuery(function(){
 	</div>
 	
 	<div class="grid_4 omega">
-	 <p>Put some of those circles in this column</p>
+	 <ul class="product-services">
+	   <li class="ps-reviews">
+	     <p><span>write</span> a review</p>
+	   </li>
+	   <li class="ps-social">
+	     <p>share <span>this</span> item</p>
+	   </li>
+	   <li class="ps-delivery">
+	     <p>delivery <br><span>information</span></p>
+	   </li>
+	 </ul>
 	 <venda_inctemplate name=socialBookMarks,type=widgets>
 	</div>
 	<venda_tpcomment><!-- end: left hand side (picture) --></venda_tpcomment>
@@ -324,9 +334,6 @@ jQuery(function(){
 	<venda_tpcomment><!-- start: bottom tab, one wide column --></venda_tpcomment>
 	<div id="further-prods" class="grid_24 alpha omega">
 		<div class="prod-content">
-			<!-- related products (predictor or VBM) -->
-			<venda_block label=222a,mode=value,<venda_setting type=ebiz,name=tracktagvbm>=1><div class="prod-tab vbmTab clearfix"><venda_inctemplate type=vbm,name=productDetail></div></venda_block label=222a>
-			<venda_block label=222b,mode=value,<venda_setting type=ebiz,name=tracktagvbm>!=1><div class="prod-tab clearfix"><venda_invtrelated limit=4,threshold=2,template=related></div></venda_block label=222b>
 			<!-- substitutes -->
 			<venda_block label=29,invtsubtot&gt;0><div class="prod-tab clearfix"><venda_invtsub template=substitutes></div></venda_block label=29>
 			<!-- accessories -->

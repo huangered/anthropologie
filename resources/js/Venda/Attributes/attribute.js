@@ -1114,26 +1114,37 @@ Venda.Attributes.ImageSwap = function(att) {
 * @author Matthew Wyatt <mwyatt@anthropologie.com>
 */
 
+var imgStatus = function(data, reqId) {
+ Venda.Attributes.imageAssigner.imgCheck = (data["catalogRecord.exists"])
+}
+
 Venda.Attributes.imageAssigner = function(imgAtt) {
   var imageURLs = {},
       imgSuplSku = jQuery('#tag-invtsuplsku').text(),
       imgPath = "http://images.anthropologie.eu/is/image/Anthropologie/",
       imgChoice = {
-        "imgS" : "?$uk_pdt_thumb$&defaultImage=/Anthropologie/spacer",
-        "imgM" : "?$uk_pdt_medium$&defaultImage=/Anthropologie/spacer",
+        "imgS" : "?$uk_pdt_thumb$",
+        "imgM" : "?$uk_pdt_medium$",
         "imgL" : "?$uk-zoom-5x$"
       },
-      imgSlots = ["_b", "_c", "_d", "_e", "_f", "_a"]
+      imgSlots = ["_b", "_c", "_d", "_e", "_f", "_a"],
+      imgJSON = "?req=exists,json&handler=imgStatus",
+      imgCheck = ""
   for(var size in imgChoice) {
     var images = []
     for(var j = 0; j < imgSlots.length; j++) {
+        jQuery.ajax({
+          url: imgPath + imgSuplSku + "_" + imgAtt + imgSlots[j],
+          dataType: 'jsonp',
+          data: "req=exists,json&handler=imgStatus"
+        });
+        console.log(Venda.Attributes.imageAssigner.imgCheck)
         images.push(imgPath + imgSuplSku + "_" + imgAtt + imgSlots[j] + imgChoice[size]) 
     }  
     imageURLs[size] = images           
   }
   return imageURLs
 }
-
 
 Venda.Attributes.ImageMediaAssignment = function() {
   var uniqueAtt1 = []
