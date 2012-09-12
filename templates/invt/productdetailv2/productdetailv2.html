@@ -10,6 +10,7 @@
 <div id="tag-invtname" style="display:none;"><venda_invtname></div>
 <div id="tag-currsym" style="display:none;"><venda_currsym></div>
 <div id="tag-invtsuplsku" style="display:none;"><venda_invtsuplsku></div>
+<div id="tag-invtdefaultimg" style="display:none;"><venda_invtpdxtdefaultimg></div>
 
 <venda_tpcomment><!-- Dictionary translations required for attributes JS --></venda_tpcomment>
 <div id="attributes-stockNA" style="display:none;"><venda_text id=site.attributes.product_detail.selection_not_available></div>
@@ -297,9 +298,9 @@ jQuery(function(){
 
 	<div id="main" role="main">
       <section class="slider">
-        <div class="flexslider">
+        <div class="flexslider anthro-pd-slider">
           <ul class="slides">
-            <p>Loading</p>
+            <p><img class="fs-loader" src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/v2loader.gif" alt="Loading" /></p>
           </ul>
           <p class="slide-view">
    		     	VIEW
@@ -307,8 +308,6 @@ jQuery(function(){
         </div>
       </section>
   </div>
-	
-		<venda_inctemplate name=alternateviewScript,type=invt>
 		<venda_tpcomment><!-- start: productCycling V2 --></venda_tpcomment>
         <venda_category temp=productCycling,rec=icat,ref=<venda_curcatref>,center_on=<venda_invtref>,itemsperpage=3>
         <venda_tpcomment><!-- end: productCycling --></venda_tpcomment>

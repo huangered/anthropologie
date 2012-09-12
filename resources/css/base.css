@@ -5267,6 +5267,17 @@ ul#rvisitewidelist li a:hover div {
 .prod-content {
   
 }
+.anthro-pd-slider {
+  height: 525px;
+}
+.slider .anthro-pd-slider .fs-loader {
+  display: block;
+  width: 32px;
+  left: 50%;
+  margin: -7px 0 0 -8px;
+  position: absolute;
+  top: 40%;
+}
 
 /*
  * jQuery FlexSlider v2.0
@@ -5504,6 +5515,7 @@ em { font-style: italic }
 .slider { 
     width: 380px; 
     margin: 10px 45px;
+    height: 600px;
 }
 .flexslider {
     background: #fff;

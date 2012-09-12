@@ -14,6 +14,7 @@
  *
  * @author Alby Barber <abarber@venda.com>
  * @author Donatas Cereska <DonatasCereska@venda.com>
+ * @author Matthew Wyatt <mwyatt@anthropologie.com>
 */
 
 Venda.namespace('Attributes');
@@ -68,19 +69,7 @@ Venda.Attributes.Initialize = function() {
 		
 	jQuery('.oneProduct').css({"background":"none"});
 	jQuery('.oneProductContent').fadeIn('slow');
-  jQuery('.flexslider').flexslider({
-      animation: "fade",
-      animationSpeed: 200,
-      controlNav: "thumbnails",
-      slideshow: false,
-      slideshowSpeed: 10000,
-      start: function(slider){
-        jQuery('body').removeClass('loading');
-      }
-  });
-  jQuery('.flexslider ol.flex-control-nav li a').hover(function(){
-      jQuery(this).next('.thumb-border').stop(true, true).fadeToggle(100);
-  });
+  
 }
 
 /**
@@ -969,7 +958,8 @@ Venda.Attributes.updateAttributes = function (uID, what, param) {
 		}
 	}
 	
-	if((Venda.Attributes.storeImgsArr.length > 0) && (Venda.Attributes.productArr[0].attSet.att1.imageRef != "")) { Venda.Attributes.ImageSwap(Venda.Attributes.productArr[0].attSet.att1.imageRef); 
+	if((Venda.Attributes.storeImgsArr.length > 0) && (Venda.Attributes.productArr[0].attSet.att1.imageRef != "")) { 
+	   Venda.Attributes.ImageSwap(Venda.Attributes.productArr[0].attSet.att1.imageRef); 
 	};
 
 };
@@ -1038,12 +1028,12 @@ Venda.Attributes.ViewLargeImg = function(param, imgNo) {
 	var popupContentThumbs = "";
 	var popupContentImg = "";
 	if(param == null) {
-		for(var i = 0; i < Venda.Attributes.howManyZoomImgs; i++) {
+		for(var i = 0; i < Venda.Attributes.storeImgsArr[param].images.imgL.length; i++) {
 			popupContentThumbs += "<a href=\"javascript: void(0);\" onclick=\"jQuery('#viewLargeMainImg').attr({'src': '" + Venda.Attributes.initImgObj.images.imgL[i] + "' });\"><img src=\"" + Venda.Attributes.initImgObj.images.imgS[i] + "\"></a>";
 		}
 		popupContentImg += "<img id=\"viewLargeMainImg\" src='" +  Venda.Attributes.initImgObj.images.imgL[imgNo] + "' />";
 	} else {
-		for(var i = 0; i < Venda.Attributes.howManyZoomImgs; i++) {
+		for(var i = 0; i < Venda.Attributes.storeImgsArr[param].images.imgL.length; i++) {
 			popupContentThumbs += "<a href=\"javascript: void(0);\" onclick=\"jQuery('#viewLargeMainImg').attr({'src': '" + Venda.Attributes.storeImgsArr[param].images.imgL[i] + "' });\"><img src=\"" + Venda.Attributes.storeImgsArr[param].images.imgS[i] + "\"></a>";
 		}
 		popupContentImg += "<img id=\"viewLargeMainImg\" src='" +  Venda.Attributes.storeImgsArr[param].images.imgL[imgNo] + "' />";
@@ -1079,8 +1069,6 @@ Venda.Attributes.StoreImageSwaps = function(obj) {
 
 Venda.Attributes.ImageSwap = function(att) {
 	
-	Venda.Attributes.removeMissing();
-	
 	Venda.Attributes.imgNo = 0;
 	var obj;
 	var sliderHTML = "";
@@ -1092,11 +1080,11 @@ Venda.Attributes.ImageSwap = function(att) {
 			jQuery("#productdetail-viewlarge").html("<a href='javascript: Venda.Attributes.ViewLargeImg(" + Venda.Attributes.imgParam + ", " + Venda.Attributes.imgNo + ");'>View Large Image</a>");
 		}
 	}
-
-	for(var i = 0; i < Venda.Attributes.howManyZoomImgs; i++) {
+	
+	for(var i = 0; i < obj.images.imgM.length; i++) {
   		sliderHTML += "<li id=\"slide-id-" + i + "\" data-thumb=\"" + obj.images.imgM[i] + "\"><a href=\"" + obj.images.imgL[i] + "\" class=\"cloud-zoom\" rel=\"position: 'inside'\"><img src=\"" + obj.images.imgM[i] + "\" /></a></li>"
 	}
-	jQuery(".slider").html("<div class=\"flexslider\"><ul class=\"slides\">" + sliderHTML + "</ul><p class=\"slide-view\">VIEW</p></div>");
+	jQuery(".slider").html("<div class=\"flexslider anthro-pd-slider\"><ul class=\"slides\">" + sliderHTML + "</ul><p class=\"slide-view\">VIEW</p></div>");
 	
 	jQuery('.flexslider').flexslider({
       animation: "fade",
@@ -1116,7 +1104,8 @@ Venda.Attributes.ImageSwap = function(att) {
 
 
 /**
-* The following two functions build up the list of attribute images based on file name so that we can transition to scene7 and use on both sites
+* The following functions build up the list of attribute images based on file name so that we can transition to scene7 and use on both sites
+* We also remove any images that do not exist by comparing generated and tested arrays against one another
 * ImageMediaAssignment is called once during initialize
 * @param{string} imgAtt is the unique part of the image, typically colour as stored in attr1 but could be something else i.e. suplsku 
 * @author Matthew Wyatt <mwyatt@anthropologie.com>
@@ -1135,17 +1124,17 @@ Venda.Attributes.imageExists = []
 Venda.Attributes.imgChoice = {"imgS" : "?$uk_pdt_thumb$", "imgM" : "?$uk_pdt_medium$", "imgL" : "?$uk-zoom-5x$"}
 Venda.Attributes.imgPath = "http://images.anthropologie.eu/is/image/Anthropologie/"
 Venda.Attributes.imgSuplSku = ""
+Venda.Attributes.imgSlots = ["_b", "_c", "_d", "_e", "_b1", "_c1"]
 
 Venda.Attributes.imageAssigner = function(imgAtt) {
 
   Venda.Attributes.imgSuplSku = jQuery('#tag-invtsuplsku').text() 
 
   var imageURLs = {},
-      imgSlots = ["_b", "_c", "_d", "_e", "_f", "_a"],
       imgJSON = "?req=exists,json&handler=imgStatus&id="   
       
-  for (var i = 0; i < imgSlots.length; i++) {
-      var imageTBC = Venda.Attributes.imgSuplSku + "_" + imgAtt + imgSlots[i]
+  for (var i = 0; i < Venda.Attributes.imgSlots.length; i++) {
+      var imageTBC = Venda.Attributes.imgSuplSku + "_" + imgAtt + Venda.Attributes.imgSlots[i]
       jQuery.ajax({
         url: Venda.Attributes.imgPath + imageTBC + imgJSON + imageTBC,
         dataType: 'script'
@@ -1153,8 +1142,8 @@ Venda.Attributes.imageAssigner = function(imgAtt) {
   }    
   for (var size in Venda.Attributes.imgChoice) {
     var images = []
-    for(var j = 0; j < imgSlots.length; j++) {
-        images.push(Venda.Attributes.imgPath + Venda.Attributes.imgSuplSku + "_" + imgAtt + imgSlots[j] + Venda.Attributes.imgChoice[size]) 
+    for(var j = 0; j < Venda.Attributes.imgSlots.length; j++) {
+        images.push(Venda.Attributes.imgPath + Venda.Attributes.imgSuplSku + "_" + imgAtt + Venda.Attributes.imgSlots[j] + Venda.Attributes.imgChoice[size]) 
     }  
     imageURLs[size] = images           
   }
@@ -1176,7 +1165,6 @@ Venda.Attributes.ImageMediaAssignment = function() {
         Venda.Attributes.SwatchURL[currAtt1] = "/content/ebiz/" + jQuery('#tag-ebizref').text() + "/invt/" + jQuery('#tag-invtref').text() + "/" + currSuplSku + ".png";  
       }
   }
-
 }
 
 Venda.Attributes.removeMissing = function() {
