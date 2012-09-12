@@ -1079,8 +1079,11 @@ Venda.Attributes.StoreImageSwaps = function(obj) {
 
 Venda.Attributes.ImageSwap = function(att) {
 	
+	Venda.Attributes.removeMissing();
+	
 	Venda.Attributes.imgNo = 0;
 	var obj;
+	var sliderHTML = "";
 	
 	for(var i = 0; i < Venda.Attributes.storeImgsArr.length; i++) {
 		if(Venda.Attributes.storeImgsArr[i].param === att) {
@@ -1091,17 +1094,22 @@ Venda.Attributes.ImageSwap = function(att) {
 	}
 
 	for(var i = 0; i < Venda.Attributes.howManyZoomImgs; i++) {
-		if(obj.images.imgS[i] != "") {
-			jQuery(".slider .slides #slide-id-" + i).attr({"data-thumb": obj.images.imgM[i] });
-			jQuery(".slider .slides #slide-id-" + i + " a").attr({"href": obj.images.imgL[i] });
-			jQuery(".slider .slides #slide-id-" + i + " a img").attr({"src": obj.images.imgM[i] });
-			jQuery(".slider .flex-control-thumbs #slider-thumb-" + i + " img").attr({"src": obj.images.imgM[i] });
-		}
+  		sliderHTML += "<li id=\"slide-id-" + i + "\" data-thumb=\"" + obj.images.imgM[i] + "\"><a href=\"" + obj.images.imgL[i] + "\" class=\"cloud-zoom\" rel=\"position: 'inside'\"><img src=\"" + obj.images.imgM[i] + "\" /></a></li>"
 	}
+	jQuery(".slider").html("<div class=\"flexslider\"><ul class=\"slides\">" + sliderHTML + "</ul><p class=\"slide-view\">VIEW</p></div>");
+	
+	jQuery('.flexslider').flexslider({
+      animation: "fade",
+      animationSpeed: 200,
+      controlNav: "thumbnails",
+      slideshow: false,
+      slideshowSpeed: 10000
+  });
+  jQuery('.flexslider ol.flex-control-nav li a').hover(function(){
+      jQuery(this).next('.thumb-border').stop(true, true).fadeToggle(100);
+  });
 	
 	if((obj.images.imgM[0] != "") || (obj.images.imgL[0] !="")) {
-		jQuery("#productdetail-image a").attr({"href": obj.images.imgL[0]});
-		jQuery("#productdetail-image a img").attr({"src": obj.images.imgM[0]});
 		jQuery('.cloud-zoom, .cloud-zoom-gallery').CloudZoom();
 	}
 };
@@ -1114,32 +1122,39 @@ Venda.Attributes.ImageSwap = function(att) {
 * @author Matthew Wyatt <mwyatt@anthropologie.com>
 */
 
-var imgStatus = function(data, reqId) {
- Venda.Attributes.imageAssigner.imgCheck = (data["catalogRecord.exists"])
+var imgStatus = function(data, reqId){
+  if(data["catalogRecord.exists"] == 1) {
+    for (var size in Venda.Attributes.imgChoice) {
+      Venda.Attributes.imageExists.push(Venda.Attributes.imgPath + reqId + Venda.Attributes.imgChoice[size]) 
+    }            
+  }
 }
 
+
+Venda.Attributes.imageExists = []
+Venda.Attributes.imgChoice = {"imgS" : "?$uk_pdt_thumb$", "imgM" : "?$uk_pdt_medium$", "imgL" : "?$uk-zoom-5x$"}
+Venda.Attributes.imgPath = "http://images.anthropologie.eu/is/image/Anthropologie/"
+Venda.Attributes.imgSuplSku = ""
+
 Venda.Attributes.imageAssigner = function(imgAtt) {
+
+  Venda.Attributes.imgSuplSku = jQuery('#tag-invtsuplsku').text() 
+
   var imageURLs = {},
-      imgSuplSku = jQuery('#tag-invtsuplsku').text(),
-      imgPath = "http://images.anthropologie.eu/is/image/Anthropologie/",
-      imgChoice = {
-        "imgS" : "?$uk_pdt_thumb$",
-        "imgM" : "?$uk_pdt_medium$",
-        "imgL" : "?$uk-zoom-5x$"
-      },
       imgSlots = ["_b", "_c", "_d", "_e", "_f", "_a"],
-      imgJSON = "?req=exists,json&handler=imgStatus",
-      imgCheck = ""
-  for(var size in imgChoice) {
+      imgJSON = "?req=exists,json&handler=imgStatus&id="   
+      
+  for (var i = 0; i < imgSlots.length; i++) {
+      var imageTBC = Venda.Attributes.imgSuplSku + "_" + imgAtt + imgSlots[i]
+      jQuery.ajax({
+        url: Venda.Attributes.imgPath + imageTBC + imgJSON + imageTBC,
+        dataType: 'script'
+      });
+  }    
+  for (var size in Venda.Attributes.imgChoice) {
     var images = []
     for(var j = 0; j < imgSlots.length; j++) {
-        jQuery.ajax({
-          url: imgPath + imgSuplSku + "_" + imgAtt + imgSlots[j],
-          dataType: 'jsonp',
-          data: "req=exists,json&handler=imgStatus"
-        });
-        console.log(Venda.Attributes.imageAssigner.imgCheck)
-        images.push(imgPath + imgSuplSku + "_" + imgAtt + imgSlots[j] + imgChoice[size]) 
+        images.push(Venda.Attributes.imgPath + Venda.Attributes.imgSuplSku + "_" + imgAtt + imgSlots[j] + Venda.Attributes.imgChoice[size]) 
     }  
     imageURLs[size] = images           
   }
@@ -1158,8 +1173,24 @@ Venda.Attributes.ImageMediaAssignment = function() {
           "param": currAtt1,
           "images": currImages     
           });
-        Venda.Attributes.SwatchURL[currAtt1] =  "/content/ebiz/" + jQuery('#tag-ebizref').text() + "/invt/" + jQuery('#tag-invtref').text() + "/" + currSuplSku + ".png";  
+        Venda.Attributes.SwatchURL[currAtt1] = "/content/ebiz/" + jQuery('#tag-ebizref').text() + "/invt/" + jQuery('#tag-invtref').text() + "/" + currSuplSku + ".png";  
       }
   }
 
 }
+
+Venda.Attributes.removeMissing = function() {
+  for (var i=0; i < Venda.Attributes.storeImgsArr.length; i++) {
+    for (var size in Venda.Attributes.storeImgsArr[i].images) {
+      var replaceAvailable = []
+      jQuery.each(Venda.Attributes.storeImgsArr[i].images[size], function(i, val){
+        if(jQuery.inArray(val, Venda.Attributes.imageExists) != -1)
+            replaceAvailable.push(val);
+      });
+      Venda.Attributes.storeImgsArr[i].images[size] = replaceAvailable     
+    }
+  }
+}
+
+
+
