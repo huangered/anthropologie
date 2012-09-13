@@ -1,0 +1,42 @@
+<venda_block label=45,invtpublish=1>
+<li>
+	<div class="toolwrap">
+	<div id="tab<venda_invtref>_tooltip" class="tooltip" style="display:none;">
+	<venda_block label=11,med-<venda_setting type=ebiz,name=setrecentlyviewimagekey>=notnull>
+	<p><venda_media rec=invt,type=movie-swf-pict,key=<venda_setting type=ebiz,name=setrecentlyviewimagekey>></p>
+	</venda_block label=11>
+	<venda_block label=12,med-<venda_setting type=ebiz,name=setrecentlyviewimagekey>=null>
+	<p><a href="<venda_dispview invt=<venda_invtref>>"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/no_image_<venda_setting type=ebiz,name=setrecentlyviewimagekey>.gif" alt="<venda_text id=site.link.alt.no_image>"></a></p>
+	</venda_block label=12>
+	</div>
+	<div>
+	<p class="textLink">
+	<a href="<venda_dispview invt=<venda_invtref>>" onmouseover="showOrHide(1,'<venda_invtref>_tooltip');" onmouseout="showOrHide(0,'<venda_invtref>_tooltip');"><venda_invtname>
+	<venda_inctemplate type=includes,name=priceFormat>
+	</a>
+	</p>
+	</div>
+	</div>
+</li>
+</venda_block label=45>
+<venda_block label=46,invtpublish!=1>
+<!-- unpublished -->
+<li>
+	<div class="toolwrap">
+	<div id="tab<venda_invtref>_tooltip" class="tooltip" style="display:none;">
+	<venda_block label=111,med-<venda_setting type=ebiz,name=setrecentlyviewimagekey>=notnull>
+	<p><venda_media rec=invt,type=movie-swf-pict,key=<venda_setting type=ebiz,name=setrecentlyviewimagekey>></p>
+	</venda_block label=111>
+	<venda_block label=121,med-<venda_setting type=ebiz,name=setrecentlyviewimagekey>=null>
+	<p><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/no_image_<venda_setting type=ebiz,name=setrecentlyviewimagekey>.gif" alt="<venda_text id=site.link.alt.no_image>"></p>
+	</venda_block label=121>
+	</div>
+	<div>
+	<p class="textLink"><venda_invtname> 
+	<venda_inctemplate type=includes,name=priceFormat>
+	</p>
+	<p class="unpublished"><venda_text id=site.unpublished></p>
+	</div>
+	</div>
+</li>
+</venda_block label=46>

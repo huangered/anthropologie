@@ -1894,7 +1894,8 @@ fieldset {
 }
 
 .oneProduct .priceField .priceWas {
-  font-size: 1em;
+  font-size: 11px;
+  color: #ccc;
 }
 
 .oneProduct .priceField #price {
@@ -5596,6 +5597,7 @@ em { font-style: italic }
     margin: -4px; /* Set this to minus the border thickness. */
     background-color: #fff;
     cursor: move;
+    cursor: zoom-in;
 }
 /* This is for the title text. */
 .cloud-zoom-title {
