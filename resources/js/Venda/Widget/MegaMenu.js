@@ -127,6 +127,9 @@ Venda.Widget.MegaMenu.mmTouch = function (element) {
 };
 
 Venda.Widget.MegaMenu.mmHover = function () {
+
+  var subBoxHeight = jQuery(this).find(".mm_sub").outerHeight()
+  
 	jQuery("ul#mm_ul li .mm_sub:visible").removeClass('mm_liSelected').stop().fadeTo('fast', 0, function () {
 			jQuery(this).hide();
 		});
@@ -155,6 +158,7 @@ Venda.Widget.MegaMenu.mmHover = function () {
 	}
 	
 	jQuery(this).find(".mm_sub").stop().fadeTo('fast', 100).show();
+	jQuery('#crumbtrail-hold').animate({'margin-top': subBoxHeight + 'px'}, 'fast');
 	
 	if (checkWidthClass == 0) {
 		(function (jQuery) {
@@ -308,4 +312,9 @@ jQuery(document).ready(function () {
 			  	jQuery(this).parent().trigger("mouseout");
 			  });
 		}
+		jQuery("#mm_ul").mouseleave(function() {
+		  setTimeout(function() {
+    		jQuery('#crumbtrail-hold').animate({'margin-top': '0'}, 'fast');
+      }, 200);
+    });
 	});

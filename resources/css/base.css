@@ -1323,8 +1323,8 @@ ol.prods li {
   color: #d25952;
   font-family: Georgia;
   font-size: 14px;
-  font-weight: bold;
-  vertical-align: middle;
+  font-weight: normal;
+  vertical-align: top;
 }
 
 .minicartDetailTotals .discount {
@@ -5057,6 +5057,8 @@ ul#rvisitewidelist li a:hover div {
   left: 0;
 }
 
+
+
 /* Anthro specific for new markup */
 /* Utilities */
 .full-width {
@@ -5073,7 +5075,7 @@ ul#rvisitewidelist li a:hover div {
 }
 
 .top-options {
-  margin-left: 320px;
+  margin-left: 260px;
   text-transform: uppercase;
 }
 
@@ -5141,6 +5143,35 @@ ul#rvisitewidelist li a:hover div {
   border-top: 1px solid #ccc;
   text-align: center;
   line-height: 36px;
+}
+
+#solrsearch {
+  float: right;
+  height: 20px;
+  margin-top: 4px;
+  position: relative;
+  width: 186px;
+}
+.solr-textfield {
+  border: 1px solid #CCCCCC;
+  color: #666666;
+  font-size: 10px;
+  height: 10px;
+  padding: 3px 25px 2px 5px;
+  position: absolute;
+  right: 0;
+  width: 150px;
+}
+.solr-submit {
+  background: url(../images/search-icon.gif) no-repeat scroll 3px 4px transparent;
+  border: 0 none;
+  cursor: pointer;
+  height: 16px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  width: 20px;
+  border-left: 1px solid #ccc;
 }
 
 /* Product detail */
@@ -5278,17 +5309,17 @@ ul#rvisitewidelist li a:hover div {
   position: absolute;
   top: 40%;
 }
+.minicart_empty {
+  display: block;
+  font-size: 12px;
+  margin-top: 65px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
 
 /*
  * jQuery FlexSlider v2.0
- * http://www.woothemes.com/flexslider/
- *
- * Copyright 2012 WooThemes
- * Free to use under the GPLv2 license.
- * http://www.gnu.org/licenses/gpl-2.0.html
- *
- * Contributing author: Tyler Smith (@mbmufffin)
- */
 /* Browser Resets */
 .flex-container a:active,
 .flexslider a:active,
@@ -5352,7 +5383,7 @@ html[xmlns] .slides { display: block }
     bottom: -59px;
     color: #CCCCCC;
     font-size: 10px;
-    left: 80px;
+    left: 110px;
     position: absolute;
 }
 .carousel li { margin-right: 5px }
@@ -5458,7 +5489,7 @@ html[xmlns] .slides { display: block }
 .flex-control-thumbs {
     bottom: -55px;
     left: 50%;
-    margin-left: -60px;
+    margin-left: -30px;
     position: absolute;
 }
 .flex-control-thumbs li {

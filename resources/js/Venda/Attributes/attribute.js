@@ -1069,9 +1069,14 @@ Venda.Attributes.StoreImageSwaps = function(obj) {
 
 Venda.Attributes.ImageSwap = function(att) {
 	
+	//Really bad way of doing this, adding a short lock so the ajax image check can complete
+	setTimeout(function() {
+	
 	Venda.Attributes.imgNo = 0;
 	var obj;
 	var sliderHTML = "";
+	
+	Venda.Attributes.removeMissing();
 	
 	for(var i = 0; i < Venda.Attributes.storeImgsArr.length; i++) {
 		if(Venda.Attributes.storeImgsArr[i].param === att) {
@@ -1088,10 +1093,9 @@ Venda.Attributes.ImageSwap = function(att) {
 	
 	jQuery('.flexslider').flexslider({
       animation: "fade",
-      animationSpeed: 200,
-      controlNav: "thumbnails",
       slideshow: false,
-      slideshowSpeed: 10000
+      animationSpeed: 300,
+      controlNav: "thumbnails",
   });
   jQuery('.flexslider ol.flex-control-nav li a').hover(function(){
       jQuery(this).next('.thumb-border').stop(true, true).fadeToggle(100);
@@ -1100,6 +1104,8 @@ Venda.Attributes.ImageSwap = function(att) {
 	if((obj.images.imgM[0] != "") || (obj.images.imgL[0] !="")) {
 		jQuery('.cloud-zoom, .cloud-zoom-gallery').CloudZoom();
 	}
+	
+	}, 500);
 };
 
 
