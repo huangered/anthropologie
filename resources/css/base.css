@@ -5319,6 +5319,18 @@ ul#rvisitewidelist li a:hover div {
   width: 100%;
 }
 
+.sub-additions img {
+  margin-top: 80px;
+}
+
+#substitute .promotion-ctl {
+  width: 220px;
+  height: 220px;
+  display: block;
+  background-color: #eee;
+  float: right;
+}
+
 /*
  * jQuery FlexSlider v2.0
 /* Browser Resets */

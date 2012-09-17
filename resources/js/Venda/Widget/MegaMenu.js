@@ -315,6 +315,6 @@ jQuery(document).ready(function () {
 		jQuery("#mm_ul").mouseleave(function() {
 		  setTimeout(function() {
     		jQuery('#crumbtrail-hold').animate({'margin-top': '0'}, 'fast');
-      }, 200);
+      }, 400);
     });
 	});
