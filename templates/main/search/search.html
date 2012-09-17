@@ -1,57 +1,31 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="<venda_block mode=value,<venda_sessionlanguage>=ae>en-US</venda_block><venda_block mode=value,<venda_sessionlanguage>!=ae><venda_sessionlanguage></venda_block>">
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html lang="<venda_block label=10,mode=value,<venda_sessionlanguage>=ae>en-US</venda_block label=10><venda_block label=11,mode=value,<venda_sessionlanguage>!=ae><venda_sessionlanguage></venda_block label=11>" class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>    <html lang="<venda_block label=20,mode=value,<venda_sessionlanguage>=ae>en-US</venda_block label=20><venda_block label=21,mode=value,<venda_sessionlanguage>!=ae><venda_sessionlanguage></venda_block label=21>" class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>    <html lang="<venda_block label=30,mode=value,<venda_sessionlanguage>=ae>en-US</venda_block label=30><venda_block label=31,mode=value,<venda_sessionlanguage>!=ae><venda_sessionlanguage></venda_block label=31>" class="no-js ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="<venda_block label=40,mode=value,<venda_sessionlanguage>=ae>en-US</venda_block label=40><venda_block label=41,mode=value,<venda_sessionlanguage>!=ae><venda_sessionlanguage></venda_block label=41>" class="no-js"> <!--<![endif]-->
 <head>
-<venda_menu template=title>
-<venda_menu template=metatags>
-<venda_menu template=css>
-<venda_menu template=js>
-<venda_inctemplate name=hitboxOthers,type=includes/tracking>
+<venda_inctemplate name=title,type=mainIncludes>
+<venda_inctemplate name=metatags,type=mainIncludes>
+<venda_inctemplate name=js,type=mainIncludes>
+<venda_inctemplate name=css,type=mainIncludes>
+<venda_inctemplate name=head,type=tracking/shared>
 </head>
-<body id="mainlayout-search">
-<venda_inctemplate name=coremetricsFunctions,type=includes/tracking/coremetrics>
-<venda_menu template=admin>
-<venda_menu template=demo>
-<venda_menu template=nojavascript>
-
-<p class="re-waiHide"><a href="#content"><venda_text id=site.skip_to_content></a></p>
-
-<!-- start wrapper -->
-<div id="wrapper">
-
-<!-- start header -->
-<div id="header">
-<venda_category rec=elementcat,ref=header>
-</div>
-<!-- end header -->
-
-<venda_block label=hideifsolr,mode=value,<venda_tpxt mode=get,name=solr>!=1>
-<!-- start content-search -->
-<div id="content-search">
-<venda_content>
-<div class="clear-all"><!-- ns6 hack --></div>
-</div>
-<!-- end columns 2 and 3 -->
-</div>
-<!-- end content-search -->
-</venda_block label=hideifsolr>
-
-<venda_block label=showifsolr,mode=value,<venda_tpxt mode=get,name=solr>=1>
-<!-- start content-search_nocolthree -->
-<div id="content-search_nocolthree">
-<venda_content>
-<div class="clear-all"><!-- ns6 hack --></div>
-</div>
-<!-- end columns 2 and 3 -->
-</div>
-<!-- end content-search_nocolthree -->
-</venda_block label=showifsolr>
-
-<div id="footer"><venda_category rec=elementcat,ref=footer></div>
-<venda_block mode=value,<venda_setting type=ebiz,name=powerreviews>=1>
-<div id="productreviews"><a href="<venda_serveradd>/partners/pwr/product-reviews/c/index.html"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/spacer.gif" width="1" height="1" alt="product reviews"></a></div>
-</venda_block>
-</div>
-<!-- end wrapper -->
-<venda_inctemplate name=SiteWideTracking,type=includes>
+<body id="<venda_rtype>_<venda_ref>">
+<venda_inctemplate name=bodyTop,type=tracking/shared>
+<venda_inctemplate name=admin,type=mainIncludes>
+<venda_inctemplate name=nojavascript,type=mainIncludes>
+<venda_inctemplate name=demo,type=mainIncludes>
+<div class="wrapper">
+	<a href="#content" class="skipToContent"><venda_text id=site.skip_to_content></a>
+  <venda_inctemplate name=operationalHeader,type=mainIncludes>
+  <venda_inctemplate name=header,type=mainIncludes>
+	<!-- end mainHeader -->
+	<div id="content-search" class="container_24 clearfix">
+		<venda_content>
+	</div><!-- end content container -->
+	<venda_inctemplate name=footer,type=mainIncludes>
+	<!-- end mainFooter -->
+</div><!-- end wrapper -->
+<venda_inctemplate name=bodyBottom,type=tracking/shared>
 </body>
 </html>

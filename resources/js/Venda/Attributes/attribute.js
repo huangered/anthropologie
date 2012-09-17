@@ -1168,7 +1168,7 @@ Venda.Attributes.ImageMediaAssignment = function() {
           "param": currAtt1,
           "images": currImages     
           });
-        Venda.Attributes.SwatchURL[currAtt1] = "/content/ebiz/" + jQuery('#tag-ebizref').text() + "/invt/" + jQuery('#tag-invtref').text() + "/" + currSuplSku + ".png";  
+        Venda.Attributes.SwatchURL[currAtt1] = "/content/ebiz/" + jQuery('#tag-ebizref').text() + "/invt/" + jQuery('#tag-invtref').text() + "/" + currSuplSku + "_a.png";  
       }
   }
 }

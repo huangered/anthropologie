@@ -4614,7 +4614,6 @@ to {
 /*/////////////////////////////////////////////*/
 #content-search {
   overflow: hidden;
-  position: relative;
 }
 
 .viewScroll {
@@ -5319,7 +5318,11 @@ ul#rvisitewidelist li a:hover div {
   width: 100%;
 }
 
-.sub-additions img {
+#substitute .sub-additions {
+  margin: 0;
+}
+
+#substitute .sub-additions img {
   margin-top: 80px;
 }
 
@@ -5632,4 +5635,54 @@ em { font-style: italic }
     background: #222;
     padding: 3px;
     border: 1px solid #000;
+}
+
+/* Search */
+
+.search-facet {
+    width: 140px;
+    float: left;
+}
+.search-fullwidth {
+    left: 0;
+    position: absolute;
+    width: 100%;
+    background: #f4f5f0;
+}
+.search-term {
+    border-top: 2px solid #e8e9e3;
+    border-bottom: 2px solid #e8e9e3;
+}
+.search-collate {
+    border-bottom: 2px solid #e8e9e3;
+}
+.search-box {
+    margin: 0 auto;
+    width: 950px;
+}
+.refinelist #term {
+    height: 36px;
+}
+.refinelist #term > div {
+    background: url(../images/anthro-refine-cross.gif) 3px 3px no-repeat #FFFFFF;
+    border: 1px solid #CBDBDB;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    float: left;
+    font-size: 10px;
+    padding: 6px 6px 3px 19px;
+    margin: 8px 10px 0 0;
+}
+.refinelist #collate {
+    height: 240px;
+}
+.search-collate {
+    margin-top: 40px;
+}
+#searchResults {
+    margin-top: 280px;
+}
+.filterinput {
+    display: none;
 }
