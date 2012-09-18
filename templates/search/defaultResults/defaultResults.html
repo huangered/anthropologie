@@ -31,7 +31,8 @@
                             <div class="resultDetail">
                                 <div class="resultMsg">
                                     <h4>
-                                        <venda_block label=suggest,suggestion=notnull><venda_text id=site.search_results.searchinstead> "<a href="/search?q=<venda_suggestion>"><venda_suggestion></a>"? </venda_block label=suggest><venda_text id=site.search_results.your_search> <venda_block label=410,primarysearchtext=notnull,primarysearchtext!=*:*><venda_text id=site.search_results.for> <span class="primarysearchtext">"<span id="paramq" class="keywordsearchtext"><venda_primarysearchtext></span>"</span> </venda_block label=410><venda_text id=site.search_results.returned> <venda_block label=ss,suggestedsearch=notnull><venda_text id=site.search_results.no> <venda_text id=site.search_results.result><venda_text id=site.search_results.results> <venda_text id=site.search_results.closest_match> <span class="correctedquery">"<span class="correctedquerytext"><venda_suggestion></span>"</span> <venda_text id=site.search_results.which></venda_block label=ss> <span class="totalresults"><venda_totalresults></span> <venda_text id=site.search_results.result><venda_block label=99,totalresults!=1><venda_text id=site.search_results.results></venda_block label=99>
+                                        <venda_block label=suggest,suggestion=notnull><venda_text id=site.search_results.searchinstead> "<a href="/search?q=<venda_suggestion>"><venda_suggestion></a>"? </venda_block label=suggest>
+                                          <venda_block label=ss,suggestedsearch=notnull><venda_text id=site.search_results.no> <venda_text id=site.search_results.result><venda_text id=site.search_results.results> <venda_text id=site.search_results.closest_match> <span class="correctedquery">"<span class="correctedquerytext"><venda_suggestion></span>"</span> <venda_text id=site.search_results.which></venda_block label=ss> <span class="totalresults"><venda_totalresults></span> item<venda_block label=99,totalresults!=1>s</venda_block label=99> found
                                     </h4>
                                 </div>
             </venda_block label=isKeyword>
@@ -71,6 +72,9 @@
                                         </select>
                                     </form>
                                 </div>
+                                <div class="pagn pagnTop">
+                                    <venda_pagination template=pagination>
+                                </div>
                             </div> <venda_tpcomment><!-- end: .resultDetail div --></venda_tpcomment>
                             <venda_detblock_results>
                                 <li>
@@ -86,13 +90,6 @@
                                 </script>
                             </venda_block label=VBMhtxt>
 
-                            <venda_inctemplate name=styleSwitch,type=widgets>				
-                            <div class="pagn pagnTop">
-                                <venda_pagination template=pagination>
-                            </div>
-                            <div class="compareSearch">
-                                <venda_inctemplate name=compareItems,type=widgets>
-                            </div>
                         </div>
                     </div>
                     <ul class="prods prodsFourColumns prodsGrid">

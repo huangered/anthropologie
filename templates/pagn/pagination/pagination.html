@@ -16,13 +16,16 @@
 	</venda_block label=1121>
 	<div class="pagnLinkNavigate">
 		<div class="pagnNumList">
+		
+		  <span class="pagnNumbers"><venda_detail_pageslist pgn_window_size=<venda_setting type=ebiz,name=windowsizesearch>></span>	
+		  
 			<venda_block label=4,mode=value,<venda_pgn_totalpages>&gt;1>
 				<!-- show the previous link-->
 				<venda_block label=1117,mode=value,<venda_pgn_currentpage>&gt;1>
-					<span class="pagnPrev"><a class="updatesearch" href="<venda_pgn_baseurl>&setpagenum=<venda_pgn_previouspage><venda_block label=1129,mode=value,<venda_pgn_isviewall>=1>&isviewall=1</venda_block label=1129>&perpage=<venda_pgn_perpage>" title="<venda_text id=site.page_numbers.gotopreviouspage>"><venda_text id=site.page_numbers.previous></a></span>
+					<span class="pagnPrev"><a class="updatesearch" href="<venda_pgn_baseurl>&setpagenum=<venda_pgn_previouspage><venda_block label=1129,mode=value,<venda_pgn_isviewall>=1>&isviewall=1</venda_block label=1129>&perpage=<venda_pgn_perpage>" title="<venda_text id=site.page_numbers.gotopreviouspage>"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/anthro-search-prev.gif" alt="<venda_text id=site.page_numbers.previous>" /></a></span>
 				</venda_block label=1117>
 				<venda_block label=11171,mode=value,<venda_pgn_currentpage>=1>
-					<span class="pagnPrev-off"><venda_text id=site.page_numbers.previous></span>
+					<span class="pagnPrev-off"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/anthro-search-prev.gif" alt="<venda_text id=site.page_numbers.previous>" /></span>
 				</venda_block label=11171>
 				
 				<!-- show the first page link-->
@@ -34,8 +37,6 @@
 					<!-- show the left ... -->
 					<span class="pagnEllipsis"><venda_text id=site.page_numbers.ellipsis></span>
 				</venda_block label=1113>
-				
-				<span class="pagnNumbers"><venda_detail_pageslist pgn_window_size=<venda_setting type=ebiz,name=windowsizesearch>></span>	
 		
 				<venda_block label=1114,mode=value,<venda_pgn_rightgap>&gt;1>
 					<!-- show the right ... -->
@@ -49,10 +50,10 @@
 				
 				<!--show the next page -->	
 				<venda_block label=1116,mode=value,<venda_pgn_currentpage>&lt;<venda_pgn_totalpages>>	
-					<span class="pagnNext"><a class="updatesearch" href="<venda_pgn_baseurl>&setpagenum=<venda_pgn_nextpage><venda_block label=1132,mode=value,<venda_pgn_isviewall>=1>&isviewall=1</venda_block label=1132>&perpage=<venda_pgn_perpage>" title="<venda_text id=site.page_numbers.gotonextpage>"><venda_text id=site.page_numbers.next></a></span>
+					<span class="pagnNext"><a class="updatesearch" href="<venda_pgn_baseurl>&setpagenum=<venda_pgn_nextpage><venda_block label=1132,mode=value,<venda_pgn_isviewall>=1>&isviewall=1</venda_block label=1132>&perpage=<venda_pgn_perpage>" title="<venda_text id=site.page_numbers.gotonextpage>"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/anthro-search-next.gif" alt="<venda_text id=site.page_numbers.next>" /></a></span>
 				</venda_block label=1116>
 				<venda_block label=11161,mode=value,<venda_pgn_currentpage>=<venda_pgn_totalpages>>
-					<span class="pagnNext-off"><venda_text id=site.page_numbers.next></span>
+					<span class="pagnNext-off"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/anthro-search-next.gif" alt="<venda_text id=site.page_numbers.next>" /></span>
 				</venda_block label=11161>
 		
 				<venda_block label=999,mode=value,<venda_pgn_isviewall>!=1>
@@ -109,7 +110,6 @@
 			</venda_block label=21><venda_tpcomment><!-- end itemsperpage style --></venda_tpcomment>
 		</venda_block label=1119>
 	</div>
-	<div class="iconView"><a href="<venda_pgn_baseurl>&setpagenum=1&perpage=16" class="iconGrid viewProduct">Grid</a><a href="<venda_pgn_baseurl>&setpagenum=1&perpage=10" class="iconList viewProduct">List</a><a href="<venda_pgn_baseurl>&setpagenum=1&perpage=32" class="iconImage viewProduct">Image</a></div>
 
 </div>
 <venda_tpcomment><!-- the following glxt is needed for Recent Search History, please do not remove --></venda_tpcomment>

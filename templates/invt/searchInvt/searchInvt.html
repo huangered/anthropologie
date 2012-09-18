@@ -1,13 +1,8 @@
 <venda_block label=45,invtpublish=1>
 	<venda_block label=119,invtref!=giftcert>
 	<div id="comp-image<venda_invtref>" class="image">
-		<a class="moredetail" href="<venda_dispview invt=<venda_invtref>>"id="<venda_invtref>" data-defaultImage="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/no_image_<venda_setting type=ebiz,name=setsearchimagekey>.gif">
-		    <venda_block label=4,med-<venda_setting type=ebiz,name=setsearchimagekey>=notnull>
-		        <venda_media rec=invt,type=movie-swf-pict,key=<venda_setting type=ebiz,name=setsearchimagekey>>
-		    </venda_block label=4>
-		    <venda_block label=5,med-<venda_setting type=ebiz,name=setsearchimagekey>=null>
-		        <img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/no_image_<venda_setting type=ebiz,name=setsearchimagekey>.gif" alt="<venda_text id=site.link.alt.no_image.invt>"></a>
-		    </venda_block label=5>
+		<a class="moredetail" href="<venda_dispview invt=<venda_invtref>>"id="<venda_invtref>" data-defaultImage="<venda_invtpdxtmediaurl>">
+		  <img src="<venda_invtpdxtmediaurl>" alt="<venda_invtname>">
 		</a>
 		<venda_block label=510,invtavail&gt;0>
 		<div class="quickLinkBox viewLink" style="visibility: hidden;"><a href="<venda_dispview invt=<venda_invtref>>&temp=quickBuyDetails&layout=noheaders" id="<venda_invtref>" class="quickBuyDetails" data-track="open-quickbuy"><venda_text id=site.link.quickview></a></div>		
