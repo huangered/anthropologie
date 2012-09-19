@@ -17,16 +17,9 @@
 	<div class="pagnLinkNavigate">
 		<div class="pagnNumList">
 		
-		  <span class="pagnNumbers"><venda_detail_pageslist pgn_window_size=<venda_setting type=ebiz,name=windowsizesearch>></span>	
+		  <span class="pagnNumbers"><span class="pagnLabel">Page </span><venda_detail_pageslist pgn_window_size=<venda_setting type=ebiz,name=windowsizesearch>></span>	
 		  
 			<venda_block label=4,mode=value,<venda_pgn_totalpages>&gt;1>
-				<!-- show the previous link-->
-				<venda_block label=1117,mode=value,<venda_pgn_currentpage>&gt;1>
-					<span class="pagnPrev"><a class="updatesearch" href="<venda_pgn_baseurl>&setpagenum=<venda_pgn_previouspage><venda_block label=1129,mode=value,<venda_pgn_isviewall>=1>&isviewall=1</venda_block label=1129>&perpage=<venda_pgn_perpage>" title="<venda_text id=site.page_numbers.gotopreviouspage>"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/anthro-search-prev.gif" alt="<venda_text id=site.page_numbers.previous>" /></a></span>
-				</venda_block label=1117>
-				<venda_block label=11171,mode=value,<venda_pgn_currentpage>=1>
-					<span class="pagnPrev-off"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/anthro-search-prev.gif" alt="<venda_text id=site.page_numbers.previous>" /></span>
-				</venda_block label=11171>
 				
 				<!-- show the first page link-->
 				<venda_block label=1115,mode=value,<venda_pgn_windowstartpage>&gt;1>	
@@ -47,6 +40,14 @@
 				<venda_block label=1118,mode=value,<venda_pgn_windowendpage>&lt;<venda_pgn_totalpages>>			
 					<span class="pagnLast"><a class="updatesearch" href="<venda_pgn_baseurl>&setpagenum=<venda_pgn_totalpages><venda_block label=1131,mode=value,<venda_pgn_isviewall>=1>&isviewall=1</venda_block label=1131>&perpage=<venda_pgn_perpage>" title="<venda_text id=site.page_numbers.gotolastpage>"><venda_pgn_totalpages></a></span>
 				</venda_block label=1118>
+				
+				<!-- show the previous link-->
+				<venda_block label=1117,mode=value,<venda_pgn_currentpage>&gt;1>
+					<span class="pagnPrev"><a class="updatesearch" href="<venda_pgn_baseurl>&setpagenum=<venda_pgn_previouspage><venda_block label=1129,mode=value,<venda_pgn_isviewall>=1>&isviewall=1</venda_block label=1129>&perpage=<venda_pgn_perpage>" title="<venda_text id=site.page_numbers.gotopreviouspage>"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/anthro-search-prev.gif" alt="<venda_text id=site.page_numbers.previous>" /></a></span>
+				</venda_block label=1117>
+				<venda_block label=11171,mode=value,<venda_pgn_currentpage>=1>
+					<span class="pagnPrev-off"><img src="<venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/anthro-search-prev.gif" alt="<venda_text id=site.page_numbers.previous>" /></span>
+				</venda_block label=11171>
 				
 				<!--show the next page -->	
 				<venda_block label=1116,mode=value,<venda_pgn_currentpage>&lt;<venda_pgn_totalpages>>	

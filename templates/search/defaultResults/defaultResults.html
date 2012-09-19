@@ -58,6 +58,9 @@
                                 </div>
             </venda_block label=isCategory>
 
+                                <div class="pagn pagnTop">
+                                    <venda_pagination template=pagination>
+                                </div>
                                 <div class="sort">
                                     <venda_detblock_sortedby>
                                         <option value="<venda_url>"<venda_block sortedon=notnull> selected="selected"</venda_block>><venda_option></option>
@@ -71,9 +74,6 @@
                                             <venda_detail_sortedby options=price~desc:asc;name~asc:desc;release~desc:asc>
                                         </select>
                                     </form>
-                                </div>
-                                <div class="pagn pagnTop">
-                                    <venda_pagination template=pagination>
                                 </div>
                             </div> <venda_tpcomment><!-- end: .resultDetail div --></venda_tpcomment>
                             <venda_detblock_results>

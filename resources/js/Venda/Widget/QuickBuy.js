@@ -13,15 +13,6 @@ Venda.namespace('Widget.QuickBuy');
 jQuery(function() {
 var xPosition = (document.documentElement.clientWidth - 500) / 2;
 
-jQuery(".prods .image").live({
-	mouseenter :function(){
-		jQuery(this).find(".quickLinkBox").css({"visibility":"visible"});
-	},
-	mouseleave:function(){
-		jQuery(this).find(".quickLinkBox").css({"visibility":"hidden"});
-	}
-});
-
 var dialogOpts = {
         title: " ",
         modal: true,

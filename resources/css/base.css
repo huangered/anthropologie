@@ -815,9 +815,9 @@ input.button:hover {
 }
 
 .boxSearchAlt {
-  margin-top: 20px;
-  height: 30px;
-  border-width: 0 0 1px 0;
+  border-width: 0 0 1px;
+  height: 28px;
+  margin: 20px 9px 0 0;
 }
 
 .basketAlt {
@@ -848,7 +848,7 @@ ol.prods {
 
 .prods li {
   display: inline-block;
-  text-align: center;
+  text-align: left;
   overflow: visible;
   vertical-align: top;
 }
@@ -861,15 +861,38 @@ ol.prods li {
   margin: 5px 0;
 }
 
-.prodsGrid .image,.prodsGrid .details {
-  padding: 5px;
+.prodsGrid .image, .prodsGrid .details {
+  padding: 8px;
   position: relative;
 }
 
 .prodsGrid .image {
   border: 1px solid #ccc;
+  height: 312px;
+  text-align: center;
 }
 
+.prodsGrid .details {
+  background: #edeee9;
+  border-bottom: 1px dotted #999999;
+  border-top: 3px double #999999;
+  margin: 2px 0 8px;
+  padding: 6px 12px;
+  height: 50px;
+}
+.prodsGrid .details h2 a {
+  color: #333333;
+  font-family: Georgia;
+  font-size: 12px;
+  font-weight: normal;
+}
+.prodsGrid .details .priceContainer {
+  font-family: Georgia;
+  position: absolute;
+  bottom: 0;
+  color: #666;
+  font-size: 10px;
+}
 .prodsGrid .image img {
   width: 100%;
 }
@@ -879,7 +902,8 @@ ol.prods li {
 }
 
 .prodsFourColumns li {
-  width: 24%;
+  width: 226px;
+  margin: 10px 9px 8px 0;
 }
 
 .prodsList {
@@ -1076,8 +1100,9 @@ ol.prods li {
 }
 
 .quickLinkBox {
-  position: absolute;
-  width: 160px;
+  margin-top: 9px;
+  background: url("../images/bg-quick-view.gif") no-repeat 0 0 transparent;
+  padding: 2px 0 1px 14px;
 }
 
 .buyLink {
@@ -1091,16 +1116,13 @@ ol.prods li {
 }
 
 .quickLinkBox a {
-  border-radius: 3px;
-  background: #eee;
-  border: 1px solid #ccc;
   display: block;
-  text-align: center;
+  text-align: left;
+  font-size: 10px;
 }
 
 .resultMsg {
   float: left;
-  width: 690px;
   margin-top: 10px;
 }
 
@@ -1111,8 +1133,8 @@ ol.prods li {
 }
 
 .sort {
-  float: left;
-  margin-top: 4px;
+  float: right;
+  margin: 4px 12px 0 0;
 }
 
 .pagnTop,.pagnBtm {
@@ -1123,11 +1145,29 @@ ol.prods li {
   margin-top: 4px;
 }
 
+.pagnBtm {
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+    overflow: hidden;
+    padding: 4px 0;
+    width: 100%;
+    margin-right: 4px;
+}
+
+.pagnBtm .pagnFirstRow {
+  float: right;
+}
+
 .pagnItemInfo {
   padding-right: 20px;
   float: left;
   line-height: 20px;
   height: 20px;
+}
+
+.pagnLabel {
+  color: #999;
+  font-size: 11px;
 }
 
 .pagnLinkNavigate {
@@ -1142,8 +1182,12 @@ ol.prods li {
   margin-right: 10px;
 }
 
-.pagnNext {
+.pagnNext, .pagnNext-off {
   padding: 0 
+}
+
+.pagnPrev, .pagnPrev-off {
+  padding: 0 6px;
 }
 
 .pagnNumList {
@@ -1161,6 +1205,7 @@ ol.prods li {
   font-size: 11px;
   padding-left: 8px;
   text-transform: capitalize;
+  margin-left: 10px;
 }
 
 .pagnPerpage form {
@@ -5729,6 +5774,7 @@ em { font-style: italic }
 }
 #searchResults {
     margin-top: 280px;
+    margin-bottom: 120px;
 }
 .filterinput {
     display: none;

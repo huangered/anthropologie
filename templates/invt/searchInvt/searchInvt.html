@@ -3,11 +3,11 @@
 	<div id="comp-image<venda_invtref>" class="image">
 		<a class="moredetail" href="<venda_dispview invt=<venda_invtref>>"id="<venda_invtref>" data-defaultImage="<venda_invtpdxtmediaurl>">
 		  <img src="<venda_invtpdxtmediaurl>" alt="<venda_invtname>">
-		</a>
-		<venda_block label=510,invtavail&gt;0>
-		<div class="quickLinkBox viewLink" style="visibility: hidden;"><a href="<venda_dispview invt=<venda_invtref>>&temp=quickBuyDetails&layout=noheaders" id="<venda_invtref>" class="quickBuyDetails" data-track="open-quickbuy"><venda_text id=site.link.quickview></a></div>		
-		</venda_block label=510>			
+		</a>			
 	</div>
+	<venda_block label=510,invtavail&gt;0>
+	<div class="quickLinkBox viewLink"><a href="<venda_dispview invt=<venda_invtref>>&temp=quickBuyDetails&layout=noheaders" id="<venda_invtref>" class="quickBuyDetails" data-track="open-quickbuy">Quick View</a></div>		
+	</venda_block label=510>
 	
 	<div class="details" id="details-<venda_invtref>">
 	<div class="imgSource hide"><venda_block label=94,med-medium=notnull><venda_media rec=invt,type=movie-swf-pict,key=medium,img=no></venda_block label=94><venda_block label=95,med-medium=null><venda_entmediaadd>/ebiz/<venda_bsref>/resources/images/no_image_medium.gif</venda_block label=95></div>
@@ -15,7 +15,6 @@
 	<venda_block label=850,pdxtswatch=1>
 		<venda_mediagrid template=colourSwatch>
 	</venda_block label=850>
-	<venda_block label=25,invtdesc2=notnull><p class="invtdesc2"><venda_invtdesc2></p></venda_block label=25>
 		<div class="priceContainer">	
 			<venda_block label=22,invtatrtot&lt;1><venda_tpcomment><!-- Price - non-attribute --></venda_tpcomment><p class="price"><venda_currsym><venda_invtsell></p></venda_block label=22>
 			<venda_block label=130,invtatrtot&gt;0><venda_tpcomment><!-- Price - attribute --></venda_tpcomment><p class="price"><venda_block label=1300,invtatrminsubsell&gt;0.00><span class="from"><venda_text id=site.from></span><venda_currsym><venda_invtatrminsubsell></venda_block label=1300><venda_block label=1301,invtatrminsubsell=0.00><venda_currsym><venda_invtsell></venda_block label=1301></p></venda_block label=130>
@@ -27,10 +26,6 @@
 			<venda_tpcomment><!-- ETA --></venda_tpcomment><venda_block label=167,etadyleft&gt;0><p class="eta"><venda_text id=site.eta_date_invt></p></venda_block label=167> 
 			<venda_tpcomment><!-- EMWBIS <p class="emailme"><a href="<venda_dispview invt=<venda_invtref>>&temp=emailinstock" title="<venda_text id=site.link.title.email_when_in_stock.icat>"><venda_text id=site.link.email_when_in_stock></a></p> --></venda_tpcomment>
 			</venda_block label=40>
-			
-			<venda_block label=51,invtavail&gt;0>
-			<venda_tpcomment><!-- More Info --></venda_tpcomment><a class="moreinfo button smallButton" href="<venda_dispview invt=<venda_invtref>>" title="<venda_text id=site.link.title.more.invt>"><venda_text id=site.link.more></a>
-			</venda_block label=51>
 	
 			<venda_block label=30,invtavail&gt;0,invtatrtot&lt;1>
 			<venda_tpcomment><!-- Add/Buy/Pre-order - In stock and non-attributes --></venda_tpcomment>
@@ -113,13 +108,11 @@
 	</div>
 	<div class="details">
 		<h2><a class="moredetail" href="<venda_codehttp>?ex=co_wizr-giftcertificates&bsref=<venda_bsref>"><venda_invtname></a></h2>
-		<venda_block label=25,invtdesc2=notnull><p class="invtdesc2"><venda_invtdesc2></p></venda_block label=25>
 		<div class="priceContainer">
 		<p class="price">
 			<venda_block label=35,invtatrminsubsell&gt;0.00><span class="from"><venda_text id=site.from></span><venda_currsym><venda_invtatrminsubsell></venda_block label=35>
 			<venda_block label=36,invtatrminsubsell=0.00><venda_invtsymsell></venda_block label=36>
 		</p>
-		<p class="moreinfo"><a class="moreinfo button smallButton" href="<venda_codehttp>?ex=co_wizr-giftcertificates&bsref=<venda_bsref>" title="<venda_text id=site.link.title.more.invt>"><venda_text id=site.link.more></a></p>
 		</div>
 	</div>
 	</venda_block label=229>
@@ -139,7 +132,6 @@
 	</venda_block label=43>
 	<div class="details">
 		<h2><venda_invtname></h2>
-		<venda_block label=47,invtdesc2=notnull><p class="invtdesc2"><venda_invtdesc2></p></venda_block label=47>
 		<div class="priceContainer">
 		<venda_block label=51,invtatrtot&lt;1>
 			<p class="price"><venda_currsym><venda_invtsell></p>
