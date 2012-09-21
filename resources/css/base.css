@@ -5264,6 +5264,18 @@ ul#rvisitewidelist li a:hover div {
   border-left: 1px solid #ccc;
 }
 
+.backToTop {
+  background: #CCCCCC;
+  bottom: 90px;
+  display: block;
+  height: 80px;
+  position: fixed;
+  right: 20px;
+  text-indent: -9999px;
+  width: 40px;
+  z-index: 105;
+}
+
 /* Product detail */
 .product-name {
   font-family: Georgia;
